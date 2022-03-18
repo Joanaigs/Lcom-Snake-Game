@@ -32,16 +32,30 @@ void (timer_int_handler)() {
 }
 
 int (timer_get_conf)(uint8_t timer, uint8_t *st) {
-  /* To be implemented by the students */
-  printf("%s is not yet implemented!\n", __func__);
-
-  return 1;
+  if(timer==NULL)
+    return 1;
+  uint8_t cw = TIMER_RB_CMD | TIMER_RB_SEL(timer) || TIMER_RB_COUNT_;
+  if(sys_outb(TIMER_CTRL, cmd)) return 1;
+  uint8_t n; 
+  switch (timer){
+    case 0:
+      n=TIMER_0;
+      break;
+    case 1:
+      n=TIMER_1;
+      break;
+    case 2:
+      n=TIMER_2;
+      break;
+  }
+  if(util_sys_inb(n, st)) return 1;
+  return 0;
 }
 
 int (timer_display_conf)(uint8_t timer, uint8_t st,
                         enum timer_status_field field) {
   /* To be implemented by the students */
   printf("%s is not yet implemented!\n", __func__);
-
+  timer_print_config;
   return 1;
 }
