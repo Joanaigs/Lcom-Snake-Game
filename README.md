@@ -1,10 +1,10 @@
 # LCOM Project
 
-LCOM Project for group T&lt;m&gt;&lt;n&gt;G&lt;p&gt;&lt;q&gt;.
+LCOM Project for group T03G03.
 
 Group members:
 
-1. &lt;first name&gt; &lt;family name&gt; (&lt;email address&gt;)
-2. &lt;first name&gt; &lt;family name&gt; (&lt;email address&gt;)
-3. &lt;first name&gt; &lt;family name&gt; (&lt;email address&gt;)
-4. &lt;first name&gt; &lt;family name&gt; (&lt;email address&gt;)
+1. Inês Cardoso --up202005435@edu.fe.up.pt;
+2. Joana Santos --up202006279@edu.fe.up.pt;
+3. Mariana Carvalho --up202007620@edu.fe.up.pt;
+4. Matilde Sequiera --up202007623@edu.fe.up.pt.
