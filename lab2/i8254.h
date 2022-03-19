@@ -40,6 +40,10 @@
 
 #define TIMER_SQR_WAVE (BIT(2) | BIT(1)) /**< @brief Mode 3: square wave generator */
 #define TIMER_RATE_GEN BIT(2)            /**< @brief Mode 2: rate generator */
+#define TIMER_MODE_2ALT 0x6              /**< @brief Alternative notation for mode 2 */
+#define TIMER_MODE_3ALT 0x7              /**< @brief Alternative notation for mode 3 */
+#define TIMER_MODE_RED2 0x03             /**< @brief Reduce 3-bit mode to 2-bit mode */
+
 
 /* Counting mode: bit 0 */
 
@@ -51,6 +55,10 @@
 #define TIMER_RB_COUNT_  BIT(5)
 #define TIMER_RB_STATUS_ BIT(4)
 #define TIMER_RB_SEL(n)  BIT((n) + 1)
+
+
+#define TIMER_IN_MASK (BIT(5)|BIT(4))
+#define TIMER_MODE_MASK (BIT(3)|BIT(2)|BIT(1))
 
 /**@}*/
 
