@@ -8,50 +8,54 @@
  */ 
 
 
-#define KBD_IRQ 1 /**< Keyboard IRQ line */
-#define MOUSE_IRQ 12 /**< Mouse IRQ line */
-#define DELAY_US 20000 /**< Delay between outb reads */
+#define KBC_IRQ     1   /* @brief KBC Controller IRQ Line */
+#define MOUSE_IRQ   12  /* @brief Mouse IRQ Line */
 
-#define KBC_OUT_BUF 0x60 /**< KBC output buffer port */
-#define ESC_BREAKCODE 0x81 /**< Breakcode of ESC key */
+/* Delay for KBC */
+#define DELAY           20000 /* @brief KBC Response Delay */
+#define KBC_NUM_TRIES   10    /* @brief Number of tries to issue command before timeout */
 
-#define KBC_RD_CMD 0x20 /**< KBC read command*/
-#define KBC_WR_CMD 0x60 /**< KBC write command*/
-#define KBC_ST_REG 0x64 /**< KBC status register */
-#define KBC_CMD_REG 0x64 /**< KBC command register */
+/* I/O Ports Addresses */
 
-/** KBC status commands bits */
-#define KBC_PAR_ERR BIT(7)
-#define KBC_TO_ERR BIT(6)
-#define KBC_AUX BIT(5)
-#define KBC_ST_IBF BIT(1)
-#define KBC_ST_OBF BIT(0)
+#define KBC_CMD     0x64 /* @brief Address to send commands to KBC */
+#define KBC_CMD_ARG 0x60 /* @brief Address to write KBC Command Arguments */
+#define STATUS_REG  0x64 /* @brief KBC Status Register address */
 
-/** Keyboard special keys scancodes */
-#define ESC_BREAKCODE 0x81 /**< Breakcode of ESC key */
-#define LSHIFT_BREAKCODE 0xaa /**< Breakcode of LSHIFT key */
-#define RSHIFT_BREAKCODE 0xb6 /**< Breakcode of RSHIFT key */
-#define ESC_MAKECODE 0x01 /**< Makecode of ESC key */
-#define BACKSPACE_MAKECODE 0x0e /**< Makecode of BACKSPACE key */
-#define ENTER_MAKECODE 0x1c /**< Makecode of ENTER key */
-#define LSHIFT_MAKECODE 0x2a /**< Makecode of LSHIFT key */
-#define RSHIFT_MAKECODE 0x36 /**< Makecode of RSHIFT key */
-#define CAPSLOCK_MAKECODE 0x3a /**< Makecode of CAPSLOCK key */
+#define OUTPUT_BUF  0x60 /* @brief Address of Output Buffer of KBC */
 
-#define DATA_PACKET_BYTES 3
+/* KBC Commands */
+#define READ_KBC_CMD    0x20 /* @brief Read KBC Command Byte */
+#define WRITE_KBC_CMD   0x60 /* @brief Write KBC Command Byte */
+#define KBC_SELF_TEST   0xAA /* @brief KBC Diagnostic Tests */
+#define KBC_INT_TEST    0xAB /* @brief Tests Keyboard Clock and Data lines */
+#define KBC_INT_DISABLE 0xAD /* @brief Disable KBC Interface */
+#define KBC_INT_ENABLE  0xAE /* @brief Enable KBC Interface */
+#define MOUSE_DISABLE   0xA7 /* @brief Disable Mouse */
+#define MOUSE_ENABLE    0xA8 /* @brief Enable Mouse */
+#define MOUSE_INT_TEST  0xA9 /* @brief Tests Mouse data line */
+#define MOUSE_WRITE_B   0xD4 /* @brief Write a byte directly to the mouse */
 
-#define DISABLE_MOUSE 0xA7
-#define ENABLE_MOUSE 0xA8
-#define WRITE_BYTE_TO_MOUSE 0xD4
-#define DISABLE_DATA_REPORTING 0xF5
-#define ENABLE_DATA_REPORTING 0xF4
-#define READ_DATA 0xEB
-#define SET_STREAM_MODE 0xEA
-#define SET_DEFAULT 0xF6
+/* Status Byte Masking */
 
-/** Acknowledgement bytes */
-#define ACK 0xFA
-#define NACK 0xFE
-#define ERROR 0xFC
+#define OBF     BIT(0) /* @brief Output Buffer State */
+#define IN_BUF_FULL     BIT(1) /* @brief Input Buffer State */
+#define SYS_FLAG        BIT(2) /* @brief System Flag */
+#define DATA_CMD_WRITE  BIT(3) /* @brief Identifier of type of byte in input buffer */
+#define INH_FLAG        BIT(4) /* @brief Keyboard inihibited */
+#define AUX_MOUSE       BIT(5) /* @brief Mouse Data */
+#define TIME_OUT_BIT    BIT(6) /* @brief Time Out Error - Invalid Data */
+#define PARITY_BIT    BIT(7) /* @brief Parity Error - Invalid Data */
+
+/* Scancode Constants */
+
+#define ESC_BREAK_CODE  0x81    /* @brief ESC Break Code */
+#define TWO_BYTE_CODE   0xE0    /* @brief First byte of a two byte Scancode */
+#define BREAK_CODE_BIT  BIT(7)  /* @brief Bit to distinguish between Make code and Break code */
+
+/* Command byte masks */
+#define INT_KBD         BIT(0)  /* @brief Enable Keyboard Interrupts */
+#define INT_MOU         BIT(1)  /* @brief Enable Mouse Interrupts */
+#define DIS_KBD         BIT(4)  /* @brief Disable Keyboard */
+#define DIS_MOU         BIT(5)  /* @brief Disable Mouse */
 
 #endif /*_LCOM_I8042_H_ */
