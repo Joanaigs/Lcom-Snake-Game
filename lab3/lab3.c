@@ -8,7 +8,6 @@
 #include "keyboard.h"
 #include "i8042.h"
 #include "util.h"
-#include "kbc.h"
 
 extern uint8_t scanCode;
 extern uint8_t statusCode;
@@ -78,11 +77,14 @@ int(kbd_test_poll)() {
   while(scanCode != ESC_BREAK_CODE){
     if(util_sys_inb(STATUS_REG, &statusCode))
       return 1;
+    if((statusCode & OBF) && (statusCode & AUX_MOUSE)==1)
+      return 1;
+
     kbc_ih();
     kbd_print_scancode(!(scanCode & BREAK_CODE_BIT), 1, &scanCode);
     tickdelay(micros_to_ticks(DELAY));
   }
-  if(kbc_restore_keyboard()) return 1;
+  kbc_restore_keyboard_1();
   if(kbd_print_no_sysinb(counter)) return 1;
   return 0;
 }
