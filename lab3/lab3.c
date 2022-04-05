@@ -80,7 +80,7 @@ int(kbd_test_poll)() {
       return 1;
     kbc_ih();
     kbd_print_scancode(!(scanCode & BREAK_CODE_BIT), 1, &scanCode);
-    tickdelay(micros_to_ticks(DELAY));
+    tickdelay(DELAY);
   }
   if(kbc_restore_keyboard()) return 1;
   if(kbd_print_no_sysinb(counter)) return 1;
