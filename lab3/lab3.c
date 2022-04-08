@@ -8,10 +8,12 @@
 #include "keyboard.h"
 #include "i8042.h"
 #include "util.h"
+#include "timer.h"
 
 extern uint8_t scanCode;
 extern uint8_t statusCode;
 extern uint32_t counter;
+extern int n_interrupts;
 
 int main(int argc, char *argv[]) {
   // sets the language of LCF messages (can be either EN-US or PT-PT)
@@ -76,22 +78,62 @@ int(kbd_test_scan)() {
 int(kbd_test_poll)() {
   while(scanCode != ESC_BREAK_CODE){
     if(util_sys_inb(STATUS_REG, &statusCode))
-      return 1;
-    if((statusCode & OBF) && (statusCode & AUX_MOUSE)==1)
-      return 1;
+      continue;
+    if(!(statusCode & OBF) || (statusCode & AUX_MOUSE))
+      continue;
 
     kbc_ih();
     kbd_print_scancode(!(scanCode & BREAK_CODE_BIT), 1, &scanCode);
-    tickdelay(DELAY);
+    tickdelay(micros_to_ticks(DELAY));
   }
-  kbc_restore_keyboard_1();
   if(kbd_print_no_sysinb(counter)) return 1;
+  kbc_restore_keyboard();
   return 0;
 }
 
 int(kbd_test_timed_scan)(uint8_t n) {
-  /* To be completed by the students */
-  printf("%s is not yet implemented!\n", __func__);
+  int ipc_status, r;
+  const int frequency = 60; 
+  message msg;
+  uint8_t kbd_int_bit = 0;
+  uint8_t timer0_int_bit = 0;
+  uint8_t time = 0;
 
-  return 1;
+   if (timer_subscribe_int(&timer0_int_bit)) return 1;
+
+  if (keyboard_subscribe(&kbd_int_bit)) return 1;
+
+  while( scanCode!=ESC_BREAK_CODE && time<=n) {
+     if ( (r = driver_receive(ANY, &msg, &ipc_status)) != 0 ) { 
+         printf("driver_receive failed with: %d", r);
+        continue;
+    }
+    if (is_ipc_notify(ipc_status)) { /* received notification */
+        switch (_ENDPOINT_P(msg.m_source)) {
+            case HARDWARE: /* hardware interrupt notification */				
+                if (msg.m_notify.interrupts & kbd_int_bit) { /* subscribed interrupt */
+                   if(util_sys_inb(STATUS_REG, &statusCode))
+                      return 1;
+                   time = 0;
+                   n_interrupts = 0;
+                   kbc_ih();
+                   kbd_print_scancode(!(scanCode & BREAK_CODE_BIT), 1, &scanCode);
+                }
+                else if (msg.m_notify.interrupts &  timer0_int_bit) { /* subscribed interrupt */
+                   timer_int_handler();
+                   if (n_interrupts % frequency==0) { /* second elapsed */
+                            time ++;
+                        }
+                }
+                break;
+            default:
+                break; /* no other notifications expected: do nothing */	
+        }
+    } else { /* received a standard message, not a notification */
+        /* no standard messages expected: do nothing */
+    }
+ }
+  if (keyboard_unsubscribe()) return 1;  
+  if (timer_unsubscribe_int()) return 1;
+  return 0;
 }

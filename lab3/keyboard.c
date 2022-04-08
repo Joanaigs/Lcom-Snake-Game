@@ -3,19 +3,18 @@
 #include <lcom/lcf.h>
 #include <minix/sysutil.h>
 
-int hook_id=0;
+int hook_idK=1;
 uint8_t statusCode=0x0;
 uint8_t scanCode=0x0;
-uint8_t oldCommand;
-uint8_t newCommand;
+uint8_t command;
 
 int (keyboard_subscribe)(uint8_t *bit_no) {
-    *bit_no=hook_id;
-    return sys_irqsetpolicy(KBC_IRQ,IRQ_REENABLE|IRQ_EXCLUSIVE,&hook_id);
+    *bit_no=BIT(hook_idK);
+    return sys_irqsetpolicy(KBC_IRQ,IRQ_REENABLE|IRQ_EXCLUSIVE,&hook_idK);
 }
 
 int (keyboard_unsubscribe)() {
-    return sys_irqrmpolicy(&hook_id);
+    return sys_irqrmpolicy(&hook_idK);
 }
 
 void (kbc_ih)(){
@@ -26,104 +25,69 @@ void (kbc_ih)(){
     if(util_sys_inb(OUTPUT_BUF, &scanCode))
         printf("error");
 }
-void (kbc_restore_keyboard)(){
-    void reenable_kbd_int(){
-  uint8_t oldCommand;
-  uint8_t newCommand;
 
-  int tries = 5;
-
-  //Issuing a command to get the command byte
-  while (tries > 0) {
-    util_sys_inb(KBC_ST_REG, &statusCode); /* assuming it returns OK */
-    /* loop while 8042 input buffer is not empty */
-    if ((statusCode & KBC_ST_IBF) == 0) {
-      sys_outb(KBC_CMD_REG, READ_CMD_BYTE); /* no args command */
-      break;
-    }
-    tickdelay(WAIT_KBC);
-    tries--;
-  }
-
-  tries = 5;
-  //Reading the data returned
-  while (tries > 0) {
-    util_sys_inb(KBC_ST_REG, &statusCode); /* assuming it returns OK */
-    /* loop while 8042 output buffer is empty */
-    if (statusCode & KBC_ST_OBF) {
-      util_sys_inb(KBC_OUT_BUF, &oldCommand); /* ass. it returns OK */
-      if ((statusCode & (KB_ST_PARITY_BIT  | KB_ST_TIME_OUT_BIT)) != 0)
-        break;
-    }
-    tickdelay(WAIT_KBC); 
-    tries--;
-  }
-
-  newCommand = oldCommand | KBD_INT;
-  tries = 5;
-  //Issue new command
-  while (tries > 0) {
-    util_sys_inb(KBC_ST_REG, &statusCode); /* assuming it returns OK */
-    /* loop while 8042 input buffer is not empty */
-    if ((statusCode & KBC_ST_IBF) == 0) {
-      sys_outb(KBC_CMD_REG, WRITE_CMD_BYTE); //write commands
-      sys_outb(KBC_CMD_ARGS, newCommand); //write command argument
-      break;
-    }
-    tickdelay(WAIT_KBC);
-    tries--;
-  }
-}
-}
-=======
-void (kbc_restore_keyboard_1)() {
-
-  int tries = 5;
-
+void (kbc_restore_keyboard)() {
   // Issuing a command to get the command byte
-  while (tries > 0) {
+  for(int i=0; i<5; i++) {
     util_sys_inb(STATUS_REG, &statusCode); /* assuming it returns OK */
     /* loop while 8042 input buffer is not empty */
     if ((statusCode & IN_BUF_FULL) == 0) {
       sys_outb(KBC_CMD, READ_KBC_CMD); /* no args command */
       break;
     }
-    tickdelay(DELAY);
-    tries--;
+    tickdelay(micros_to_ticks(DELAY));
   }
-  kbc_restore_keyboard_2();
-  kbc_restore_keyboard_3();
-}
-
-void (kbc_restore_keyboard_2)() {
-  int tries = 5;
-  // Reading the data returned
-  while (tries > 0) {
+  for(int i=0; i<5; i++) {
     util_sys_inb(STATUS_REG, &statusCode); /* assuming it returns OK */
     /* loop while 8042 output buffer is empty */
-    if (statusCode & OUTPUT_BUF) {
-      util_sys_inb(OUTPUT_BUF, &oldCommand); /* ass. it returns OK */
+    if (statusCode & OBF) {
+      util_sys_inb(OUTPUT_BUF, &command); /* ass. it returns OK */
       if ((statusCode & (PARITY_BIT | TIME_OUT_BIT)) != 0)
-        break;
+        continue;
     }
-    tickdelay(DELAY);
-    tries--;
+    tickdelay(micros_to_ticks(DELAY));
   }
-}
-
-void (kbc_restore_keyboard_3)() {
-  newCommand = oldCommand | INT_KBD;
-  int tries = 5;
+  command = command | INT_KBD;
   //Issue new command
-  while (tries > 0) {
+  for(int i=0; i<5; i++) {
     util_sys_inb(STATUS_REG, &statusCode); /* assuming it returns OK */
     /* loop while 8042 input buffer is not empty */
     if ((statusCode & IN_BUF_FULL) == 0) {
       sys_outb(KBC_CMD, WRITE_KBC_CMD); //write commands
-      sys_outb(KBC_CMD_ARG, newCommand); //write command argument
+      sys_outb(KBC_CMD_ARG, command); //write command argument
+      break;
+    }
+    tickdelay(micros_to_ticks(DELAY));
+  }
+
+}
+
+void (kbc_restore_keyboard_2)() {
+  // Reading the data returned
+  for(int i=0; i<5; i++) {
+    util_sys_inb(STATUS_REG, &statusCode); /* assuming it returns OK */
+    /* loop while 8042 output buffer is empty */
+    if (statusCode & OBF) {
+      util_sys_inb(OUTPUT_BUF, &command); /* ass. it returns OK */
+      if ((statusCode & (PARITY_BIT | TIME_OUT_BIT)) != 0)
+        break;
+    }
+    tickdelay(DELAY);
+  }
+}
+
+void (kbc_restore_keyboard_3)() {
+  command = command | INT_KBD;
+  //Issue new command
+  for(int i=0; i<5; i++) {
+    util_sys_inb(STATUS_REG, &statusCode); /* assuming it returns OK */
+    /* loop while 8042 input buffer is not empty */
+    if ((statusCode & IN_BUF_FULL) == 0) {
+      sys_outb(KBC_CMD, WRITE_KBC_CMD); //write commands
+      sys_outb(KBC_CMD_ARG, command); //write command argument
       break;
     }
     tickdelay(DELAY);
-    tries--;
   }
 }
+

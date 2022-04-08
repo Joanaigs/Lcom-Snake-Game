@@ -17,7 +17,7 @@ void (kbc_ih)();
  * chance that the keyboard and keyboard interrupts remain disabled.
  * @return 1 if operation was successful, 1 otherwise
  */
-void (kbc_restore_keyboard_1)();
+void (kbc_restore_keyboard)();
 
 void (kbc_restore_keyboard_2)();
 
