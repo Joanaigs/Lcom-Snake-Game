@@ -42,9 +42,8 @@ int main(int argc, char *argv[]) {
 int(kbd_test_scan)() {
   int ipc_status, r;
   message msg;
-  uint8_t keyboard_id = 0;
-  if (keyboard_subscribe(&keyboard_id)) return 1;
-  int irq_set = BIT(keyboard_id);
+  uint8_t irq_set = 0;
+  if (keyboard_subscribe(&irq_set)) return 1;
   while( scanCode!=ESC_BREAK_CODE ) {
      if ( (r = driver_receive(ANY, &msg, &ipc_status)) != 0 ) { 
          printf("driver_receive failed with: %d", r);
