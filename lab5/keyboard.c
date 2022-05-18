@@ -3,7 +3,7 @@
 #include <lcom/lcf.h>
 #include <minix/sysutil.h>
 
-int hook_idK=1;
+int hook_idK=2;
 uint8_t statusCode=0x0;
 uint8_t command;
 
@@ -17,13 +17,17 @@ int (keyboard_unsubscribe)() {
 }
 int size=0;
 void (kbc_ih)(){
-  uint8_t byte;
+    if(done) size = 0;
+    uint8_t byte;
+    if (util_sys_inb(STATUS_REG, &statusCode)) return;
     if((statusCode & PARITY_BIT) || (statusCode & TIME_OUT_BIT)){
         printf("error");
         return;
     }
-    if(util_sys_inb(OUTPUT_BUF, &byte))
-        printf("error");
+        if ((statusCode & OBF) == 0 || (statusCode & AUX_MOUSE) != 0) {
+        return;
+    }
+    if (util_sys_inb(OUTPUT_BUF, &byte)) return;
     scanCode[size]=byte;
     if(TWO_BYTE_CODE == byte){
       done=0;
@@ -34,7 +38,6 @@ void (kbc_ih)(){
       size++;
     }
 }
-
 void (kbc_restore_keyboard)() {
   // Issuing a command to get the command byte
   for(int i=0; i<5; i++) {

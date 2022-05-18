@@ -10,8 +10,6 @@
 #include "util.h"
 #include "timer.h"
 
-extern uint8_t scanCode;
-extern uint8_t statusCode;
 extern uint32_t counter;
 extern int n_interrupts;
 
@@ -44,7 +42,7 @@ int(kbd_test_scan)() {
   message msg;
   uint8_t irq_set = 0;
   if (keyboard_subscribe(&irq_set)) return 1;
-  while( scanCode!=ESC_BREAK_CODE ) {
+  while( scanCode[0]!=ESC_BREAK_CODE ) {
      if ( (r = driver_receive(ANY, &msg, &ipc_status)) != 0 ) { 
          printf("driver_receive failed with: %d", r);
         continue;
@@ -56,7 +54,11 @@ int(kbd_test_scan)() {
                    if(util_sys_inb(STATUS_REG, &statusCode))
                       return 1;
                    kbc_ih();
-                   kbd_print_scancode(!(scanCode & BREAK_CODE_BIT), 1, &scanCode);
+                   if(done){
+                     kbd_print_scancode(!(scanCode[size-1] & BREAK_CODE_BIT), size, scanCode);
+                     size=0;
+                   }
+                      
                 }
                 break;
             default:
@@ -75,14 +77,17 @@ int(kbd_test_scan)() {
 }
 
 int(kbd_test_poll)() {
-  while(scanCode != ESC_BREAK_CODE){
+  while(scanCode[0] != ESC_BREAK_CODE){
     if(util_sys_inb(STATUS_REG, &statusCode))
       continue;
     if(!(statusCode & OBF) || (statusCode & AUX_MOUSE))
       continue;
 
     kbc_ih();
-    kbd_print_scancode(!(scanCode & BREAK_CODE_BIT), 1, &scanCode);
+    if(done){
+      kbd_print_scancode(!(scanCode[size-1] & BREAK_CODE_BIT), size, scanCode);
+      size=0;
+                   }
     tickdelay(micros_to_ticks(DELAY));
   }
   if(kbd_print_no_sysinb(counter)) return 1;
@@ -102,7 +107,7 @@ int(kbd_test_timed_scan)(uint8_t n) {
 
   if (keyboard_subscribe(&kbd_int_bit)) return 1;
 
-  while( scanCode!=ESC_BREAK_CODE && time<=n) {
+  while( scanCode[0]!=ESC_BREAK_CODE && time<=n) {
      if ( (r = driver_receive(ANY, &msg, &ipc_status)) != 0 ) { 
          printf("driver_receive failed with: %d", r);
         continue;
@@ -113,10 +118,13 @@ int(kbd_test_timed_scan)(uint8_t n) {
                 if (msg.m_notify.interrupts & kbd_int_bit) { /* subscribed interrupt */
                    if(util_sys_inb(STATUS_REG, &statusCode))
                       return 1;
-                   time = 0;
-                   n_interrupts = 0;
                    kbc_ih();
-                   kbd_print_scancode(!(scanCode & BREAK_CODE_BIT), 1, &scanCode);
+                   if(done){
+                     kbd_print_scancode(!(scanCode[size-1] & BREAK_CODE_BIT), size, scanCode);
+                     size=0;
+                     time = 0;
+                    n_interrupts = 0;
+                   }
                 }
                 else if (msg.m_notify.interrupts &  timer0_int_bit) { /* subscribed interrupt */
                    timer_int_handler();
