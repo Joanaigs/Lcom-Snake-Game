@@ -101,8 +101,8 @@ int(video_test_pattern)(uint16_t mode, uint8_t no_rectangles, uint32_t first, ui
   uint32_t color, red, green, blue;
   for(uint8_t row = 0; row < no_rectangles; ++row){
         for(uint8_t col = 0; col < no_rectangles; ++col){
-            if(vmi_p.BitsPerPixel == 1){
-                color = (first + (row * no_rectangles + col) * step) % (1 << vmi_p.BitsPerPixel);
+            if(bytes_per_pixel == 1){
+                color = (first + (row * no_rectangles + col) * step) % (1 << bits_per_pixel);
             }else{
                 red = (R(first) + col*step) % (1 <<vmi_p.RedMaskSize);
                 green = (G(first) + row*step) % (1 << vmi_p.GreenMaskSize);

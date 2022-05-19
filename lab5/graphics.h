@@ -17,6 +17,7 @@ char *video_mem;		/* Process (virtual) address to which VRAM is mapped */
 unsigned h_res;	        /* Horizontal resolution in pixels */
 unsigned v_res;	        /* Vertical resolution in pixels */
 unsigned bits_per_pixel; /* Number of VRAM bits per pixel */
+unsigned bytes_per_pixel;
 
 
 #endif /* _GRAPHICS_H_ */
