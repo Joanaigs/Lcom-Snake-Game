@@ -56,8 +56,8 @@ int(video_test_rectangle)(uint16_t mode, uint16_t x, uint16_t y,
        vg_exit();
        return 1; 
   } 
-  uint16_t w = (x + width > vmi_p.XResolution) ? (vmi_p.XResolution - x) : (width);
-  uint16_t h = (y + height > vmi_p.YResolution) ? (vmi_p.YResolution - y) : (height);
+  uint16_t w = (x + width > h_res) ? (h_res- x) : (width);
+  uint16_t h = (y + height > v_res) ? (v_res - y) : (height);
 
   if (vg_draw_rectangle(x,y,w,h, color)) {
        return 1; 
@@ -96,8 +96,8 @@ int(video_test_pattern)(uint16_t mode, uint8_t no_rectangles, uint32_t first, ui
   if(vbe_get_mode_info(mode, &vmi_p)) return 1;
   vramMap();
   if(setMode(mode)) return 1;
-  uint16_t weight = vmi_p.XResolution/no_rectangles;
-  uint16_t height = vmi_p.YResolution/no_rectangles;
+  uint16_t weight = h_res/no_rectangles;
+  uint16_t height = v_res/no_rectangles;
   uint32_t color, red, green, blue;
   for(uint8_t row = 0; row < no_rectangles; ++row){
         for(uint8_t col = 0; col < no_rectangles; ++col){
@@ -111,8 +111,8 @@ int(video_test_pattern)(uint16_t mode, uint8_t no_rectangles, uint32_t first, ui
             }
             uint16_t x = col * weight;
             uint16_t y = row * height;
-            uint16_t w = (x + weight >vmi_p.XResolution) ? (vmi_p.XResolution - x) : (weight);
-            uint16_t h = (y + height > vmi_p.YResolution) ? (vmi_p.YResolution - y) : (height);
+            uint16_t w = (x + weight >h_res) ? (h_res - x) : (weight);
+            uint16_t h = (y + height > v_res) ? (v_res - y) : (height);
             if (vg_draw_rectangle(x,y,w,h,color)) 
                 return 1;
         }
@@ -157,7 +157,7 @@ int(video_test_xpm)(xpm_map_t xpm, uint16_t x, uint16_t y) {
   map = xpm_load(xpm, XPM_INDEXED, &img);
   for(uint8_t col = 0; col < img.width; col++){
       for(uint8_t row = 0; row < img.height; row++){
-          if ((x + col) < vmi_p.XResolution && (y + row) < vmi_p.YResolution) {
+          if ((x + col) < h_res && (y + row) <v_res) {
             drawPixel(x+col, y+row, map[col+row*img.width]);
           }
       }
@@ -192,85 +192,7 @@ int(video_test_xpm)(xpm_map_t xpm, uint16_t x, uint16_t y) {
 
 int(video_test_move)(xpm_map_t xpm, uint16_t xi, uint16_t yi, uint16_t xf, uint16_t yf,
                      int16_t speed, uint8_t fr_rate) {
-  if(vbe_get_mode_info(0x105, &vmi_p)) return 1;
-  vramMap();
-  if(setMode(0x105)) return 1;
-  xpm_image_t img;
-  uint8_t *map; 
   
-  map = xpm_load(xpm, XPM_INDEXED, &img);
-  for(uint8_t col = 0; col < img.width; col++){
-      for(uint8_t row = 0; row < img.height; row++){
-          if ((x + col) < vmi_p.XResolution && (y + row) < vmi_p.YResolution) {
-            drawPixel(x+col, y+row, map[col+row*img.width]);
-          }
-      }
-  }
-    uint32_t frequency = sys_hz();
-    int16_t velocity = (speed <= 0 ? 1 : speed);
-    int16_t vx, vy;
-    if(xi != xf){
-        if(xi<xf) vx=velocity;
-        else vx=-velocity;
-    } 
-    else  {
-        if(yi<yf) vx=velocity;
-        else vx=-velocity;
-    }    
-    uint16_t number = (speed <  0 ? -speed : 1);
-    uint32_t ticks_per_frame = frequency/(uint32_t)fr_rate;
-
-  int ipc_status, r;
-  message msg;
-  uint8_t irq_keyboard = 0, irq_timer=0;
-  if(timer_subscribe_int(&irq_timer)) return 1;
-  if (keyboard_subscribe(&irq_keyboard)) return 1;
-   while( scanCode[0]!=ESC_BREAK_CODE ) {
-     if ( (r = driver_receive(ANY, &msg, &ipc_status)) != 0 ) { 
-         printf("driver_receive failed with: %d", r);
-        continue;
-    }
-    if (is_ipc_notify(ipc_status)) { /* received notification */
-        switch (_ENDPOINT_P(msg.m_source)) {
-            case HARDWARE: /* hardware interrupt notification */				
-                if (msg.m_notify.interrupts & irq_keyboard) { /* subscribed interrupt */
-                   timer_int_handler();
-                   if (n_interrupts==number*ticks_per_frame ) { /* second elapsed */
-                            if(vx) {
-                                uint16_t x_clear = (vx > 0 ? x : x+sprite_get_w(sp)+vx);
-                                uint16_t y_clear = y;
-                                uint16_t w = (x + abs(v) > get_XRes()) ? (get_XRes() - x) : (abs(v));
-                                uint16_t h = (y + sprite_get_h(sp) > get_YRes()) ? (get_YRes() - y) : (sprite_get_h(sp));
-
-                                if (x_clear < get_XRes() && y_clear < get_YRes()) {
-                                    if (draw_rectangle(x_clear,y_clear,w,h, BLACK)) {
-                                        if (vg_exit()) {
-                                            printf("%s: vg_exit failed to exit to text mode.\n", __func__);
-                                        }
-                                        if (free_memory_map()) {
-                                            printf("%s: lm_free failed\n", __func__);
-                                        }
-                                        return 1;
-                                    }
-                                }
-                            }
-                        }
-                }
-                if (msg.m_notify.interrupts & irq_timer) { /* subscribed interrupt */
-                   kbc_ih();
-                }
-                
-                break;
-            default:
-                break; /* no other notifications expected: do nothing */	
-        }
-    } else { /* received a standard message, not a notification */
-        /* no standard messages expected: do nothing */
-    }
- }
-  if (keyboard_unsubscribe()) return 1;  
-  if(vg_exit()) return 1;
-  return 0;
   return 1;
 }
 

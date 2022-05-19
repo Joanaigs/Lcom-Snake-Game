@@ -4,6 +4,8 @@
         "stdbool.h": "c",
         "sysutil.h": "c",
         "utils.h": "c",
-        "keyboard.h": "c"
+        "keyboard.h": "c",
+        "lcf.h": "c",
+        "*.xpm": "c"
     }
 }
