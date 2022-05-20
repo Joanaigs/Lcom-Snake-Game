@@ -6,6 +6,7 @@
         "utils.h": "c",
         "keyboard.h": "c",
         "lcf.h": "c",
-        "*.xpm": "c"
+        "*.xpm": "c",
+        "objects.h": "c"
     }
 }
