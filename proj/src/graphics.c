@@ -57,14 +57,16 @@ void (draw_xpm)(xpm_image_t img, uint8_t *map, int x, int y){
         }
         if (color == xpm_transparency_color(img.type))
             continue;
-        else
+        else{
             drawPixel(x + col, y+row, color);
+        }
         }
   }
 }
 
 void (drawPixel)(uint16_t x, uint16_t y,uint32_t color){
     unsigned int p = (x + y * h_res) * bytes_per_pixel;
+    printf("%d, %d\n", p, color);
     memcpy(video_mem + p, &color,bytes_per_pixel);
 }
 int (vg_draw_rectangle)(uint16_t x, uint16_t y,uint16_t width, uint16_t height, uint32_t color){

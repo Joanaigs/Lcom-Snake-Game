@@ -71,7 +71,7 @@ int(proj_main_loop)(int argc, char *argv[]) {
     }
 
   sleep(5);
-  vg_exit(); //comentar se quiserem ver a imagem, isto fecha o ecra
+  //vg_exit(); //comentar se quiserem ver a imagem, isto fecha o ecra
   return 0;
 }
 
