@@ -61,7 +61,7 @@ int(video_test_rectangle)(uint16_t mode, uint16_t x, uint16_t y,
 
   if (vg_draw_rectangle(x,y,w,h, color)) {
        return 1; 
-  } 
+  }
   int ipc_status, r;
   message msg;
   uint8_t irq_set = 0;
@@ -96,7 +96,7 @@ int(video_test_pattern)(uint16_t mode, uint8_t no_rectangles, uint32_t first, ui
   if(vbe_get_mode_info(mode, &vmi_p)) return 1;
   vramMap();
   if(setMode(mode)) return 1;
-  uint16_t weight = h_res/no_rectangles;
+  uint16_t width = h_res/no_rectangles;
   uint16_t height = v_res/no_rectangles;
   uint32_t color, red, green, blue;
   for(uint8_t row = 0; row < no_rectangles; ++row){
@@ -109,9 +109,9 @@ int(video_test_pattern)(uint16_t mode, uint8_t no_rectangles, uint32_t first, ui
                 blue = (B(first) + (col+row)*step) % (1 <<vmi_p.BlueMaskSize);
                 color = SET_COLOR(red,green,blue);
             }
-            uint16_t x = col * weight;
+            uint16_t x = col * width;
             uint16_t y = row * height;
-            uint16_t w = (x + weight >h_res) ? (h_res - x) : (weight);
+            uint16_t w = (x + width >h_res) ? (h_res - x) : (width);
             uint16_t h = (y + height > v_res) ? (v_res - y) : (height);
             if (vg_draw_rectangle(x,y,w,h,color)) 
                 return 1;
