@@ -35,9 +35,8 @@ bool single_player(){
   drawBackground();
   init_objects();
   addBodyPart();
-  printf("%d", numOfBodyParts);
   drawApple();
-  drawSnake("UP");
+  drawSnake("RIGHT");
   return false;
 }
 

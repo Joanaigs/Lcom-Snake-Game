@@ -31,6 +31,7 @@ typedef struct{
 object apple;
 object badApple;
 object snakeBody;
+object snakeTail;
 snake_head snakehead;
 
 int numOfBodyParts;

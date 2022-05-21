@@ -5,6 +5,7 @@
 #include "images/cabeca_cobra_dir.xpm"
 #include "images/cabeca_cobra_esq.xpm"
 #include "images/corpo_cobra.xpm"
+#include "images/cauda_cobra.xpm"
 int (drawBackground)(){
   uint32_t lightGreen=SET_COLOR(170, 215, 81);
   uint32_t darkGreen=SET_COLOR(148, 191, 67);
@@ -40,8 +41,9 @@ void (init_objects)(){
   snakehead.mapRight=xpm_load((xpm_map_t)cobra_direita_xpm, XPM_8_8_8, &snakehead.imgRight);
   snakehead.mapDown=xpm_load((xpm_map_t)cobra_baixo_xpm, XPM_8_8_8, &snakehead.imgDown);
   snakehead.mapUp=xpm_load((xpm_map_t)cobra_cima_xpm, XPM_8_8_8, &snakehead.imgUp);
-  snakehead.x=50;snakehead.y=45;
+  snakehead.x=100;snakehead.y=100;
   snakeBody.map=xpm_load((xpm_map_t)cobra_corpo_xpm, XPM_8_8_8, &snakeBody.img);
+  snakeTail.map=xpm_load((xpm_map_t)cobra_cauda_xpm, XPM_8_8_8, &snakeTail.img);
   snakeBody.x=snakehead.x+snakehead.imgUp.width+1;snakeBody.y=snakehead.y+snakehead.imgUp.height+1;
   numOfBodyParts=1;
 }
@@ -68,7 +70,7 @@ void (drawSnake)(char * direction){
   }
   else if(strcmp(direction, "RIGHT")==0){
     draw_xpm(snakehead.imgRight, snakehead.mapRight, snakehead.x, snakehead. y);
-    snakeBody.x=snakehead.x-snakehead.imgUp.width;snakeBody.y=snakehead.y;
+    snakeBody.x=snakehead.x-snakeBody.img.width;snakeBody.y=snakehead.y+9 ;
     snakehead.direction="RIGHT";
   }
   drawSnakeBody();
@@ -78,15 +80,19 @@ void (drawSnakeBody)(){
   for(int i=0; i<numOfBodyParts; i++){
     if(strcmp(snakehead.direction, "UP")==0){
       draw_xpm(snakeBody.img, snakeBody.map, snakeBody.x, snakeBody.y+i*snakeBody.img.height);
+      draw_xpm(snakeTail.img, snakeTail.map, snakeBody.x, snakeBody.y+(i+1)*snakeBody.img.height);
     }
     else if(strcmp(snakehead.direction, "DOWN")==0){
       draw_xpm(snakeBody.img, snakeBody.map, snakeBody.x, snakeBody.y-i*snakeBody.img.height);
+      draw_xpm(snakeTail.img, snakeTail.map, snakeBody.x, snakeBody.y-(i+1)*snakeBody.img.height);
     }
     else if(strcmp(snakehead.direction, "LEFT")==0){
       draw_xpm(snakeBody.img, snakeBody.map, snakeBody.x+i*snakeBody.img.width, snakeBody.y);
+      draw_xpm(snakeTail.img, snakeTail.map, snakeBody.x+(i+1)*snakeBody.img.width, snakeBody.y);
     }
     else if(strcmp(snakehead.direction, "RIGHT")==0){
       draw_xpm(snakeBody.img, snakeBody.map, snakeBody.x-i*snakeBody.img.width, snakeBody. y);
+      draw_xpm(snakeTail.img, snakeTail.map, snakeBody.x-(i+1)*snakeBody.img.width, snakeBody.y);
     }
   }
 }

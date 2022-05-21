@@ -1,10 +1,10 @@
 @lcflib.a:2019, lcf_start
   proj_main_loop(argc, argv)
 > proj_main_loop(0, [NULL])
-  @proj.c:47, proj_main_loop
+  @proj.c:46, proj_main_loop
     vbe_get_mode_info(0x115, &vmi_p)
-  > vbe_get_mode_info(0x115, addr: 0x824c55c)
-  < vbe_get_mode_info(0x115, addr: 0x824c55c [0xe0000000, 800x600, 8:8:8 (24) <1.37329 MiB>]) -> (ret: 0)
+  > vbe_get_mode_info(0x115, addr: 0x824fba0)
+  < vbe_get_mode_info(0x115, addr: 0x824fba0 [0xe0000000, 800x600, 8:8:8 (24) <1.37329 MiB>]) -> (ret: 0)
   @graphics.c:30, vramMap
     sys_privctl(SELF, SYS_PRIV_ADD_MEM, &mr)
   > sys_privctl(SELF, SYS_PRIV_ADD_MEM, addr: 0xeffff788 [0xe0000000 - 0xe01c61a0 <1.77383 MiB>])
@@ -16,7 +16,7 @@
     sys_int86(&r)
   > sys_int86(addr: 0xeffff768 [AX: 4f02, BX: 4115, CX: 0000, DX: 0000, ES: 0000, DI: 0000])
   < sys_int86(addr: 0xeffff768 [AX: 004f, BX: 4115, CX: 0000, DX: 0000, ES: 0000, DI: 0000]) -> (ret: 0)
-  @objects.c:22, drawBackground
+  @objects.c:23, drawBackground
     vg_draw_rectangle(x, y, w, h, lightGreen)
   > vg_draw_rectangle(0, 0, 80, 60, 0x00aad751 [11196241])
     @graphics.c:72, vg_draw_rectangle
@@ -200,7 +200,7 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(0, 59, 80, 0x00aad751 [11196241]) -> (ret: 0)
   < vg_draw_rectangle(0, 0, 80, 60, 0x00aad751 [11196241]) -> (ret: 0)
-  @objects.c:26, drawBackground
+  @objects.c:27, drawBackground
     vg_draw_rectangle(x, y, w, h, darkGreen)
   > vg_draw_rectangle(80, 0, 80, 60, 0x0094bf43 [9748291])
     @graphics.c:72, vg_draw_rectangle
@@ -384,7 +384,7 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(80, 59, 80, 0x0094bf43 [9748291]) -> (ret: 0)
   < vg_draw_rectangle(80, 0, 80, 60, 0x0094bf43 [9748291]) -> (ret: 0)
-  @objects.c:22, drawBackground
+  @objects.c:23, drawBackground
     vg_draw_rectangle(x, y, w, h, lightGreen)
   > vg_draw_rectangle(160, 0, 80, 60, 0x00aad751 [11196241])
     @graphics.c:72, vg_draw_rectangle
@@ -568,7 +568,7 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(160, 59, 80, 0x00aad751 [11196241]) -> (ret: 0)
   < vg_draw_rectangle(160, 0, 80, 60, 0x00aad751 [11196241]) -> (ret: 0)
-  @objects.c:26, drawBackground
+  @objects.c:27, drawBackground
     vg_draw_rectangle(x, y, w, h, darkGreen)
   > vg_draw_rectangle(240, 0, 80, 60, 0x0094bf43 [9748291])
     @graphics.c:72, vg_draw_rectangle
@@ -752,7 +752,7 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(240, 59, 80, 0x0094bf43 [9748291]) -> (ret: 0)
   < vg_draw_rectangle(240, 0, 80, 60, 0x0094bf43 [9748291]) -> (ret: 0)
-  @objects.c:22, drawBackground
+  @objects.c:23, drawBackground
     vg_draw_rectangle(x, y, w, h, lightGreen)
   > vg_draw_rectangle(320, 0, 80, 60, 0x00aad751 [11196241])
     @graphics.c:72, vg_draw_rectangle
@@ -936,7 +936,7 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(320, 59, 80, 0x00aad751 [11196241]) -> (ret: 0)
   < vg_draw_rectangle(320, 0, 80, 60, 0x00aad751 [11196241]) -> (ret: 0)
-  @objects.c:26, drawBackground
+  @objects.c:27, drawBackground
     vg_draw_rectangle(x, y, w, h, darkGreen)
   > vg_draw_rectangle(400, 0, 80, 60, 0x0094bf43 [9748291])
     @graphics.c:72, vg_draw_rectangle
@@ -1120,7 +1120,7 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(400, 59, 80, 0x0094bf43 [9748291]) -> (ret: 0)
   < vg_draw_rectangle(400, 0, 80, 60, 0x0094bf43 [9748291]) -> (ret: 0)
-  @objects.c:22, drawBackground
+  @objects.c:23, drawBackground
     vg_draw_rectangle(x, y, w, h, lightGreen)
   > vg_draw_rectangle(480, 0, 80, 60, 0x00aad751 [11196241])
     @graphics.c:72, vg_draw_rectangle
@@ -1304,7 +1304,7 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(480, 59, 80, 0x00aad751 [11196241]) -> (ret: 0)
   < vg_draw_rectangle(480, 0, 80, 60, 0x00aad751 [11196241]) -> (ret: 0)
-  @objects.c:26, drawBackground
+  @objects.c:27, drawBackground
     vg_draw_rectangle(x, y, w, h, darkGreen)
   > vg_draw_rectangle(560, 0, 80, 60, 0x0094bf43 [9748291])
     @graphics.c:72, vg_draw_rectangle
@@ -1488,7 +1488,7 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(560, 59, 80, 0x0094bf43 [9748291]) -> (ret: 0)
   < vg_draw_rectangle(560, 0, 80, 60, 0x0094bf43 [9748291]) -> (ret: 0)
-  @objects.c:22, drawBackground
+  @objects.c:23, drawBackground
     vg_draw_rectangle(x, y, w, h, lightGreen)
   > vg_draw_rectangle(640, 0, 80, 60, 0x00aad751 [11196241])
     @graphics.c:72, vg_draw_rectangle
@@ -1672,7 +1672,7 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(640, 59, 80, 0x00aad751 [11196241]) -> (ret: 0)
   < vg_draw_rectangle(640, 0, 80, 60, 0x00aad751 [11196241]) -> (ret: 0)
-  @objects.c:26, drawBackground
+  @objects.c:27, drawBackground
     vg_draw_rectangle(x, y, w, h, darkGreen)
   > vg_draw_rectangle(720, 0, 80, 60, 0x0094bf43 [9748291])
     @graphics.c:72, vg_draw_rectangle
@@ -1856,7 +1856,7 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(720, 59, 80, 0x0094bf43 [9748291]) -> (ret: 0)
   < vg_draw_rectangle(720, 0, 80, 60, 0x0094bf43 [9748291]) -> (ret: 0)
-  @objects.c:26, drawBackground
+  @objects.c:27, drawBackground
     vg_draw_rectangle(x, y, w, h, darkGreen)
   > vg_draw_rectangle(0, 60, 80, 60, 0x0094bf43 [9748291])
     @graphics.c:72, vg_draw_rectangle
@@ -2040,7 +2040,7 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(0, 119, 80, 0x0094bf43 [9748291]) -> (ret: 0)
   < vg_draw_rectangle(0, 60, 80, 60, 0x0094bf43 [9748291]) -> (ret: 0)
-  @objects.c:22, drawBackground
+  @objects.c:23, drawBackground
     vg_draw_rectangle(x, y, w, h, lightGreen)
   > vg_draw_rectangle(80, 60, 80, 60, 0x00aad751 [11196241])
     @graphics.c:72, vg_draw_rectangle
@@ -2224,7 +2224,7 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(80, 119, 80, 0x00aad751 [11196241]) -> (ret: 0)
   < vg_draw_rectangle(80, 60, 80, 60, 0x00aad751 [11196241]) -> (ret: 0)
-  @objects.c:26, drawBackground
+  @objects.c:27, drawBackground
     vg_draw_rectangle(x, y, w, h, darkGreen)
   > vg_draw_rectangle(160, 60, 80, 60, 0x0094bf43 [9748291])
     @graphics.c:72, vg_draw_rectangle
@@ -2408,7 +2408,7 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(160, 119, 80, 0x0094bf43 [9748291]) -> (ret: 0)
   < vg_draw_rectangle(160, 60, 80, 60, 0x0094bf43 [9748291]) -> (ret: 0)
-  @objects.c:22, drawBackground
+  @objects.c:23, drawBackground
     vg_draw_rectangle(x, y, w, h, lightGreen)
   > vg_draw_rectangle(240, 60, 80, 60, 0x00aad751 [11196241])
     @graphics.c:72, vg_draw_rectangle
@@ -2592,7 +2592,7 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(240, 119, 80, 0x00aad751 [11196241]) -> (ret: 0)
   < vg_draw_rectangle(240, 60, 80, 60, 0x00aad751 [11196241]) -> (ret: 0)
-  @objects.c:26, drawBackground
+  @objects.c:27, drawBackground
     vg_draw_rectangle(x, y, w, h, darkGreen)
   > vg_draw_rectangle(320, 60, 80, 60, 0x0094bf43 [9748291])
     @graphics.c:72, vg_draw_rectangle
@@ -2776,7 +2776,7 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(320, 119, 80, 0x0094bf43 [9748291]) -> (ret: 0)
   < vg_draw_rectangle(320, 60, 80, 60, 0x0094bf43 [9748291]) -> (ret: 0)
-  @objects.c:22, drawBackground
+  @objects.c:23, drawBackground
     vg_draw_rectangle(x, y, w, h, lightGreen)
   > vg_draw_rectangle(400, 60, 80, 60, 0x00aad751 [11196241])
     @graphics.c:72, vg_draw_rectangle
@@ -2960,7 +2960,7 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(400, 119, 80, 0x00aad751 [11196241]) -> (ret: 0)
   < vg_draw_rectangle(400, 60, 80, 60, 0x00aad751 [11196241]) -> (ret: 0)
-  @objects.c:26, drawBackground
+  @objects.c:27, drawBackground
     vg_draw_rectangle(x, y, w, h, darkGreen)
   > vg_draw_rectangle(480, 60, 80, 60, 0x0094bf43 [9748291])
     @graphics.c:72, vg_draw_rectangle
@@ -3144,7 +3144,7 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(480, 119, 80, 0x0094bf43 [9748291]) -> (ret: 0)
   < vg_draw_rectangle(480, 60, 80, 60, 0x0094bf43 [9748291]) -> (ret: 0)
-  @objects.c:22, drawBackground
+  @objects.c:23, drawBackground
     vg_draw_rectangle(x, y, w, h, lightGreen)
   > vg_draw_rectangle(560, 60, 80, 60, 0x00aad751 [11196241])
     @graphics.c:72, vg_draw_rectangle
@@ -3328,7 +3328,7 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(560, 119, 80, 0x00aad751 [11196241]) -> (ret: 0)
   < vg_draw_rectangle(560, 60, 80, 60, 0x00aad751 [11196241]) -> (ret: 0)
-  @objects.c:26, drawBackground
+  @objects.c:27, drawBackground
     vg_draw_rectangle(x, y, w, h, darkGreen)
   > vg_draw_rectangle(640, 60, 80, 60, 0x0094bf43 [9748291])
     @graphics.c:72, vg_draw_rectangle
@@ -3512,7 +3512,7 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(640, 119, 80, 0x0094bf43 [9748291]) -> (ret: 0)
   < vg_draw_rectangle(640, 60, 80, 60, 0x0094bf43 [9748291]) -> (ret: 0)
-  @objects.c:22, drawBackground
+  @objects.c:23, drawBackground
     vg_draw_rectangle(x, y, w, h, lightGreen)
   > vg_draw_rectangle(720, 60, 80, 60, 0x00aad751 [11196241])
     @graphics.c:72, vg_draw_rectangle
@@ -3696,7 +3696,7 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(720, 119, 80, 0x00aad751 [11196241]) -> (ret: 0)
   < vg_draw_rectangle(720, 60, 80, 60, 0x00aad751 [11196241]) -> (ret: 0)
-  @objects.c:22, drawBackground
+  @objects.c:23, drawBackground
     vg_draw_rectangle(x, y, w, h, lightGreen)
   > vg_draw_rectangle(0, 120, 80, 60, 0x00aad751 [11196241])
     @graphics.c:72, vg_draw_rectangle
@@ -3880,7 +3880,7 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(0, 179, 80, 0x00aad751 [11196241]) -> (ret: 0)
   < vg_draw_rectangle(0, 120, 80, 60, 0x00aad751 [11196241]) -> (ret: 0)
-  @objects.c:26, drawBackground
+  @objects.c:27, drawBackground
     vg_draw_rectangle(x, y, w, h, darkGreen)
   > vg_draw_rectangle(80, 120, 80, 60, 0x0094bf43 [9748291])
     @graphics.c:72, vg_draw_rectangle
@@ -4064,7 +4064,7 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(80, 179, 80, 0x0094bf43 [9748291]) -> (ret: 0)
   < vg_draw_rectangle(80, 120, 80, 60, 0x0094bf43 [9748291]) -> (ret: 0)
-  @objects.c:22, drawBackground
+  @objects.c:23, drawBackground
     vg_draw_rectangle(x, y, w, h, lightGreen)
   > vg_draw_rectangle(160, 120, 80, 60, 0x00aad751 [11196241])
     @graphics.c:72, vg_draw_rectangle
@@ -4248,7 +4248,7 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(160, 179, 80, 0x00aad751 [11196241]) -> (ret: 0)
   < vg_draw_rectangle(160, 120, 80, 60, 0x00aad751 [11196241]) -> (ret: 0)
-  @objects.c:26, drawBackground
+  @objects.c:27, drawBackground
     vg_draw_rectangle(x, y, w, h, darkGreen)
   > vg_draw_rectangle(240, 120, 80, 60, 0x0094bf43 [9748291])
     @graphics.c:72, vg_draw_rectangle
@@ -4432,7 +4432,7 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(240, 179, 80, 0x0094bf43 [9748291]) -> (ret: 0)
   < vg_draw_rectangle(240, 120, 80, 60, 0x0094bf43 [9748291]) -> (ret: 0)
-  @objects.c:22, drawBackground
+  @objects.c:23, drawBackground
     vg_draw_rectangle(x, y, w, h, lightGreen)
   > vg_draw_rectangle(320, 120, 80, 60, 0x00aad751 [11196241])
     @graphics.c:72, vg_draw_rectangle
@@ -4616,7 +4616,7 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(320, 179, 80, 0x00aad751 [11196241]) -> (ret: 0)
   < vg_draw_rectangle(320, 120, 80, 60, 0x00aad751 [11196241]) -> (ret: 0)
-  @objects.c:26, drawBackground
+  @objects.c:27, drawBackground
     vg_draw_rectangle(x, y, w, h, darkGreen)
   > vg_draw_rectangle(400, 120, 80, 60, 0x0094bf43 [9748291])
     @graphics.c:72, vg_draw_rectangle
@@ -4800,7 +4800,7 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(400, 179, 80, 0x0094bf43 [9748291]) -> (ret: 0)
   < vg_draw_rectangle(400, 120, 80, 60, 0x0094bf43 [9748291]) -> (ret: 0)
-  @objects.c:22, drawBackground
+  @objects.c:23, drawBackground
     vg_draw_rectangle(x, y, w, h, lightGreen)
   > vg_draw_rectangle(480, 120, 80, 60, 0x00aad751 [11196241])
     @graphics.c:72, vg_draw_rectangle
@@ -4984,7 +4984,7 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(480, 179, 80, 0x00aad751 [11196241]) -> (ret: 0)
   < vg_draw_rectangle(480, 120, 80, 60, 0x00aad751 [11196241]) -> (ret: 0)
-  @objects.c:26, drawBackground
+  @objects.c:27, drawBackground
     vg_draw_rectangle(x, y, w, h, darkGreen)
   > vg_draw_rectangle(560, 120, 80, 60, 0x0094bf43 [9748291])
     @graphics.c:72, vg_draw_rectangle
@@ -5168,7 +5168,7 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(560, 179, 80, 0x0094bf43 [9748291]) -> (ret: 0)
   < vg_draw_rectangle(560, 120, 80, 60, 0x0094bf43 [9748291]) -> (ret: 0)
-  @objects.c:22, drawBackground
+  @objects.c:23, drawBackground
     vg_draw_rectangle(x, y, w, h, lightGreen)
   > vg_draw_rectangle(640, 120, 80, 60, 0x00aad751 [11196241])
     @graphics.c:72, vg_draw_rectangle
@@ -5352,7 +5352,7 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(640, 179, 80, 0x00aad751 [11196241]) -> (ret: 0)
   < vg_draw_rectangle(640, 120, 80, 60, 0x00aad751 [11196241]) -> (ret: 0)
-  @objects.c:26, drawBackground
+  @objects.c:27, drawBackground
     vg_draw_rectangle(x, y, w, h, darkGreen)
   > vg_draw_rectangle(720, 120, 80, 60, 0x0094bf43 [9748291])
     @graphics.c:72, vg_draw_rectangle
@@ -5536,7 +5536,7 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(720, 179, 80, 0x0094bf43 [9748291]) -> (ret: 0)
   < vg_draw_rectangle(720, 120, 80, 60, 0x0094bf43 [9748291]) -> (ret: 0)
-  @objects.c:26, drawBackground
+  @objects.c:27, drawBackground
     vg_draw_rectangle(x, y, w, h, darkGreen)
   > vg_draw_rectangle(0, 180, 80, 60, 0x0094bf43 [9748291])
     @graphics.c:72, vg_draw_rectangle
@@ -5720,7 +5720,7 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(0, 239, 80, 0x0094bf43 [9748291]) -> (ret: 0)
   < vg_draw_rectangle(0, 180, 80, 60, 0x0094bf43 [9748291]) -> (ret: 0)
-  @objects.c:22, drawBackground
+  @objects.c:23, drawBackground
     vg_draw_rectangle(x, y, w, h, lightGreen)
   > vg_draw_rectangle(80, 180, 80, 60, 0x00aad751 [11196241])
     @graphics.c:72, vg_draw_rectangle
@@ -5904,7 +5904,7 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(80, 239, 80, 0x00aad751 [11196241]) -> (ret: 0)
   < vg_draw_rectangle(80, 180, 80, 60, 0x00aad751 [11196241]) -> (ret: 0)
-  @objects.c:26, drawBackground
+  @objects.c:27, drawBackground
     vg_draw_rectangle(x, y, w, h, darkGreen)
   > vg_draw_rectangle(160, 180, 80, 60, 0x0094bf43 [9748291])
     @graphics.c:72, vg_draw_rectangle
@@ -6088,7 +6088,7 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(160, 239, 80, 0x0094bf43 [9748291]) -> (ret: 0)
   < vg_draw_rectangle(160, 180, 80, 60, 0x0094bf43 [9748291]) -> (ret: 0)
-  @objects.c:22, drawBackground
+  @objects.c:23, drawBackground
     vg_draw_rectangle(x, y, w, h, lightGreen)
   > vg_draw_rectangle(240, 180, 80, 60, 0x00aad751 [11196241])
     @graphics.c:72, vg_draw_rectangle
@@ -6272,7 +6272,7 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(240, 239, 80, 0x00aad751 [11196241]) -> (ret: 0)
   < vg_draw_rectangle(240, 180, 80, 60, 0x00aad751 [11196241]) -> (ret: 0)
-  @objects.c:26, drawBackground
+  @objects.c:27, drawBackground
     vg_draw_rectangle(x, y, w, h, darkGreen)
   > vg_draw_rectangle(320, 180, 80, 60, 0x0094bf43 [9748291])
     @graphics.c:72, vg_draw_rectangle
@@ -6456,7 +6456,7 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(320, 239, 80, 0x0094bf43 [9748291]) -> (ret: 0)
   < vg_draw_rectangle(320, 180, 80, 60, 0x0094bf43 [9748291]) -> (ret: 0)
-  @objects.c:22, drawBackground
+  @objects.c:23, drawBackground
     vg_draw_rectangle(x, y, w, h, lightGreen)
   > vg_draw_rectangle(400, 180, 80, 60, 0x00aad751 [11196241])
     @graphics.c:72, vg_draw_rectangle
@@ -6640,7 +6640,7 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(400, 239, 80, 0x00aad751 [11196241]) -> (ret: 0)
   < vg_draw_rectangle(400, 180, 80, 60, 0x00aad751 [11196241]) -> (ret: 0)
-  @objects.c:26, drawBackground
+  @objects.c:27, drawBackground
     vg_draw_rectangle(x, y, w, h, darkGreen)
   > vg_draw_rectangle(480, 180, 80, 60, 0x0094bf43 [9748291])
     @graphics.c:72, vg_draw_rectangle
@@ -6824,7 +6824,7 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(480, 239, 80, 0x0094bf43 [9748291]) -> (ret: 0)
   < vg_draw_rectangle(480, 180, 80, 60, 0x0094bf43 [9748291]) -> (ret: 0)
-  @objects.c:22, drawBackground
+  @objects.c:23, drawBackground
     vg_draw_rectangle(x, y, w, h, lightGreen)
   > vg_draw_rectangle(560, 180, 80, 60, 0x00aad751 [11196241])
     @graphics.c:72, vg_draw_rectangle
@@ -7008,7 +7008,7 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(560, 239, 80, 0x00aad751 [11196241]) -> (ret: 0)
   < vg_draw_rectangle(560, 180, 80, 60, 0x00aad751 [11196241]) -> (ret: 0)
-  @objects.c:26, drawBackground
+  @objects.c:27, drawBackground
     vg_draw_rectangle(x, y, w, h, darkGreen)
   > vg_draw_rectangle(640, 180, 80, 60, 0x0094bf43 [9748291])
     @graphics.c:72, vg_draw_rectangle
@@ -7192,7 +7192,7 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(640, 239, 80, 0x0094bf43 [9748291]) -> (ret: 0)
   < vg_draw_rectangle(640, 180, 80, 60, 0x0094bf43 [9748291]) -> (ret: 0)
-  @objects.c:22, drawBackground
+  @objects.c:23, drawBackground
     vg_draw_rectangle(x, y, w, h, lightGreen)
   > vg_draw_rectangle(720, 180, 80, 60, 0x00aad751 [11196241])
     @graphics.c:72, vg_draw_rectangle
@@ -7376,7 +7376,7 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(720, 239, 80, 0x00aad751 [11196241]) -> (ret: 0)
   < vg_draw_rectangle(720, 180, 80, 60, 0x00aad751 [11196241]) -> (ret: 0)
-  @objects.c:22, drawBackground
+  @objects.c:23, drawBackground
     vg_draw_rectangle(x, y, w, h, lightGreen)
   > vg_draw_rectangle(0, 240, 80, 60, 0x00aad751 [11196241])
     @graphics.c:72, vg_draw_rectangle
@@ -7560,7 +7560,7 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(0, 299, 80, 0x00aad751 [11196241]) -> (ret: 0)
   < vg_draw_rectangle(0, 240, 80, 60, 0x00aad751 [11196241]) -> (ret: 0)
-  @objects.c:26, drawBackground
+  @objects.c:27, drawBackground
     vg_draw_rectangle(x, y, w, h, darkGreen)
   > vg_draw_rectangle(80, 240, 80, 60, 0x0094bf43 [9748291])
     @graphics.c:72, vg_draw_rectangle
@@ -7744,7 +7744,7 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(80, 299, 80, 0x0094bf43 [9748291]) -> (ret: 0)
   < vg_draw_rectangle(80, 240, 80, 60, 0x0094bf43 [9748291]) -> (ret: 0)
-  @objects.c:22, drawBackground
+  @objects.c:23, drawBackground
     vg_draw_rectangle(x, y, w, h, lightGreen)
   > vg_draw_rectangle(160, 240, 80, 60, 0x00aad751 [11196241])
     @graphics.c:72, vg_draw_rectangle
@@ -7928,7 +7928,7 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(160, 299, 80, 0x00aad751 [11196241]) -> (ret: 0)
   < vg_draw_rectangle(160, 240, 80, 60, 0x00aad751 [11196241]) -> (ret: 0)
-  @objects.c:26, drawBackground
+  @objects.c:27, drawBackground
     vg_draw_rectangle(x, y, w, h, darkGreen)
   > vg_draw_rectangle(240, 240, 80, 60, 0x0094bf43 [9748291])
     @graphics.c:72, vg_draw_rectangle
@@ -8112,7 +8112,7 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(240, 299, 80, 0x0094bf43 [9748291]) -> (ret: 0)
   < vg_draw_rectangle(240, 240, 80, 60, 0x0094bf43 [9748291]) -> (ret: 0)
-  @objects.c:22, drawBackground
+  @objects.c:23, drawBackground
     vg_draw_rectangle(x, y, w, h, lightGreen)
   > vg_draw_rectangle(320, 240, 80, 60, 0x00aad751 [11196241])
     @graphics.c:72, vg_draw_rectangle
@@ -8296,7 +8296,7 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(320, 299, 80, 0x00aad751 [11196241]) -> (ret: 0)
   < vg_draw_rectangle(320, 240, 80, 60, 0x00aad751 [11196241]) -> (ret: 0)
-  @objects.c:26, drawBackground
+  @objects.c:27, drawBackground
     vg_draw_rectangle(x, y, w, h, darkGreen)
   > vg_draw_rectangle(400, 240, 80, 60, 0x0094bf43 [9748291])
     @graphics.c:72, vg_draw_rectangle
@@ -8480,7 +8480,7 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(400, 299, 80, 0x0094bf43 [9748291]) -> (ret: 0)
   < vg_draw_rectangle(400, 240, 80, 60, 0x0094bf43 [9748291]) -> (ret: 0)
-  @objects.c:22, drawBackground
+  @objects.c:23, drawBackground
     vg_draw_rectangle(x, y, w, h, lightGreen)
   > vg_draw_rectangle(480, 240, 80, 60, 0x00aad751 [11196241])
     @graphics.c:72, vg_draw_rectangle
@@ -8664,7 +8664,7 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(480, 299, 80, 0x00aad751 [11196241]) -> (ret: 0)
   < vg_draw_rectangle(480, 240, 80, 60, 0x00aad751 [11196241]) -> (ret: 0)
-  @objects.c:26, drawBackground
+  @objects.c:27, drawBackground
     vg_draw_rectangle(x, y, w, h, darkGreen)
   > vg_draw_rectangle(560, 240, 80, 60, 0x0094bf43 [9748291])
     @graphics.c:72, vg_draw_rectangle
@@ -8848,7 +8848,7 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(560, 299, 80, 0x0094bf43 [9748291]) -> (ret: 0)
   < vg_draw_rectangle(560, 240, 80, 60, 0x0094bf43 [9748291]) -> (ret: 0)
-  @objects.c:22, drawBackground
+  @objects.c:23, drawBackground
     vg_draw_rectangle(x, y, w, h, lightGreen)
   > vg_draw_rectangle(640, 240, 80, 60, 0x00aad751 [11196241])
     @graphics.c:72, vg_draw_rectangle
@@ -9032,7 +9032,7 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(640, 299, 80, 0x00aad751 [11196241]) -> (ret: 0)
   < vg_draw_rectangle(640, 240, 80, 60, 0x00aad751 [11196241]) -> (ret: 0)
-  @objects.c:26, drawBackground
+  @objects.c:27, drawBackground
     vg_draw_rectangle(x, y, w, h, darkGreen)
   > vg_draw_rectangle(720, 240, 80, 60, 0x0094bf43 [9748291])
     @graphics.c:72, vg_draw_rectangle
@@ -9216,7 +9216,7 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(720, 299, 80, 0x0094bf43 [9748291]) -> (ret: 0)
   < vg_draw_rectangle(720, 240, 80, 60, 0x0094bf43 [9748291]) -> (ret: 0)
-  @objects.c:26, drawBackground
+  @objects.c:27, drawBackground
     vg_draw_rectangle(x, y, w, h, darkGreen)
   > vg_draw_rectangle(0, 300, 80, 60, 0x0094bf43 [9748291])
     @graphics.c:72, vg_draw_rectangle
@@ -9400,7 +9400,7 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(0, 359, 80, 0x0094bf43 [9748291]) -> (ret: 0)
   < vg_draw_rectangle(0, 300, 80, 60, 0x0094bf43 [9748291]) -> (ret: 0)
-  @objects.c:22, drawBackground
+  @objects.c:23, drawBackground
     vg_draw_rectangle(x, y, w, h, lightGreen)
   > vg_draw_rectangle(80, 300, 80, 60, 0x00aad751 [11196241])
     @graphics.c:72, vg_draw_rectangle
@@ -9584,7 +9584,7 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(80, 359, 80, 0x00aad751 [11196241]) -> (ret: 0)
   < vg_draw_rectangle(80, 300, 80, 60, 0x00aad751 [11196241]) -> (ret: 0)
-  @objects.c:26, drawBackground
+  @objects.c:27, drawBackground
     vg_draw_rectangle(x, y, w, h, darkGreen)
   > vg_draw_rectangle(160, 300, 80, 60, 0x0094bf43 [9748291])
     @graphics.c:72, vg_draw_rectangle
@@ -9768,7 +9768,7 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(160, 359, 80, 0x0094bf43 [9748291]) -> (ret: 0)
   < vg_draw_rectangle(160, 300, 80, 60, 0x0094bf43 [9748291]) -> (ret: 0)
-  @objects.c:22, drawBackground
+  @objects.c:23, drawBackground
     vg_draw_rectangle(x, y, w, h, lightGreen)
   > vg_draw_rectangle(240, 300, 80, 60, 0x00aad751 [11196241])
     @graphics.c:72, vg_draw_rectangle
@@ -9952,7 +9952,7 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(240, 359, 80, 0x00aad751 [11196241]) -> (ret: 0)
   < vg_draw_rectangle(240, 300, 80, 60, 0x00aad751 [11196241]) -> (ret: 0)
-  @objects.c:26, drawBackground
+  @objects.c:27, drawBackground
     vg_draw_rectangle(x, y, w, h, darkGreen)
   > vg_draw_rectangle(320, 300, 80, 60, 0x0094bf43 [9748291])
     @graphics.c:72, vg_draw_rectangle
@@ -10136,7 +10136,7 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(320, 359, 80, 0x0094bf43 [9748291]) -> (ret: 0)
   < vg_draw_rectangle(320, 300, 80, 60, 0x0094bf43 [9748291]) -> (ret: 0)
-  @objects.c:22, drawBackground
+  @objects.c:23, drawBackground
     vg_draw_rectangle(x, y, w, h, lightGreen)
   > vg_draw_rectangle(400, 300, 80, 60, 0x00aad751 [11196241])
     @graphics.c:72, vg_draw_rectangle
@@ -10320,7 +10320,7 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(400, 359, 80, 0x00aad751 [11196241]) -> (ret: 0)
   < vg_draw_rectangle(400, 300, 80, 60, 0x00aad751 [11196241]) -> (ret: 0)
-  @objects.c:26, drawBackground
+  @objects.c:27, drawBackground
     vg_draw_rectangle(x, y, w, h, darkGreen)
   > vg_draw_rectangle(480, 300, 80, 60, 0x0094bf43 [9748291])
     @graphics.c:72, vg_draw_rectangle
@@ -10504,7 +10504,7 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(480, 359, 80, 0x0094bf43 [9748291]) -> (ret: 0)
   < vg_draw_rectangle(480, 300, 80, 60, 0x0094bf43 [9748291]) -> (ret: 0)
-  @objects.c:22, drawBackground
+  @objects.c:23, drawBackground
     vg_draw_rectangle(x, y, w, h, lightGreen)
   > vg_draw_rectangle(560, 300, 80, 60, 0x00aad751 [11196241])
     @graphics.c:72, vg_draw_rectangle
@@ -10688,7 +10688,7 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(560, 359, 80, 0x00aad751 [11196241]) -> (ret: 0)
   < vg_draw_rectangle(560, 300, 80, 60, 0x00aad751 [11196241]) -> (ret: 0)
-  @objects.c:26, drawBackground
+  @objects.c:27, drawBackground
     vg_draw_rectangle(x, y, w, h, darkGreen)
   > vg_draw_rectangle(640, 300, 80, 60, 0x0094bf43 [9748291])
     @graphics.c:72, vg_draw_rectangle
@@ -10872,7 +10872,7 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(640, 359, 80, 0x0094bf43 [9748291]) -> (ret: 0)
   < vg_draw_rectangle(640, 300, 80, 60, 0x0094bf43 [9748291]) -> (ret: 0)
-  @objects.c:22, drawBackground
+  @objects.c:23, drawBackground
     vg_draw_rectangle(x, y, w, h, lightGreen)
   > vg_draw_rectangle(720, 300, 80, 60, 0x00aad751 [11196241])
     @graphics.c:72, vg_draw_rectangle
@@ -11056,7 +11056,7 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(720, 359, 80, 0x00aad751 [11196241]) -> (ret: 0)
   < vg_draw_rectangle(720, 300, 80, 60, 0x00aad751 [11196241]) -> (ret: 0)
-  @objects.c:22, drawBackground
+  @objects.c:23, drawBackground
     vg_draw_rectangle(x, y, w, h, lightGreen)
   > vg_draw_rectangle(0, 360, 80, 60, 0x00aad751 [11196241])
     @graphics.c:72, vg_draw_rectangle
@@ -11240,7 +11240,7 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(0, 419, 80, 0x00aad751 [11196241]) -> (ret: 0)
   < vg_draw_rectangle(0, 360, 80, 60, 0x00aad751 [11196241]) -> (ret: 0)
-  @objects.c:26, drawBackground
+  @objects.c:27, drawBackground
     vg_draw_rectangle(x, y, w, h, darkGreen)
   > vg_draw_rectangle(80, 360, 80, 60, 0x0094bf43 [9748291])
     @graphics.c:72, vg_draw_rectangle
@@ -11424,7 +11424,7 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(80, 419, 80, 0x0094bf43 [9748291]) -> (ret: 0)
   < vg_draw_rectangle(80, 360, 80, 60, 0x0094bf43 [9748291]) -> (ret: 0)
-  @objects.c:22, drawBackground
+  @objects.c:23, drawBackground
     vg_draw_rectangle(x, y, w, h, lightGreen)
   > vg_draw_rectangle(160, 360, 80, 60, 0x00aad751 [11196241])
     @graphics.c:72, vg_draw_rectangle
@@ -11608,7 +11608,7 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(160, 419, 80, 0x00aad751 [11196241]) -> (ret: 0)
   < vg_draw_rectangle(160, 360, 80, 60, 0x00aad751 [11196241]) -> (ret: 0)
-  @objects.c:26, drawBackground
+  @objects.c:27, drawBackground
     vg_draw_rectangle(x, y, w, h, darkGreen)
   > vg_draw_rectangle(240, 360, 80, 60, 0x0094bf43 [9748291])
     @graphics.c:72, vg_draw_rectangle
@@ -11792,7 +11792,7 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(240, 419, 80, 0x0094bf43 [9748291]) -> (ret: 0)
   < vg_draw_rectangle(240, 360, 80, 60, 0x0094bf43 [9748291]) -> (ret: 0)
-  @objects.c:22, drawBackground
+  @objects.c:23, drawBackground
     vg_draw_rectangle(x, y, w, h, lightGreen)
   > vg_draw_rectangle(320, 360, 80, 60, 0x00aad751 [11196241])
     @graphics.c:72, vg_draw_rectangle
@@ -11976,7 +11976,7 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(320, 419, 80, 0x00aad751 [11196241]) -> (ret: 0)
   < vg_draw_rectangle(320, 360, 80, 60, 0x00aad751 [11196241]) -> (ret: 0)
-  @objects.c:26, drawBackground
+  @objects.c:27, drawBackground
     vg_draw_rectangle(x, y, w, h, darkGreen)
   > vg_draw_rectangle(400, 360, 80, 60, 0x0094bf43 [9748291])
     @graphics.c:72, vg_draw_rectangle
@@ -12160,7 +12160,7 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(400, 419, 80, 0x0094bf43 [9748291]) -> (ret: 0)
   < vg_draw_rectangle(400, 360, 80, 60, 0x0094bf43 [9748291]) -> (ret: 0)
-  @objects.c:22, drawBackground
+  @objects.c:23, drawBackground
     vg_draw_rectangle(x, y, w, h, lightGreen)
   > vg_draw_rectangle(480, 360, 80, 60, 0x00aad751 [11196241])
     @graphics.c:72, vg_draw_rectangle
@@ -12344,7 +12344,7 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(480, 419, 80, 0x00aad751 [11196241]) -> (ret: 0)
   < vg_draw_rectangle(480, 360, 80, 60, 0x00aad751 [11196241]) -> (ret: 0)
-  @objects.c:26, drawBackground
+  @objects.c:27, drawBackground
     vg_draw_rectangle(x, y, w, h, darkGreen)
   > vg_draw_rectangle(560, 360, 80, 60, 0x0094bf43 [9748291])
     @graphics.c:72, vg_draw_rectangle
@@ -12528,7 +12528,7 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(560, 419, 80, 0x0094bf43 [9748291]) -> (ret: 0)
   < vg_draw_rectangle(560, 360, 80, 60, 0x0094bf43 [9748291]) -> (ret: 0)
-  @objects.c:22, drawBackground
+  @objects.c:23, drawBackground
     vg_draw_rectangle(x, y, w, h, lightGreen)
   > vg_draw_rectangle(640, 360, 80, 60, 0x00aad751 [11196241])
     @graphics.c:72, vg_draw_rectangle
@@ -12712,7 +12712,7 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(640, 419, 80, 0x00aad751 [11196241]) -> (ret: 0)
   < vg_draw_rectangle(640, 360, 80, 60, 0x00aad751 [11196241]) -> (ret: 0)
-  @objects.c:26, drawBackground
+  @objects.c:27, drawBackground
     vg_draw_rectangle(x, y, w, h, darkGreen)
   > vg_draw_rectangle(720, 360, 80, 60, 0x0094bf43 [9748291])
     @graphics.c:72, vg_draw_rectangle
@@ -12896,7 +12896,7 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(720, 419, 80, 0x0094bf43 [9748291]) -> (ret: 0)
   < vg_draw_rectangle(720, 360, 80, 60, 0x0094bf43 [9748291]) -> (ret: 0)
-  @objects.c:26, drawBackground
+  @objects.c:27, drawBackground
     vg_draw_rectangle(x, y, w, h, darkGreen)
   > vg_draw_rectangle(0, 420, 80, 60, 0x0094bf43 [9748291])
     @graphics.c:72, vg_draw_rectangle
@@ -13080,7 +13080,7 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(0, 479, 80, 0x0094bf43 [9748291]) -> (ret: 0)
   < vg_draw_rectangle(0, 420, 80, 60, 0x0094bf43 [9748291]) -> (ret: 0)
-  @objects.c:22, drawBackground
+  @objects.c:23, drawBackground
     vg_draw_rectangle(x, y, w, h, lightGreen)
   > vg_draw_rectangle(80, 420, 80, 60, 0x00aad751 [11196241])
     @graphics.c:72, vg_draw_rectangle
@@ -13264,7 +13264,7 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(80, 479, 80, 0x00aad751 [11196241]) -> (ret: 0)
   < vg_draw_rectangle(80, 420, 80, 60, 0x00aad751 [11196241]) -> (ret: 0)
-  @objects.c:26, drawBackground
+  @objects.c:27, drawBackground
     vg_draw_rectangle(x, y, w, h, darkGreen)
   > vg_draw_rectangle(160, 420, 80, 60, 0x0094bf43 [9748291])
     @graphics.c:72, vg_draw_rectangle
@@ -13448,7 +13448,7 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(160, 479, 80, 0x0094bf43 [9748291]) -> (ret: 0)
   < vg_draw_rectangle(160, 420, 80, 60, 0x0094bf43 [9748291]) -> (ret: 0)
-  @objects.c:22, drawBackground
+  @objects.c:23, drawBackground
     vg_draw_rectangle(x, y, w, h, lightGreen)
   > vg_draw_rectangle(240, 420, 80, 60, 0x00aad751 [11196241])
     @graphics.c:72, vg_draw_rectangle
@@ -13632,7 +13632,7 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(240, 479, 80, 0x00aad751 [11196241]) -> (ret: 0)
   < vg_draw_rectangle(240, 420, 80, 60, 0x00aad751 [11196241]) -> (ret: 0)
-  @objects.c:26, drawBackground
+  @objects.c:27, drawBackground
     vg_draw_rectangle(x, y, w, h, darkGreen)
   > vg_draw_rectangle(320, 420, 80, 60, 0x0094bf43 [9748291])
     @graphics.c:72, vg_draw_rectangle
@@ -13816,7 +13816,7 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(320, 479, 80, 0x0094bf43 [9748291]) -> (ret: 0)
   < vg_draw_rectangle(320, 420, 80, 60, 0x0094bf43 [9748291]) -> (ret: 0)
-  @objects.c:22, drawBackground
+  @objects.c:23, drawBackground
     vg_draw_rectangle(x, y, w, h, lightGreen)
   > vg_draw_rectangle(400, 420, 80, 60, 0x00aad751 [11196241])
     @graphics.c:72, vg_draw_rectangle
@@ -14000,7 +14000,7 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(400, 479, 80, 0x00aad751 [11196241]) -> (ret: 0)
   < vg_draw_rectangle(400, 420, 80, 60, 0x00aad751 [11196241]) -> (ret: 0)
-  @objects.c:26, drawBackground
+  @objects.c:27, drawBackground
     vg_draw_rectangle(x, y, w, h, darkGreen)
   > vg_draw_rectangle(480, 420, 80, 60, 0x0094bf43 [9748291])
     @graphics.c:72, vg_draw_rectangle
@@ -14184,7 +14184,7 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(480, 479, 80, 0x0094bf43 [9748291]) -> (ret: 0)
   < vg_draw_rectangle(480, 420, 80, 60, 0x0094bf43 [9748291]) -> (ret: 0)
-  @objects.c:22, drawBackground
+  @objects.c:23, drawBackground
     vg_draw_rectangle(x, y, w, h, lightGreen)
   > vg_draw_rectangle(560, 420, 80, 60, 0x00aad751 [11196241])
     @graphics.c:72, vg_draw_rectangle
@@ -14368,7 +14368,7 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(560, 479, 80, 0x00aad751 [11196241]) -> (ret: 0)
   < vg_draw_rectangle(560, 420, 80, 60, 0x00aad751 [11196241]) -> (ret: 0)
-  @objects.c:26, drawBackground
+  @objects.c:27, drawBackground
     vg_draw_rectangle(x, y, w, h, darkGreen)
   > vg_draw_rectangle(640, 420, 80, 60, 0x0094bf43 [9748291])
     @graphics.c:72, vg_draw_rectangle
@@ -14552,7 +14552,7 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(640, 479, 80, 0x0094bf43 [9748291]) -> (ret: 0)
   < vg_draw_rectangle(640, 420, 80, 60, 0x0094bf43 [9748291]) -> (ret: 0)
-  @objects.c:22, drawBackground
+  @objects.c:23, drawBackground
     vg_draw_rectangle(x, y, w, h, lightGreen)
   > vg_draw_rectangle(720, 420, 80, 60, 0x00aad751 [11196241])
     @graphics.c:72, vg_draw_rectangle
@@ -14736,7 +14736,7 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(720, 479, 80, 0x00aad751 [11196241]) -> (ret: 0)
   < vg_draw_rectangle(720, 420, 80, 60, 0x00aad751 [11196241]) -> (ret: 0)
-  @objects.c:22, drawBackground
+  @objects.c:23, drawBackground
     vg_draw_rectangle(x, y, w, h, lightGreen)
   > vg_draw_rectangle(0, 480, 80, 60, 0x00aad751 [11196241])
     @graphics.c:72, vg_draw_rectangle
@@ -14920,7 +14920,7 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(0, 539, 80, 0x00aad751 [11196241]) -> (ret: 0)
   < vg_draw_rectangle(0, 480, 80, 60, 0x00aad751 [11196241]) -> (ret: 0)
-  @objects.c:26, drawBackground
+  @objects.c:27, drawBackground
     vg_draw_rectangle(x, y, w, h, darkGreen)
   > vg_draw_rectangle(80, 480, 80, 60, 0x0094bf43 [9748291])
     @graphics.c:72, vg_draw_rectangle
@@ -15104,7 +15104,7 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(80, 539, 80, 0x0094bf43 [9748291]) -> (ret: 0)
   < vg_draw_rectangle(80, 480, 80, 60, 0x0094bf43 [9748291]) -> (ret: 0)
-  @objects.c:22, drawBackground
+  @objects.c:23, drawBackground
     vg_draw_rectangle(x, y, w, h, lightGreen)
   > vg_draw_rectangle(160, 480, 80, 60, 0x00aad751 [11196241])
     @graphics.c:72, vg_draw_rectangle
@@ -15288,7 +15288,7 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(160, 539, 80, 0x00aad751 [11196241]) -> (ret: 0)
   < vg_draw_rectangle(160, 480, 80, 60, 0x00aad751 [11196241]) -> (ret: 0)
-  @objects.c:26, drawBackground
+  @objects.c:27, drawBackground
     vg_draw_rectangle(x, y, w, h, darkGreen)
   > vg_draw_rectangle(240, 480, 80, 60, 0x0094bf43 [9748291])
     @graphics.c:72, vg_draw_rectangle
@@ -15472,7 +15472,7 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(240, 539, 80, 0x0094bf43 [9748291]) -> (ret: 0)
   < vg_draw_rectangle(240, 480, 80, 60, 0x0094bf43 [9748291]) -> (ret: 0)
-  @objects.c:22, drawBackground
+  @objects.c:23, drawBackground
     vg_draw_rectangle(x, y, w, h, lightGreen)
   > vg_draw_rectangle(320, 480, 80, 60, 0x00aad751 [11196241])
     @graphics.c:72, vg_draw_rectangle
@@ -15656,7 +15656,7 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(320, 539, 80, 0x00aad751 [11196241]) -> (ret: 0)
   < vg_draw_rectangle(320, 480, 80, 60, 0x00aad751 [11196241]) -> (ret: 0)
-  @objects.c:26, drawBackground
+  @objects.c:27, drawBackground
     vg_draw_rectangle(x, y, w, h, darkGreen)
   > vg_draw_rectangle(400, 480, 80, 60, 0x0094bf43 [9748291])
     @graphics.c:72, vg_draw_rectangle
@@ -15840,7 +15840,7 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(400, 539, 80, 0x0094bf43 [9748291]) -> (ret: 0)
   < vg_draw_rectangle(400, 480, 80, 60, 0x0094bf43 [9748291]) -> (ret: 0)
-  @objects.c:22, drawBackground
+  @objects.c:23, drawBackground
     vg_draw_rectangle(x, y, w, h, lightGreen)
   > vg_draw_rectangle(480, 480, 80, 60, 0x00aad751 [11196241])
     @graphics.c:72, vg_draw_rectangle
@@ -16024,7 +16024,7 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(480, 539, 80, 0x00aad751 [11196241]) -> (ret: 0)
   < vg_draw_rectangle(480, 480, 80, 60, 0x00aad751 [11196241]) -> (ret: 0)
-  @objects.c:26, drawBackground
+  @objects.c:27, drawBackground
     vg_draw_rectangle(x, y, w, h, darkGreen)
   > vg_draw_rectangle(560, 480, 80, 60, 0x0094bf43 [9748291])
     @graphics.c:72, vg_draw_rectangle
@@ -16208,7 +16208,7 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(560, 539, 80, 0x0094bf43 [9748291]) -> (ret: 0)
   < vg_draw_rectangle(560, 480, 80, 60, 0x0094bf43 [9748291]) -> (ret: 0)
-  @objects.c:22, drawBackground
+  @objects.c:23, drawBackground
     vg_draw_rectangle(x, y, w, h, lightGreen)
   > vg_draw_rectangle(640, 480, 80, 60, 0x00aad751 [11196241])
     @graphics.c:72, vg_draw_rectangle
@@ -16392,7 +16392,7 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(640, 539, 80, 0x00aad751 [11196241]) -> (ret: 0)
   < vg_draw_rectangle(640, 480, 80, 60, 0x00aad751 [11196241]) -> (ret: 0)
-  @objects.c:26, drawBackground
+  @objects.c:27, drawBackground
     vg_draw_rectangle(x, y, w, h, darkGreen)
   > vg_draw_rectangle(720, 480, 80, 60, 0x0094bf43 [9748291])
     @graphics.c:72, vg_draw_rectangle
@@ -16576,7 +16576,7 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(720, 539, 80, 0x0094bf43 [9748291]) -> (ret: 0)
   < vg_draw_rectangle(720, 480, 80, 60, 0x0094bf43 [9748291]) -> (ret: 0)
-  @objects.c:26, drawBackground
+  @objects.c:27, drawBackground
     vg_draw_rectangle(x, y, w, h, darkGreen)
   > vg_draw_rectangle(0, 540, 80, 60, 0x0094bf43 [9748291])
     @graphics.c:72, vg_draw_rectangle
@@ -16760,7 +16760,7 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(0, 599, 80, 0x0094bf43 [9748291]) -> (ret: 0)
   < vg_draw_rectangle(0, 540, 80, 60, 0x0094bf43 [9748291]) -> (ret: 0)
-  @objects.c:22, drawBackground
+  @objects.c:23, drawBackground
     vg_draw_rectangle(x, y, w, h, lightGreen)
   > vg_draw_rectangle(80, 540, 80, 60, 0x00aad751 [11196241])
     @graphics.c:72, vg_draw_rectangle
@@ -16944,7 +16944,7 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(80, 599, 80, 0x00aad751 [11196241]) -> (ret: 0)
   < vg_draw_rectangle(80, 540, 80, 60, 0x00aad751 [11196241]) -> (ret: 0)
-  @objects.c:26, drawBackground
+  @objects.c:27, drawBackground
     vg_draw_rectangle(x, y, w, h, darkGreen)
   > vg_draw_rectangle(160, 540, 80, 60, 0x0094bf43 [9748291])
     @graphics.c:72, vg_draw_rectangle
@@ -17128,7 +17128,7 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(160, 599, 80, 0x0094bf43 [9748291]) -> (ret: 0)
   < vg_draw_rectangle(160, 540, 80, 60, 0x0094bf43 [9748291]) -> (ret: 0)
-  @objects.c:22, drawBackground
+  @objects.c:23, drawBackground
     vg_draw_rectangle(x, y, w, h, lightGreen)
   > vg_draw_rectangle(240, 540, 80, 60, 0x00aad751 [11196241])
     @graphics.c:72, vg_draw_rectangle
@@ -17312,7 +17312,7 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(240, 599, 80, 0x00aad751 [11196241]) -> (ret: 0)
   < vg_draw_rectangle(240, 540, 80, 60, 0x00aad751 [11196241]) -> (ret: 0)
-  @objects.c:26, drawBackground
+  @objects.c:27, drawBackground
     vg_draw_rectangle(x, y, w, h, darkGreen)
   > vg_draw_rectangle(320, 540, 80, 60, 0x0094bf43 [9748291])
     @graphics.c:72, vg_draw_rectangle
@@ -17496,7 +17496,7 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(320, 599, 80, 0x0094bf43 [9748291]) -> (ret: 0)
   < vg_draw_rectangle(320, 540, 80, 60, 0x0094bf43 [9748291]) -> (ret: 0)
-  @objects.c:22, drawBackground
+  @objects.c:23, drawBackground
     vg_draw_rectangle(x, y, w, h, lightGreen)
   > vg_draw_rectangle(400, 540, 80, 60, 0x00aad751 [11196241])
     @graphics.c:72, vg_draw_rectangle
@@ -17680,7 +17680,7 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(400, 599, 80, 0x00aad751 [11196241]) -> (ret: 0)
   < vg_draw_rectangle(400, 540, 80, 60, 0x00aad751 [11196241]) -> (ret: 0)
-  @objects.c:26, drawBackground
+  @objects.c:27, drawBackground
     vg_draw_rectangle(x, y, w, h, darkGreen)
   > vg_draw_rectangle(480, 540, 80, 60, 0x0094bf43 [9748291])
     @graphics.c:72, vg_draw_rectangle
@@ -17864,7 +17864,7 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(480, 599, 80, 0x0094bf43 [9748291]) -> (ret: 0)
   < vg_draw_rectangle(480, 540, 80, 60, 0x0094bf43 [9748291]) -> (ret: 0)
-  @objects.c:22, drawBackground
+  @objects.c:23, drawBackground
     vg_draw_rectangle(x, y, w, h, lightGreen)
   > vg_draw_rectangle(560, 540, 80, 60, 0x00aad751 [11196241])
     @graphics.c:72, vg_draw_rectangle
@@ -18048,7 +18048,7 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(560, 599, 80, 0x00aad751 [11196241]) -> (ret: 0)
   < vg_draw_rectangle(560, 540, 80, 60, 0x00aad751 [11196241]) -> (ret: 0)
-  @objects.c:26, drawBackground
+  @objects.c:27, drawBackground
     vg_draw_rectangle(x, y, w, h, darkGreen)
   > vg_draw_rectangle(640, 540, 80, 60, 0x0094bf43 [9748291])
     @graphics.c:72, vg_draw_rectangle
@@ -18232,7 +18232,7 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(640, 599, 80, 0x0094bf43 [9748291]) -> (ret: 0)
   < vg_draw_rectangle(640, 540, 80, 60, 0x0094bf43 [9748291]) -> (ret: 0)
-  @objects.c:22, drawBackground
+  @objects.c:23, drawBackground
     vg_draw_rectangle(x, y, w, h, lightGreen)
   > vg_draw_rectangle(720, 540, 80, 60, 0x00aad751 [11196241])
     @graphics.c:72, vg_draw_rectangle
@@ -18416,31 +18416,35 @@
       vg_draw_hline(x, y+i, width, color)
     < vg_draw_hline(720, 599, 80, 0x00aad751 [11196241]) -> (ret: 0)
   < vg_draw_rectangle(720, 540, 80, 60, 0x00aad751 [11196241]) -> (ret: 0)
-  @objects.c:37, init_objects
+  @objects.c:38, init_objects
     xpm_load((xpm_map_t)maca_xpm, XPM_8_8_8, &(apple.img))
-  > xpm_load(addr: 0x822f1cc, XPM_8_8_8, addr: 0x824c514)
-  < xpm_load(addr: 0x822f1cc, XPM_8_8_8, addr: 0x824c514 [40x40 : 4800 bytes]) -> (ret: 0x8252000)
-  @objects.c:39, init_objects
-    xpm_load((xpm_map_t)cobra_esquerda_xpm, XPM_8_8_8, &snakehead.imgLeft)
-  > xpm_load(addr: 0x822f3a0, XPM_8_8_8, addr: 0x824c6c8)
-  < xpm_load(addr: 0x822f3a0, XPM_8_8_8, addr: 0x824c6c8 [50x50 : 7500 bytes]) -> (ret: 0x8254000)
+  > xpm_load(addr: 0x8232240, XPM_8_8_8, addr: 0x824fb34)
+  < xpm_load(addr: 0x8232240, XPM_8_8_8, addr: 0x824fb34 [40x40 : 4800 bytes]) -> (ret: 0x8256000)
   @objects.c:40, init_objects
-    xpm_load((xpm_map_t)cobra_direita_xpm, XPM_8_8_8, &snakehead.imgRight)
-  > xpm_load(addr: 0x822f4f0, XPM_8_8_8, addr: 0x824c6dc)
-  < xpm_load(addr: 0x822f4f0, XPM_8_8_8, addr: 0x824c6dc [50x50 : 7500 bytes]) -> (ret: 0x8256000)
+    xpm_load((xpm_map_t)cobra_esquerda_xpm, XPM_8_8_8, &snakehead.imgLeft)
+  > xpm_load(addr: 0x8232414, XPM_8_8_8, addr: 0x824fce8)
+  < xpm_load(addr: 0x8232414, XPM_8_8_8, addr: 0x824fce8 [50x50 : 7500 bytes]) -> (ret: 0x8258000)
   @objects.c:41, init_objects
-    xpm_load((xpm_map_t)cobra_baixo_xpm, XPM_8_8_8, &snakehead.imgDown)
-  > xpm_load(addr: 0x822f658, XPM_8_8_8, addr: 0x824c6b4)
-  < xpm_load(addr: 0x822f658, XPM_8_8_8, addr: 0x824c6b4 [50x50 : 7500 bytes]) -> (ret: 0x8258000)
+    xpm_load((xpm_map_t)cobra_direita_xpm, XPM_8_8_8, &snakehead.imgRight)
+  > xpm_load(addr: 0x8232564, XPM_8_8_8, addr: 0x824fcfc)
+  < xpm_load(addr: 0x8232564, XPM_8_8_8, addr: 0x824fcfc [50x50 : 7500 bytes]) -> (ret: 0x825b000)
   @objects.c:42, init_objects
+    xpm_load((xpm_map_t)cobra_baixo_xpm, XPM_8_8_8, &snakehead.imgDown)
+  > xpm_load(addr: 0x8232980, XPM_8_8_8, addr: 0x824fcd4)
+  < xpm_load(addr: 0x8232980, XPM_8_8_8, addr: 0x824fcd4 [50x50 : 7500 bytes]) -> (ret: 0x825d000)
+  @objects.c:43, init_objects
     xpm_load((xpm_map_t)cobra_cima_xpm, XPM_8_8_8, &snakehead.imgUp)
-  > xpm_load(addr: 0x822f774, XPM_8_8_8, addr: 0x824c6a0)
-  < xpm_load(addr: 0x822f774, XPM_8_8_8, addr: 0x824c6a0 [50x50 : 7500 bytes]) -> (ret: 0x825a000)
-  @objects.c:44, init_objects
+  > xpm_load(addr: 0x8232a9c, XPM_8_8_8, addr: 0x824fcc0)
+  < xpm_load(addr: 0x8232a9c, XPM_8_8_8, addr: 0x824fcc0 [50x50 : 7500 bytes]) -> (ret: 0x825f000)
+  @objects.c:45, init_objects
     xpm_load((xpm_map_t)cobra_corpo_xpm, XPM_8_8_8, &snakeBody.img)
-  > xpm_load(addr: 0x822f898, XPM_8_8_8, addr: 0x824c548)
-  < xpm_load(addr: 0x822f898, XPM_8_8_8, addr: 0x824c548 [50x50 : 7500 bytes]) -> (ret: 0x825c000)
-  @proj.c:38, single_player
-    printf("%d", numOfBodyParts)
-    "2"
+  > xpm_load(addr: 0x8232bc0, XPM_8_8_8, addr: 0x824fb8c)
+  < xpm_load(addr: 0x8232bc0, XPM_8_8_8, addr: 0x824fb8c [32x32 : 3072 bytes]) -> (ret: 0x825a000)
+  @objects.c:46, init_objects
+    xpm_load((xpm_map_t)cobra_cauda_xpm, XPM_8_8_8, &snakeTail.img)
+  > xpm_load(addr: 0x8232d18, XPM_8_8_8, addr: 0x824fb58)
+  < xpm_load(addr: 0x8232d18, XPM_8_8_8, addr: 0x824fb58 [32x32 : 3072 bytes]) -> (ret: 0x8262000)
+  @proj.c:66, proj_main_loop
+    vg_exit()
+  < vg_exit() -> (ret: 0)
 < proj_main_loop(0, [NULL]) -> (ret: 0)
