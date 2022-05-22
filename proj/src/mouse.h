@@ -1,7 +1,7 @@
 #ifndef __MOUSE_H
 #define __MOUSE_H
 #include <minix/sysutil.h>
-#include "utils.h"
+#include "../../lab4/utils.h"
 int hook_idR;
 int mouse_number_bytes;
 uint8_t mouse[3];

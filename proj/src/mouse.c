@@ -2,7 +2,7 @@
 #include <stdbool.h>
 #include <stdint.h>
 #include <lcom/lcf.h>
-#include "i8042.h"
+#include "../../lab4/i8042.h"
 
 int hook_idR=0;
 int mouse_number_bytes=0;
