@@ -1,5 +1,6 @@
 #include "graphics.h"
 #include "macros.h"
+#include "string.h"
 
 int (setMode)(uint16_t mode){
 
@@ -49,24 +50,28 @@ int (vg_draw_hline)(uint16_t x, uint16_t y, uint16_t len, uint32_t color){
 }
 
 void (draw_xpm)(xpm_image_t img, uint8_t *map, int x, int y){
-    for(uint8_t col = 0; col < img.width; col++){
-      for(uint8_t row = 0; row < img.height; row++){
-        uint32_t color=0;
-        for (size_t byte = 0; byte < bytes_per_pixel; byte++) {
-                color |= (*(map + (col+ row * img.width) * bytes_per_pixel + byte)) << (byte * 8);
+
+    uint32_t transparentColor = xpm_transparency_color(img.type);
+    for(unsigned row = 0; row < img.height && y + row < vmi_p.YResolution; row++){
+        for(unsigned col=0; col < img.width && x + col < vmi_p.XResolution; col++){
+
+            unsigned int p = (x+ col + (y + row) * h_res) * bytes_per_pixel;
+            unsigned color_position = (row*img.width+ col)*bytes_per_pixel;
+            
+            if (memcmp( &img.bytes[color_position] , (char*)&transparentColor, bytes_per_pixel) == 0 )
+                continue;
+            
+            memcpy((void *)((unsigned int)video_mem + p), &img.bytes[color_position], bytes_per_pixel);
+                
         }
-        if (color == xpm_transparency_color(img.type))
-            continue;
-        else
-            drawPixel(x + col, y+row, color);
-        }
-  }
+    }
 }
 
 void (drawPixel)(uint16_t x, uint16_t y,uint32_t color){
     unsigned int p = (x + y * h_res) * bytes_per_pixel;
     memcpy(video_mem + p, &color,bytes_per_pixel);
 }
+
 int (vg_draw_rectangle)(uint16_t x, uint16_t y,uint16_t width, uint16_t height, uint32_t color){
     for (uint16_t i = 0; i < height; i++)
        if(vg_draw_hline(x, y+i, width, color))

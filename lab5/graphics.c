@@ -52,6 +52,7 @@ void (drawPixel)(uint16_t x, uint16_t y,uint32_t color){
     unsigned int p = (x + y * h_res) * bytes_per_pixel;
     memcpy(video_mem + p, &color,bytes_per_pixel);
 }
+
 int (vg_draw_rectangle)(uint16_t x, uint16_t y,uint16_t width, uint16_t height, uint32_t color){
     for (uint16_t i = 0; i < height; i++)
        if(vg_draw_hline(x, y+i, width, color))
