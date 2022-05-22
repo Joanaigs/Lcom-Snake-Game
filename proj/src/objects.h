@@ -28,8 +28,9 @@ typedef struct{
     uint8_t *map;
 }object;
 
-object apple;
-object badApple;
+object goodApple;
+object brownApple;
+object blackApple;
 object snakeBody;
 object snakeTail;
 snake_head snakehead;
@@ -37,7 +38,9 @@ snake_head snakehead;
 int numOfBodyParts;
 
 void (init_objects)();
-void (drawApple)();
+void (drawGoodApple)();
+void (drawBlackApple)();
+void (drawBrownApple)();
 void (drawSnake)(char * direction);
 void (drawSnakeBody)();
 void (addBodyPart)();

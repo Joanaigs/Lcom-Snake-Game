@@ -6,6 +6,8 @@
 #include "images/cabeca_cobra_esq.xpm"
 #include "images/corpo_cobra.xpm"
 #include "images/cauda_cobra.xpm"
+#include "images/maca_castanha.xpm"
+#include "images/maca_preta.xpm"
 int (drawBackground)(){
   uint32_t lightGreen=SET_COLOR(170, 215, 81);
   uint32_t darkGreen=SET_COLOR(148, 191, 67);
@@ -35,8 +37,12 @@ int (drawBackground)(){
 }
 
 void (init_objects)(){
-  apple.map = xpm_load((xpm_map_t)maca_xpm, XPM_8_8_8, &(apple.img));
-  apple.x=55; apple.y=1;
+  goodApple.map = xpm_load((xpm_map_t)maca_xpm, XPM_8_8_8, &(goodApple.img));
+  goodApple.x=55; goodApple.y=1;
+  blackApple.map = xpm_load((xpm_map_t)maca_preta_xpm, XPM_8_8_8, &(blackApple.img));
+  blackApple.x=0; blackApple.y=1;
+  brownApple.map = xpm_load((xpm_map_t)maca_castanha_xpm, XPM_8_8_8, &(brownApple.img));
+  brownApple.x=55; brownApple.y=400;
   snakehead.mapLeft=xpm_load((xpm_map_t)cobra_esquerda_xpm, XPM_8_8_8, &snakehead.imgLeft);
   snakehead.mapRight=xpm_load((xpm_map_t)cobra_direita_xpm, XPM_8_8_8, &snakehead.imgRight);
   snakehead.mapDown=xpm_load((xpm_map_t)cobra_baixo_xpm, XPM_8_8_8, &snakehead.imgDown);
@@ -48,8 +54,16 @@ void (init_objects)(){
   numOfBodyParts=1;
 }
 
-void (drawApple)(){
-  draw_xpm(apple.img, apple.map, apple.x, apple.y);
+void (drawGoodApple)(){
+  draw_xpm(goodApple.img, goodApple.map, goodApple.x, goodApple.y);
+}
+
+void (drawBlackApple)(){
+  draw_xpm(blackApple.img,blackApple.map, blackApple.x, blackApple.y);
+}
+
+void (drawBrownApple)(){
+  draw_xpm(brownApple.img, brownApple.map, brownApple.x, brownApple.y);
 }
 
 void (drawSnake)(char * direction){

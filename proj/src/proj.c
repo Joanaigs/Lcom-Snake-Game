@@ -35,7 +35,9 @@ bool single_player(){
   drawBackground();
   init_objects();
   addBodyPart();
-  drawApple();
+  drawGoodApple();
+  drawBlackApple();
+  drawBrownApple();
   drawSnake("RIGHT");
   return false;
 }
@@ -62,7 +64,7 @@ int(proj_main_loop)(int argc, char *argv[]) {
 
         }
     }
-
+  sleep(10);
   vg_exit(); //comentar se quiserem ver a imagem, isto fecha o ecra
   return 0;
 }
