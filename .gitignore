@@ -1,4 +1,10 @@
 .idea
+.depend
+.gdbinit
 train/lab5
-
+*.o
 train/
+*.d
+proj/src/trace.txt
+
+proj/src/proj
