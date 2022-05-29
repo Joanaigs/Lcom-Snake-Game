@@ -7,6 +7,11 @@
         "keyboard.h": "c",
         "lcf.h": "c",
         "*.xpm": "c",
-        "objects.h": "c"
+        "objects.h": "c",
+        "graphics.h": "c",
+        "timers.h": "c",
+        "stdio.h": "c",
+        "xiosbase": "c",
+        "ios": "c"
     }
 }

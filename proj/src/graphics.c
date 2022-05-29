@@ -67,6 +67,16 @@ void (draw_xpm)(xpm_image_t img, uint8_t *map, int x, int y){
     }
 }
 
+void (erase_xpm)(xpm_image_t img, int x, int y, xpm_image_t background){
+    for(uint8_t col = 0; col < img.width; col++){
+        for(uint8_t row = 0; row < img.height; row++){
+            unsigned int p = (x+ col + (y + row) * h_res) * bytes_per_pixel;
+            unsigned color_position = ((y+row)*background.width+ (x+col))*bytes_per_pixel;
+            memcpy((void *)((unsigned int)video_mem + p), &background.bytes[color_position], bytes_per_pixel);
+        }
+    }
+}
+
 void (drawPixel)(uint16_t x, uint16_t y,uint32_t color){
     unsigned int p = (x + y * h_res) * bytes_per_pixel;
     memcpy(video_mem + p, &color,bytes_per_pixel);

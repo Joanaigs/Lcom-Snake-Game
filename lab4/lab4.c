@@ -147,8 +147,7 @@ int (mouse_test_gesture)(uint8_t x_len, uint8_t tolerance) {
                             mouse_print_packet(&p);
                             event = mouse_get_event(&p);
 
-                            if(!state_machine(event, x_len, tolerance))
-                                good=0;
+                        
                         }
                     }
                     break;
