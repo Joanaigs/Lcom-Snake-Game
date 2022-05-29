@@ -7,8 +7,8 @@
 #include "timer.h"
 #include "snake.h"
 #include "objects.h"
-uint8_t fr_rate=60;
-int16_t speed=2;
+uint8_t fr_rate=6;
+int16_t speed=50;
 
 int (singlePlayerMode)(){
 
@@ -18,7 +18,6 @@ int (singlePlayerMode)(){
     drawBackground();
     
     init_snake();
-    drawSnake("UP", 200, 300);
     drawSnakeBody();
     uint16_t frames = sys_hz()/fr_rate;
     int ipc_status, r;
@@ -50,26 +49,26 @@ int (singlePlayerMode)(){
                   if(strcmp(snakeBody[0].direction, "UP")==0 ||strcmp(snakeBody[0].direction, "DOWN")==0){
                     if(scanCode[0]==D_MAKE_CODE || scanCode[1]==RIGHT_MAKE_CODE){
                       addBodyPart();
-                      snakeBody[0].prevDirection=snakeBody[0].direction;
                       snakeBody[0].direction="RIGHT";
-                      snakeBody[0].changex=snakeBody[0].x;snakeBody[0].changey=snakeBody[0].y;
+                      snakeBody[0].img=snakeBody[0].imgRight;
+                      snakeBody[0].map=snakeBody[0].mapRight;
                     }
                     if(scanCode[0]==A_MAKE_CODE || scanCode[1]==LEFT_MAKE_CODE){
-                      snakeBody[0].prevDirection=snakeBody[0].direction;
                       snakeBody[0].direction="LEFT";
-                      snakeBody[0].changex=snakeBody[0].x;snakeBody[0].changey=snakeBody[0].y;
+                      snakeBody[0].img=snakeBody[0].imgLeft;
+                      snakeBody[0].map=snakeBody[0].mapLeft;
                     }
                   }
                   else if(strcmp(snakeBody[0].direction, "LEFT")==0 ||strcmp(snakeBody[0].direction, "RIGHT")==0){
                     if(scanCode[0]==W_MAKE_CODE || scanCode[1]==UP_MAKE_CODE){
-                    snakeBody[0].prevDirection=snakeBody[0].direction;
-                    snakeBody[0].direction="UP";
-                    snakeBody[0].changex=snakeBody[0].x;snakeBody[0].changey=snakeBody[0].y;
+                      snakeBody[0].direction="UP";
+                      snakeBody[0].img=snakeBody[0].imgUp;
+                      snakeBody[0].map=snakeBody[0].mapUp;
                     }
                     if(scanCode[0]==S_MAKE_CODE || scanCode[1]==DOWN_MAKE_CODE){
-                      snakeBody[0].prevDirection=snakeBody[0].direction;
                       snakeBody[0].direction="DOWN";
-                      snakeBody[0].changex=snakeBody[0].x;snakeBody[0].changey=snakeBody[0].y;
+                      snakeBody[0].img=snakeBody[0].imgDown;
+                      snakeBody[0].map=snakeBody[0].mapDown;
                     }
                   }
                 }
@@ -88,4 +87,6 @@ int (singlePlayerMode)(){
     if(vg_exit()) return 1;
     return 0;
 }
+
+
 

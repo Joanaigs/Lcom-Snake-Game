@@ -23,12 +23,11 @@ typedef struct{
     xpm_image_t imgRight;
     uint8_t *mapRight;
 }snake_part;
-snake_part head;
-snake_part bend[500];
 snake_part snakeBody[192];
 snake_part snakeTail;
 int numOfBodyParts;
 int numBend;
+int len;
 
 int (movement)(int16_t speed );
 void (init_snake)();
