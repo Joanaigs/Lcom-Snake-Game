@@ -14,7 +14,6 @@
 #include "objects.h"
 
 int snakeLenght = 50;
-int snakeHeight = 32;
 
 void(init_snake)() {
   snakeBody[0].mapLeft = xpm_load((xpm_map_t) cobra_esquerda_xpm, XPM_8_8_8, &snakeBody[0].imgLeft);
@@ -124,16 +123,13 @@ int(colisionItselph)() {
     if (strcmp(snakeBody[0].direction, "UP") == 0) {
     }
     else if (strcmp(snakeBody[0].direction, "DOWN") == 0) {
-      if (((snakeBody[0].y + snakeLenght)  >= snakeBody[i].y && (snakeBody[0].y + snakeLenght)  <= (snakeBody[i].y + snakeHeight))
-       && ((snakeBody[0].x)  >= snakeBody[i].x && (snakeBody[0].x)  <= (snakeBody[i].x + snakeLenght))) {
+      if (((snakeBody[0].y + snakeLenght) >= snakeBody[i].y && (snakeBody[0].y + snakeLenght) <= (snakeBody[i].y + snakeLenght)) && ((snakeBody[0].x) >= snakeBody[i].x && (snakeBody[0].x) <= (snakeBody[i].x + snakeLenght))) {
         return 1;
       }
     }
     else if (strcmp(snakeBody[0].direction, "RIGHT") == 0) {
-      
     }
     else if (strcmp(snakeBody[0].direction, "LEFT") == 0) {
-      
     }
   }
   return 0;
@@ -141,28 +137,8 @@ int(colisionItselph)() {
 
 void(moveBodyParts)() {
   for (int i = numOfBodyParts; i > 0; i--) {
-    if (i == 1) {
-      if (strcmp(snakeBody[0].direction, "UP") == 0) {
-        snakeBody[i].x = snakeBody[i - 1].x;
-        snakeBody[i].y = snakeBody[i - 1].y;
-      }
-      else if (strcmp(snakeBody[0].direction, "DOWN") == 0) {
-        snakeBody[i].x = snakeBody[i - 1].x ;
-        snakeBody[i].y = snakeBody[i - 1].y;
-      }
-      else if (strcmp(snakeBody[0].direction, "RIGHT") == 0) {
-        snakeBody[i].x = snakeBody[i - 1].x;
-        snakeBody[i].y = snakeBody[i - 1].y ;
-      }
-      else if (strcmp(snakeBody[0].direction, "LEFT") == 0) {
-        snakeBody[i].x = snakeBody[i - 1].x;
-        snakeBody[i].y = snakeBody[i - 1].y;
-      }
-    }
-    else {
-      snakeBody[i].x = snakeBody[i - 1].x;
-      snakeBody[i].y = snakeBody[i - 1].y;
-    }
+    snakeBody[i].x = snakeBody[i - 1].x;
+    snakeBody[i].y = snakeBody[i - 1].y;
     snakeBody[i].direction = snakeBody[i - 1].direction;
     if (strcmp(snakeBody[i].direction, "UP") == 0) {
       snakeBody[i].img = snakeBody[i].imgUp;
@@ -226,8 +202,8 @@ int(movement)(int16_t speed) {
     }
     snakeBody[0].x -= speed;
   }
-  if(colisionItselph()) return 1;
+  // if(colisionItselph()) return 1;
   drawSnakeBody();
-  //if(colisionItselph()) return 1;
+  // if(colisionItselph()) return 1;
   return 0;
 }
