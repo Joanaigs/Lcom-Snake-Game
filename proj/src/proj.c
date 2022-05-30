@@ -34,7 +34,6 @@ bool single_player(){
   if(singlePlayerMode()){
     return false;
   }
-  sleep(2);
   return false;
 }
 
