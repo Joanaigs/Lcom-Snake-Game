@@ -37,11 +37,6 @@ int main(int argc, char *argv[]) {
 bool single_player(){
   drawBackground();
   init_objects();
-  addBodyPart();
-  drawGoodApple();
-  drawBlackApple();
-  drawBrownApple();
-  drawSnake("RIGHT");
 
   // rato para depois                  MARIANA E INESI
   //colocar maças pretas
@@ -76,14 +71,15 @@ bool single_player(){
                             //EVENTO DO CLIQUE
                             struct mouse_ev event = mouse_get_event(&p);
                             if(event.type == LB_RELEASED){
-                              addBrownApple(p.delta_x, p.delta_y);
+                              addBrownApple(c.x , c.y);
                             }
+
                             drawBackground();
-                            drawSnake("RIGHT");
+                            //drawSnake("RIGHT");
                             drawBrownApple();
 
                             // DRAW RATO (meter dentro do timer para desenhar cada frame)
-                            drawCursor(&c);
+                            //drawCursor(&c);
 
                         }
                     }
