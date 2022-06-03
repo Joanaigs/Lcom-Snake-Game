@@ -50,10 +50,12 @@ void (init_objects)(){
 
 void (drawGoodApple)(){
   draw_xpm(goodApple.img, goodApple.map, goodApple.x, goodApple.y);
+  goodApple.x+=10;
 }
 
 void (drawBlackApple)(){
   draw_xpm(blackApple.img,blackApple.map, blackApple.x, blackApple.y);
+  blackApple.x+=30; 
 }
 
 void (addBrownApple)(int x, int y){
@@ -65,7 +67,6 @@ void (addBrownApple)(int x, int y){
 }
 
 void (drawBrownApple)(){
-  for(int i = 0 ; i < nBrownApples; i++){
-    draw_xpm( brownApples[i].img, brownApples[i].img.bytes, brownApples[i].x, brownApples[i].y);
-  }
+  draw_xpm(brownApple.img, brownApple.map, brownApple.x, brownApple.y);
+  blackApple.x+=30; 
 }

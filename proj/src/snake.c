@@ -196,6 +196,5 @@ int(movement)(int16_t speed) {
   }
   if(colisionWithItSelf()) return 1;
   drawSnakeBody();
-  // if(colisionItselph()) return 1;
   return 0;
 }
