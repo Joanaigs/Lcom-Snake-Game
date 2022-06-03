@@ -7,7 +7,7 @@
 #include "graphics.h"
 #include "mouse.h"
 #include "cursor.h"
-#include "images/maca_preta.xpm"
+#include "images/mouse_cursor.xpm"
 enum BaseState baseState;
 int main(int argc, char *argv[]) {
   // sets the language of LCF messages (can be either EN-US or PT-PT)
@@ -53,7 +53,7 @@ bool single_player(){
     cursor c;
     c.x = 0;
     c.y = 0;
-    xpm_load((xpm_map_t)maca_preta_xpm, XPM_8_8_8, &(c.img));
+    xpm_load((xpm_map_t)mouse_cursor.xpm, XPM_8_8_8, &(c.img));
     
     int counter = 0;
     while (counter < 1000) {
