@@ -53,7 +53,7 @@ bool single_player(){
     cursor c;
     c.x = 0;
     c.y = 0;
-    xpm_load((xpm_map_t)mouse_cursor.xpm, XPM_8_8_8, &(c.img));
+    xpm_load((xpm_map_t)mouse_cursor, XPM_8_8_8, &(c.img));
     
     int counter = 0;
     while (counter < 1000) {
