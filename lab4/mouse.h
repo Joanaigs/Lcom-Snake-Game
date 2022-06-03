@@ -11,7 +11,7 @@ uint8_t scanCode;
 int (mouse_subscrive)(uint8_t *bit_no);
 struct packet (parse_packet)();
 void (mouse_ih)();
-int (mouse_unsubscrive)();
+int (mouse_unsubscribe)();
 void (kbc_restore_mouse)() ;
 struct mouse_ev* (mouse_get_event)(struct packet *pp) ;
 

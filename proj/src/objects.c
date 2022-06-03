@@ -8,6 +8,8 @@
 #include "images/cauda_cobra.xpm"
 #include "images/maca_castanha.xpm"
 #include "images/maca_preta.xpm"
+
+
 int (drawBackground)(){
   uint32_t lightGreen=SET_COLOR(170, 215, 81);
   uint32_t darkGreen=SET_COLOR(148, 191, 67);
@@ -52,6 +54,7 @@ void (init_objects)(){
   snakeTail.map=xpm_load((xpm_map_t)cobra_cauda_xpm, XPM_8_8_8, &snakeTail.img);
   snakeBody.x=snakehead.x+snakehead.imgUp.width+1;snakeBody.y=snakehead.y+snakehead.imgUp.height+1;
   numOfBodyParts=1;
+  nBrownApples = 0;
 }
 
 void (drawGoodApple)(){
@@ -60,10 +63,6 @@ void (drawGoodApple)(){
 
 void (drawBlackApple)(){
   draw_xpm(blackApple.img,blackApple.map, blackApple.x, blackApple.y);
-}
-
-void (drawBrownApple)(){
-  draw_xpm(brownApple.img, brownApple.map, brownApple.x, brownApple.y);
 }
 
 void (drawSnake)(char * direction){
@@ -117,4 +116,18 @@ void (addBodyPart)(){
 
 void (removeBodyPart)(int n){
   numOfBodyParts-=n;
+}
+
+void (addBrownApple)(int x, int y){
+  if(nBrownApples >= 4) nBrownApples = 0;
+  brownApples[nBrownApples].x = x;
+  brownApples[nBrownApples].y = y;
+  xpm_load((xpm_map_t)maca_castanha_xpm,XPM_8_8_8, &(brownApples[nBrownApples].img));
+  nBrownApples++;
+}
+
+void (drawBrownApple)(){
+  for(int i = 0 ; i < nBrownApples; i++){
+    draw_xpm( brownApples[i].img, brownApples[i].img.bytes, brownApples[i].x, brownApples[i].y);
+  }
 }

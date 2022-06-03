@@ -69,7 +69,7 @@ int (mouse_test_packet)(uint32_t cnt) {
             /* no standart message expected: do nothing */
         }
     }
-    if (mouse_unsubscrive()) return 1; // unsubscribes interrupts
+    if (mouse_unsubscribe()) return 1; // unsubscribes interrupts
     kbc_restore_mouse();
     return 0;
 }
@@ -117,7 +117,7 @@ int (mouse_test_async)(uint8_t idle_time) {
             /* no standart message expected: do nothing */
         }
     }
-    if (mouse_unsubscrive()) return 1; // unsubscribes interrupts
+    if (mouse_unsubscribe()) return 1; // unsubscribes interrupts
     if(timer_unsubscribe_int())return 1;
     kbc_restore_mouse();
     return 0;
@@ -159,7 +159,7 @@ int (mouse_test_gesture)(uint8_t x_len, uint8_t tolerance) {
             /* no standart message expected: do nothing */
         }
     }
-    if (mouse_unsubscrive()) return 1; // unsubscribes interrupts
+    if (mouse_unsubscribe()) return 1; // unsubscribes interrupts
     kbc_restore_mouse();
     return 0;
 }

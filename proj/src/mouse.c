@@ -2,12 +2,13 @@
 #include <stdbool.h>
 #include <stdint.h>
 #include <lcom/lcf.h>
-#include "../../lab4/i8042.h"
+#include "i8042.h"
 
 int hook_idR=0;
 int mouse_number_bytes=0;
 uint8_t command;
-int (mouse_subscrive)(uint8_t *bit_no){
+
+int (mouse_subscribe)(uint8_t *bit_no){
     *bit_no=BIT(hook_idR);
     return sys_irqsetpolicy(MOUSE_IRQ,IRQ_REENABLE|IRQ_EXCLUSIVE,&hook_idR);
 }
@@ -20,10 +21,18 @@ struct packet (parse_packet)(){
     pp.rb       = pp.bytes[0] & RIGHT_BUTTON;
     pp.mb       = pp.bytes[0] & MIDDLE_BUTTON;
     pp.lb       = pp.bytes[0] & LEFT_BUTTON;
-    pp.delta_x  = (int16_t)(((0xFF * ((mouse[0] & MSB_X_DELTA) != 0))<<8) |  pp.bytes[1]);
-    pp.delta_y  = (int16_t)(((0xFF * ((mouse[0] & MSB_Y_DELTA) != 0))<<8) |  pp.bytes[2]);
     pp.x_ov     = pp.bytes[0] & X_OVERFLOW;
     pp.y_ov     = pp.bytes[0] & Y_OVERFLOW;
+
+    bool x_neg = pp.bytes[0] & MSB_X_DELTA;
+    bool y_neg = pp.bytes[0] & MSB_Y_DELTA;
+    int16_t delta_x=pp.bytes[1],delta_y=pp.bytes[2];
+    if(x_neg) delta_x |= 0xFF00;
+    if(y_neg) delta_y |= 0xFF00;
+            
+    pp.delta_x = delta_x;
+    pp.delta_y = delta_y;
+
     return pp;
 }
 
@@ -43,7 +52,7 @@ void (mouse_ih)(){
      mouse_number_bytes++;
 }	
 
-int (mouse_unsubscrive)(){
+int (mouse_unsubscribe)(){
     return sys_irqrmpolicy(&hook_idR);
 }
 
@@ -89,12 +98,12 @@ enum states {
     DOWN,
     FINAL
 };
-struct mouse_ev* (mouse_get_event)(struct packet *pp) {
+struct mouse_ev (mouse_get_event)(struct packet *pp) {
     static struct mouse_ev event;
     static uint8_t last = 0;
 
     if (pp == NULL)
-        return &event;
+        return event;
 
     // current button presses
     uint8_t button_presses = pp->bytes[0] & (LEFT_BUTTON | RIGHT_BUTTON | MIDDLE_BUTTON);
@@ -125,114 +134,5 @@ struct mouse_ev* (mouse_get_event)(struct packet *pp) {
 
     event.delta_x = delta_x;
     event.delta_y = delta_y;
-    return &event;
-}
-
-
-int (state_machine)(struct mouse_ev* event, uint8_t x_len, uint8_t tolerance) {
-
-    static enum states state = INITIAL;
-    static int response = 1;
-    static int x_length = 0;
-    static int y_length = 0;
-
-    if (event == NULL)
-        return response;
-
-    switch (state) {
-        case INITIAL:
-            if (event->type == LB_PRESSED)
-                state = UP;
-            break;
-        case UP:
-            if (event->type == MOUSE_MOV) {
-                if (event->delta_x < -tolerance || event->delta_y < -tolerance) {
-                    state = INITIAL;
-                    x_length = 0;
-                    y_length = 0;
-                    break;
-                }
-
-                x_length += event->delta_x;
-                y_length += event->delta_y;
-            } else if (event->type == LB_RELEASED) {
-                if (y_length < x_length || x_length < x_len) {
-                    state = INITIAL;
-                    x_length = 0;
-                    y_length = 0;
-                    break;
-                }
-
-                state = VERTEX;
-                x_length = 0;
-                y_length = 0;
-            } else {
-                state = INITIAL;
-                x_length = 0;
-                y_length = 0;
-            }
-            break;
-        case VERTEX:
-            if (event->type == MOUSE_MOV) {
-                x_length += event->delta_x;
-                y_length += event->delta_y;
-                if (abs(x_length) > tolerance || abs(y_length) > tolerance) {
-                    state = INITIAL;
-                    x_length = 0;
-                    y_length = 0;
-                }
-            } else if (event->type == RB_PRESSED) {
-                state =DOWN;
-                x_length = 0;
-                y_length = 0;
-            } else if (event->type == LB_PRESSED) {
-                state =UP;
-                x_length = 0;
-                y_length = 0;
-            } else {
-                state = INITIAL;
-                x_length = 0;
-                y_length = 0;
-            }
-            break;
-        case DOWN:
-            if (event->type == MOUSE_MOV) {
-                if (event->delta_x < -tolerance || event->delta_y > tolerance) {
-                    state = INITIAL;
-                    x_length = 0;
-                    y_length = 0;
-                    break;
-                }
-
-                x_length += event->delta_x;
-                y_length += event->delta_y;
-            } else if (event->type == RB_RELEASED) {
-                if (x_length == 0 || y_length == 0) {
-                    state = INITIAL;
-                    break;
-                }
-
-                if (y_length > -x_length || x_length < x_len) {
-                    state = INITIAL;
-                    x_length = 0;
-                    y_length = 0;
-                    break;
-                }
-
-                state = FINAL;
-                response = 0;
-                x_length = 0;
-                y_length = 0;
-            } else {
-                state = INITIAL;
-                x_length = 0;
-                y_length = 0;
-            }
-            break;
-        case FINAL: // acception state
-            response = 0;
-        default: // invalid state / dead state
-            response = 1;
-    }
-    return response;
+    return event;
 }

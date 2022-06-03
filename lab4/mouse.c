@@ -43,7 +43,7 @@ void (mouse_ih)(){
     mouse_number_bytes++;
 }
 
-int (mouse_unsubscrive)(){
+int (mouse_unsubscribe)(){
     return sys_irqrmpolicy(&hook_idR);
 }
 
