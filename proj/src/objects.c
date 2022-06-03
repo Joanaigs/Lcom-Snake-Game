@@ -5,6 +5,11 @@
 #include "images/cabeca_cobra_dir.xpm"
 #include "images/cabeca_cobra_esq.xpm"
 #include "images/corpo_cobra.xpm"
+#include "images/cauda_cobra.xpm"
+#include "images/maca_castanha.xpm"
+#include "images/maca_preta.xpm"
+
+
 int (drawBackground)(){
   uint32_t lightGreen=SET_COLOR(170, 215, 81);
   uint32_t darkGreen=SET_COLOR(148, 191, 67);
@@ -34,20 +39,30 @@ int (drawBackground)(){
 }
 
 void (init_objects)(){
-  apple.map = xpm_load((xpm_map_t)maca_xpm, XPM_8_8_8, &(apple.img));
-  apple.x=55; apple.y=1;
+  goodApple.map = xpm_load((xpm_map_t)maca_xpm, XPM_8_8_8, &(goodApple.img));
+  goodApple.x=55; goodApple.y=1;
+  blackApple.map = xpm_load((xpm_map_t)maca_preta_xpm, XPM_8_8_8, &(blackApple.img));
+  blackApple.x=0; blackApple.y=1;
+  brownApple.map = xpm_load((xpm_map_t)maca_castanha_xpm, XPM_8_8_8, &(brownApple.img));
+  brownApple.x=55; brownApple.y=400;
   snakehead.mapLeft=xpm_load((xpm_map_t)cobra_esquerda_xpm, XPM_8_8_8, &snakehead.imgLeft);
   snakehead.mapRight=xpm_load((xpm_map_t)cobra_direita_xpm, XPM_8_8_8, &snakehead.imgRight);
   snakehead.mapDown=xpm_load((xpm_map_t)cobra_baixo_xpm, XPM_8_8_8, &snakehead.imgDown);
   snakehead.mapUp=xpm_load((xpm_map_t)cobra_cima_xpm, XPM_8_8_8, &snakehead.imgUp);
-  snakehead.x=50;snakehead.y=45;
+  snakehead.x=100;snakehead.y=100;
   snakeBody.map=xpm_load((xpm_map_t)cobra_corpo_xpm, XPM_8_8_8, &snakeBody.img);
+  snakeTail.map=xpm_load((xpm_map_t)cobra_cauda_xpm, XPM_8_8_8, &snakeTail.img);
   snakeBody.x=snakehead.x+snakehead.imgUp.width+1;snakeBody.y=snakehead.y+snakehead.imgUp.height+1;
   numOfBodyParts=1;
+  nBrownApples = 0;
 }
 
-void (drawApple)(){
-  draw_xpm(apple.img, apple.map, apple.x, apple.y);
+void (drawGoodApple)(){
+  draw_xpm(goodApple.img, goodApple.map, goodApple.x, goodApple.y);
+}
+
+void (drawBlackApple)(){
+  draw_xpm(blackApple.img,blackApple.map, blackApple.x, blackApple.y);
 }
 
 void (drawSnake)(char * direction){
@@ -68,7 +83,7 @@ void (drawSnake)(char * direction){
   }
   else if(strcmp(direction, "RIGHT")==0){
     draw_xpm(snakehead.imgRight, snakehead.mapRight, snakehead.x, snakehead. y);
-    snakeBody.x=snakehead.x-snakehead.imgUp.width;snakeBody.y=snakehead.y;
+    snakeBody.x=snakehead.x-snakeBody.img.width;snakeBody.y=snakehead.y+9 ;
     snakehead.direction="RIGHT";
   }
   drawSnakeBody();
@@ -78,15 +93,19 @@ void (drawSnakeBody)(){
   for(int i=0; i<numOfBodyParts; i++){
     if(strcmp(snakehead.direction, "UP")==0){
       draw_xpm(snakeBody.img, snakeBody.map, snakeBody.x, snakeBody.y+i*snakeBody.img.height);
+      draw_xpm(snakeTail.img, snakeTail.map, snakeBody.x, snakeBody.y+(i+1)*snakeBody.img.height);
     }
     else if(strcmp(snakehead.direction, "DOWN")==0){
       draw_xpm(snakeBody.img, snakeBody.map, snakeBody.x, snakeBody.y-i*snakeBody.img.height);
+      draw_xpm(snakeTail.img, snakeTail.map, snakeBody.x, snakeBody.y-(i+1)*snakeBody.img.height);
     }
     else if(strcmp(snakehead.direction, "LEFT")==0){
       draw_xpm(snakeBody.img, snakeBody.map, snakeBody.x+i*snakeBody.img.width, snakeBody.y);
+      draw_xpm(snakeTail.img, snakeTail.map, snakeBody.x+(i+1)*snakeBody.img.width, snakeBody.y);
     }
     else if(strcmp(snakehead.direction, "RIGHT")==0){
       draw_xpm(snakeBody.img, snakeBody.map, snakeBody.x-i*snakeBody.img.width, snakeBody. y);
+      draw_xpm(snakeTail.img, snakeTail.map, snakeBody.x-(i+1)*snakeBody.img.width, snakeBody.y);
     }
   }
 }
@@ -97,4 +116,18 @@ void (addBodyPart)(){
 
 void (removeBodyPart)(int n){
   numOfBodyParts-=n;
+}
+
+void (addBrownApple)(int x, int y){
+  if(nBrownApples >= 4) nBrownApples = 0;
+  brownApples[nBrownApples].x = x;
+  brownApples[nBrownApples].y = y;
+  xpm_load((xpm_map_t)maca_castanha_xpm,XPM_8_8_8, &(brownApples[nBrownApples].img));
+  nBrownApples++;
+}
+
+void (drawBrownApple)(){
+  for(int i = 0 ; i < nBrownApples; i++){
+    draw_xpm( brownApples[i].img, brownApples[i].img.bytes, brownApples[i].x, brownApples[i].y);
+  }
 }

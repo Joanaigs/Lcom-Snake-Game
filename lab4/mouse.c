@@ -2,7 +2,7 @@
 #include <stdbool.h>
 #include <stdint.h>
 #include <lcom/lcf.h>
-#include "i8042.h"
+#include "../../lab4/i8042.h"
 
 int hook_idR=0;
 int mouse_number_bytes=0;
@@ -30,56 +30,56 @@ struct packet (parse_packet)(){
 void (mouse_ih)(){
     if(mouse_number_bytes>=3) mouse_number_bytes=0;
     if(util_sys_inb(STATUS_REG, &statusCode))
-                      return;
+        return;
     if((statusCode & PARITY_BIT) || (statusCode & TIME_OUT_BIT)){
         printf("error");
         return;
     }
     if(!(statusCode & OBF) || !(statusCode & AUX_MOUSE))
-      return;
+        return;
     if(util_sys_inb(OUTPUT_BUF, &scanCode))
         printf("error");
-     mouse[mouse_number_bytes] = scanCode;
-     mouse_number_bytes++;
-}	
+    mouse[mouse_number_bytes] = scanCode;
+    mouse_number_bytes++;
+}
 
-int (mouse_unsubscrive)(){
+int (mouse_unsubscribe)(){
     return sys_irqrmpolicy(&hook_idR);
 }
 
 void (kbc_restore_mouse)() {
-  // Issuing a command to get the command byte
-  for(int i=0; i<5; i++) {
-    util_sys_inb(STATUS_REG, &statusCode); /* assuming it returns OK */
-    /* loop while 8042 input buffer is not empty */
-    if ((statusCode & IN_BUF_FULL) == 0) {
-      sys_outb(KBC_CMD, READ_KBC_CMD); /* no args command */
-      break;
+    // Issuing a command to get the command byte
+    for(int i=0; i<5; i++) {
+        util_sys_inb(STATUS_REG, &statusCode); /* assuming it returns OK */
+        /* loop while 8042 input buffer is not empty */
+        if ((statusCode & IN_BUF_FULL) == 0) {
+            sys_outb(KBC_CMD, READ_KBC_CMD); /* no args command */
+            break;
+        }
+        tickdelay(micros_to_ticks(DELAY));
     }
-    tickdelay(micros_to_ticks(DELAY));
-  }
-  for(int i=0; i<5; i++) {
-    util_sys_inb(STATUS_REG, &statusCode); /* assuming it returns OK */
-    /* loop while 8042 output buffer is empty */
-    if (statusCode & OBF) {
-      util_sys_inb(OUTPUT_BUF, &command); /* ass. it returns OK */
-      if ((statusCode & (PARITY_BIT | TIME_OUT_BIT)) != 0)
-        continue;
+    for(int i=0; i<5; i++) {
+        util_sys_inb(STATUS_REG, &statusCode); /* assuming it returns OK */
+        /* loop while 8042 output buffer is empty */
+        if (statusCode & OBF) {
+            util_sys_inb(OUTPUT_BUF, &command); /* ass. it returns OK */
+            if ((statusCode & (PARITY_BIT | TIME_OUT_BIT)) != 0)
+                continue;
+        }
+        tickdelay(micros_to_ticks(DELAY));
     }
-    tickdelay(micros_to_ticks(DELAY));
-  }
-  command = command | INT_MOU;
-  //Issue new command
-  for(int i=0; i<5; i++) {
-    util_sys_inb(STATUS_REG, &statusCode); /* assuming it returns OK */
-    /* loop while 8042 input buffer is not empty */
-    if ((statusCode & IN_BUF_FULL) == 0) {
-      sys_outb(KBC_CMD, WRITE_KBC_CMD); //write commands
-      sys_outb(KBC_CMD_ARG, command); //write command argument
-      break;
+    command = command | INT_MOU;
+    //Issue new command
+    for(int i=0; i<5; i++) {
+        util_sys_inb(STATUS_REG, &statusCode); /* assuming it returns OK */
+        /* loop while 8042 input buffer is not empty */
+        if ((statusCode & IN_BUF_FULL) == 0) {
+            sys_outb(KBC_CMD, WRITE_KBC_CMD); //write commands
+            sys_outb(KBC_CMD_ARG, command); //write command argument
+            break;
+        }
+        tickdelay(micros_to_ticks(DELAY));
     }
-    tickdelay(micros_to_ticks(DELAY));
-  }
 
 }
 enum states {

@@ -61,7 +61,7 @@ int(video_test_rectangle)(uint16_t mode, uint16_t x, uint16_t y,
 
   if (vg_draw_rectangle(x,y,w,h, color)) {
        return 1; 
-  } 
+  }
   int ipc_status, r;
   message msg;
   uint8_t irq_set = 0;
@@ -96,7 +96,7 @@ int(video_test_pattern)(uint16_t mode, uint8_t no_rectangles, uint32_t first, ui
   if(vbe_get_mode_info(mode, &vmi_p)) return 1;
   vramMap();
   if(setMode(mode)) return 1;
-  uint16_t weight = h_res/no_rectangles;
+  uint16_t width = h_res/no_rectangles;
   uint16_t height = v_res/no_rectangles;
   uint32_t color, red, green, blue;
   for(uint8_t row = 0; row < no_rectangles; ++row){
@@ -109,9 +109,9 @@ int(video_test_pattern)(uint16_t mode, uint8_t no_rectangles, uint32_t first, ui
                 blue = (B(first) + (col+row)*step) % (1 <<vmi_p.BlueMaskSize);
                 color = SET_COLOR(red,green,blue);
             }
-            uint16_t x = col * weight;
+            uint16_t x = col * width;
             uint16_t y = row * height;
-            uint16_t w = (x + weight >h_res) ? (h_res - x) : (weight);
+            uint16_t w = (x + width >h_res) ? (h_res - x) : (width);
             uint16_t h = (y + height > v_res) ? (v_res - y) : (height);
             if (vg_draw_rectangle(x,y,w,h,color)) 
                 return 1;
@@ -192,8 +192,92 @@ int(video_test_xpm)(xpm_map_t xpm, uint16_t x, uint16_t y) {
 
 int(video_test_move)(xpm_map_t xpm, uint16_t xi, uint16_t yi, uint16_t xf, uint16_t yf,
                      int16_t speed, uint8_t fr_rate) {
+  if(vbe_get_mode_info(0x105, &vmi_p)) return 1;
+  vramMap();
+  if(setMode(0x105)) return 1;
+  xpm_image_t img;
+  uint8_t *map; 
   
-  return 1;
+  map = xpm_load(xpm, XPM_INDEXED, &img);
+  for(uint8_t col = 0; col < img.width; col++){
+      for(uint8_t row = 0; row < img.height; row++){
+          if ((xi + col) < vmi_p.XResolution && (yi + row) < vmi_p.YResolution) {
+            drawPixel(xi+col, yi+row, map[col+row*img.width]);
+          }
+      }
+  }  
+  uint16_t frames = sys_hz()/fr_rate;
+  int frameCounter=0;
+  int ipc_status, r;
+  int x=xi, y=yi;
+  message msg;
+  uint8_t irq_keyboard = 0, irq_timer=0;
+  if(timer_subscribe_int(&irq_timer)) return 1;
+  if (keyboard_subscribe(&irq_keyboard)) return 1;
+   while( scanCode[0]!=ESC_BREAK_CODE ) {
+     if ( (r = driver_receive(ANY, &msg, &ipc_status)) != 0 ) { 
+         printf("driver_receive failed with: %d", r);
+        continue;
+    }
+    if (is_ipc_notify(ipc_status)) { /* received notification */
+        switch (_ENDPOINT_P(msg.m_source)) {
+            case HARDWARE: /* hardware interrupt notification */				
+                if (msg.m_notify.interrupts & irq_timer) { /* subscribed interrupt */
+                  timer_int_handler();
+                  if(n_interrupts%frames==0){
+                    for(uint8_t col = 0; col < img.width; col++){
+                          for(uint8_t row = 0; row < img.height; row++){
+                              drawPixel(x+col, y+row, xpm_transparency_color(img.type));
+                          }
+                        }
+                    frameCounter++;
+                    if(speed>0){
+                      if(x==xf){
+                        y = (y+speed>yf) ? (y=yf) : (y+=speed);
+                      }
+                      else if(y==yf){
+                        x = (x+speed>xf) ? (x=xf) : (x+=speed);
+                      }
+                      for(uint8_t col = 0; col < img.width; col++){
+                        for(uint8_t row = 0; row < img.height; row++){
+                            drawPixel(x+col, y+row, map[col+row*img.width]);
+                        }
+                      }
+                    }
+                    else{
+                      if(frameCounter==abs(speed)){
+                        if(x==xf){
+                          y = (y+speed>yf) ? (y=yf) : (y+=speed);
+                        }
+                        else if(y==yf){
+                          x = (x+speed>xf) ? (x=xf) : (x+=speed);
+                        }
+                        for(uint8_t col = 0; col < img.width; col++){
+                          for(uint8_t row = 0; row < img.height; row++){
+                              drawPixel(x+col, y+row, map[col+row*img.width]);
+                          }
+                        }
+                      }
+                    }
+
+                  }
+                }
+                if (msg.m_notify.interrupts & irq_keyboard) { /* subscribed interrupt */
+                  kbc_ih();
+                }
+                
+                break;
+            default:
+                break; /* no other notifications expected: do nothing */	
+        }
+    } else { /* received a standard message, not a notification */
+        /* no standard messages expected: do nothing */
+    }
+ }
+  if (keyboard_unsubscribe()) return 1;  
+  if(timer_unsubscribe_int()) return 1;
+  if(vg_exit()) return 1;
+  return 0;
 }
 
 int(video_test_controller)() {

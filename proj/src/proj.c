@@ -5,7 +5,9 @@
 #include "objects.h"
 #include "macros.h"
 #include "graphics.h"
-#include "menu.h"
+#include "mouse.h"
+#include "cursor.h"
+#include "images/maca_preta.xpm"
 enum BaseState baseState;
 int main(int argc, char *argv[]) {
   // sets the language of LCF messages (can be either EN-US or PT-PT)
@@ -31,31 +33,84 @@ int main(int argc, char *argv[]) {
   return 0;
 }
 
-bool menu(){
-  drawMenu();
-  return false;
-}
 
 bool single_player(){
   drawBackground();
   init_objects();
   addBodyPart();
-  printf("%d", numOfBodyParts);
-  drawApple();
-  drawSnake("UP");
-  return false;
+  drawGoodApple();
+  drawBlackApple();
+  drawBrownApple();
+  drawSnake("RIGHT");
+
+  // rato para depois                  MARIANA E INESI
+  //colocar maças pretas
+   if(mouse_enable_data_reporting()) return 1;
+    int ipc_status, r;
+    message msg;
+    uint8_t mouse_set = 0;
+    if (mouse_subscribe(&mouse_set)) return 1;
+    cursor c;
+    c.x = 0;
+    c.y = 0;
+    xpm_load((xpm_map_t)maca_preta_xpm, XPM_8_8_8, &(c.img));
+    
+    int counter = 0;
+    while (counter < 1000) {
+
+        if ((r = driver_receive(ANY, &msg, &ipc_status)) != 0) {
+            printf("driver_receive failed with %d", r);
+            continue;
+        }
+        if (is_ipc_notify(ipc_status)) { 
+            switch (_ENDPOINT_P(msg.m_source)) {
+                case HARDWARE: 
+                    if (msg.m_notify.interrupts & mouse_set) { 
+                        mouse_ih();
+                        if(mouse_number_bytes >= 3){
+                            counter++;
+                            struct packet p = parse_packet();
+                            c.x += p.delta_x;
+                            c.y -= p.delta_y; 
+
+                            //EVENTO DO CLIQUE
+                            struct mouse_ev event = mouse_get_event(&p);
+                            if(event.type == LB_RELEASED){
+                              addBrownApple(p.delta_x, p.delta_y);
+                            }
+                            drawBackground();
+                            drawSnake("RIGHT");
+                            drawBrownApple();
+
+                            // DRAW RATO (meter dentro do timer para desenhar cada frame)
+                            drawCursor(&c);
+
+                        }
+                    }
+                    break;
+                default:
+                    break; 
+            }
+        } else { 
+            
+        }
+    }
+    if (mouse_unsubscribe()) return 1;
+    kbc_restore_mouse();
+    return 0;
+
+    return false;
 }
 
 int(proj_main_loop)(int argc, char *argv[]) {
   bool running = true;
-  baseState=mainMenu;
+  baseState=singlePlayer;
   if(vbe_get_mode_info(0x115, &vmi_p)) return 1;
   vramMap();
   if(setMode(0x115)) return 1;
   while (running) {
         switch (baseState) {
             case mainMenu:
-              running= menu();
               break;
             case singlePlayer:
               running=single_player();
@@ -69,8 +124,6 @@ int(proj_main_loop)(int argc, char *argv[]) {
 
         }
     }
-
-  sleep(5);
   vg_exit(); //comentar se quiserem ver a imagem, isto fecha o ecra
   return 0;
 }
