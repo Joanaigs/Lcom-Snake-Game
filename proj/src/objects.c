@@ -3,6 +3,8 @@
 #include "images/maca_castanha.xpm"
 #include "images/maca_preta.xpm"
 #include "images/game_background.xpm"
+
+
 int (drawBackground)(){
   /*
   uint32_t lightGreen=SET_COLOR(170, 215, 81);
@@ -43,6 +45,7 @@ void (init_objects)(){
   blackApple.x=0; blackApple.y=1;
   brownApple.map = xpm_load((xpm_map_t)maca_castanha_xpm, XPM_8_8_8, &(brownApple.img));
   brownApple.x=55; brownApple.y=400;
+  nBrownApples = 0;
 }
 
 void (drawGoodApple)(){
@@ -53,7 +56,16 @@ void (drawBlackApple)(){
   draw_xpm(blackApple.img,blackApple.map, blackApple.x, blackApple.y);
 }
 
-void (drawBrownApple)(){
-  draw_xpm(brownApple.img, brownApple.map, brownApple.x, brownApple.y);
+void (addBrownApple)(int x, int y){
+  if(nBrownApples >= 4) nBrownApples = 0;
+  brownApples[nBrownApples].x = x;
+  brownApples[nBrownApples].y = y;
+  xpm_load((xpm_map_t)maca_castanha_xpm,XPM_8_8_8, &(brownApples[nBrownApples].img));
+  nBrownApples++;
 }
 
+void (drawBrownApple)(){
+  for(int i = 0 ; i < nBrownApples; i++){
+    draw_xpm( brownApples[i].img, brownApples[i].img.bytes, brownApples[i].x, brownApples[i].y);
+  }
+}

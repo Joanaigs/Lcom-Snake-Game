@@ -1,5 +1,5 @@
 #include <lcom/lcf.h>
-
+#include "utils.h"
 #include <stdint.h>
 
 int(util_get_LSB)(uint16_t val, uint8_t *lsb) {

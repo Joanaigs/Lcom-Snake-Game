@@ -20,7 +20,7 @@ void (kbc_ih)(){
     if(done) size = 0;
     uint8_t byte;
     if (util_sys_inb(STATUS_REG, &statusCode)) return;
-    if((statusCode & PARITY) || (statusCode & TIME_OUT)){
+    if((statusCode & PARITY_BIT) || (statusCode & TIME_OUT_BIT)){
         printf("error");
         return;
     }

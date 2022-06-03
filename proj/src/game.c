@@ -4,6 +4,8 @@
 #include "objects.h"
 #include "snake.h"
 #include "timer.h"
+#include "mouse.h"
+#include "cursor.h"
 #include <lcom/lcf.h>
 #include <stdint.h>
 #include <stdio.h>
@@ -21,15 +23,20 @@ int(singlePlayerMode)() {
 
   init_snake();
   drawSnakeBody();
+  if(mouse_enable_data_reporting()) return 1;
   uint16_t frames = sys_hz() / fr_rate;
   int ipc_status, r;
   int n_interrupts = 0;
   message msg;
-  uint8_t irq_keyboard = 0, irq_timer = 0;
+  uint8_t irq_keyboard = 0, irq_timer = 0, mouse_set=0;
+  cursor c;
+    c.x = 0;
+    c.y = 0;
   if (timer_subscribe_int(&irq_timer))
     return 1;
   if (keyboard_subscribe(&irq_keyboard))
     return 1;
+  if (mouse_subscribe(&mouse_set)) return 1;
   while (scanCode[0] != ESC_BREAK_CODE) {
     if ((r = driver_receive(ANY, &msg, &ipc_status)) != 0) {
       printf("driver_receive failed with: %d", r);
@@ -80,7 +87,28 @@ int(singlePlayerMode)() {
               }
             }
           }
+          if (msg.m_notify.interrupts & mouse_set) { 
+                        mouse_ih();
+                        if(mouse_number_bytes >= 3){
+                            struct packet p = parse_packet();
+                            c.x += p.delta_x;
+                            c.y -= p.delta_y; 
 
+                            //EVENTO DO CLIQUE
+                            struct mouse_ev event = mouse_get_event(&p);
+                            if(event.type == LB_RELEASED){
+                              addBrownApple(c.x , c.y);
+                            }
+
+                            drawBackground();
+                            //drawSnake("RIGHT");
+                            drawBrownApple();
+
+                            // DRAW RATO (meter dentro do timer para desenhar cada frame)
+                            //drawCursor(&c);
+
+                        }
+                    }
           break;
         default:
           break;
@@ -93,7 +121,8 @@ int(singlePlayerMode)() {
     return 1;
   if (timer_unsubscribe_int())
     return 1;
-
+  if (mouse_unsubscribe()) return 1;
+    kbc_restore_mouse();
   if (vg_exit())
     return 1;
   return 0;
