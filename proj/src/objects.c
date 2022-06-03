@@ -47,13 +47,16 @@ void (init_objects)(){
 
 void (drawGoodApple)(){
   draw_xpm(goodApple.img, goodApple.map, goodApple.x, goodApple.y);
+  goodApple.x+=10;
 }
 
 void (drawBlackApple)(){
   draw_xpm(blackApple.img,blackApple.map, blackApple.x, blackApple.y);
+  blackApple.x+=30; 
 }
 
 void (drawBrownApple)(){
   draw_xpm(brownApple.img, brownApple.map, brownApple.x, brownApple.y);
+  blackApple.x+=30; 
 }
 

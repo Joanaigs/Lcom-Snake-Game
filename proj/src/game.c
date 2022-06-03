@@ -2,6 +2,7 @@
 #include "i8042.h"
 #include "keyboard.h"
 #include "objects.h"
+#include "rtc.h"
 #include "snake.h"
 #include "timer.h"
 #include <lcom/lcf.h>
@@ -18,18 +19,22 @@ int(singlePlayerMode)() {
   if (setMode(0x115))
     return 1;
   drawBackground();
-
+  init_objects();
   init_snake();
   drawSnakeBody();
   uint16_t frames = sys_hz() / fr_rate;
   int ipc_status, r;
   int n_interrupts = 0;
   message msg;
-  uint8_t irq_keyboard = 0, irq_timer = 0;
+  uint8_t irq_keyboard = 0, irq_timer = 0, irq_rtc = 0;
   if (timer_subscribe_int(&irq_timer))
     return 1;
   if (keyboard_subscribe(&irq_keyboard))
     return 1;
+  if (rtc_subscribe_int(&irq_rtc))
+    return 1;
+  set_periodic();
+  set_update_int(true);
   while (scanCode[0] != ESC_BREAK_CODE) {
     if ((r = driver_receive(ANY, &msg, &ipc_status)) != 0) {
       printf("driver_receive failed with: %d", r);
@@ -46,6 +51,10 @@ int(singlePlayerMode)() {
                 if (keyboard_unsubscribe())
                   return 1;
                 if (timer_unsubscribe_int())
+                  return 1;
+                if (rtc_unsubscribe_int())
+                  return 1;
+                if (set_update_int(false))
                   return 1;
                 vg_exit();
                 return 1;
@@ -80,6 +89,9 @@ int(singlePlayerMode)() {
               }
             }
           }
+          if (msg.m_notify.interrupts & irq_rtc) {
+            rtc_ih();
+          }
 
           break;
         default:
@@ -89,6 +101,10 @@ int(singlePlayerMode)() {
     else {
     }
   }
+  if (rtc_unsubscribe_int())
+    return 1;
+  if (set_update_int(false))
+    return 1;
   if (keyboard_unsubscribe())
     return 1;
   if (timer_unsubscribe_int())

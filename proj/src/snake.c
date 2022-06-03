@@ -118,7 +118,7 @@ void(addBodyPart)() {
   draw_xpm(snakeBody[i + 1].img, snakeBody[i + 1].map, snakeBody[i + 1].x, snakeBody[i + 1].y);
 }
 
-int(colisionItselph)() {
+int(colisionItself)() {
   for (int i = 1; i <= numOfBodyParts; i++) {
     if (strcmp(snakeBody[0].direction, "UP") == 0) {
     }
@@ -202,8 +202,6 @@ int(movement)(int16_t speed) {
     }
     snakeBody[0].x -= speed;
   }
-  // if(colisionItselph()) return 1;
   drawSnakeBody();
-  // if(colisionItselph()) return 1;
   return 0;
 }
