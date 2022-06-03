@@ -7,7 +7,11 @@
 int hook_idR=0;
 int mouse_number_bytes=0;
 uint8_t command;
-int (mouse_subscrive)(uint8_t *bit_no){
+
+struct mouse_ev event_mouse;
+
+
+int (mouse_subscribe)(uint8_t *bit_no){
     *bit_no=BIT(hook_idR);
     return sys_irqsetpolicy(MOUSE_IRQ,IRQ_REENABLE|IRQ_EXCLUSIVE,&hook_idR);
 }
@@ -43,7 +47,7 @@ void (mouse_ih)(){
      mouse_number_bytes++;
 }	
 
-int (mouse_unsubscrive)(){
+int (mouse_unsubscribe)(){
     return sys_irqrmpolicy(&hook_idR);
 }
 
@@ -82,6 +86,57 @@ void (kbc_restore_mouse)() {
   }
 
 }
+
+void (restoreCursor)() {
+    uint32_t* map = (uint32_t*) background_menu.bytes;
+
+    for (int i = cursor->x; i <= cursor->x + cursor->img.width; i++) {
+        for (int j = cursor->y; j <= cursor->y + cursor->img.height; j++) {
+            if (i < (int)hres - 1 && j < (int)vres - 1)
+                changePixelColor(i,j,*(map + i + j * hres));
+        }
+    }
+}
+
+Cursor *cursor;
+
+Cursor * (load_cursor)() {
+    cursor = (Cursor *) malloc(sizeof(Cursor));
+    xpm_load(cursor_xpm, XPM_8_8_8_8, &cursor->img);
+
+    cursor->x = 300;
+    cursor->y = 400;
+    return cursor;
+}
+
+void mouse_update(struct packet * pp) {
+
+    restoreCursor();
+
+    if (pp->delta_y > 0) {
+        if (cursor->y - pp->delta_y < 0)
+            cursor->y = 0;
+        else
+            cursor->y -= pp->delta_y;
+    } else if (pacote->delta_y < 0) {
+        if (cursor->y + cursor->img.height - pacote->delta_y > (int) vres)
+            cursor->y = (int) vres - cursor->img.height;
+        else
+            cursor->y -= pacote->delta_y;
+    }
+    if (pp->delta_x < 0 pp->delta_x > 0) {
+        if (cursor->x + pacote->delta_x < 0)
+            cursor->x = 0;
+        else
+            cursor->x += pacote->delta_x;
+    } else if (pp->delta_x > 0) {
+        if (cursor->x + pacote->delta_x > (int) hres - cursor->img.width)
+            cursor->x = (int) hres - cursor->img.width;
+        else
+            cursor->x += pacote->delta_x;
+    }
+}
+
 enum states {
     INITIAL,
     UP,
@@ -89,43 +144,41 @@ enum states {
     DOWN,
     FINAL
 };
+
 struct mouse_ev* (mouse_get_event)(struct packet *pp) {
-    static struct mouse_ev event;
-    static uint8_t last = 0;
+    static bool lbtn_pressed = false, rbtn_pressed = false, mbtn_pressed = false;
 
-    if (pp == NULL)
-        return &event;
+    event_mouse.delta_x = pp->delta_x;
+    event_mouse.delta_y = pp->delta_y;
 
-    // current button presses
-    uint8_t button_presses = pp->bytes[0] & (LEFT_BUTTON | RIGHT_BUTTON | MIDDLE_BUTTON);
-    int16_t delta_x = pp->delta_x;
-    int16_t delta_y = pp->delta_y;
+    if (!lbtn_pressed && pp->lb && !rbtn_pressed && !mbtn_pressed && !pp->mb && !pp->rb) {
+        lbtn_pressed = true;
+        event_mouse.type = LB_PRESSED;
+    }
+    else if (!rbtn_pressed && pp->rb && !lbtn_pressed && !mbtn_pressed && !pp->mb && !pp->lb) {
+        rbtn_pressed = true;
+        event_mouse.type = RB_PRESSED;
+    }
+    else if (lbtn_pressed && !pp->lb && !rbtn_pressed && !mbtn_pressed && !pp->mb && !pp->rb) {
+        lbtn_pressed = false;
+        event_mouse.type = LB_RELEASED;
+    }
+    else if (rbtn_pressed && !pp->rb && !lbtn_pressed && !mbtn_pressed && !pp->mb && !pp->lb) {
+        rbtn_pressed = false;
+        event_mouse.type = RB_RELEASED;
+    }
+    else if (!mbtn_pressed && pp->mb) {
+        mbtn_pressed = true;
+        event_mouse.type = BUTTON_EV;
+    }
+    else if(mbtn_pressed && !pp->mb) {
+        mbtn_pressed = false;
+        event_mouse.type = BUTTON_EV;
+    }
+    else
+        event_mouse.type = MOUSE_MOV;
 
-    if ((button_presses ^ last) == LEFT_BUTTON && !(last & LEFT_BUTTON)) {
-        event.type = LB_PRESSED;
-        last |= LEFT_BUTTON;
-
-    } else if ((button_presses ^ last) == RIGHT_BUTTON && !(last & RIGHT_BUTTON)) {
-        event.type = RB_PRESSED;
-        last |= RIGHT_BUTTON;
-
-    } else if ((button_presses ^ last) == LEFT_BUTTON && (last & LEFT_BUTTON)) {
-        event.type = LB_RELEASED;
-        last &= ~LEFT_BUTTON;
-
-    } else if ((button_presses ^ last) == RIGHT_BUTTON && (last & RIGHT_BUTTON)) {
-        event.type = RB_RELEASED;
-        last &= ~RIGHT_BUTTON;
-
-    } else if ((delta_x || delta_y) && (button_presses == last)) {
-        event.type = MOUSE_MOV;
-
-    } else
-        event.type = BUTTON_EV;
-
-    event.delta_x = delta_x;
-    event.delta_y = delta_y;
-    return &event;
+    return &event_mouse;
 }
 
 

@@ -8,11 +8,19 @@ uint8_t mouse[3];
 uint8_t statusCode;
 uint8_t scanCode;
 
-int (mouse_subscrive)(uint8_t *bit_no);
+typedef struct {
+    int x, y;
+    xpm_image_t img;
+} Cursor;
+
+int (mouse_subscribe)(uint8_t *bit_no);
 struct packet (parse_packet)();
 void (mouse_ih)();
-int (mouse_unsubscrive)();
+int (mouse_unsubscribe)();
 void (kbc_restore_mouse)() ;
+void (restoreCursor)();
+Cursor * (load_cursor)();
+
 struct mouse_ev* (mouse_get_event)(struct packet *pp) ;
 
 #endif /* __MOUSE_H */
