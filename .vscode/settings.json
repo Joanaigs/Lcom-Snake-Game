@@ -12,6 +12,9 @@
         "timers.h": "c",
         "stdio.h": "c",
         "xiosbase": "c",
-        "ios": "c"
+        "ios": "c",
+        "chrono": "c",
+        "ctime": "c",
+        "mutex": "c"
     }
 }

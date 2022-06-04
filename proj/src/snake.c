@@ -13,8 +13,9 @@
 #include "images/corpo_cobra_V.xpm"
 #include "objects.h"
 
-int snakeLenght = 50;
-
+int snakeLenght = 40;
+int lives=3;
+int numOfApplesEaten=3;
 void(init_snake)() {
   snakeBody[0].mapLeft = xpm_load((xpm_map_t) cobra_esquerda_xpm, XPM_8_8_8, &snakeBody[0].imgLeft);
   snakeBody[0].mapRight = xpm_load((xpm_map_t) cobra_direita_xpm, XPM_8_8_8, &snakeBody[0].imgRight);
@@ -171,25 +172,25 @@ int(movement)(int16_t speed) {
   eraseSnakeBody();
   moveBodyParts();
   if (strcmp(snakeBody[0].direction, "UP") == 0) {
-    if (snakeBody[0].y - speed < 0) {
+    if (snakeBody[0].y - speed  < 120) {
       return 1;
     }
     snakeBody[0].y -= speed;
   }
   else if (strcmp(snakeBody[0].direction, "DOWN") == 0) {
-    if (snakeBody[0].y + snakeLenght + speed > vmi_p.YResolution) {
+    if (snakeBody[0].y + snakeLenght + speed > vmi_p.YResolution - 40) {
       return 1;
     }
     snakeBody[0].y += speed;
   }
   else if (strcmp(snakeBody[0].direction, "RIGHT") == 0) {
-    if (snakeBody[0].x + snakeLenght + speed > vmi_p.XResolution) {
+    if (snakeBody[0].x + snakeLenght + speed > vmi_p.XResolution - 40) {
       return 1;
     }
     snakeBody[0].x += speed;
   }
   else if (strcmp(snakeBody[0].direction, "LEFT") == 0) {
-    if (snakeBody[0].x - speed < 0) {
+    if (snakeBody[0].x - speed < 40) {
       return 1;
     }
     snakeBody[0].x -= speed;

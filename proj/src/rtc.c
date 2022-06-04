@@ -1,12 +1,14 @@
 #include "rtc.h"
 #include "util.h"
 #include "objects.h"
+#include "snake.h"
 
 uint8_t rtc_time[3];
 uint8_t rtc_date[3];
 
 int hook_id_rtc = 5;
-int cont=0;
+int black=0;
+int brown=0;
 
 int(rtc_subscribe_int)(uint8_t *bit_no) {
   *bit_no = BIT(hook_id_rtc);
@@ -86,10 +88,15 @@ int set_update_int(bool on) {
 
 void handle_periodic_int(){
   wait_valid_rtc();
-  cont++;
-  if(cont==20){
+  brown++;
+  black++;
+  if(black==25){
     drawBlackApple();
-    cont=0;
+    black=0;
+  }
+  if(brown==10 && start){
+    drawBrownApple();
+    brown=0;
   }
 }
 

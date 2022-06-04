@@ -8,8 +8,9 @@
 #include <lcom/lcf.h>
 #include <stdint.h>
 #include <stdio.h>
-uint8_t fr_rate = 5;
-int16_t speed = 50;
+#include "header.h"
+uint8_t fr_rate = 8;
+int16_t speed = 40;
 
 int(singlePlayerMode)() {
 
@@ -21,11 +22,15 @@ int(singlePlayerMode)() {
   drawBackground();
   init_objects();
   init_snake();
+  init_header();
+  drawHeader();
   drawSnakeBody();
+  gameTime=0;
   uint16_t frames = sys_hz() / fr_rate;
   int ipc_status, r;
   int n_interrupts = 0;
   message msg;
+  start=false;
   uint8_t irq_keyboard = 0, irq_timer = 0, irq_rtc = 0;
   if (timer_subscribe_int(&irq_timer))
     return 1;
@@ -45,25 +50,32 @@ int(singlePlayerMode)() {
         case HARDWARE:
           if (msg.m_notify.interrupts & irq_timer) {
             n_interrupts++;
-            if (n_interrupts % frames == 0) {
+            if ((n_interrupts % frames == 0) && start) {
               if (movement(speed)) {
-                sleep(1);
-                if (keyboard_unsubscribe())
-                  return 1;
-                if (timer_unsubscribe_int())
-                  return 1;
                 if (rtc_unsubscribe_int())
                   return 1;
                 if (set_update_int(false))
                   return 1;
-                vg_exit();
+                if (keyboard_unsubscribe())
+                  return 1;
+                if (timer_unsubscribe_int())
+                  return 1;
+
+                if (vg_exit())
+                  return 1;
                 return 1;
               }
+            }
+            if ((n_interrupts % sys_hz() == 0) && start) {
+              eraseTime();
+              gameTime++;
+              drawHeader();
             }
           }
           if (msg.m_notify.interrupts & irq_keyboard) {
             kbc_ih();
             if (strcmp(snakeBody[0].direction, "UP") == 0 || strcmp(snakeBody[0].direction, "DOWN") == 0) {
+              start=true;
               if (scanCode[0] == D_MAKE_CODE || scanCode[1] == RIGHT_MAKE_CODE) {
                 addBodyPart();
                 snakeBody[0].direction = "RIGHT";
@@ -77,6 +89,7 @@ int(singlePlayerMode)() {
               }
             }
             else if (strcmp(snakeBody[0].direction, "LEFT") == 0 || strcmp(snakeBody[0].direction, "RIGHT") == 0) {
+              start=true;
               if (scanCode[0] == W_MAKE_CODE || scanCode[1] == UP_MAKE_CODE) {
                 snakeBody[0].direction = "UP";
                 snakeBody[0].img = snakeBody[0].imgUp;

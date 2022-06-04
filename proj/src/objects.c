@@ -7,11 +7,11 @@ int (drawBackground)(){
   /*
   uint32_t lightGreen=SET_COLOR(170, 215, 81);
   uint32_t darkGreen=SET_COLOR(148, 191, 67);
-  uint16_t weight = h_res/10;
-  uint16_t height = v_res/10;
+  uint16_t weight = h_res/20;
+  uint16_t height = v_res/15;
   int i=0;
-  for(uint8_t row = 0; row < 10; ++row){
-        for(uint8_t col = 0; col < 10; ++col){
+  for(uint8_t row = 0; row < 15; ++row){
+        for(uint8_t col = 0; col < 20; ++col){
             uint16_t x = col * weight;
             uint16_t y = row * height;
             uint16_t w = (x + weight >h_res) ? (h_res - x) : (weight);
@@ -57,6 +57,6 @@ void (drawBlackApple)(){
 
 void (drawBrownApple)(){
   draw_xpm(brownApple.img, brownApple.map, brownApple.x, brownApple.y);
-  blackApple.x+=30; 
+  brownApple.x+=10; 
 }
 
