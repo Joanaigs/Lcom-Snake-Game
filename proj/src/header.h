@@ -5,6 +5,8 @@ int gameTime;
 void (init_header)();
 void drawHeader();
 void eraseTime();
+void eraseAppleNumb();
+void eraseHearts(int number, int x, int y);
 
 typedef struct{
     xpm_image_t img;

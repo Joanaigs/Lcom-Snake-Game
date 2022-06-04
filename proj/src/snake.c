@@ -1,5 +1,6 @@
 #include "snake.h"
 #include "graphics.h"
+#include "header.h"
 #include "images/cabeca_cobra_baixo.xpm"
 #include "images/cabeca_cobra_cima.xpm"
 #include "images/cabeca_cobra_dir.xpm"
@@ -125,6 +126,16 @@ int(colisionWithItSelf)() {
           return 1;
       }
   }
+  return 0;
+}
+
+int takelive(int n){
+  if(lives<=0){
+    return 1;
+  }
+  eraseHearts(lives, 620, 20);
+  lives-=n;
+  drawHeader();
   return 0;
 }
 
