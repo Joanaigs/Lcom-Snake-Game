@@ -182,6 +182,6 @@ void drawHeader() {
   draw_xpm(timeClock.img, timeClock.map, 20, 20);
   draw_number(gameTime, 65, 30);
   drawHearts(lives, 620, 20);
-  draw_xpm(goodApple.img, goodApple.map, 480, 20);
+  draw_xpm(redAppleXpm.img, redAppleXpm.map, 480, 20);
   draw_number(numOfApplesEaten, 525, 30);
 }

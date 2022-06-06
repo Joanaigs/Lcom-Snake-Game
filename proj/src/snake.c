@@ -16,7 +16,7 @@
 
 int snakeLenght = 40;
 int lives=3;
-int numOfApplesEaten=3;
+int numOfApplesEaten=0;
 void(init_snake)() {
   snakeBody[0].mapLeft = xpm_load((xpm_map_t) cobra_esquerda_xpm, XPM_8_8_8, &snakeBody[0].imgLeft);
   snakeBody[0].mapRight = xpm_load((xpm_map_t) cobra_direita_xpm, XPM_8_8_8, &snakeBody[0].imgRight);
@@ -129,6 +129,41 @@ int(colisionWithItSelf)() {
   return 0;
 }
 
+
+int (colisionWithApple)(){
+
+    int i = isApple(snakeBody[0].x, snakeBody[0].y);
+    if (i != -1){
+
+        switch (applesArray[i].type) {
+            case red: {
+                eraseAppleNumb();
+                numOfApplesEaten++;
+                drawHeader();
+                addBodyPart();
+                Apple apple;
+                initRandomApple(&apple, red);
+                drawApple(apple);
+                break;
+            }
+            case black:
+                addBodyPart();
+                lives -= 1;
+                break;
+            case brown:
+                addBodyPart();
+                lives -= 0.5;
+                break;
+        }
+
+        applesArray[i] = applesArray[numApples - 1];
+        numApples --;
+        return 1;
+    }
+    return 0;
+}
+
+
 int takelive(int n){
   if(lives<=0){
     return 1;
@@ -207,6 +242,23 @@ int(movement)(int16_t speed) {
     snakeBody[0].x -= speed;
   }
   if(colisionWithItSelf()) return 1;
+  if (colisionWithApple()){
+      drawHeader();
+  }
+
   drawSnakeBody();
   return 0;
 }
+
+
+int (isSnake)(int x, int y){
+    for (int i = 0; i < numOfBodyParts; i++){
+        if (snakeBody[i].x == x && snakeBody[i].y == y){
+            return 1;
+        }
+    }
+    return 0;
+}
+
+
+

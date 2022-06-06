@@ -40,3 +40,4 @@ void (addBodyPart)();
 void (snakeBodyMovement)(int16_t speed);
 void (removeBodyPart)(int n);
 int takelive(int n);
+int isSnake(int x, int y);

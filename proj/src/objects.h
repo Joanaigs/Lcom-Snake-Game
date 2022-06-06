@@ -1,9 +1,15 @@
 #include <stdbool.h>
 #include <stdint.h>
+#include <stdlib.h>
+#include <time.h>
 #include <lcom/lcf.h>
 #include "graphics.h"
 #include "macros.h"
 
+
+
+
+enum appleType{red, brown, black};
 
 typedef struct{
     int x;
@@ -12,13 +18,32 @@ typedef struct{
     uint8_t *map;
 }object;
 
-object goodApple;
-object brownApple;
-object blackApple;
+object redAppleXpm;
+object brownAppleXpm;
+object blackAppleXpm;
 object background;
 
-void (init_objects)();
-void (drawGoodApple)();
-void (drawBlackApple)();
-void (drawBrownApple)();
+
+void (init_xpms)();
 int (drawBackground)();
+object (get_xpm)(enum appleType type);
+
+
+typedef struct {
+    int x_pos;
+    int y_pos;
+    object appleXpm;
+    enum appleType type;
+}Apple;
+
+
+Apple applesArray[195];
+int numApples;
+
+void (initApple)(Apple *apple, int x_pos, int y_pos, enum appleType type);
+void (initRandomApple)(Apple *apple, enum appleType type);
+
+void (drawApple)(Apple apple);
+
+int (isApple)(int x, int y);
+
