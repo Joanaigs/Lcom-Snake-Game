@@ -22,7 +22,7 @@ void (vramMap)(){
     int r;
     struct minix_mem_range mr; /* physical memory range */
     unsigned int vram_base=vmi_p.PhysBasePtr; /* VRAM’s physical addresss */
-    unsigned int vram_size=vmi_p.XResolution *vmi_p.YResolution* (vmi_p.BitsPerPixel ) >> 3; /* VRAM’s size, but you can use
+    unsigned int vram_size=vmi_p.XResolution *vmi_p.YResolution* (vmi_p.BitsPerPixel +7) >> 3; /* VRAM’s size, but you can use
     the frame-buffer size, instead */
     /* Allow memory mapping */
     mr.mr_base = (phys_bytes) vram_base;
@@ -36,7 +36,7 @@ void (vramMap)(){
     bits_per_pixel=vmi_p.BitsPerPixel;
     h_res=vmi_p.XResolution;
     v_res= vmi_p.YResolution;
-    bytes_per_pixel=(vmi_p.BitsPerPixel) >> 3;
+    bytes_per_pixel=(vmi_p.BitsPerPixel+7) >> 3;
     
 }
 
@@ -52,6 +52,7 @@ void (drawPixel)(uint16_t x, uint16_t y,uint32_t color){
     unsigned int p = (x + y * h_res) * bytes_per_pixel;
     memcpy(video_mem + p, &color,bytes_per_pixel);
 }
+
 int (vg_draw_rectangle)(uint16_t x, uint16_t y,uint16_t width, uint16_t height, uint32_t color){
     for (uint16_t i = 0; i < height; i++)
        if(vg_draw_hline(x, y+i, width, color))

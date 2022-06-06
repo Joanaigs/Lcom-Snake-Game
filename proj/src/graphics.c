@@ -1,5 +1,8 @@
 #include "graphics.h"
 #include "macros.h"
+#include "string.h"
+
+static unsigned int vram_size;
 
 int (setMode)(uint16_t mode){
 
@@ -22,7 +25,7 @@ void (vramMap)(){
     int r;
     struct minix_mem_range mr; /* physical memory range */
     unsigned int vram_base=vmi_p.PhysBasePtr; /* VRAM’s physical addresss */
-    unsigned int vram_size=vmi_p.XResolution *vmi_p.YResolution* (vmi_p.BitsPerPixel +7) >> 3; /* VRAM’s size, but you can use
+    vram_size=vmi_p.XResolution *vmi_p.YResolution* (vmi_p.BitsPerPixel +7) >> 3; /* VRAM’s size, but you can use
     the frame-buffer size, instead */
     /* Allow memory mapping */
     mr.mr_base = (phys_bytes) vram_base;
@@ -37,6 +40,19 @@ void (vramMap)(){
     h_res=vmi_p.XResolution;
     v_res= vmi_p.YResolution;
     bytes_per_pixel=(vmi_p.BitsPerPixel) >> 3;
+
+
+    /* Map video mem Buffer */
+    mr.mr_base = (phys_bytes) vram_base + vram_size;
+    mr.mr_limit = mr.mr_base + vram_size;
+    if( OK != (r = sys_privctl(SELF, SYS_PRIV_ADD_MEM, &mr)))
+        panic("sys_privctl (ADD_MEM) failed: %d\n", r);
+    
+    video_mem_buf = vm_map_phys(SELF, (void *)mr.mr_base, vram_size);
+    if(video_mem_buf == MAP_FAILED)
+        panic("couldn’t map video memory");
+    
+    
     
 }
 
@@ -49,28 +65,64 @@ int (vg_draw_hline)(uint16_t x, uint16_t y, uint16_t len, uint32_t color){
 }
 
 void (draw_xpm)(xpm_image_t img, uint8_t *map, int x, int y){
+
+    uint32_t transparentColor = xpm_transparency_color(img.type);
+    for(unsigned row = 0; row < img.height && y + row < vmi_p.YResolution; row++){
+        for(unsigned col=0; col < img.width && x + col < vmi_p.XResolution; col++){
+
+            unsigned int p = (x+ col + (y + row) * h_res) * bytes_per_pixel;
+            unsigned color_position = (row*img.width+ col)*bytes_per_pixel;
+            
+            if (memcmp( &img.bytes[color_position] , (char*)&transparentColor, bytes_per_pixel) == 0 )
+                continue;
+            
+            memcpy((void *)((unsigned int)video_mem_buf + p), &img.bytes[color_position], bytes_per_pixel);
+                
+        }
+    }
+}
+
+
+void draw_xpm_video_mem(xpm_image_t img, uint8_t *map, int x, int y){
+    uint32_t transparentColor = xpm_transparency_color(img.type);
+    for(unsigned row = 0; row < img.height && y + row < vmi_p.YResolution; row++){
+        for(unsigned col=0; col < img.width && x + col < vmi_p.XResolution; col++){
+
+            unsigned int p = (x+ col + (y + row) * h_res) * bytes_per_pixel;
+            unsigned color_position = (row*img.width+ col)*bytes_per_pixel;
+            
+            if (memcmp( &img.bytes[color_position] , (char*)&transparentColor, bytes_per_pixel) == 0 )
+                continue;
+            
+            memcpy((void *)((unsigned int)video_mem + p), &img.bytes[color_position], bytes_per_pixel);
+                
+        }
+    }
+}
+
+void (erase_xpm)(xpm_image_t img, int x, int y, xpm_image_t background){
     for(uint8_t col = 0; col < img.width; col++){
-      for(uint8_t row = 0; row < img.height; row++){
-        uint32_t color=0;
-        for (size_t byte = 0; byte < bytes_per_pixel; byte++) {
-                color |= (*(map + (col+ row * img.width) * bytes_per_pixel + byte)) << (byte * 8);
+        for(uint8_t row = 0; row < img.height; row++){
+            unsigned int p = (x+ col + (y + row) * h_res) * bytes_per_pixel;
+            unsigned color_position = ((y+row)*background.width+ (x+col))*bytes_per_pixel;
+            memcpy((void *)((unsigned int)video_mem_buf + p), &background.bytes[color_position], bytes_per_pixel);
         }
-        if (color == xpm_transparency_color(img.type))
-            continue;
-        else
-            drawPixel(x + col, y+row, color);
-        }
-  }
+    }
 }
 
 void (drawPixel)(uint16_t x, uint16_t y,uint32_t color){
     unsigned int p = (x + y * h_res) * bytes_per_pixel;
-    memcpy(video_mem + p, &color,bytes_per_pixel);
+    memcpy(video_mem_buf + p, &color,bytes_per_pixel);
 }
+
 int (vg_draw_rectangle)(uint16_t x, uint16_t y,uint16_t width, uint16_t height, uint32_t color){
     for (uint16_t i = 0; i < height; i++)
        if(vg_draw_hline(x, y+i, width, color))
             return 1;
     return 0;
+}
+
+void copy_buffer_to_mem(){
+    memcpy(video_mem, video_mem_buf, vram_size);
 }
 
