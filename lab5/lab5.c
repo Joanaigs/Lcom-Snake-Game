@@ -104,10 +104,10 @@ int(video_test_pattern)(uint16_t mode, uint8_t no_rectangles, uint32_t first, ui
             if(bytes_per_pixel == 1){
                 color = (first + (row * no_rectangles + col) * step) % (1 << bits_per_pixel);
             }else{
-                red = (R(first) + col*step) % (1 <<vmi_p.RedMaskSize);
-                green = (G(first) + row*step) % (1 << vmi_p.GreenMaskSize);
-                blue = (B(first) + (col+row)*step) % (1 <<vmi_p.BlueMaskSize);
-                color = SET_COLOR(red,green,blue);
+                red = ((0xFF&(first>>vmi_p.RedFieldPosition)) + x * step) % (1 << vmi_p.RedMaskSize);
+                green = ((0xFF&(first>>vmi_p.GreenFieldPosition)) + y * step) % (1 << vmi_p.GreenMaskSize);
+                blue = ((0xFF&(first>>vmi_p.BlueFieldPosition)) + (x+y) * step) % (1 << vmi_p.BlueMaskSize);
+                color=((red&0xFF)<<vmi_p.RedFieldPosition) | ((green&0xFF)<<vmi_p.GreenFieldPosition) | ((blue&0xFF)<<vmi_p.BlueFieldPosition);
             }
             uint16_t x = col * width;
             uint16_t y = row * height;
