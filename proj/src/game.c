@@ -14,7 +14,7 @@
 uint8_t fr_rate = 5;
 int16_t speed = 50;
 
-int(singlePlayerMode)() {
+int(multiPlayerMode)() {
 
   if (vbe_get_mode_info(0x115, &vmi_p))
     return 1;
