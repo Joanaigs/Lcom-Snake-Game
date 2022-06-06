@@ -13,16 +13,6 @@ uint8_t fr_rate = 8;
 int16_t speed = 40;
 
 int(singlePlayerMode)() {
-
-
-
-  if (vbe_get_mode_info(0x115, &vmi_p))
-    return 1;
-  vramMap();
-  if (setMode(0x115))
-    return 1;
-
-
   drawBackground();
   init_xpms();
 
@@ -45,7 +35,7 @@ int(singlePlayerMode)() {
   uint8_t irq_keyboard = 0, irq_timer = 0, irq_rtc = 0;
   if (timer_subscribe_int(&irq_timer))
     return 1;
-  if (keyboard_subscribe(&irq_keyboard))
+  if (keyboard_subscribe(&irq_keyboard, 2))
     return 1;
   if (rtc_subscribe_int(&irq_rtc))
     return 1;
@@ -71,10 +61,7 @@ int(singlePlayerMode)() {
                   return 1;
                 if (timer_unsubscribe_int())
                   return 1;
-
-                if (vg_exit())
-                  return 1;
-                return 1;
+                return 0;
               }
             }
             if ((n_interrupts % sys_hz() == 0) && start) {
@@ -131,9 +118,6 @@ int(singlePlayerMode)() {
   if (keyboard_unsubscribe())
     return 1;
   if (timer_unsubscribe_int())
-    return 1;
-
-  if (vg_exit())
     return 1;
   return 0;
 }
