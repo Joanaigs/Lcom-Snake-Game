@@ -148,29 +148,31 @@ int (colisionWithApple)(){
             }
             case black:
                 addBodyPart();
-                lives -= 1;
+               if(takelive(2)) return 1;
                 break;
             case brown:
                 addBodyPart();
-                lives -= 0.5;
+                if(takelive(1)) return 1;
                 break;
         }
 
         applesArray[i] = applesArray[numApples - 1];
         numApples --;
-        return 1;
+        drawHeader();
+        return 0;
     }
     return 0;
 }
 
 
 int takelive(int n){
-  if(lives<=0){
-    return 1;
-  }
+
   eraseHearts(lives, 620, 20);
   lives-=n;
   drawHeader();
+  if(lives<=0){
+      return 1;
+  }
   return 0;
 }
 
@@ -242,9 +244,9 @@ int(movement)(int16_t speed) {
     snakeBody[0].x -= speed;
   }
   if(colisionWithItSelf()) return 1;
-  if (colisionWithApple()){
-      drawHeader();
-  }
+  if (colisionWithApple()) return 1;
+
+
 
   drawSnakeBody();
   return 0;

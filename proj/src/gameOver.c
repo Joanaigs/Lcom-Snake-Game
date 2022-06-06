@@ -14,7 +14,10 @@ int(gameOverPage)() {
   draw_xpm(img, map, x, y);
   draw_xpm(timeClock.img, timeClock.map, x+91+20, y+90);
   draw_number(gameTime, x+91+20+45, y+90+10);
-  //draw_xpm(goodApple.img, goodApple.map, x+91+20, y+140); -adiconar quando a matilde der merge
+
+  Apple apple;
+  initApple(&apple, x+91+20, y+140, red);
+  drawApple(apple);
   draw_number(numOfApplesEaten, x+91+20+45, y+140+10);
   message msg;
   int ipc_status, r;
