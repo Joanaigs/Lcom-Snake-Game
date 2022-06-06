@@ -4,6 +4,7 @@ int gameTime;
 
 void (init_header)();
 void drawHeader();
+void draw_number(int number, int x, int y);
 void eraseTime();
 void eraseAppleNumb();
 void eraseHearts(int number, int x, int y);

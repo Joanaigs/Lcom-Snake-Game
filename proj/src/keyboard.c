@@ -7,7 +7,8 @@ int hook_idK=2;
 uint8_t statusCode=0x0;
 uint8_t command;
 
-int (keyboard_subscribe)(uint8_t *bit_no) {
+int (keyboard_subscribe)(uint8_t *bit_no, int hook) {
+    hook_idK=hook;
     *bit_no=BIT(hook_idK);
     return sys_irqsetpolicy(KBC_IRQ,IRQ_REENABLE|IRQ_EXCLUSIVE,&hook_idK);
 }

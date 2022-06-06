@@ -12,9 +12,11 @@ enum BaseState{
     singlePlayer,
     multiPlayer,
     instructions,
-    leaderboard
+    gameover,
+    leave
 };
 
+enum BaseState baseState;
 
 
 

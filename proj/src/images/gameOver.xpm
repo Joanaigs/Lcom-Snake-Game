@@ -1,5 +1,5 @@
 /* XPM */
-static char *result[] = {
+static char *game_over_xpm[] = {
 /* columns rows colors chars-per-pixel */
 "577 433 94 2 ",
 "   c #000000",

@@ -1,10 +1,11 @@
-#include <lcom/lcf.h>
-#include <lcom/proj.h>
-#include <lcom/liblm.h>
 #include "proj.h"
 #include "game.h"
+#include "gameOver.h"
+#include "graphics.h"
+#include <lcom/lcf.h>
+#include <lcom/liblm.h>
+#include <lcom/proj.h>
 
-enum BaseState baseState;
 int main(int argc, char *argv[]) {
   // sets the language of LCF messages (can be either EN-US or PT-PT)
   lcf_set_language("EN-US");
@@ -29,33 +30,44 @@ int main(int argc, char *argv[]) {
   return 0;
 }
 
+void single_player() {
+  singlePlayerMode();
+  baseState = gameover;
+}
 
-bool single_player(){
-  if(singlePlayerMode()){
-    return false;
-  }
-  return false;
+void gameOver() {
+  gameOverPage();
+  baseState = leave;
 }
 
 int(proj_main_loop)(int argc, char *argv[]) {
   bool running = true;
-  baseState=singlePlayer;
+  if (vbe_get_mode_info(0x115, &vmi_p))
+    return 1;
+  vramMap();
+  if (setMode(0x115))
+    return 1;
+  baseState = singlePlayer;
   while (running) {
-        switch (baseState) {
-            case mainMenu:
-              break;
-            case singlePlayer:
-              running=single_player();
-              break;
-            case multiPlayer:
-              break; 
-            case instructions:
-              break; 
-            case leaderboard:
-              break; 
-
-        }
+    switch (baseState) {
+      case mainMenu:
+        break;
+      case singlePlayer:
+        single_player();
+        break;
+      case multiPlayer:
+        break;
+      case instructions:
+        break;
+      case gameover:
+        gameOver();
+        break;
+      case leave:
+        running = false;
+        break;
     }
+  }
+  if (vg_exit())
+    return 1;
   return 0;
 }
-
