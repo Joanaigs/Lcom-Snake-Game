@@ -6,7 +6,7 @@ int hook_idR;
 int mouse_number_bytes;
 uint8_t mouse[3];
 uint8_t statusCode;
-uint8_t scanCode;
+uint8_t scanC;
 
 int (mouse_subscribe)(uint8_t *bit_no);
 struct packet (parse_packet)();

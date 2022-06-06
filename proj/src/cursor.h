@@ -12,7 +12,7 @@ typedef struct{
 }cursor;
 
 void (drawCursor)(cursor* c){
-  draw_xpm(c->img, c->img.bytes, c->x, c->y);
+  draw_xpm_video_mem(c->img, c->img.bytes, c->x, c->y);
 }
 
 

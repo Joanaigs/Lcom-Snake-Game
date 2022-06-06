@@ -46,10 +46,6 @@ void (init_objects)();
 void (drawGoodApple)();
 void (drawBlackApple)();
 void (drawBrownApple)();
-void (drawSnake)(char * direction);
-void (drawSnakeBody)();
-void (addBodyPart)();
-void (removeBodyPart)(int n);
 void (addBrownApple)(int x, int y);
 int (drawBackground)();
 

@@ -50,23 +50,17 @@ void (init_objects)(){
 
 void (drawGoodApple)(){
   draw_xpm(goodApple.img, goodApple.map, goodApple.x, goodApple.y);
-  goodApple.x+=10;
 }
 
 void (drawBlackApple)(){
   draw_xpm(blackApple.img,blackApple.map, blackApple.x, blackApple.y);
-  blackApple.x+=30; 
 }
 
 void (addBrownApple)(int x, int y){
-  if(nBrownApples >= 4) nBrownApples = 0;
-  brownApples[nBrownApples].x = x;
-  brownApples[nBrownApples].y = y;
-  xpm_load((xpm_map_t)maca_castanha_xpm,XPM_8_8_8, &(brownApples[nBrownApples].img));
+ // if(nBrownApples >= 4) nBrownApples = 0;
+ // brownApples[nBrownApples].x = x;
+ // brownApples[nBrownApples].y = y;
+ // xpm_load((xpm_map_t)maca_castanha_xpm,XPM_8_8_8, &(brownApples[nBrownApples].img));
+  draw_xpm(brownApple.img, brownApple.map, x, y);
   nBrownApples++;
-}
-
-void (drawBrownApple)(){
-  draw_xpm(brownApple.img, brownApple.map, brownApple.x, brownApple.y);
-  blackApple.x+=30; 
 }

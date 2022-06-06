@@ -4,7 +4,7 @@
 #include <lcom/lcf.h>
 #include "i8042.h"
 
-int hook_idR=0;
+int hook_idR=4;
 int mouse_number_bytes=0;
 uint8_t command;
 
@@ -46,9 +46,9 @@ void (mouse_ih)(){
     }
     if(!(statusCode & OBF) || !(statusCode & AUX_MOUSE))
       return;
-    if(util_sys_inb(OUTPUT_BUF, &scanCode))
+    if(util_sys_inb(OUTPUT_BUF, &scanC))
         printf("error");
-     mouse[mouse_number_bytes] = scanCode;
+     mouse[mouse_number_bytes] = scanC;
      mouse_number_bytes++;
 }	
 
