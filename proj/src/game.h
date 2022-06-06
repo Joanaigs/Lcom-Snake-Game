@@ -3,4 +3,4 @@
 #include <stdio.h>
 
 int (multiPlayerMode)();
-
+int(singlePlayerMode)();

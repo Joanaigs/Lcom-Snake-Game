@@ -8,7 +8,7 @@ uint8_t scanCode[2];
 uint8_t statusCode;
 int done;
 
-int (keyboard_subscribe)(uint8_t *bit_no);
+int (keyboard_subscribe)(uint8_t *bit_no, int hook);
 
 int (keyboard_unsubscribe)();
 

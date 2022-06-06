@@ -48,6 +48,7 @@
 
 /* Scancode Constants */
 #define ESC_BREAK_CODE  0x81    /* ESC */
+#define ENTER_BREAK_CODE  0x1C    /* ENTER */
 #define W_BREAK_CODE 0x91 /* W */ 
 #define D_BREAK_CODE 0xa0 /* D */ 
 #define S_BREAK_CODE 0x9f /* S */ 

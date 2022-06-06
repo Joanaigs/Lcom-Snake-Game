@@ -23,11 +23,14 @@ typedef struct{
     xpm_image_t imgRight;
     uint8_t *mapRight;
 }snake_part;
-snake_part snakeBody[192];
+snake_part snakeBody[198];
 snake_part snakeTail;
 int numOfBodyParts;
 int numBend;
 int len;
+bool start; // if true, snake starts moving
+int lives;
+int numOfApplesEaten;
 
 int (movement)(int16_t speed );
 void (init_snake)();
@@ -36,3 +39,5 @@ void (drawSnakeBody)();
 void (addBodyPart)();
 void (snakeBodyMovement)(int16_t speed);
 void (removeBodyPart)(int n);
+int takelive(int n);
+int isSnake(int x, int y);

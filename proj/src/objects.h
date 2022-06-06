@@ -4,27 +4,16 @@
 
 #include <stdbool.h>
 #include <stdint.h>
+#include <stdlib.h>
+#include <time.h>
 #include <lcom/lcf.h>
 #include "graphics.h"
 #include "macros.h"
 
 
 
-typedef struct{
-    int x;
-    int y;
-    char * direction;
-    char * prevDirection;
-    int xVelocity, yVelocity;
-    xpm_image_t imgUp;
-    uint8_t *mapUp;
-    xpm_image_t imgDown;
-    uint8_t *mapDown;
-    xpm_image_t imgLeft;
-    uint8_t *mapLeft;
-    xpm_image_t imgRight;
-    uint8_t *mapRight;
-}snake_head;
+
+enum appleType{red, brown, black};
 
 typedef struct{
     int x;
@@ -33,21 +22,38 @@ typedef struct{
     uint8_t *map;
 }object;
 
-object goodApple;
-object brownApple;
-object blackApple;
-object  brownApples[5];
+object redAppleXpm;
+object brownAppleXpm;
+object blackAppleXpm;
 object background;
 int nBrownApples;
 //object blackApples[5];
 //int nBlackApples = 0;
 
-void (init_objects)();
-void (drawGoodApple)();
-void (drawBlackApple)();
-void (drawBrownApple)();
-void (addBrownApple)(int x, int y);
+
+void (init_xpms)();
 int (drawBackground)();
+object (get_xpm)(enum appleType type);
+void (addBrownApple)(int x, int y);
+
+typedef struct {
+    int x_pos;
+    int y_pos;
+    object appleXpm;
+    enum appleType type;
+}Apple;
+
+
+Apple applesArray[195];
+int numApples;
+
+void (initApple)(Apple *apple, int x_pos, int y_pos, enum appleType type);
+void (initRandomApple)(Apple *apple, enum appleType type);
+
+void (drawApple)(Apple apple);
+
+int (isApple)(int x, int y);
+
 
 
 #endif /* __OBJECTS_H */
