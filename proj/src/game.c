@@ -14,7 +14,14 @@ int16_t speed = 40;
 
 int(singlePlayerMode)() {
   drawBackground();
-  init_objects();
+  init_xpms();
+
+
+  Apple initialApple;
+  initApple(&initialApple, 280, 200, red);
+  drawApple(initialApple);
+
+
   init_snake();
   init_header();
   drawHeader();
@@ -68,7 +75,6 @@ int(singlePlayerMode)() {
             if (strcmp(snakeBody[0].direction, "UP") == 0 || strcmp(snakeBody[0].direction, "DOWN") == 0) {
               start=true;
               if (scanCode[0] == D_MAKE_CODE || scanCode[1] == RIGHT_MAKE_CODE) {
-                addBodyPart();
                 snakeBody[0].direction = "RIGHT";
                 snakeBody[0].img = snakeBody[0].imgRight;
                 snakeBody[0].map = snakeBody[0].mapRight;

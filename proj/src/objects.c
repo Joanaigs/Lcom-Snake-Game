@@ -3,60 +3,76 @@
 #include "images/maca_castanha.xpm"
 #include "images/maca_preta.xpm"
 #include "images/game_background.xpm"
-int (drawBackground)(){
-  /*
-  uint32_t lightGreen=SET_COLOR(170, 215, 81);
-  uint32_t darkGreen=SET_COLOR(148, 191, 67);
-  uint16_t weight = h_res/20;
-  uint16_t height = v_res/15;
-  int i=0;
-  for(uint8_t row = 0; row < 15; ++row){
-        for(uint8_t col = 0; col < 20; ++col){
-            uint16_t x = col * weight;
-            uint16_t y = row * height;
-            uint16_t w = (x + weight >h_res) ? (h_res - x) : (weight);
-            uint16_t h = (y + height > v_res) ? (v_res - y) : (height);
+#include "snake.h"
 
-            if(i%2==0){
-              if (vg_draw_rectangle(x,y,w,h,lightGreen)) 
-                return 1;
-            }
-            else{
-              if (vg_draw_rectangle(x,y,w,h,darkGreen)) 
-                return 1;
-            }
-            i++;
-        }
-        i++;
+
+void (init_xpms)(){
+  redAppleXpm.map = xpm_load((xpm_map_t)maca_xpm, XPM_8_8_8, &(redAppleXpm.img));
+  blackAppleXpm.map = xpm_load((xpm_map_t)maca_preta_xpm, XPM_8_8_8, &(blackAppleXpm.img));
+  brownAppleXpm.map = xpm_load((xpm_map_t)maca_castanha_xpm, XPM_8_8_8, &(brownAppleXpm.img));
+
+}
+
+
+object (get_xpm)(enum appleType type){
+    switch (type) {
+        case red: return redAppleXpm;
+        case brown: return brownAppleXpm;
+        case black: return blackAppleXpm;
     }
-    */
-  
+}
+
+int (drawBackground)(){
     background.map = xpm_load((xpm_map_t)game_background_xpm, XPM_8_8_8, &background.img);
     draw_xpm(background.img, background.map, 0, 0);
     return 0;
 }
 
-void (init_objects)(){
-  goodApple.map = xpm_load((xpm_map_t)maca_xpm, XPM_8_8_8, &(goodApple.img));
-  goodApple.x=55; goodApple.y=1;
-  blackApple.map = xpm_load((xpm_map_t)maca_preta_xpm, XPM_8_8_8, &(blackApple.img));
-  blackApple.x=0; blackApple.y=1;
-  brownApple.map = xpm_load((xpm_map_t)maca_castanha_xpm, XPM_8_8_8, &(brownApple.img));
-  brownApple.x=55; brownApple.y=400;
+void (initApple)(Apple *apple, int x_pos, int y_pos, enum appleType type){
+    apple->type = type;
+    apple->appleXpm = get_xpm(type);
+    apple->x_pos = x_pos;
+    apple->y_pos = y_pos;
+
+    applesArray[numApples] = *apple;
+    numApples++;
+
 }
 
-void (drawGoodApple)(){
-  draw_xpm(goodApple.img, goodApple.map, goodApple.x, goodApple.y);
-  goodApple.x+=10;
+void (initRandomApple)(Apple *apple, enum appleType type){
+    apple->type = type;
+    apple->appleXpm = get_xpm(type);
+
+    int x;
+    int y;
+    do {
+        srand(time(0));
+        x = ((rand() % ((h_res - 40 + 1 - 40) / 40)) * 40 )+ 40;
+        srand(time(0));
+        y = ((rand() % ((v_res - 40 + 1 - 120) / 40)) * 40 )+ 120;
+
+    } while (isApple(x,y) != -1 || isSnake(x,y) == 1);
+
+
+    apple->x_pos = x;
+    apple->y_pos = y;
+
+    applesArray[numApples] = *apple;
+    numApples++;
+
 }
 
-void (drawBlackApple)(){
-  draw_xpm(blackApple.img,blackApple.map, blackApple.x, blackApple.y);
-  blackApple.x+=30; 
+void (drawApple)(Apple apple){
+    draw_xpm(apple.appleXpm.img, apple.appleXpm.map, apple.x_pos, apple.y_pos);
 }
 
-void (drawBrownApple)(){
-  draw_xpm(brownApple.img, brownApple.map, brownApple.x, brownApple.y);
-  brownApple.x+=10; 
+
+int (isApple)(int x, int y){
+    for (int i = 0; i < numApples; i++){
+        if (applesArray[i].x_pos == x && applesArray[i].y_pos == y){
+            return i;
+        }
+    }
+    return -1;
 }
 
