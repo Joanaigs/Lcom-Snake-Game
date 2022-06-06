@@ -47,9 +47,7 @@ void draw_number(int number, int x, int y) {
     for (int i = 1; i <= num_dig; i++) {
       temp = num % 10;
       num /= 10;
-      printf("%d, %d\n", temp, num);
     }
-    printf("%d\n", temp);
     switch (temp) {
       case 0:
         draw_xpm(zero.img, zero.map, x, y);
@@ -115,9 +113,7 @@ void erase_number(int number, int x, int y) {
     for (int i = 1; i <= num_dig; i++) {
       temp = num % 10;
       num /= 10;
-      printf("%d, %d\n", temp, num);
     }
-    printf("%d\n", temp);
     switch (temp) {
       case 0:
         erase_xpm(zero.img, x, y, background.img);

@@ -30,12 +30,11 @@ int(gameOverPage)() {
   copy_buffer_to_mem();
   message msg;
   int ipc_status, r;
-  uint8_t irq_keyboard = 1, irq_timer = 0;
+  uint8_t irq_keyboard = 1, irq_timer;
 
-  if (timer_subscribe_int(&irq_timer))
-    return 1;
   if (keyboard_subscribe(&irq_keyboard, 5))
     return 1;
+  if(timer_subscribe_int(&irq_timer)) return 1;
   int good = 1;
   while (good) {
     if ((r = driver_receive(ANY, &msg, &ipc_status)) != 0) {
@@ -45,17 +44,17 @@ int(gameOverPage)() {
     if (is_ipc_notify(ipc_status)) {
       switch (_ENDPOINT_P(msg.m_source)) {
         case HARDWARE:
-          if (msg.m_notify.interrupts & irq_timer) {
-            copy_buffer_to_mem();
-            //drawCursor(&c);
-          }
           if (msg.m_notify.interrupts & irq_keyboard) {
+            printf("hi\n");
             kbc_ih();
             if (done) {
               if (scanCode[0] == ENTER_BREAK_CODE)
                 good = 0;
               size = 0;
             }
+          }
+          if (msg.m_notify.interrupts & irq_timer) {
+            copy_buffer_to_mem();
           }
           break;
         default:
@@ -67,7 +66,7 @@ int(gameOverPage)() {
   }
   if (keyboard_unsubscribe())
     return 1;
-  if (timer_unsubscribe_int())
+  if(timer_unsubscribe_int())
     return 1;
   return 0;
 }
