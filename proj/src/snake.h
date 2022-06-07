@@ -29,8 +29,9 @@ int numOfBodyParts;
 int numBend;
 int len;
 bool start; // if true, snake starts moving
-int lives;
+double lives;
 int numOfApplesEaten;
+int gainLive;
 
 int (movement)(int16_t speed );
 void (init_snake)();
@@ -39,5 +40,6 @@ void (drawSnakeBody)();
 void (addBodyPart)();
 void (snakeBodyMovement)(int16_t speed);
 void (removeBodyPart)(int n);
-int takelive(int n);
+void periodicApples();
+int takelive(double n);
 int isSnake(int x, int y);

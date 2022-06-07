@@ -85,7 +85,7 @@ void draw_number(int number, int x, int y) {
   }
 }
 
-void drawHearts(int number, int x, int y) {
+void drawHearts(double number, int x, int y) {
   int temp = 1;
   for (double i = 0.5; i <= number; i += 0.5) {
     if (temp % 2) {
@@ -156,10 +156,10 @@ void eraseTime() {
 }
 
 void eraseAppleNumb() {
-  erase_number(numOfApplesEaten, 525, 30);
+  erase_number(numOfApplesEaten, 445, 30);
 }
 
-void eraseHearts(int number, int x, int y) {
+void eraseHearts(double number, int x, int y) {
     int temp = 1;
   for (double i = 0.5; i <= number; i += 0.5) {
     if (temp % 2) {
@@ -177,7 +177,7 @@ void eraseHearts(int number, int x, int y) {
 void drawHeader() {
   draw_xpm(timeClock.img, timeClock.map, 20, 20);
   draw_number(gameTime, 65, 30);
-  drawHearts(lives, 620, 20);
-  draw_xpm(redAppleXpm.img, redAppleXpm.map, 480, 20);
-  draw_number(numOfApplesEaten, 525, 30);
+  drawHearts(lives, 540, 20);
+  draw_xpm(redAppleXpm.img, redAppleXpm.map, 400, 20);
+  draw_number(numOfApplesEaten, 445, 30);
 }

@@ -7,7 +7,7 @@ void drawHeader();
 void draw_number(int number, int x, int y);
 void eraseTime();
 void eraseAppleNumb();
-void eraseHearts(int number, int x, int y);
+void eraseHearts(double number, int x, int y);
 
 typedef struct{
     xpm_image_t img;

@@ -54,6 +54,8 @@ void (drawApple)(Apple apple);
 
 int (isApple)(int x, int y);
 
+void placeApple(int x, int y, enum appleType a);
+
 
 
 #endif /* __OBJECTS_H */

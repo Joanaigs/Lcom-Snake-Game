@@ -12,7 +12,7 @@
 #include <lcom/lcf.h>
 #include <stdint.h>
 #include <stdio.h>
-uint8_t fr_rate = 8;
+uint8_t fr_rate = 5;
 int16_t speed = 40;
 
 int(singlePlayerMode)() {
@@ -107,6 +107,10 @@ int(singlePlayerMode)() {
           }
           if (msg.m_notify.interrupts & irq_rtc) {
             rtc_ih();
+            if(dealWithInterrupt){
+              periodicApples();
+            }
+            dealWithInterrupt=false;
           }
 
           break;
@@ -180,9 +184,9 @@ int(multiPlayerMode)() {
             if (n_interrupts % frames == 0 && start) {
 
               if (movement(speed)) {
-                if (keyboard_unsubscribe())
-                  return 1;
                 if (timer_unsubscribe_int())
+                  return 1;
+                if (keyboard_unsubscribe())
                   return 1;
                 if (mouse_unsubscribe())
                   return 1;
@@ -216,7 +220,7 @@ int(multiPlayerMode)() {
               }
             }
             else if (strcmp(snakeBody[0].direction, "LEFT") == 0 || strcmp(snakeBody[0].direction, "RIGHT") == 0) {
-              start=true;
+              start = true;
               if (scanCode[0] == W_MAKE_CODE || scanCode[1] == UP_MAKE_CODE) {
                 snakeBody[0].direction = "UP";
                 snakeBody[0].img = snakeBody[0].imgUp;
@@ -239,10 +243,10 @@ int(multiPlayerMode)() {
               // EVENTO DO CLIQUE
               struct mouse_ev event = mouse_get_event(&p);
               if (event.type == LB_RELEASED) {
-
-                Apple apple;
-                initApple(&apple, c.x, c.y, brown);
-                drawApple(apple);
+                placeApple(c.x, c.y, brown);
+              }
+              if (event.type == RB_RELEASED) {
+                placeApple(c.x, c.y, black);
               }
             }
           }

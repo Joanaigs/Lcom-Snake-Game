@@ -76,5 +76,21 @@ int (isApple)(int x, int y) {
     return -1;
 }
 
+void placeApple(int x, int y, enum appleType a){
+    Apple apple;
+    int h=x/40;
+    int v=y/40;
+    int x_final, y_final;
+    if(x%40>=20)
+        x_final=h*40+40;
+    else
+        x_final=h*40;
+    if(v%40>=20)
+        y_final=v*40+40;
+    else
+        y_final=v*40;
+    initApple(&apple, x_final, y_final, a);
+    drawApple(apple);
+}
 
 

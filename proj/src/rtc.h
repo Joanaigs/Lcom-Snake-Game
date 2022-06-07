@@ -8,3 +8,4 @@ int wait_valid_rtc();
 int set_periodic();
 int set_update_int(bool on);
 void(rtc_ih)();
+bool dealWithInterrupt;
