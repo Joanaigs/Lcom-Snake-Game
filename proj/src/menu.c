@@ -6,12 +6,14 @@
 #include "mouse.h"
 #include "proj.h"
 #include "macros.h"
+#include "timer.h"
 #include "images/menu_background.xpm"
 #include "images/menu_instructions.xpm"
 #include "images/menu_multiPlayer.xpm"
 #include "images/menu_singlePlayer.xpm"
 #include "images/menu_exit.xpm"
 #include "images/gameOver.xpm"
+#include "images/mouse_cursor.xpm"
 
 
 static bool choose_instructions=false, choose_singlePlayer=false, choose_multiPlayer=false, choose_exit=false;
@@ -67,8 +69,10 @@ int (menuContinueCollisions)(cursor *mouse_c){
     return 0;
 }
 
-void (menu)(cursor *mouse_c, struct packet *p){
+int (menu)(cursor *mouse_c, struct packet *p){
     struct mouse_ev event = mouse_get_event(p);
+
+    printf("%d , %d", mouse_c->x, mouse_c->y);
 
     switch (menuOptionCollisions(mouse_c)) {
         case 1:
@@ -134,16 +138,21 @@ void (menu)(cursor *mouse_c, struct packet *p){
 
     if(choose_singlePlayer){
         baseState = singlePlayer;
+        return 1;
     }
     else if(choose_multiPlayer){
         baseState = multiPlayer;
+        return 1;
     }
     else if(choose_instructions){
         baseState = instructions;
+        return 1;
     }
     else if(choose_exit){
         baseState = leave;
+        return 1;
     }
+    return 0;
 }
 
 int (continueMenu)(cursor *mouse_c, struct packet *p){
@@ -162,5 +171,60 @@ int (continueMenu)(cursor *mouse_c, struct packet *p){
         }
     }
 
+    return 0;
+}
+
+
+int(mainMenuLoop)() {  
+    cursor c;
+    c.x = 200;
+    c.y = 200;
+    xpm_load((xpm_map_t)mouse_cursor, XPM_8_8_8, &(c.img));
+    copy_buffer_to_mem();
+    drawMenu();
+
+    message msg;
+    int ipc_status, r;
+    uint8_t irq_timer = 0, irq_mouse = 2;
+
+    if (timer_subscribe(&irq_timer, 0)) return 1;
+    if(mouse_subscribe(&irq_mouse, 1)) return 1;
+
+    int good = 1;
+    while (good) {
+        if ((r = driver_receive(ANY, &msg, &ipc_status)) != 0) {
+            printf("driver_receive failed with: %d", r);
+            continue;
+        }
+        if (is_ipc_notify(ipc_status)) {
+            switch (_ENDPOINT_P(msg.m_source)) {
+                case HARDWARE:
+                    if (msg.m_notify.interrupts & irq_timer) {
+                        copy_buffer_to_mem();
+                        draw_xpm_video_mem(c.img, c.img.bytes, c.x, c.y);
+                    }
+
+                    if (msg.m_notify.interrupts & irq_mouse) {
+                        mouse_ih();
+                        if (mouse_number_bytes >= 3) {
+                            struct packet p = parse_packet();
+                            c.x += p.delta_x;
+                            c.y -= p.delta_y;
+                            if(menu(&c, &p))
+                                good=0;
+                        }
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
+        else {
+        }
+    }
+    if (timer_unsubscribe_int())
+        return 1;
+    if (mouse_unsubscribe())
+        return 1;
     return 0;
 }

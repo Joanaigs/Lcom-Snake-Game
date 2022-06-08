@@ -7,7 +7,7 @@
 
 void (drawMenu)();
 
-void (menu)(cursor *mouse_c, struct packet *p);
+int (menu)(cursor *mouse_c, struct packet *p);
 
 void (instructionsMenu)();
 
@@ -21,3 +21,4 @@ int (menuContinueCollisions)(cursor *mouse_c);
 
 uint8_t* (chooseButton)(xpm_image_t* image_menu);
 
+int (mainMenuLoop)();
