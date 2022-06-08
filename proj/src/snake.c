@@ -276,7 +276,7 @@ void periodicApples(){
   wait_valid_rtc();
   brown_time++;
   black_time++;
-  if(black_time==35){
+  if(black_time==35 && start){
       Apple blackApple;
       initRandomApple(&blackApple, black);
       drawApple(blackApple);
