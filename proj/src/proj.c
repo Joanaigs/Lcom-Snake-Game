@@ -58,7 +58,7 @@ int(proj_main_loop)(int argc, char *argv[]) {
   vramMap();
   if (setMode(0x115))
     return 1;
-  baseState = multiPlayer;
+  baseState = mainMenu;
   while (running) {
     switch (baseState) {
       case mainMenu:
