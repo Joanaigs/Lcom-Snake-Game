@@ -16,6 +16,7 @@
         "chrono": "c",
         "ctime": "c",
         "mutex": "c",
-        "proj.h": "c"
+        "proj.h": "c",
+        "snake.h": "c"
     }
 }

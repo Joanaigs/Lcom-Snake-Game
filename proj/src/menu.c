@@ -6,7 +6,7 @@
 #include "mouse.h"
 #include "proj.h"
 #include "macros.h"
-#include "mouse.h"
+#include "cursor.h"
 #include "images/menu_background.xpm"
 #include "images/menu_instructions.xpm"
 #include "images/menu_multiPlayer.xpm"
@@ -20,8 +20,8 @@ extern cursor *mouse_c;
 extern struct packet p;
 
 
-static struct mouse_ev * mouseEvent;
-static bool choose_instructions=false, choose_singlePlayer=false, choose_multiPlayer=false, choose_exit=false, choose_continue=false;
+//static struct mouse_ev * mouseEvent;
+static bool choose_instructions=false, choose_singlePlayer=false, choose_multiPlayer=false, choose_exit=false; //choose_continue=false;
 bool on_instructions=false, on_singlePlayer=false, on_multiPlayer=false, on_exit=false;
 
 
@@ -172,4 +172,5 @@ void (continueMenu_ih)(){
                 on_singlePlayer = true;
                 drawMenu();
             }
+    }
 }

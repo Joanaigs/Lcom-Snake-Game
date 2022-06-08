@@ -7,6 +7,9 @@
 #include "objects.h"
 #include "snake.h"
 #include "timer.h"
+#include "game.h"
+#include "mouse.h"
+
 int(gameOverPage)() {
   xpm_image_t img;
   uint8_t *map = xpm_load((xpm_map_t) game_over_xpm, XPM_8_8_8, &img);
