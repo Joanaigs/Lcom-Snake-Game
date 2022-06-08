@@ -5,3 +5,13 @@
 
 
 void (drawMenu)();
+
+void (menu_ih)();
+
+void (instructionsMenu_ih)();
+
+void (continueMenu_ih)();
+
+void (pauseMenu_ih)();
+
+int (menuOptionCollisions)();
