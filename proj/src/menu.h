@@ -15,3 +15,4 @@ void (continueMenu_ih)();
 void (pauseMenu_ih)();
 
 int (menuOptionCollisions)();
+
