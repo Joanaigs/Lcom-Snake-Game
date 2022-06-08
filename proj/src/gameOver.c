@@ -45,7 +45,6 @@ int(gameOverPage)() {
       switch (_ENDPOINT_P(msg.m_source)) {
         case HARDWARE:
           if (msg.m_notify.interrupts & irq_keyboard) {
-            printf("hi\n");
             kbc_ih();
             if (done) {
               if (scanCode[0] == ENTER_BREAK_CODE)
