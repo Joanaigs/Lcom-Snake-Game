@@ -17,6 +17,7 @@
         "ctime": "c",
         "mutex": "c",
         "proj.h": "c",
-        "snake.h": "c"
+        "snake.h": "c",
+        "macros.h": "c"
     }
 }

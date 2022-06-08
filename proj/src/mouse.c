@@ -8,7 +8,8 @@ int hook_idR=4;
 int mouse_number_bytes=0;
 uint8_t command;
 
-int (mouse_subscribe)(uint8_t *bit_no){
+int (mouse_subscribe)(uint8_t *bit_no, int hook) {
+    hook_idR=hook;
     *bit_no=BIT(hook_idR);
     return sys_irqsetpolicy(MOUSE_IRQ,IRQ_REENABLE|IRQ_EXCLUSIVE,&hook_idR);
 }

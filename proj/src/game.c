@@ -34,7 +34,7 @@ int(singlePlayerMode)() {
   message msg;
   start = false;
   uint8_t irq_keyboard = 0, irq_timer = 0, irq_rtc = 0;
-  if (timer_subscribe_int(&irq_timer))
+  if (timer_subscribe(&irq_timer, 0))
     return 1;
   if (keyboard_subscribe(&irq_keyboard, 2))
     return 1;
@@ -160,11 +160,11 @@ int(multiPlayerMode)() {
   c.y = 200;
   xpm_load((xpm_map_t) mouse_cursor, XPM_8_8_8, &(c.img));
 
-  if (timer_subscribe_int(&irq_timer))
+  if (timer_subscribe(&irq_timer, 0))
     return 1;
   if (keyboard_subscribe(&irq_keyboard, 2))
     return 1;
-  if (mouse_subscribe(&mouse_set))
+  if (mouse_subscribe(&mouse_set, 4))
     return 1;
 
   drawBackground();
@@ -200,7 +200,7 @@ int(multiPlayerMode)() {
             }
             if (start) {
               copy_buffer_to_mem();
-              drawCursor(&c);
+              draw_xpm_video_mem(c.img, c.img.bytes, c.x, c.y);
             }
           }
 

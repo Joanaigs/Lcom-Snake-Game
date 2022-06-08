@@ -6,8 +6,6 @@
 #include "mouse.h"
 #include "proj.h"
 #include "macros.h"
-#include "mouse.h"
-#include "cursor.h"
 #include "images/menu_background.xpm"
 #include "images/menu_instructions.xpm"
 #include "images/menu_multiPlayer.xpm"
@@ -148,7 +146,7 @@ void (menu)(cursor *mouse_c, struct packet *p){
     }
 }
 
-void (continueMenu)(cursor *mouse_c, struct packet *p){
+int (continueMenu)(cursor *mouse_c, struct packet *p){
     struct mouse_ev event = mouse_get_event(p);
 
     switch (menuContinueCollisions(mouse_c)) {
@@ -172,6 +170,9 @@ void (continueMenu)(cursor *mouse_c, struct packet *p){
                 draw_xpm(img, map, x, y);
             }
     }
-    if(choose_continue)
+    if(choose_continue){
         baseState = mainMenu;
+        return 1;
+    }
+    return 0;
 }
