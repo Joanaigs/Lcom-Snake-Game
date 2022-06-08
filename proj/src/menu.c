@@ -19,6 +19,14 @@
 static bool choose_instructions=false, choose_singlePlayer=false, choose_multiPlayer=false, choose_exit=false;
 bool on_instructions=false, on_singlePlayer=false, on_multiPlayer=false, on_exit=false, on_continue=false;
 
+void init_menu(){
+    main_menu.map=xpm_load((xpm_map_t)menu_xpm, XPM_8_8_8, &(main_menu.img));
+    sp_menu.map=xpm_load((xpm_map_t)menu_singlePlayer_xpm, XPM_8_8_8, &(sp_menu.img));
+    mp_menu.map=xpm_load((xpm_map_t)menu_multiPlayer_xpm, XPM_8_8_8, &(mp_menu.img));
+    inst_menu.map= xpm_load((xpm_map_t)menu_instructions_xpm, XPM_8_8_8, &(inst_menu.img));
+    exit_menu.map=xpm_load((xpm_map_t)menu_xpm, XPM_8_8_8, &(exit_menu.img));
+}
+
 
 uint8_t* (chooseButton)(xpm_image_t *image_menu){
     uint8_t *image_menu_map;
@@ -43,10 +51,20 @@ uint8_t* (chooseButton)(xpm_image_t *image_menu){
 
 
 void (drawMenu)(){
-    xpm_image_t image_menu;
-    uint8_t *image_menu_map;
-    image_menu_map = chooseButton(&image_menu);
-    draw_xpm(image_menu, image_menu_map, 0, 0);
+    if(on_singlePlayer)
+        draw_xpm(sp_menu.img, sp_menu.map, 0, 0);
+
+    else if(on_multiPlayer)
+         draw_xpm(mp_menu.img, mp_menu.map, 0, 0);
+
+    else if(on_instructions)
+        draw_xpm(inst_menu.img, inst_menu.map, 0, 0);
+
+    else if(on_exit)
+         draw_xpm(exit_menu.img, exit_menu.map, 0, 0);
+
+    else
+        draw_xpm(main_menu.img, main_menu.map, 0, 0);
     copy_buffer_to_mem();
 }
 
@@ -69,12 +87,10 @@ int (menuContinueCollisions)(cursor *mouse_c){
     return 0;
 }
 
-int (menu)(cursor *mouse_c, struct packet *p){
+int (menu)(cursor *c, struct packet *p){
     struct mouse_ev event = mouse_get_event(p);
 
-    printf("%d , %d", mouse_c->x, mouse_c->y);
-
-    switch (menuOptionCollisions(mouse_c)) {
+    switch (menuOptionCollisions(c)) {
         case 1:
             if(event.type == LB_RELEASED) {
                 choose_singlePlayer=true;
@@ -83,6 +99,8 @@ int (menu)(cursor *mouse_c, struct packet *p){
             if(!on_singlePlayer){
                 on_singlePlayer = true;
                 drawMenu();
+                copy_buffer_to_mem();
+                        draw_xpm_video_mem(c->img, c->img.bytes, c->x, c->y);
             }
             break;
         case 2:
@@ -93,6 +111,8 @@ int (menu)(cursor *mouse_c, struct packet *p){
             if(!on_multiPlayer){
                 on_multiPlayer = true;
                 drawMenu();
+                copy_buffer_to_mem();
+                        draw_xpm_video_mem(c->img, c->img.bytes, c->x, c->y);
             }
             break;
         case 3:
@@ -103,6 +123,8 @@ int (menu)(cursor *mouse_c, struct packet *p){
             if(!on_instructions){
                 on_instructions = true;
                 drawMenu();
+                copy_buffer_to_mem();
+                        draw_xpm_video_mem(c->img, c->img.bytes, c->x, c->y);
             }
             break;
         case 4:
@@ -113,43 +135,66 @@ int (menu)(cursor *mouse_c, struct packet *p){
             if(!on_exit){
                 on_exit = true;
                 drawMenu();
+                copy_buffer_to_mem();
+                        draw_xpm_video_mem(c->img, c->img.bytes, c->x, c->y);
             }
             break;
 
         case 0:
             if(on_singlePlayer){
-                on_singlePlayer = true;
+                on_singlePlayer = false;
                 drawMenu();
+                copy_buffer_to_mem();
+                        draw_xpm_video_mem(c->img, c->img.bytes, c->x, c->y);
             }
             else if(on_multiPlayer){
                 on_multiPlayer = false;
                 drawMenu();
+                copy_buffer_to_mem();
+                        draw_xpm_video_mem(c->img, c->img.bytes, c->x, c->y);
             }
             else if(on_instructions){
                 on_instructions = false;
                 drawMenu();
+                copy_buffer_to_mem();
+                        draw_xpm_video_mem(c->img, c->img.bytes, c->x, c->y);
             }
             else if(on_exit){
                 on_exit = false;
                 drawMenu();
+                copy_buffer_to_mem();
+                        draw_xpm_video_mem(c->img, c->img.bytes, c->x, c->y);
             }
             break;
     }
 
     if(choose_singlePlayer){
         baseState = singlePlayer;
+        choose_instructions=false; choose_singlePlayer=false; choose_multiPlayer=false; choose_exit=false;
+        on_instructions=false; on_singlePlayer=false; on_multiPlayer=false; on_exit=false; on_continue=false;
+
+
         return 1;
     }
     else if(choose_multiPlayer){
         baseState = multiPlayer;
+        choose_instructions=false; choose_singlePlayer=false; choose_multiPlayer=false; choose_exit=false;
+        on_instructions=false; on_singlePlayer=false; on_multiPlayer=false; on_exit=false; on_continue=false;
+
         return 1;
     }
     else if(choose_instructions){
         baseState = instructions;
+        choose_instructions=false; choose_singlePlayer=false; choose_multiPlayer=false; choose_exit=false;
+        on_instructions=false; on_singlePlayer=false; on_multiPlayer=false; on_exit=false; on_continue=false;
+
         return 1;
     }
     else if(choose_exit){
         baseState = leave;
+        choose_instructions=false; choose_singlePlayer=false; choose_multiPlayer=false; choose_exit=false;
+        on_instructions=false; on_singlePlayer=false; on_multiPlayer=false; on_exit=false; on_continue=false;
+
         return 1;
     }
     return 0;
@@ -181,14 +226,15 @@ int(mainMenuLoop)() {
     c.y = 200;
     xpm_load((xpm_map_t)mouse_cursor, XPM_8_8_8, &(c.img));
     copy_buffer_to_mem();
+    init_menu();
     drawMenu();
 
     message msg;
     int ipc_status, r;
     uint8_t irq_timer = 0, irq_mouse = 2;
 
-    if (timer_subscribe(&irq_timer, 0)) return 1;
-    if(mouse_subscribe(&irq_mouse, 1)) return 1;
+    if (timer_subscribe(&irq_timer, 3)) return 1;
+    if(mouse_subscribe(&irq_mouse, 2)) return 1;
 
     int good = 1;
     while (good) {

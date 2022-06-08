@@ -3,7 +3,16 @@
 #include <lcom/lcf.h>
 #include "cursor.h"
 
+typedef struct{
+    xpm_image_t img;
+    uint8_t *map;
+}menuu;
 
+menuu main_menu;
+menuu sp_menu;
+menuu mp_menu;
+menuu inst_menu;
+menuu exit_menu;
 
 void (drawMenu)();
 
