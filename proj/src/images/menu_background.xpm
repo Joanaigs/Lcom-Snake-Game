@@ -1,8 +1,8 @@
 /* XPM */
-static char *result[] = {
+static char * menu_xpm[] = {
 /* columns rows colors chars-per-pixel */
 "800 600 245 2 ",
-"   c black",
+"   c #000000",
 ".  c #080C0C",
 "X  c #071211",
 "o  c #171B1B",
