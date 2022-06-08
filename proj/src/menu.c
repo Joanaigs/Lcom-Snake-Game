@@ -14,7 +14,7 @@
 #include "images/gameOver.xpm"
 
 
-static bool choose_instructions=false, choose_singlePlayer=false, choose_multiPlayer=false, choose_exit=false, choose_continue=false;
+static bool choose_instructions=false, choose_singlePlayer=false, choose_multiPlayer=false, choose_exit=false;
 bool on_instructions=false, on_singlePlayer=false, on_multiPlayer=false, on_exit=false, on_continue=false;
 
 
@@ -62,7 +62,7 @@ int (menuOptionCollisions)(cursor *mouse_c){
 }
 
 int (menuContinueCollisions)(cursor *mouse_c){
-    if(mouse_c->y>=777 && mouse_c->y<=860 && mouse_c->x>=685 && mouse_c->x<=909)
+    if(mouse_c->y>=386 && mouse_c->y<=432 && mouse_c->x>=331 && mouse_c->x<=445)
         return 1;
     return 0;
 }
@@ -148,31 +148,19 @@ void (menu)(cursor *mouse_c, struct packet *p){
 
 int (continueMenu)(cursor *mouse_c, struct packet *p){
     struct mouse_ev event = mouse_get_event(p);
+    printf("%d , %d \n", mouse_c->x, mouse_c->y);
 
-    switch (menuContinueCollisions(mouse_c)) {
-        case 1:
-            if (event.type == LB_RELEASED) {
-                choose_continue = true;
-                break;
-            }
-            if (!on_continue) {
-                on_continue = true;
-                drawMenu();
-            }
-            break;
-        case 0:
-            if (on_continue) {
-                on_continue = true;
-                xpm_image_t img;
-                uint8_t *map = xpm_load((xpm_map_t) game_over_xpm, XPM_8_8_8, &img);
-                int x = (h_res - img.width) / 2;
-                int y = (v_res + 120 - img.height) / 2;
-                draw_xpm(img, map, x, y);
-            }
+    if(menuContinueCollisions(mouse_c)) {
+
+        if (event.type == LB_RELEASED) {
+            baseState = mainMenu;
+             return 1;
+        }
+        if (!on_continue) {
+            on_continue = true;
+            //drawMenu();
+        }
     }
-    if(choose_continue){
-        baseState = mainMenu;
-        return 1;
-    }
+
     return 0;
 }

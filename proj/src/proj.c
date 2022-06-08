@@ -43,7 +43,6 @@ void multi_player() {
 
 void gameOver() {
   gameOverPage();
-  baseState = leave;
 }
 
 void main_Menu(){

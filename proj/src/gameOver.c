@@ -41,7 +41,6 @@ int(gameOverPage)() {
     if(mouse_subscribe(&irq_mouse, 6)) return 1;
 
     int good = 1;
-    printf("h");
     while (good) {
         if ((r = driver_receive(ANY, &msg, &ipc_status)) != 0) {
             printf("driver_receive failed with: %d", r);
@@ -51,7 +50,6 @@ int(gameOverPage)() {
             switch (_ENDPOINT_P(msg.m_source)) {
                 case HARDWARE:
                     if (msg.m_notify.interrupts & irq_keyboard) {
-                        printf("hi");
                         kbc_ih();
                         if (done) {
                             if (scanCode[0] == ENTER_BREAK_CODE)
@@ -60,14 +58,12 @@ int(gameOverPage)() {
                         }
                     }
                     if (msg.m_notify.interrupts & irq_timer) {
-                        printf("hii");
                         copy_buffer_to_mem();
                         draw_xpm_video_mem(c.img, c.img.bytes, c.x, c.y);
                     }
 
                     if (msg.m_notify.interrupts & irq_mouse) {
                         mouse_ih();
-                        printf("hiii");
                         if (mouse_number_bytes >= 3) {
                             struct packet p = parse_packet();
                             c.x += p.delta_x;
