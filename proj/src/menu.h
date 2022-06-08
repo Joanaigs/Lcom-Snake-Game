@@ -15,6 +15,5 @@ void (pauseMenu_ih)();
 
 int (menuOptionCollisions)();
 
-void (drawMenu)();
-
 uint8_t* (chooseButton)(xpm_image_t* image_menu);
+

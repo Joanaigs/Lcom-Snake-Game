@@ -1,5 +1,5 @@
 /* XPM */
-static char * menu_xpm[] = {
+static char *menu_xpm[] = {
 /* columns rows colors chars-per-pixel */
 "800 600 245 2 ",
 "   c #000000",
