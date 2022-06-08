@@ -158,7 +158,7 @@ int(multiPlayerMode)() {
   cursor c;
   c.x = 200;
   c.y = 200;
-  xpm_load((xpm_map_t) mouse_cursor.xpm, XPM_8_8_8, &(c.img));
+  xpm_load((xpm_map_t) mouse_cursor, XPM_8_8_8, &(c.img));
 
   if (timer_subscribe_int(&irq_timer))
     return 1;
