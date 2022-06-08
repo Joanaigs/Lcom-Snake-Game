@@ -1,4 +1,3 @@
-#pragma once
 #include <stdbool.h>
 #include <stdint.h>
 #include <lcom/lcf.h>
@@ -6,13 +5,13 @@
 
 void (drawMenu)();
 
-void (menu_ih)();
+void (menu)();
 
-void (instructionsMenu_ih)();
+void (instructionsMenu)();
 
-void (continueMenu_ih)();
+void (continueMenu)();
 
-void (pauseMenu_ih)();
+void (pauseMenu)();
 
 int (menuOptionCollisions)();
 

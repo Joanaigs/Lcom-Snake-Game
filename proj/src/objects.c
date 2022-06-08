@@ -4,6 +4,9 @@
 #include "images/maca_preta.xpm"
 #include "images/game_background.xpm"
 #include "snake.h"
+#include "graphics.h"
+#include "macros.h"
+#include <time.h>
 
 
 void (init_xpms)(){

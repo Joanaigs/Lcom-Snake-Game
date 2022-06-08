@@ -5,10 +5,7 @@
 #include <stdbool.h>
 #include <stdint.h>
 #include <stdlib.h>
-#include <time.h>
 #include <lcom/lcf.h>
-#include "graphics.h"
-#include "macros.h"
 
 
 
