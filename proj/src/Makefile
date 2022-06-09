@@ -2,11 +2,12 @@
 PROG=proj
 
 # source code files to be compiled
-SRCS = proj.c graphics.c objects.c menu.c game.c snake.c timer.c keyboard.c utils.c rtc.c header.c gameOver.c mouse.c cursor.c
+SRCS = proj.c graphics.c objects.c menu.c game.c snake.c timer.c keyboard.c utils.c rtc.c header.c gameOver.c mouse.c cursor.c instructions.c
 
 # additional compilation flags
 # "-Wall -Wextra -Werror -I . -std=c11 -Wno-unused-parameter" are already set
- CFLAGS += -pedantic -D__LCOM_OPTIMIZED__
+# CFLAGS += -pedantic -D__LCOM_OPTIMIZED__
+CFLAGS += -pedantic
 # list of library dependencies (for Lab 5, only LCF library)
 DPADD += ${LIBLCF}
 LDADD += -llcf

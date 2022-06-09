@@ -18,6 +18,7 @@
         "mutex": "c",
         "proj.h": "c",
         "snake.h": "c",
-        "macros.h": "c"
+        "macros.h": "c",
+        "instructions.h": "c"
     }
 }

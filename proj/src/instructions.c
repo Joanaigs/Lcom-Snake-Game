@@ -1,11 +1,24 @@
 
 #include "instructions.h"
-
+#include "gameOver.h"
+#include "graphics.h"
+#include "header.h"
+#include "i8042.h"
+#include "images/instructions.xpm"
+#include "images/instructions_back.xpm"
+#include "images/mouse_cursor.xpm"
+#include "keyboard.h"
+#include "objects.h"
+#include "snake.h"
+#include "timer.h"
+#include "mouse.h"
+#include "menu.h"
+#include "proj.h"
 
 bool on_back=false;
 
 void (init_instructions)(){
-    instructions_menu.map=xpm_load((xpm_map_t)menu_instructions_xpm, XPM_8_8_8, &(instructions_menu.img));
+    instructions_menu.map=xpm_load((xpm_map_t)instructions_xpm, XPM_8_8_8, &(instructions_menu.img));
     instructions_back.map=xpm_load((xpm_map_t)instructions_back_xpm, XPM_8_8_8, &(instructions_back.img));
 }
 
@@ -20,10 +33,10 @@ void (drawInstructionMenu)(){
         draw_xpm(instructions_back.img, instructions_back.map, 0, 0);
 }
 
-void (instructionsMenu)(cursor *mouse_c, struct packet *p){
+int (instructionsMenu)(cursor *c, struct packet *p){
     struct mouse_ev event = mouse_get_event(p);
 
-    if(menuInstructionsCollisions(mouse_c)) {
+    if(menuInstructionsCollisions(c)) {
 
         if (event.type == LB_RELEASED) {
             baseState = mainMenu;
@@ -44,10 +57,10 @@ int(instructionsLoop)() {
     c.x = 200;
     c.y = 200;
     xpm_load((xpm_map_t)mouse_cursor, XPM_8_8_8, &(c.img));
-    copy_buffer_to_mem();
 
     init_instructions();
     draw_xpm(instructions_menu.img, instructions_menu.map, 0, 0);
+    copy_buffer_to_mem();
 
     message msg;
     int ipc_status, r;

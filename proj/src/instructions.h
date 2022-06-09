@@ -1,27 +1,23 @@
 #ifndef G03_INSTRUCTIONS_H
 #define G03_INSTRUCTIONS_H
 
-#include "gameOver.h"
-#include "graphics.h"
-#include "header.h"
-#include "i8042.h"
-#include "images/menu_instructions.xpm"
-#include "images/instructions_back.xpm"
-#include "images/mouse_cursor.xpm"
-#include "keyboard.h"
-#include "objects.h"
-#include "snake.h"
-#include "timer.h"
-#include "mouse.h"
-#include "menu.h"
+#include <stdbool.h>
+#include <stdint.h>
+#include <lcom/lcf.h>
+#include "cursor.h"
+
+typedef struct{
+    xpm_image_t img;
+    uint8_t *map;
+}instMap;
 
 
-menuMap instructions_menu;
-menuMap instructions_back;
+instMap instructions_menu;
+instMap instructions_back;
 
 void (init_instructions)();
 
-void (instructionsMenu)(cursor *mouse_c, struct packet *p);
+int (instructionsMenu)(cursor *mouse_c, struct packet *p);
 
 int (menuInstructionsCollisions)(cursor *mouse_c);
 

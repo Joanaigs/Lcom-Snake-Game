@@ -51,6 +51,7 @@ void main_Menu(){
 }
 
 void instructions_Menu(){
+  printf("hi");
     instructionsLoop();
 }
 
