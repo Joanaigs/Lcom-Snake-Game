@@ -6,13 +6,13 @@
 typedef struct{
     xpm_image_t img;
     uint8_t *map;
-}menuMaps;
+}menuMap;
 
-menuMaps main_menu;
-menuMaps sp_menu;
-menuMaps mp_menu;
-menuMaps inst_menu;
-menuMaps exit_menu;
+menuMap main_menu;
+menuMap sp_menu;
+menuMap mp_menu;
+menuMap inst_menu;
+menuMap exit_menu;
 
 void (drawMenu)();
 

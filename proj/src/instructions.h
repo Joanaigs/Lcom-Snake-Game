@@ -16,8 +16,8 @@
 #include "menu.h"
 
 
-menuMap instructionsMenu;
-menuMap instructionsBack;
+menuMap instructions_menu;
+menuMap instructions_back;
 
 void (init_instructions)();
 
