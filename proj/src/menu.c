@@ -23,9 +23,10 @@ void init_menu(){
     main_menu.map=xpm_load((xpm_map_t)menu_xpm, XPM_8_8_8, &(main_menu.img));
     sp_menu.map=xpm_load((xpm_map_t)menu_singlePlayer_xpm, XPM_8_8_8, &(sp_menu.img));
     mp_menu.map=xpm_load((xpm_map_t)menu_multiPlayer_xpm, XPM_8_8_8, &(mp_menu.img));
-    inst_menu.map= xpm_load((xpm_map_t)menu_instructions_xpm, XPM_8_8_8, &(inst_menu.img));
+    inst_menu.map=xpm_load((xpm_map_t)menu_instructions_xpm, XPM_8_8_8, &(inst_menu.img));
     exit_menu.map=xpm_load((xpm_map_t)menu_exit_xpm, XPM_8_8_8, &(exit_menu.img));
 }
+
 
 void (drawMenu)(){
     if(on_singlePlayer)
@@ -149,29 +150,24 @@ int (menu)(cursor *c, struct packet *p){
         baseState = singlePlayer;
         choose_instructions=false; choose_singlePlayer=false; choose_multiPlayer=false; choose_exit=false;
         on_instructions=false; on_singlePlayer=false; on_multiPlayer=false; on_exit=false; on_continue=false;
-
-
         return 1;
     }
     else if(choose_multiPlayer){
         baseState = multiPlayer;
         choose_instructions=false; choose_singlePlayer=false; choose_multiPlayer=false; choose_exit=false;
         on_instructions=false; on_singlePlayer=false; on_multiPlayer=false; on_exit=false; on_continue=false;
-
         return 1;
     }
     else if(choose_instructions){
         baseState = instructions;
         choose_instructions=false; choose_singlePlayer=false; choose_multiPlayer=false; choose_exit=false;
         on_instructions=false; on_singlePlayer=false; on_multiPlayer=false; on_exit=false; on_continue=false;
-
         return 1;
     }
     else if(choose_exit){
         baseState = leave;
         choose_instructions=false; choose_singlePlayer=false; choose_multiPlayer=false; choose_exit=false;
         on_instructions=false; on_singlePlayer=false; on_multiPlayer=false; on_exit=false; on_continue=false;
-
         return 1;
     }
     return 0;
@@ -188,7 +184,6 @@ int (continueMenu)(cursor *mouse_c, struct packet *p){
         }
         if (!on_continue) {
             on_continue = true;
-            //drawMenu();
         }
     }
 
@@ -250,3 +245,4 @@ int(mainMenuLoop)() {
         return 1;
     return 0;
 }
+
