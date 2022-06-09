@@ -22,7 +22,9 @@ int(singlePlayerMode)() {
   Apple initialApple;
   initApple(&initialApple, 280, 200, red);
   drawApple(initialApple);
-
+  lives=5;
+  gameTime=0;
+  numOfApplesEaten=0;
   init_snake();
   init_header();
   drawHeader();
@@ -36,7 +38,7 @@ int(singlePlayerMode)() {
   uint8_t irq_keyboard = 0, irq_timer = 0, irq_rtc = 0;
   if (timer_subscribe(&irq_timer, 0))
     return 1;
-  if (keyboard_subscribe(&irq_keyboard, 1))
+  if (keyboard_subscribe(&irq_keyboard, 2))
     return 1;
   if (rtc_subscribe_int(&irq_rtc))
     return 1;
@@ -140,7 +142,9 @@ int(multiPlayerMode)() {
   Apple initialApple;
   initApple(&initialApple, 280, 200, red);
   drawApple(initialApple);
-
+  lives=5;
+  gameTime=0;
+  numOfApplesEaten=0;
   init_snake();
   init_header();
   drawHeader();
