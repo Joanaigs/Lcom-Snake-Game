@@ -1,5 +1,5 @@
 /* XPM */
-static char *result[] = {
+static char *instructions_back_xpm[] = {
 /* columns rows colors chars-per-pixel */
 "800 600 237 2 ",
 "   c #000000",
