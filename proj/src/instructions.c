@@ -5,8 +5,8 @@
 bool on_back=false;
 
 void (init_instructions)(){
-    instructionsMenu.map=xpm_load((xpm_map_t)menu_instructions_xpm, XPM_8_8_8, &(instructionsMenu.img));
-    instructionsBack.map=xpm_load((xpm_map_t)instructions_back_xpm, XPM_8_8_8, &(instructionsBack.img));
+    instructions_menu.map=xpm_load((xpm_map_t)menu_instructions_xpm, XPM_8_8_8, &(instructions_menu.img));
+    instructions_back.map=xpm_load((xpm_map_t)instructions_back_xpm, XPM_8_8_8, &(instructions_back.img));
 }
 
 int (menuInstructionsCollisions)(cursor *mouse_c){
@@ -17,7 +17,7 @@ int (menuInstructionsCollisions)(cursor *mouse_c){
 
 void (drawInstructionMenu)(){
     if(on_back)
-        draw_xpm(instructionsBack.img, instructionsBack.map, 0, 0);
+        draw_xpm(instructions_back.img, instructions_back.map, 0, 0);
 }
 
 void (instructionsMenu)(cursor *mouse_c, struct packet *p){
@@ -47,7 +47,7 @@ int(instructionsLoop)() {
     copy_buffer_to_mem();
 
     init_instructions();
-    draw_xpm(instructionsMenu.img, instructionsMenu.map, 0, 0);
+    draw_xpm(instructions_menu.img, instructions_menu.map, 0, 0);
 
     message msg;
     int ipc_status, r;
