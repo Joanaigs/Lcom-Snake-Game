@@ -24,31 +24,8 @@ void init_menu(){
     sp_menu.map=xpm_load((xpm_map_t)menu_singlePlayer_xpm, XPM_8_8_8, &(sp_menu.img));
     mp_menu.map=xpm_load((xpm_map_t)menu_multiPlayer_xpm, XPM_8_8_8, &(mp_menu.img));
     inst_menu.map= xpm_load((xpm_map_t)menu_instructions_xpm, XPM_8_8_8, &(inst_menu.img));
-    exit_menu.map=xpm_load((xpm_map_t)menu_xpm, XPM_8_8_8, &(exit_menu.img));
+    exit_menu.map=xpm_load((xpm_map_t)menu_exit_xpm, XPM_8_8_8, &(exit_menu.img));
 }
-
-
-uint8_t* (chooseButton)(xpm_image_t *image_menu){
-    uint8_t *image_menu_map;
-
-    if(on_singlePlayer)
-        image_menu_map = xpm_load((xpm_map_t)menu_singlePlayer_xpm, XPM_8_8_8, (image_menu));
-
-    else if(on_multiPlayer)
-        image_menu_map = xpm_load((xpm_map_t)menu_multiPlayer_xpm, XPM_8_8_8, (image_menu));
-
-    else if(on_instructions)
-        image_menu_map = xpm_load((xpm_map_t)menu_instructions_xpm, XPM_8_8_8, (image_menu));
-
-    else if(on_exit)
-        image_menu_map = xpm_load((xpm_map_t)menu_exit_xpm, XPM_8_8_8, (image_menu));
-
-    else
-        image_menu_map = xpm_load((xpm_map_t)menu_xpm, XPM_8_8_8, (image_menu));
-
-    return image_menu_map;
-}
-
 
 void (drawMenu)(){
     if(on_singlePlayer)
@@ -202,7 +179,6 @@ int (menu)(cursor *c, struct packet *p){
 
 int (continueMenu)(cursor *mouse_c, struct packet *p){
     struct mouse_ev event = mouse_get_event(p);
-    printf("%d , %d \n", mouse_c->x, mouse_c->y);
 
     if(menuContinueCollisions(mouse_c)) {
 
@@ -233,8 +209,8 @@ int(mainMenuLoop)() {
     int ipc_status, r;
     uint8_t irq_timer = 0, irq_mouse = 2;
 
-    if (timer_subscribe(&irq_timer, 3)) return 1;
-    if(mouse_subscribe(&irq_mouse, 2)) return 1;
+    if (timer_subscribe(&irq_timer, 0)) return 1;
+    if(mouse_subscribe(&irq_mouse, 1)) return 1;
 
     int good = 1;
     while (good) {

@@ -35,10 +35,10 @@ int(gameOverPage)() {
     int ipc_status, r;
     uint8_t irq_keyboard = 1, irq_timer = 0, irq_mouse = 2;
 
-    if (keyboard_subscribe(&irq_keyboard, 5))
+    if (keyboard_subscribe(&irq_keyboard, 0))
         return 1;
-    if (timer_subscribe(&irq_timer, 7)) return 1;
-    if(mouse_subscribe(&irq_mouse, 6)) return 1;
+    if (timer_subscribe(&irq_timer, 1)) return 1;
+    if(mouse_subscribe(&irq_mouse,2)) return 1;
 
     int good = 1;
     while (good) {
