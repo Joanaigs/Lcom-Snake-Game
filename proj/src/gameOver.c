@@ -39,7 +39,6 @@ int(continueMenu)(cursor *mouse_c, struct packet *p) {
       draw_xpm(imgColored, mapColored, (h_res - imgColored.width) / 2, (v_res + 120 - imgColored.height) / 2);
       int x = (h_res - img.width) / 2;
       int y = (v_res + 120 - img.height) / 2;
-      draw_xpm(img, map, x, y);
       draw_xpm(timeClock.img, timeClock.map, x + 91 + 20, y + 90);
       draw_number(gameTime, x + 91 + 20 + 45, y + 90 + 10);
       Apple apple;
@@ -52,7 +51,6 @@ int(continueMenu)(cursor *mouse_c, struct packet *p) {
   }
   else {
     if (on_continue) {
-      draw_xpm(img, map, (h_res - img.width) / 2, (v_res + 120 - img.height) / 2);
       int x = (h_res - img.width) / 2;
       int y = (v_res + 120 - img.height) / 2;
       draw_xpm(img, map, x, y);
@@ -62,7 +60,6 @@ int(continueMenu)(cursor *mouse_c, struct packet *p) {
       initApple(&apple, x + 91 + 20, y + 140, red);
       drawApple(apple);
       draw_number(numOfApplesEaten, x + 91 + 20 + 45, y + 140 + 10);
-      copy_buffer_to_mem();
       on_continue = false;
     }
   }

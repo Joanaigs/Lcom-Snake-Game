@@ -29,12 +29,10 @@ int(singlePlayerMode)() {
   init_header();
   drawHeader();
   drawSnakeBody();
-  gameTime = 0;
   uint16_t frames = sys_hz() / fr_rate;
   int ipc_status, r;
   int n_interrupts = 0;
   message msg;
-  start = false;
   uint8_t irq_keyboard = 0, irq_timer = 0, irq_rtc = 0;
   if (timer_subscribe(&irq_timer, 0))
     return 1;
@@ -44,6 +42,7 @@ int(singlePlayerMode)() {
     return 1;
   set_periodic();
   set_update_int(true);
+  start = false;
   while (scanCode[0] != ESC_BREAK_CODE) {
     if ((r = driver_receive(ANY, &msg, &ipc_status)) != 0) {
       printf("driver_receive failed with: %d", r);
@@ -54,6 +53,7 @@ int(singlePlayerMode)() {
         case HARDWARE:
           if (msg.m_notify.interrupts & irq_timer) {
             n_interrupts++;
+            printf("%d", start);
             if ((n_interrupts % frames == 0) && start) {
               if (movement(speed)) {
                 if (rtc_unsubscribe_int())
@@ -77,6 +77,9 @@ int(singlePlayerMode)() {
 
           if (msg.m_notify.interrupts & irq_keyboard) {
             kbc_ih();
+            printf("hi");
+            if (scanCode[0] == D_MAKE_CODE || scanCode[1] == RIGHT_MAKE_CODE ||scanCode[0] == W_MAKE_CODE || scanCode[1] == UP_MAKE_CODE ||scanCode[0] == S_MAKE_CODE || scanCode[1] == DOWN_MAKE_CODE)
+              start=true;
             if (strcmp(snakeBody[0].direction, "UP") == 0 || strcmp(snakeBody[0].direction, "DOWN") == 0) {
               if (scanCode[0] == D_MAKE_CODE || scanCode[1] == RIGHT_MAKE_CODE) {
                 start = true;
@@ -92,7 +95,6 @@ int(singlePlayerMode)() {
               }
             }
             else if (strcmp(snakeBody[0].direction, "LEFT") == 0 || strcmp(snakeBody[0].direction, "RIGHT") == 0) {
-              start = true;
               if (scanCode[0] == W_MAKE_CODE || scanCode[1] == UP_MAKE_CODE) {
                 start = true;
                 snakeBody[0].direction = "UP";
