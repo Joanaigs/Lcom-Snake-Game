@@ -38,7 +38,7 @@
 /* Status Byte Masking */
 
 #define OBF     BIT(0) /* @brief Output Buffer State */
-#define IN_BUF_FULL     BIT(1) /* @brief Input Buffer State */
+#define IBF     BIT(1) /* @brief Input Buffer State */
 #define SYS_FLAG        BIT(2) /* @brief System Flag */
 #define DATA_CMD_WRITE  BIT(3) /* @brief Identifier of type of byte in input buffer */
 #define INH_FLAG        BIT(4) /* @brief Keyboard inihibited */
@@ -107,5 +107,19 @@
 #define ACK_INVALID 0xFE /* @brief Invalid Byte, first occurence */
 #define ACK_ERROR   0xFC /* @brief Invalid Byte on resend */
 
+#define DATA_PACKET_BYTES 3
 
+#define DISABLE_MOUSE 0xA7
+#define ENABLE_MOUSE 0xA8
+#define WRITE_BYTE_TO_MOUSE 0xD4
+#define DISABLE_DATA_REPORTING 0xF5
+#define ENABLE_DATA_REPORTING 0xF4
+#define READ_DATA 0xEB
+#define SET_STREAM_MODE 0xEA
+#define SET_DEFAULT 0xF6
+
+/** Acknowledgement bytes */
+#define ACK 0xFA
+#define NACK 0xFE
+#define ERROR 0xFC
 #endif /*_LCOM_I8042_H_ */

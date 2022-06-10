@@ -1,5 +1,7 @@
 #include "proj.h"
 #include "game.h"
+#include "menu.h"
+#include "instructions.h"
 #include "gameOver.h"
 #include "graphics.h"
 #include <lcom/lcf.h>
@@ -41,8 +43,16 @@ void multi_player() {
 }
 
 void gameOver() {
-  gameOverPage();
-  baseState = leave;
+    gameOverPage();
+}
+
+void main_Menu(){
+    mainMenuLoop();
+}
+
+void instructions_Menu(){
+  printf("hi");
+    instructionsLoop();
 }
 
 int(proj_main_loop)(int argc, char *argv[]) {
@@ -52,10 +62,11 @@ int(proj_main_loop)(int argc, char *argv[]) {
   vramMap();
   if (setMode(0x115))
     return 1;
-  baseState = multiPlayer;
+  baseState = mainMenu;
   while (running) {
     switch (baseState) {
       case mainMenu:
+        main_Menu();
         break;
       case singlePlayer:
         single_player();
@@ -64,6 +75,7 @@ int(proj_main_loop)(int argc, char *argv[]) {
       multi_player();
         break;
       case instructions:
+          instructions_Menu();
         break;
       case gameover:
         gameOver();

@@ -2,7 +2,7 @@
 #include "graphics.h"
 #include "header.h"
 #include "i8042.h"
-#include "images/maca_preta.xpm"
+#include "images/mouse_cursor.xpm"
 #include "keyboard.h"
 #include "mouse.h"
 #include "objects.h"
@@ -18,7 +18,9 @@ int16_t speed = 40;
 int(singlePlayerMode)() {
   drawBackground();
   init_xpms();
-
+  lives=5;
+  numOfApplesEaten=0;
+  gameTime=0;
   Apple initialApple;
   initApple(&initialApple, 280, 200, red);
   drawApple(initialApple);
@@ -34,9 +36,9 @@ int(singlePlayerMode)() {
   message msg;
   start = false;
   uint8_t irq_keyboard = 0, irq_timer = 0, irq_rtc = 0;
-  if (timer_subscribe_int(&irq_timer))
+  if (timer_subscribe(&irq_timer, 0))
     return 1;
-  if (keyboard_subscribe(&irq_keyboard, 2))
+  if (keyboard_subscribe(&irq_keyboard, 1))
     return 1;
   if (rtc_subscribe_int(&irq_rtc))
     return 1;
@@ -136,7 +138,9 @@ int(multiPlayerMode)() {
 
   drawBackground();
   init_xpms();
-
+  lives=5;
+  numOfApplesEaten=0;
+  gameTime=0;
   Apple initialApple;
   initApple(&initialApple, 280, 200, red);
   drawApple(initialApple);
@@ -146,9 +150,8 @@ int(multiPlayerMode)() {
   drawHeader();
   drawSnakeBody();
   copy_buffer_to_mem();
-  gameTime = 0;
   start = false;
-  if (mouse_enable_data_reporting())
+  if (mouse_enable_data_report())
     return 1;
   uint16_t frames = sys_hz() / fr_rate;
   int ipc_status, r;
@@ -158,13 +161,13 @@ int(multiPlayerMode)() {
   cursor c;
   c.x = 200;
   c.y = 200;
-  xpm_load((xpm_map_t) maca_preta_xpm, XPM_8_8_8, &(c.img));
+  xpm_load((xpm_map_t) mouse_cursor, XPM_8_8_8, &(c.img));
 
-  if (timer_subscribe_int(&irq_timer))
+  if (timer_subscribe(&irq_timer, 2))
     return 1;
-  if (keyboard_subscribe(&irq_keyboard, 2))
+  if (keyboard_subscribe(&irq_keyboard, 3))
     return 1;
-  if (mouse_subscribe(&mouse_set))
+  if (mouse_subscribe(&mouse_set, 4))
     return 1;
 
   drawBackground();
@@ -200,7 +203,7 @@ int(multiPlayerMode)() {
             }
             if (start) {
               copy_buffer_to_mem();
-              drawCursor(&c);
+              draw_xpm_video_mem(c.img, c.img.bytes, c.x, c.y);
             }
           }
 
@@ -258,6 +261,8 @@ int(multiPlayerMode)() {
     else {
     }
   }
+   if (mouse_disable_data_report())
+    return 1;
   if (timer_unsubscribe_int())
     return 1;
   if (keyboard_unsubscribe())

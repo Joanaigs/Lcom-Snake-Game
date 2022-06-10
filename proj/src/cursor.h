@@ -3,7 +3,6 @@
 
 #include <stdbool.h>
 #include <stdint.h>
-#include "graphics.h"
 #include <lcom/lcf.h>
 
 typedef struct{
@@ -11,9 +10,6 @@ typedef struct{
     xpm_image_t img;
 }cursor;
 
-void (drawCursor)(cursor* c){
-  draw_xpm_video_mem(c->img, c->img.bytes, c->x, c->y);
-}
 
 
 #endif /*_CURSOR_H_ */

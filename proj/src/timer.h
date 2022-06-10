@@ -1,44 +1,9 @@
-#ifndef __TIMER_H
-#define __TIMER_H
+
 
 #include <stdbool.h>
 #include <stdint.h>
+#include <lcom/lcf.h>
 
-/** @defgroup timer timer
- * @{
- *
- * Functions for using the i8254 timers
- */
-
-/**
- * @brief Enumerated type for specifying the timer value initialization
- */
-enum timer_init {
-  INVAL_val,    /*!< Invalid initialization mode */
-  LSB_only,     /*!< Initialization only of the LSB */
-  MSB_only,     /*!< Initialization only of the MSB */
-  MSB_after_LSB /*!< Initialization of LSB and MSB, in this order */
-};
-
-/**
- * @brief Enumerated type for identifying the timer status fields
- */
-enum timer_status_field {
-  tsf_all,     /*!< configuration/status */
-  tsf_initial, /*!< timer initialization mode */
-  tsf_mode,    /*!< timer counting mode */
-  tsf_base     /*!< timer counting base */
-};
-
-/**
- * @brief Union for storing values of timer status fields, including the full status byte
- */
-union timer_status_field_val {
-  uint8_t byte;            /*!< status */
-  enum timer_init in_mode; /*!< initialization mode */
-  uint8_t count_mode;      /*!< counting mode: 0, 1,.., 5 */
-  bool bcd;                /*!< counting base, true if BCD */
-};
 
 /**
  * @brief Changes the operating frequency of a timer
@@ -59,7 +24,7 @@ int(timer_set_frequency)(uint8_t timer, uint32_t freq);
  *         bit number to be set in the mask returned upon an interrupt
  * @return Return 0 upon success and non-zero otherwise
  */
-int(timer_subscribe_int)(uint8_t *bit_no);
+int(timer_subscribe)(uint8_t *bit_n, int hook);
 
 /**
  * @brief Unsubscribes Timer 0 interrupts
@@ -113,4 +78,3 @@ int(timer_print_config)(uint8_t timer, enum timer_status_field field,
 uint32_t(timer_print_elapsed_time)();
 
 
-#endif /* __TIMER_H */
