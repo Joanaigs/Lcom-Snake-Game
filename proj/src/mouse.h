@@ -10,6 +10,8 @@ uint8_t scanC;
 
 int (mouse_subscribe)(uint8_t *bit_no, int hook);
 struct packet (parse_packet)();
+int (mouse_enable_data_report)();
+int (mouse_disable_data_report)();
 void (mouse_ih)();
 int (mouse_unsubscribe)();
 void (kbc_restore_mouse)() ;

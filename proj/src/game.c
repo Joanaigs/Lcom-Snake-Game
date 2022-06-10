@@ -18,7 +18,9 @@ int16_t speed = 40;
 int(singlePlayerMode)() {
   drawBackground();
   init_xpms();
-
+  lives=5;
+  numOfApplesEaten=0;
+  gameTime=0;
   Apple initialApple;
   initApple(&initialApple, 280, 200, red);
   drawApple(initialApple);
@@ -136,7 +138,9 @@ int(multiPlayerMode)() {
 
   drawBackground();
   init_xpms();
-
+  lives=5;
+  numOfApplesEaten=0;
+  gameTime=0;
   Apple initialApple;
   initApple(&initialApple, 280, 200, red);
   drawApple(initialApple);
@@ -146,9 +150,8 @@ int(multiPlayerMode)() {
   drawHeader();
   drawSnakeBody();
   copy_buffer_to_mem();
-  gameTime = 0;
   start = false;
-  if (mouse_enable_data_reporting())
+  if (mouse_enable_data_report())
     return 1;
   uint16_t frames = sys_hz() / fr_rate;
   int ipc_status, r;
@@ -258,6 +261,8 @@ int(multiPlayerMode)() {
     else {
     }
   }
+   if (mouse_disable_data_report())
+    return 1;
   if (timer_unsubscribe_int())
     return 1;
   if (keyboard_unsubscribe())

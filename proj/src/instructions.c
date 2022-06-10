@@ -49,6 +49,14 @@ int (instructionsMenu)(cursor *c, struct packet *p){
             draw_xpm_video_mem(c->img, c->img.bytes, c->x, c->y);
         }
     }
+    else{
+        if(on_back){
+            draw_xpm(instructions_menu.img, instructions_menu.map, 0, 0);
+            copy_buffer_to_mem();
+            on_back=false;
+        }
+        
+    }
     return 0;
 }
 
@@ -57,7 +65,8 @@ int(instructionsLoop)() {
     c.x = 200;
     c.y = 200;
     xpm_load((xpm_map_t)mouse_cursor, XPM_8_8_8, &(c.img));
-
+    if (mouse_enable_data_report())
+        return 1;
     init_instructions();
     draw_xpm(instructions_menu.img, instructions_menu.map, 0, 0);
     copy_buffer_to_mem();
@@ -101,6 +110,8 @@ int(instructionsLoop)() {
         else {
         }
     }
+    if (mouse_disable_data_report())
+        return 1;
     if (timer_unsubscribe_int())
         return 1;
     if (mouse_unsubscribe())

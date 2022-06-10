@@ -13,16 +13,14 @@ menuMap sp_menu;
 menuMap mp_menu;
 menuMap inst_menu;
 menuMap exit_menu;
+menuMap continue_colored;
+menuMap continu;
 
 void (drawMenu)();
 
 int (menu)(cursor *mouse_c, struct packet *p);
 
-int (continueMenu)(cursor *mouse_c, struct packet *p);
-
 int (menuOptionCollisions)(cursor *mouse_c);
-
-int (menuContinueCollisions)(cursor *mouse_c);
 
 int (menuInstructionsCollisions)(cursor *mouse_c);
 
