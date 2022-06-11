@@ -15,7 +15,7 @@
 uint8_t fr_rate = 5;
 int16_t speed = 40;
 
-int(singlePlayerMode)() {
+int singlePlayerMode() {
   drawBackground();
   init_xpms();
   lives=5;
@@ -136,7 +136,7 @@ int(singlePlayerMode)() {
   return 0;
 }
 
-int(multiPlayerMode)() {
+int multiPlayerMode() {
 
   drawBackground();
   init_xpms();

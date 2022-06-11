@@ -19,13 +19,13 @@ xpm_image_t imgColored;
 uint8_t *mapColored;
 bool on_continue = false;
 
-int(menuContinueCollisions)(cursor *mouse_c) {
+int menuContinueCollisions(cursor *mouse_c) {
   if (mouse_c->y >= 386 && mouse_c->y <= 432 && mouse_c->x >= 331 && mouse_c->x <= 445)
     return 1;
   return 0;
 }
 
-int(continueMenu)(cursor *mouse_c, struct packet *p) {
+int continueMenu(cursor *mouse_c, struct packet *p) {
   struct mouse_ev event = mouse_get_event(p);
 
   if (menuContinueCollisions(mouse_c)) {
@@ -67,7 +67,7 @@ int(continueMenu)(cursor *mouse_c, struct packet *p) {
   return 0;
 }
 
-int(gameOverPage)() {
+int gameOverPage() {
   map = xpm_load((xpm_map_t) game_over_xpm, XPM_8_8_8, &img);
   mapColored = xpm_load((xpm_map_t) continue_colored_xpm, XPM_8_8_8, &(imgColored));
   int x = (h_res - img.width) / 2;
@@ -110,8 +110,10 @@ int(gameOverPage)() {
           if (msg.m_notify.interrupts & irq_keyboard) {
             kbc_ih();
             if (done) {
-              if (scanCode[0] == ENTER_BREAK_CODE)
+              if (scanCode[0] == ENTER_BREAK_CODE){
                 good = 0;
+                baseState=mainMenu;
+              }
               size = 0;
             }
           }

@@ -21,7 +21,7 @@ int numOfApplesEaten = 0;
 int gainLive=0;
 int black_time=0;
 int brown_time=0;
-void(init_snake)() {
+void init_snake() {
   snakeBody[0].mapLeft = xpm_load((xpm_map_t) cobra_esquerda_xpm, XPM_8_8_8, &snakeBody[0].imgLeft);
   snakeBody[0].mapRight = xpm_load((xpm_map_t) cobra_direita_xpm, XPM_8_8_8, &snakeBody[0].imgRight);
   snakeBody[0].mapDown = xpm_load((xpm_map_t) cobra_baixo_xpm, XPM_8_8_8, &snakeBody[0].imgDown);
@@ -52,19 +52,19 @@ void(init_snake)() {
   snakeBody[2].direction = "RIGHT";
 }
 
-void(drawSnakeBody)() {
+void drawSnakeBody() {
   for (int i = 0; i <= numOfBodyParts; i++) {
     draw_xpm(snakeBody[i].img, snakeBody[i].map, snakeBody[i].x, snakeBody[i].y);
   }
 }
 
-void(eraseSnakeBody)() {
+void eraseSnakeBody() {
   for (int i = 0; i <= numOfBodyParts; i++) {
     erase_xpm(snakeBody[i].img, snakeBody[i].x, snakeBody[i].y, background.img);
   }
 }
 
-void(addBodyPart)() {
+void addBodyPart() {
   erase_xpm(snakeBody[numOfBodyParts].img, snakeBody[numOfBodyParts].x, snakeBody[numOfBodyParts].y, background.img);
   numOfBodyParts++;
   int i = numOfBodyParts - 1;
@@ -124,7 +124,7 @@ void(addBodyPart)() {
   draw_xpm(snakeBody[i + 1].img, snakeBody[i + 1].map, snakeBody[i + 1].x, snakeBody[i + 1].y);
 }
 
-int(colisionWithItSelf)() {
+int colisionWithItSelf() {
   for (int i = 1; i <= numOfBodyParts; i++) {
     if ((snakeBody[0].x == snakeBody[i].x) && snakeBody[0].y == snakeBody[i].y) {
       return 1;
@@ -133,7 +133,7 @@ int(colisionWithItSelf)() {
   return 0;
 }
 
-int(colisionWithApple)() {
+int colisionWithApple() {
 
   int i = isApple(snakeBody[0].x, snakeBody[0].y);
   if (i != -1) {
@@ -187,7 +187,7 @@ int takelive(double n) {
   return 0;
 }
 
-void(moveBodyParts)() {
+void moveBodyParts() {
   for (int i = numOfBodyParts; i > 0; i--) {
     snakeBody[i].x = snakeBody[i - 1].x;
     snakeBody[i].y = snakeBody[i - 1].y;
@@ -227,7 +227,7 @@ void(moveBodyParts)() {
   }
 }
 
-int(movement)(int16_t speed) {
+int movement(int16_t speed) {
   eraseSnakeBody();
   moveBodyParts();
   if (strcmp(snakeBody[0].direction, "UP") == 0) {
@@ -263,7 +263,7 @@ int(movement)(int16_t speed) {
   return 0;
 }
 
-int(isSnake)(int x, int y) {
+int isSnake(int x, int y) {
   for (int i = 0; i < numOfBodyParts; i++) {
     if (snakeBody[i].x == x && snakeBody[i].y == y) {
       return 1;

@@ -17,23 +17,18 @@
 
 bool on_back=false;
 
-void (init_instructions)(){
+void init_instructions(){
     instructions_menu.map=xpm_load((xpm_map_t)instructions_xpm, XPM_8_8_8, &(instructions_menu.img));
     instructions_back.map=xpm_load((xpm_map_t)instructions_back_xpm, XPM_8_8_8, &(instructions_back.img));
 }
 
-int (menuInstructionsCollisions)(cursor *mouse_c){
+int menuInstructionsCollisions(cursor *mouse_c){
     if(mouse_c->y>=522 && mouse_c->y<=566 && mouse_c->x>=306 && mouse_c->x<=487)
         return 1;
     return 0;
 }
 
-void (drawInstructionMenu)(){
-    if(on_back)
-        draw_xpm(instructions_back.img, instructions_back.map, 0, 0);
-}
-
-int (instructionsMenu)(cursor *c, struct packet *p){
+int instructionsMenu(cursor *c, struct packet *p){
     struct mouse_ev event = mouse_get_event(p);
 
     if(menuInstructionsCollisions(c)) {
@@ -44,7 +39,7 @@ int (instructionsMenu)(cursor *c, struct packet *p){
         }
         if(!on_back){
             on_back = true;
-            drawInstructionMenu();
+             draw_xpm(instructions_back.img, instructions_back.map, 0, 0);
             copy_buffer_to_mem();
             draw_xpm_video_mem(c->img, c->img.bytes, c->x, c->y);
         }
@@ -60,7 +55,7 @@ int (instructionsMenu)(cursor *c, struct packet *p){
     return 0;
 }
 
-int(instructionsLoop)() {
+int instructionsLoop() {
     cursor c;
     c.x = 200;
     c.y = 200;

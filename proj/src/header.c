@@ -18,7 +18,7 @@
 #include <stdio.h>
 #include <string.h>
 
-void(init_header)() {
+void init_header() {
   timeClock.map = xpm_load((xpm_map_t) clock_xpm, XPM_8_8_8, &(timeClock.img));
   rightHeart.map = xpm_load((xpm_map_t) heart_right_xpm, XPM_8_8_8, &(rightHeart.img));
   leftHeart.map = xpm_load((xpm_map_t) heart_left_xpm, XPM_8_8_8, &(leftHeart.img));

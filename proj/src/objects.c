@@ -9,7 +9,7 @@
 #include <time.h>
 
 
-void (init_xpms)(){
+void init_xpms(){
   redAppleXpm.map = xpm_load((xpm_map_t)maca_xpm, XPM_8_8_8, &(redAppleXpm.img));
   blackAppleXpm.map = xpm_load((xpm_map_t)maca_preta_xpm, XPM_8_8_8, &(blackAppleXpm.img));
   brownAppleXpm.map = xpm_load((xpm_map_t)maca_castanha_xpm, XPM_8_8_8, &(brownAppleXpm.img));
@@ -17,7 +17,7 @@ void (init_xpms)(){
 }
 
 
-object (get_xpm)(enum appleType type){
+object get_xpm(enum appleType type){
     switch (type) {
         case red: return redAppleXpm;
         case brown: return brownAppleXpm;
@@ -25,13 +25,12 @@ object (get_xpm)(enum appleType type){
     }
 }
 
-int (drawBackground)(){
+void drawBackground(){
     background.map = xpm_load((xpm_map_t)game_background_xpm, XPM_8_8_8, &background.img);
     draw_xpm(background.img, background.map, 0, 0);
-    return 0;
 }
 
-void (initApple)(Apple *apple, int x_pos, int y_pos, enum appleType type){
+void initApple(Apple *apple, int x_pos, int y_pos, enum appleType type){
     apple->type = type;
     apple->appleXpm = get_xpm(type);
     apple->x_pos = x_pos;
@@ -42,7 +41,7 @@ void (initApple)(Apple *apple, int x_pos, int y_pos, enum appleType type){
 
 }
 
-void (initRandomApple)(Apple *apple, enum appleType type){
+void initRandomApple(Apple *apple, enum appleType type){
     apple->type = type;
     apple->appleXpm = get_xpm(type);
 
@@ -65,12 +64,12 @@ void (initRandomApple)(Apple *apple, enum appleType type){
 
 }
 
-void (drawApple)(Apple apple){
+void drawApple(Apple apple){
     draw_xpm(apple.appleXpm.img, apple.appleXpm.map, apple.x_pos, apple.y_pos);
 }
 
 
-int (isApple)(int x, int y) {
+int isApple(int x, int y) {
     for (int i = 0; i < numApples; i++) {
         if (applesArray[i].x_pos == x && applesArray[i].y_pos == y) {
             return i;

@@ -33,13 +33,19 @@ int main(int argc, char *argv[]) {
 }
 
 void single_player() {
-  singlePlayerMode();
+  if(singlePlayerMode()){
+    printf("An error occured\n");
+    baseState = leave;
+  }
   baseState = gameover;
 }
 
 void multi_player() {
-    multiPlayerMode();
-    baseState = gameover;
+  if( multiPlayerMode()){
+    printf("An error occured\n");
+    baseState = leave;
+  }
+  baseState = gameover;
 }
 
 void gameOver() {

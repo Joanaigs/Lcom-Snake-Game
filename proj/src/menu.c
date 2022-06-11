@@ -26,7 +26,7 @@ void init_menu() {
   exit_menu.map = xpm_load((xpm_map_t) menu_exit_xpm, XPM_8_8_8, &(exit_menu.img));
 }
 
-void(drawMenu)() {
+void drawMenu() {
   if (on_singlePlayer)
     draw_xpm(sp_menu.img, sp_menu.map, 0, 0);
 
@@ -44,7 +44,7 @@ void(drawMenu)() {
   copy_buffer_to_mem();
 }
 
-int(menuOptionCollisions)(cursor *mouse_c) {
+int menuOptionCollisions(cursor *mouse_c) {
   if (mouse_c->y >= 240 && mouse_c->y <= 297 && mouse_c->x >= 194 && mouse_c->x <= 371)
     return 1;
   else if (mouse_c->y >= 240 && mouse_c->y <= 297 && mouse_c->x >= 398 && mouse_c->x <= 575)
@@ -56,7 +56,7 @@ int(menuOptionCollisions)(cursor *mouse_c) {
   return 0;
 }
 
-int(menu)(cursor *c, struct packet *p) {
+int menu(cursor *c, struct packet *p) {
   struct mouse_ev event = mouse_get_event(p);
 
   switch (menuOptionCollisions(c)) {
@@ -188,7 +188,7 @@ int(menu)(cursor *c, struct packet *p) {
   return 0;
 }
 
-int(mainMenuLoop)() {
+int mainMenuLoop() {
   cursor c;
   c.x = 200;
   c.y = 200;
