@@ -9,7 +9,7 @@
  * @param mouse_c mouse object
  * @return int 1 if its within the button limits
  */
-int menuContinueHover(cursor *mouse_c);
+int menuContinueCollisions(cursor *mouse_c);
 
 /**
  * @brief Deals with the result of movement of the mouse, changing te state of the game if the button continue is clicked and changing the color of the button if the mouse is on top of it 
@@ -26,3 +26,5 @@ int continueMenu(cursor *mouse_c, struct packet *p);
  * @return int 1 if an error has occurred
  */
 int gameOverPage();
+
+void drawGameOverElements();

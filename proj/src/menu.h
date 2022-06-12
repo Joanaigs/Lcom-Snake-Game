@@ -32,6 +32,7 @@ object inst_menu;
 object exit_menu;
 
 
+
 /**
  * @brief Initiates all the menu objects by reading their xpm
  *
@@ -67,4 +68,9 @@ int menuOptionCollisions(cursor *mouse_c);
  * @return int 1 if an error has occurred
  */
 int mainMenuLoop();
+
+/**
+ * @brief sets false every onclick button and choose button
+ */
+void set_false_buttons();
 

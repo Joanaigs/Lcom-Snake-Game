@@ -41,7 +41,6 @@ int numApples;
  * @param type enum appleType of the apple
  */
 void initApple(Apple *apple, int x_pos, int y_pos, enum appleType type);
-
 /**
  * @brief places an apple in a random place
  *
@@ -49,7 +48,6 @@ void initApple(Apple *apple, int x_pos, int y_pos, enum appleType type);
  * @param type enum appleType of the apple
  */
 void initRandomApple(Apple *apple, enum appleType type);
-
 /**
  * @brief Gets the xpm object by the apple type
  *
@@ -57,14 +55,12 @@ void initRandomApple(Apple *apple, enum appleType type);
  * @return object the apple xpm
  */
 object get_xpm(enum appleType type);
-
 /**
  * @brief Draws an apple
  *
  * @param apple to be drawn
  */
 void drawApple(Apple apple);
-
 /**
  * @brief Verifies if there is an apple in the position passed by parameter
  *
@@ -73,7 +69,6 @@ void drawApple(Apple apple);
  * @return int -1 if theres not an apple, or the position in the array
  */
 int isApple(int x, int y);
-
 /**
  * @brief places an apple within a square of the background
  *

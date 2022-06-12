@@ -1,6 +1,5 @@
 #include "menu.h"
 #include "graphics.h"
-#include "images/game_background.xpm"
 #include "images/menu_background.xpm"
 #include "images/menu_exit.xpm"
 #include "images/menu_instructions.xpm"
@@ -27,7 +26,6 @@ void init_menu() {
     inst_menu.map = xpm_load((xpm_map_t) menu_instructions_xpm, XPM_8_8_8, &(inst_menu.img));
     exit_menu.map = xpm_load((xpm_map_t) menu_exit_xpm, XPM_8_8_8, &(exit_menu.img));
 }
-
 
 void drawMenu() {
   if (on_singlePlayer)
@@ -142,50 +140,22 @@ int menu(cursor *c, struct packet *p) {
 
   if (choose_singlePlayer) {
     baseState = singlePlayer;
-    choose_instructions = false;
-    choose_singlePlayer = false;
-    choose_multiPlayer = false;
-    choose_exit = false;
-    on_instructions = false;
-    on_singlePlayer = false;
-    on_multiPlayer = false;
-    on_exit = false;
+    set_false_buttons();
     return 1;
   }
   else if (choose_multiPlayer) {
     baseState = multiPlayer;
-    choose_instructions = false;
-    choose_singlePlayer = false;
-    choose_multiPlayer = false;
-    choose_exit = false;
-    on_instructions = false;
-    on_singlePlayer = false;
-    on_multiPlayer = false;
-    on_exit = false;
+    set_false_buttons();
     return 1;
   }
   else if (choose_instructions) {
     baseState = instructions;
-    choose_instructions = false;
-    choose_singlePlayer = false;
-    choose_multiPlayer = false;
-    choose_exit = false;
-    on_instructions = false;
-    on_singlePlayer = false;
-    on_multiPlayer = false;
-    on_exit = false;
+    set_false_buttons();
     return 1;
   }
   else if (choose_exit) {
     baseState = leave;
-    choose_instructions = false;
-    choose_singlePlayer = false;
-    choose_multiPlayer = false;
-    choose_exit = false;
-    on_instructions = false;
-    on_singlePlayer = false;
-    on_multiPlayer = false;
-    on_exit = false;
+    set_false_buttons();
     return 1;
   }
   return 0;
@@ -249,4 +219,15 @@ int mainMenuLoop() {
   if (mouse_unsubscribe())
     return 1;
   return 0;
+}
+
+void set_false_buttons(){
+    choose_instructions = false;
+    choose_singlePlayer = false;
+    choose_multiPlayer = false;
+    choose_exit = false;
+    on_instructions = false;
+    on_singlePlayer = false;
+    on_multiPlayer = false;
+    on_exit = false;
 }
