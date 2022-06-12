@@ -2,6 +2,7 @@
 #include <stdint.h>
 #include <stdio.h>
 
+
 /**
  * @brief Loop of the multiplayer game that uses the mouse, keyboard and timer devices
  * 
@@ -25,3 +26,6 @@ void (init_game)();
  * @brief this function handles the keyboard interruption, when the arrows or the specific characters are pressed
  */
 void (keyboard_interrupt)();
+
+
+

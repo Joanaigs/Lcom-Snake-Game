@@ -20,6 +20,22 @@
 #include <string.h>
 
 
+void initHeaderElements(){
+    timeClock.map = xpm_load((xpm_map_t) clock_xpm, XPM_8_8_8, &(timeClock.img));
+    rightHeart.map = xpm_load((xpm_map_t) heart_right_xpm, XPM_8_8_8, &(rightHeart.img));
+    leftHeart.map = xpm_load((xpm_map_t) heart_left_xpm, XPM_8_8_8, &(leftHeart.img));
+    one.map = xpm_load((xpm_map_t) one_xpm, XPM_8_8_8, &(one.img));
+    two.map = xpm_load((xpm_map_t) two_xpm, XPM_8_8_8, &(two.img));
+    three.map = xpm_load((xpm_map_t) three_xpm, XPM_8_8_8, &(three.img));
+    four.map = xpm_load((xpm_map_t) four_xpm, XPM_8_8_8, &(four.img));
+    five.map = xpm_load((xpm_map_t) five_xpm, XPM_8_8_8, &(five.img));
+    six.map = xpm_load((xpm_map_t) six_xpm, XPM_8_8_8, &(six.img));
+    seven.map = xpm_load((xpm_map_t) seven_xpm, XPM_8_8_8, &(seven.img));
+    eight.map = xpm_load((xpm_map_t) eight_xpm, XPM_8_8_8, &(eight.img));
+    nine.map = xpm_load((xpm_map_t) nine_xpm, XPM_8_8_8, &(nine.img));
+    zero.map = xpm_load((xpm_map_t) zero_xpm, XPM_8_8_8, &(zero.img));
+}
+
 void draw_number(int number, int x, int y) {
     int num_dig = 0;
     int n = number;

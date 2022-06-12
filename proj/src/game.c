@@ -3,6 +3,7 @@
 #include "header.h"
 #include "i8042.h"
 #include "images/mouse_cursor.xpm"
+#include "images/game_background.xpm"
 #include "keyboard.h"
 #include "mouse.h"
 #include "objects.h"
@@ -18,8 +19,11 @@ uint8_t fr_rate = 5;
 int16_t speed = 40;
 
 void (init_game)() {
-    drawBackground();
-    init_xpms();
+    object backgroundXPM;
+    backgroundXPM.map = xpm_load((xpm_map_t)game_background_xpm, XPM_8_8_8, &backgroundXPM.img);
+    draw_xpm(backgroundXPM.img, backgroundXPM.map, 0, 0);
+    initAppleXPM();
+    initHeaderElements();
     lives = 5;
     numOfApplesEaten = 0;
     gameTime = 0;
