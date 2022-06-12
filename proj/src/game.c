@@ -133,15 +133,16 @@ int (singlePlayerMode)() {
         } else {
         }
     }
-    if (rtc_unsubscribe_int())
-        return 1;
-    if (set_update_int(false))
-        return 1;
-    if (keyboard_unsubscribe())
-        return 1;
-    if (timer_unsubscribe_int())
-        return 1;
-    return 0;
+  scanCode[0]=0;
+  if (rtc_unsubscribe_int())
+    return 1;
+  if (set_update_int(false))
+    return 1;
+  if (keyboard_unsubscribe())
+    return 1;
+  if (timer_unsubscribe_int())
+    return 1;
+  return 0;
 }
 
 int (multiPlayerMode)() {
@@ -150,8 +151,8 @@ int (multiPlayerMode)() {
 
     copy_buffer_to_mem();
     start = false;
-    if (mouse_enable_data_report())
-        return 1;
+    if (mouse_enable_data_report(true))
+    return 1;
     uint16_t frames = sys_hz() / fr_rate;
     int ipc_status, r;
     int n_interrupts = 0;
@@ -169,42 +170,40 @@ int (multiPlayerMode)() {
     if (mouse_subscribe(&mouse_set, 4))
         return 1;
 
-    drawBackground();
-
-    while (scanCode[0] != ESC_BREAK_CODE) {
-        if ((r = driver_receive(ANY, &msg, &ipc_status)) != 0) {
-            printf("driver_receive failed with: %d", r);
-            continue;
-        }
-        if (is_ipc_notify(ipc_status)) {
-            switch (_ENDPOINT_P(msg.m_source)) {
-                case HARDWARE:
-                    if (msg.m_notify.interrupts & irq_timer) {
-                        n_interrupts++;
-
+  while (scanCode[0] != ESC_BREAK_CODE) {
+    if ((r = driver_receive(ANY, &msg, &ipc_status)) != 0) {
+      printf("driver_receive failed with: %d", r);
+      continue;
+    }
+    if (is_ipc_notify(ipc_status)) {
+      switch (_ENDPOINT_P(msg.m_source)) {
+        case HARDWARE:
+          if (msg.m_notify.interrupts & irq_timer) {
+            n_interrupts++;
                         // movement draws the snake and moves her
-                        if (n_interrupts % frames == 0 && start) {
-
-                            if (movement(speed)) {
-                                if (timer_unsubscribe_int())
-                                    return 1;
-                                if (keyboard_unsubscribe())
-                                    return 1;
-                                if (mouse_unsubscribe())
-                                    return 1;
-                                return 0;
-                            }
-                        }
-                        if ((n_interrupts % sys_hz() == 0) && start) {
-                            eraseTime();
-                            gameTime++;
-                            drawHeader();
-                        }
-                        if (start) {
-                            copy_buffer_to_mem();
-                            draw_xpm_video_mem(c.img, c.img.bytes, c.x, c.y);
-                        }
-                    }
+            if (n_interrupts % frames == 0 && start) {
+              if (movement(speed)) {
+                if (mouse_enable_data_report(false))
+                  return 1;
+                if (timer_unsubscribe_int())
+                  return 1;
+                if (keyboard_unsubscribe())
+                  return 1;
+                if (mouse_unsubscribe())
+                  return 1;
+                return 0;
+              }
+            }
+            if ((n_interrupts % sys_hz() == 0) && start) {
+              eraseTime();
+              gameTime++;
+              drawHeader();
+            }
+            if (start) {
+              copy_buffer_to_mem();
+              draw_xpm_video_mem(c.img, c.img.bytes, c.x, c.y);
+            }
+          }
 
                     if (msg.m_notify.interrupts & irq_keyboard) {
                         keyboard_interrupt();
@@ -233,14 +232,14 @@ int (multiPlayerMode)() {
         } else {
         }
     }
-    if (mouse_disable_data_report())
-        return 1;
-    if (timer_unsubscribe_int())
-        return 1;
-    if (keyboard_unsubscribe())
-        return 1;
-    if (mouse_unsubscribe())
-        return 1;
-
-    return 0;
+  scanCode[0]=0;
+   if (mouse_enable_data_report(false))
+    return 1;
+  if (timer_unsubscribe_int())
+    return 1;
+  if (keyboard_unsubscribe())
+    return 1;
+  if (mouse_unsubscribe())
+    return 1;
+  return 0;
 }
