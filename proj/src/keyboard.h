@@ -8,23 +8,26 @@ uint8_t scanCode[2];
 uint8_t statusCode;
 int done;
 
-int (keyboard_subscribe)(uint8_t *bit_no, int hook);
-
-int (keyboard_unsubscribe)();
-
-void (kbc_ih)();
+/**
+ * @brief Subscribes and enables Keyboard interrupts
+ *
+ * @param bit_no address of memory to be initialized with the bit number to be set in the mask returned upon an interrupt
+ * @param hook hookId value
+ * @return Return 0 upon success and non-zero otherwise
+ */
+int keyboard_subscribe(uint8_t *bit_no, int hook);
 
 /**
- * @brief High-level function that restores KBC to normal state
- * High-level function that restores KBC to normal state, because lcf_start
- * changes the command byte of KBC. If this function is not used, there is a
- * chance that the keyboard and keyboard interrupts remain disabled.
- * @return 1 if operation was successful, 1 otherwise
+ * @brief Unsubscribes keyboard interrupts
+ *
+ * @return Return 0 upon success and non-zero otherwise
  */
-void (kbc_restore_keyboard)();
+int keyboard_unsubscribe();
 
-void (kbc_restore_keyboard_2)();
-
-void (kbc_restore_keyboard_3)();
+/**
+ * @brief get the scancode of the button pressed
+ * 
+ */
+void kbc_ih();
 
 #endif /* _KEYBOARD_H_ */

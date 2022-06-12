@@ -196,8 +196,8 @@ int mainMenuLoop() {
   copy_buffer_to_mem();
   init_menu();
   drawMenu();
-  if (mouse_enable_data_report())
-    return 1;
+  if (mouse_enable_data_report(true))
+        return 1;
   message msg;
   int ipc_status, r;
   uint8_t irq_timer = 0, irq_mouse = 2;
@@ -239,8 +239,8 @@ int mainMenuLoop() {
     else {
     }
   }
-  if (mouse_disable_data_report())
-    return 1;
+  if (mouse_enable_data_report(false))
+        return 1;
   if (timer_unsubscribe_int())
     return 1;
   if (mouse_unsubscribe())

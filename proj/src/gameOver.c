@@ -75,7 +75,7 @@ int gameOverPage() {
   draw_xpm(img, map, x, y);
   draw_xpm(timeClock.img, timeClock.map, x + 91 + 20, y + 90);
   draw_number(gameTime, x + 91 + 20 + 45, y + 90 + 10);
-    if (mouse_enable_data_report())
+    if (mouse_enable_data_report(true))
         return 1;
   cursor c;
   c.x = 200;
@@ -140,7 +140,7 @@ int gameOverPage() {
     else {
     }
   }
-  if (mouse_disable_data_report())
+ if (mouse_enable_data_report(false))
         return 1;
   if (keyboard_unsubscribe())
     return 1;

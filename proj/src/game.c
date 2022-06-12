@@ -125,6 +125,7 @@ int singlePlayerMode() {
     else {
     }
   }
+  scanCode[0]=0;
   if (rtc_unsubscribe_int())
     return 1;
   if (set_update_int(false))
@@ -153,7 +154,7 @@ int multiPlayerMode() {
   drawSnakeBody();
   copy_buffer_to_mem();
   start = false;
-  if (mouse_enable_data_report())
+  if (mouse_enable_data_report(true))
     return 1;
   uint16_t frames = sys_hz() / fr_rate;
   int ipc_status, r;
@@ -172,8 +173,6 @@ int multiPlayerMode() {
   if (mouse_subscribe(&mouse_set, 4))
     return 1;
 
-  drawBackground();
-
   while (scanCode[0] != ESC_BREAK_CODE) {
     if ((r = driver_receive(ANY, &msg, &ipc_status)) != 0) {
       printf("driver_receive failed with: %d", r);
@@ -189,6 +188,8 @@ int multiPlayerMode() {
             if (n_interrupts % frames == 0 && start) {
 
               if (movement(speed)) {
+                if (mouse_enable_data_report(false))
+                  return 1;
                 if (timer_unsubscribe_int())
                   return 1;
                 if (keyboard_unsubscribe())
@@ -263,7 +264,8 @@ int multiPlayerMode() {
     else {
     }
   }
-   if (mouse_disable_data_report())
+  scanCode[0]=0;
+   if (mouse_enable_data_report(false))
     return 1;
   if (timer_unsubscribe_int())
     return 1;

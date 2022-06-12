@@ -21,16 +21,16 @@ void (kbc_ih)(){
     if(done) size = 0;
     uint8_t byte;
     if (util_sys_inb(STATUS_REG, &statusCode)) return;
-    if((statusCode & PARITY_BIT) || (statusCode & TIME_OUT_BIT)){
+    if((statusCode & PARITY_BIT) || (statusCode & TOB)){
         printf("error");
         return;
     }
-        if ((statusCode & OBF) == 0 || (statusCode & AUX_MOUSE) != 0) {
+        if ((statusCode & OBF) == 0 || (statusCode & MOUSE_AUX) != 0) {
         return;
     }
-    if (util_sys_inb(OUTPUT_BUF, &byte)) return;
+    if (util_sys_inb(OUT_BUF, &byte)) return;
     scanCode[size]=byte;
-    if(TWO_BYTE_CODE == byte){
+    if(TWO_BYTE == byte){
       done=0;
       size++;
     }

@@ -8,12 +8,12 @@ uint8_t rtc_date[3];
 
 int hook_id_rtc = 5;
 
-int(rtc_subscribe_int)(uint8_t *bit_no) {
+int rtc_subscribe_int(uint8_t *bit_no) {
   *bit_no = BIT(hook_id_rtc);
   return sys_irqsetpolicy(IRQ_RTC, (IRQ_REENABLE | IRQ_EXCLUSIVE), &hook_id_rtc);
 }
 
-int(rtc_unsubscribe_int)() {
+int rtc_unsubscribe_int() {
   return sys_irqrmpolicy(&hook_id_rtc);
 }
 
@@ -86,7 +86,7 @@ int set_update_int(bool on) {
 
 
 
-void(rtc_ih)() {
+void rtc_ih() {
   int ret;
   uint8_t regC;
   sys_outb(RTC_ADDR_REG, RTC_C);

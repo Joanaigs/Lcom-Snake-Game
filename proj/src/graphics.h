@@ -7,21 +7,67 @@
 
 
 vbe_mode_info_t vmi_p;
-void (vramMap)();
-int (setMode)(uint16_t mode);
-int (vg_draw_rectangle)(uint16_t x, uint16_t y,uint16_t width, uint16_t height, uint32_t color);
-int (vg_draw_hline)(uint16_t x, uint16_t y, uint16_t len, uint32_t color);
-void (draw_xpm)(xpm_image_t img, uint8_t *map, int x, int y);
+/**
+ * @brief maps vram
+ * 
+ */
+void vramMap();
+/**
+ * @brief Set the graphics mode to the one desired
+ * 
+ * @param mode Mode to be user on graphics card
+ * @return int 0 if succeded and 1 otherwise
+ */
+int setMode(uint16_t mode);
+
+/**
+ * @brief places de xpm given in the position given on the screen
+ * 
+ * @param img 
+ * @param map 
+ * @param x 
+ * @param y 
+ */
+void draw_xpm(xpm_image_t img, uint8_t *map, int x, int y);
+
+/**
+ * @brief places de given in the position given on the screen on the olher buffer
+ * 
+ * @param img 
+ * @param map 
+ * @param x 
+ * @param y 
+ */
 void draw_xpm_video_mem(xpm_image_t img, uint8_t *map, int x, int y);
-void (drawPixel)(uint16_t x, uint16_t y,uint32_t color);
-void (erase_xpm)(xpm_image_t img, int x, int y, xpm_image_t background);
-char *video_mem;		/* Process (virtual) address to which VRAM is mapped */
-char *video_mem_buf;
+
+/**
+ * @brief Erase de xpm by replacing it with the background color in that place
+ * 
+ * @param img 
+ * @param x 
+ * @param y 
+ * @param background 
+ */
+void erase_xpm(xpm_image_t img, int x, int y, xpm_image_t background);
+
+/**
+ * @brief copys to video mem the olher buffer
+ * 
+ */
 void copy_buffer_to_mem();
 
-int h_res;	        /* Horizontal resolution in pixels */
-int v_res;	        /* Vertical resolution in pixels */
-unsigned bits_per_pixel; /* Number of VRAM bits per pixel */
+/** @brief Process (virtual) address to which VRAM is mapped */
+char *video_mem;	
+/** @brief Copy of video_mem */	
+char *video_mem_buf;
+
+/** @brief Horizontal resolution in pixels */
+int h_res;	       
+/** @brief Vertical resolution in pixels  */
+int v_res;	       
+/** @brief Number of VRAM bits per pixel  */
+unsigned bits_per_pixel; 
+/** @brief Number of VRAM bytes per pixel  */
 unsigned bytes_per_pixel;
 
 
