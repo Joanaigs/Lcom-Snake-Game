@@ -1,6 +1,5 @@
 #include "menu.h"
 #include "graphics.h"
-#include "images/game_background.xpm"
 #include "images/menu_background.xpm"
 #include "images/menu_exit.xpm"
 #include "images/menu_instructions.xpm"
@@ -10,6 +9,7 @@
 #include "macros.h"
 #include "mouse.h"
 #include "proj.h"
+#include "objects.h"
 #include "timer.h"
 #include <lcom/lcf.h>
 #include <stdbool.h>
@@ -18,12 +18,13 @@
 static bool choose_instructions = false, choose_singlePlayer = false, choose_multiPlayer = false, choose_exit = false;
 bool on_instructions = false, on_singlePlayer = false, on_multiPlayer = false, on_exit = false;
 
+
 void init_menu() {
-  main_menu.map = xpm_load((xpm_map_t) menu_xpm, XPM_8_8_8, &(main_menu.img));
-  sp_menu.map = xpm_load((xpm_map_t) menu_singlePlayer_xpm, XPM_8_8_8, &(sp_menu.img));
-  mp_menu.map = xpm_load((xpm_map_t) menu_multiPlayer_xpm, XPM_8_8_8, &(mp_menu.img));
-  inst_menu.map = xpm_load((xpm_map_t) menu_instructions_xpm, XPM_8_8_8, &(inst_menu.img));
-  exit_menu.map = xpm_load((xpm_map_t) menu_exit_xpm, XPM_8_8_8, &(exit_menu.img));
+    main_menu.map = xpm_load((xpm_map_t) menu_xpm, XPM_8_8_8, &(main_menu.img));
+    sp_menu.map = xpm_load((xpm_map_t) menu_singlePlayer_xpm, XPM_8_8_8, &(sp_menu.img));
+    mp_menu.map = xpm_load((xpm_map_t) menu_multiPlayer_xpm, XPM_8_8_8, &(mp_menu.img));
+    inst_menu.map = xpm_load((xpm_map_t) menu_instructions_xpm, XPM_8_8_8, &(inst_menu.img));
+    exit_menu.map = xpm_load((xpm_map_t) menu_exit_xpm, XPM_8_8_8, &(exit_menu.img));
 }
 
 void drawMenu() {
@@ -139,50 +140,22 @@ int menu(cursor *c, struct packet *p) {
 
   if (choose_singlePlayer) {
     baseState = singlePlayer;
-    choose_instructions = false;
-    choose_singlePlayer = false;
-    choose_multiPlayer = false;
-    choose_exit = false;
-    on_instructions = false;
-    on_singlePlayer = false;
-    on_multiPlayer = false;
-    on_exit = false;
+    set_false_buttons();
     return 1;
   }
   else if (choose_multiPlayer) {
     baseState = multiPlayer;
-    choose_instructions = false;
-    choose_singlePlayer = false;
-    choose_multiPlayer = false;
-    choose_exit = false;
-    on_instructions = false;
-    on_singlePlayer = false;
-    on_multiPlayer = false;
-    on_exit = false;
+    set_false_buttons();
     return 1;
   }
   else if (choose_instructions) {
     baseState = instructions;
-    choose_instructions = false;
-    choose_singlePlayer = false;
-    choose_multiPlayer = false;
-    choose_exit = false;
-    on_instructions = false;
-    on_singlePlayer = false;
-    on_multiPlayer = false;
-    on_exit = false;
+    set_false_buttons();
     return 1;
   }
   else if (choose_exit) {
     baseState = leave;
-    choose_instructions = false;
-    choose_singlePlayer = false;
-    choose_multiPlayer = false;
-    choose_exit = false;
-    on_instructions = false;
-    on_singlePlayer = false;
-    on_multiPlayer = false;
-    on_exit = false;
+    set_false_buttons();
     return 1;
   }
   return 0;
@@ -246,4 +219,15 @@ int mainMenuLoop() {
   if (mouse_unsubscribe())
     return 1;
   return 0;
+}
+
+void set_false_buttons(){
+    choose_instructions = false;
+    choose_singlePlayer = false;
+    choose_multiPlayer = false;
+    choose_exit = false;
+    on_instructions = false;
+    on_singlePlayer = false;
+    on_multiPlayer = false;
+    on_exit = false;
 }

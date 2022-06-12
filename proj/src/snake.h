@@ -37,24 +37,25 @@ int numOfBodyParts;
 bool start;
 /** @brief lives of the snake*/
 double lives;
-/** @brief numero de maças comidas*/
+/** @brief number of apples eaten*/
 int numOfApplesEaten;
-/** @brief number of apples needed to gain half live*/
+/** @brief number of apples needed to win half live*/
 int gainLive;
+
+
+/**
+ * @brief initiates all aspects of the snake
+ *
+ */
+void init_snake();
 
 /**
  * @brief deals with the movement and collisions of a snake
  * 
- * @param speed speed of the movement
- * @return int 1 if the snake has died
+ * @param speed of the movement
+ * @return int 1 if the snake died
  */
-int movement(int16_t speed );
-
-/**
- * @brief iniciates all aspects of the snake
- * 
- */
-void init_snake();
+int movement(int16_t speed);
 
 /**
  * @brief draws snake
@@ -63,7 +64,7 @@ void init_snake();
 void drawSnakeBody();
 
 /**
- * @brief adds body part to the snake
+ * @brief adds a body part to the snake
  * 
  */
 void addBodyPart();
@@ -83,7 +84,7 @@ void moveBodyParts();
 int takelive(double n);
 
 /**
- * @brief check if their is any bodyPart in that place
+ * @brief checks if their is any bodyPart in that position
  * 
  * @param x column of the position
  * @param y line of the position
@@ -96,17 +97,17 @@ int isSnake(int x, int y);
  * 
  * @return int 1 if the snake has died
  */
-int colisionWithApple();
+int collisionWithApple();
 
 /**
  * @brief checks the snake has collided against itselph 
  * 
  * @return int 1 if the collision happend
  */
-int colisionWithItSelf();
+int collisionWithItSelf();
 
 /**
- * @brief draws an apple at a random position
+ * @brief draws an apple at a random position in a periodic time
  * 
  */
 void periodicApples();

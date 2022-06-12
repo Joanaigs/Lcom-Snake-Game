@@ -2,60 +2,51 @@
 #include <stdint.h>
 #include <lcom/lcf.h>
 #include "cursor.h"
+#include "objects.h"
+
 
 /**
- * @brief represents a xpm image
- * 
+ * @brief xpm of the main menu page
+ *
  */
-typedef struct{
-    xpm_image_t img;
-    uint8_t *map;
-}menuMap;
-
+object main_menu;
 /**
- * @brief image of the main menu page
- * 
+ * @brief xpm of the main menu page with the singlePlayer colored
+ *
  */
-menuMap main_menu;
-
+object sp_menu;
 /**
- * @brief image of the main menu page with the singlePlayer colored
- * 
+ * @brief xpm of the main menu page with the multiPlayer colored
+ *
  */
-menuMap sp_menu;
-
-/**
- * @brief image of the main menu page with the multiPlayer colored
- * 
- */
-menuMap mp_menu;
-
+object mp_menu;
 /**
  * @brief image of the main menu page with the intructions colored
- * 
+ *
  */
-menuMap inst_menu;
-
+object inst_menu;
 /**
  * @brief image of the main menu page with the exit colored
- * 
+ *
  */
-menuMap exit_menu;
+object exit_menu;
+
+
 
 /**
- * @brief Iniciates all the menu object by reading their xpm
- * 
+ * @brief Initiates all the menu objects by reading their xpm
+ *
  */
 void init_menu();
 
 /**
- * @brief changes the background with the right button colored
+ * @brief draws the menu
  * 
  */
 void drawMenu();
 
 /**
- * @brief Deals with the result of movement of the mouse, changing te state of the game if the any button is clicked and changing the color of the button if the mouse is on top of it
+ * @brief Deals with the result of movement of the mouse, changing the state of the game if any button is clicked and changing the color of the button if the mouse is on top of it
  * 
  * @param mouse_c mouse object
  * @param p packet with the information of the mouse after movement
@@ -74,7 +65,12 @@ int menuOptionCollisions(cursor *mouse_c);
 /**
  * @brief Loop of the main Menu page that uses mouse, and timer devices
  * 
- * @return int 1 if an error has occured 
+ * @return int 1 if an error has occurred
  */
 int mainMenuLoop();
+
+/**
+ * @brief sets false every onclick button and choose button
+ */
+void set_false_buttons();
 

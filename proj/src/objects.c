@@ -1,8 +1,29 @@
 #include "objects.h"
+#include "images/0.xpm"
+#include "images/1.xpm"
+#include "images/2.xpm"
+#include "images/3.xpm"
+#include "images/4.xpm"
+#include "images/5.xpm"
+#include "images/6.xpm"
+#include "images/7.xpm"
+#include "images/8.xpm"
+#include "images/9.xpm"
+#include "images/clock.xpm"
+#include "images/heart-left.xpm"
+#include "images/heart-right.xpm"
 #include "images/maca.xpm"
 #include "images/maca_castanha.xpm"
 #include "images/maca_preta.xpm"
+#include "images/instructions.xpm"
+#include "images/instructions_back.xpm"
 #include "images/game_background.xpm"
+#include "images/menu_background.xpm"
+#include "images/menu_exit.xpm"
+#include "images/menu_instructions.xpm"
+#include "images/menu_multiPlayer.xpm"
+#include "images/menu_singlePlayer.xpm"
+#include "images/mouse_cursor.xpm"
 #include "snake.h"
 #include "graphics.h"
 #include "macros.h"
@@ -13,86 +34,25 @@ void init_xpms(){
   redAppleXpm.map = xpm_load((xpm_map_t)maca_xpm, XPM_8_8_8, &(redAppleXpm.img));
   blackAppleXpm.map = xpm_load((xpm_map_t)maca_preta_xpm, XPM_8_8_8, &(blackAppleXpm.img));
   brownAppleXpm.map = xpm_load((xpm_map_t)maca_castanha_xpm, XPM_8_8_8, &(brownAppleXpm.img));
-  numApples=0;
+  timeClock.map = xpm_load((xpm_map_t) clock_xpm, XPM_8_8_8, &(timeClock.img));
+  rightHeart.map = xpm_load((xpm_map_t) heart_right_xpm, XPM_8_8_8, &(rightHeart.img));
+  leftHeart.map = xpm_load((xpm_map_t) heart_left_xpm, XPM_8_8_8, &(leftHeart.img));
+  one.map = xpm_load((xpm_map_t) one_xpm, XPM_8_8_8, &(one.img));
+  two.map = xpm_load((xpm_map_t) two_xpm, XPM_8_8_8, &(two.img));
+  three.map = xpm_load((xpm_map_t) three_xpm, XPM_8_8_8, &(three.img));
+  four.map = xpm_load((xpm_map_t) four_xpm, XPM_8_8_8, &(four.img));
+  five.map = xpm_load((xpm_map_t) five_xpm, XPM_8_8_8, &(five.img));
+  six.map = xpm_load((xpm_map_t) six_xpm, XPM_8_8_8, &(six.img));
+  seven.map = xpm_load((xpm_map_t) seven_xpm, XPM_8_8_8, &(seven.img));
+  eight.map = xpm_load((xpm_map_t) eight_xpm, XPM_8_8_8, &(eight.img));
+  nine.map = xpm_load((xpm_map_t) nine_xpm, XPM_8_8_8, &(nine.img));
+  zero.map = xpm_load((xpm_map_t) zero_xpm, XPM_8_8_8, &(zero.img));
 }
 
-
-object get_xpm(enum appleType type){
-    switch (type) {
-        case red: return redAppleXpm;
-        case brown: return brownAppleXpm;
-        case black: return blackAppleXpm;
-    }
-}
 
 void drawBackground(){
     background.map = xpm_load((xpm_map_t)game_background_xpm, XPM_8_8_8, &background.img);
     draw_xpm(background.img, background.map, 0, 0);
-}
-
-void initApple(Apple *apple, int x_pos, int y_pos, enum appleType type){
-    apple->type = type;
-    apple->appleXpm = get_xpm(type);
-    apple->x_pos = x_pos;
-    apple->y_pos = y_pos;
-
-    applesArray[numApples] = *apple;
-    numApples++;
-
-}
-
-void initRandomApple(Apple *apple, enum appleType type){
-    apple->type = type;
-    apple->appleXpm = get_xpm(type);
-
-    int x;
-    int y;
-    do {
-        srand(time(0));
-        x = ((rand() % ((h_res - 40 + 1 - 40) / 40)) * 40 )+ 40;
-        srand(time(0));
-        y = ((rand() % ((v_res - 40 + 1 - 120) / 40)) * 40 )+ 120;
-
-    } while (isApple(x,y) != -1 || isSnake(x,y) == 1);
-
-
-    apple->x_pos = x;
-    apple->y_pos = y;
-
-    applesArray[numApples] = *apple;
-    numApples++;
-
-}
-
-void drawApple(Apple apple){
-    draw_xpm(apple.appleXpm.img, apple.appleXpm.map, apple.x_pos, apple.y_pos);
-}
-
-
-int isApple(int x, int y) {
-    for (int i = 0; i < numApples; i++) {
-        if (applesArray[i].x_pos == x && applesArray[i].y_pos == y) {
-            return i;
-        }
-    }
-    return -1;
-}
-
-void placeApple(int x, int y, enum appleType a){
-    Apple apple;
-    int h=x/40;
-    int v=y/40;
-    int x_final, y_final;
-    if(x%40>=20)
-        x_final=h*40+40;
-    else
-        x_final=h*40;
-    if(v%40>=20)
-        y_final=v*40+40;
-    else
-        y_final=v*40;
-    initApple(&apple, x_final, y_final, a);
-    drawApple(apple);
 }
 
 

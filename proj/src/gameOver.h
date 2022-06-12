@@ -23,6 +23,8 @@ int continueMenu(cursor *mouse_c, struct packet *p);
 /**
  * @brief Loop of the gameOver page that uses mouse, keyboard and timer devices
  * 
- * @return int 1 if an error has occured 
+ * @return int 1 if an error has occurred
  */
 int gameOverPage();
+
+void drawGameOverElements();

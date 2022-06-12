@@ -84,8 +84,6 @@ int set_update_int(bool on) {
   return 0;
 }
 
-
-
 void rtc_ih() {
   int ret;
   uint8_t regC;

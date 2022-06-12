@@ -36,7 +36,9 @@
 #define PARITY_BIT    BIT(7)
 
 /** @brief ESC */
-#define ESC_BREAK_CODE  0x81    
+#define ESC_BREAK_CODE  0x81  
+/**  @brief ENTER */  
+#define ENTER_BREAK_CODE  0x1C 
 /** @brief W */
 #define W_MAKE_CODE 0x11  
 /** @brief D */

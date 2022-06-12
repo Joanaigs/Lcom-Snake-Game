@@ -34,18 +34,18 @@ int main(int argc, char *argv[]) {
 
 void single_player() {
   if(singlePlayerMode()){
-    printf("An error occured\n");
+    printf("An error occurred\n");
     baseState = leave;
   }
-  baseState = gameover;
+  baseState = game_over;
 }
 
 void multi_player() {
   if( multiPlayerMode()){
-    printf("An error occured\n");
+    printf("An error occurred\n");
     baseState = leave;
   }
-  baseState = gameover;
+  baseState = game_over;
 }
 
 void gameOver() {
@@ -57,7 +57,6 @@ void main_Menu(){
 }
 
 void instructions_Menu(){
-  printf("hi");
     instructionsLoop();
 }
 
@@ -78,12 +77,12 @@ int(proj_main_loop)(int argc, char *argv[]) {
         single_player();
         break;
       case multiPlayer:
-      multi_player();
+        multi_player();
         break;
       case instructions:
           instructions_Menu();
         break;
-      case gameover:
+      case game_over:
         gameOver();
         break;
       case leave:

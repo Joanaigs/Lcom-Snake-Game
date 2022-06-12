@@ -6,5 +6,7 @@ train/lab5
 train/
 *.d
 proj/src/trace.txt
+proj/src/output.txt
+proj/src/objects.o
 
-proj/src/proj
+proj/src/.vscode/

@@ -14,8 +14,9 @@
 #include "images/corpo_cobra_H.xpm"
 #include "images/corpo_cobra_V.xpm"
 #include "objects.h"
+#include "apple.h"
 
-int snakeLenght = 40;
+int snakeLength = 40;
 double lives = 5;
 int numOfApplesEaten = 0;
 int gainLive=0;
@@ -38,7 +39,7 @@ void init_snake() {
   snakeBody[1].direction = "RIGHT";
   snakeBody[1].map = snakeBody[1].mapRight;
   snakeBody[1].img = snakeBody[1].imgRight;
-  snakeBody[1].x = snakeBody[0].x - snakeLenght;
+  snakeBody[1].x = snakeBody[0].x - snakeLength;
   snakeBody[1].y = snakeBody[0].y;
   numOfBodyParts = 2;
   snakeTail.mapLeft = xpm_load((xpm_map_t) tail_left_xpm, XPM_8_8_8, &snakeTail.imgLeft);
@@ -47,7 +48,7 @@ void init_snake() {
   snakeTail.mapUp = xpm_load((xpm_map_t) tail_up_xpm, XPM_8_8_8, &snakeTail.imgUp);
   snakeBody[2].map = snakeTail.mapRight;
   snakeBody[2].img = snakeTail.imgRight;
-  snakeBody[2].x = snakeBody[1].x - snakeLenght;
+  snakeBody[2].x = snakeBody[1].x - snakeLength;
   snakeBody[2].y = snakeBody[1].y;
   snakeBody[2].direction = "RIGHT";
 }
@@ -74,49 +75,49 @@ void addBodyPart() {
   snakeBody[i].mapUp = xpm_load((xpm_map_t) cobra_corpo_xpm, XPM_8_8_8, &snakeBody[i].imgUp);
   if (strcmp(snakeBody[i - 1].direction, "UP") == 0) {
     snakeBody[i].x = snakeBody[i - 1].x;
-    snakeBody[i].y = snakeBody[i - 1].y + snakeLenght;
+    snakeBody[i].y = snakeBody[i - 1].y + snakeLength;
     snakeBody[i].direction = "UP";
     snakeBody[i].map = snakeBody[i].mapUp;
     snakeBody[i].img = snakeBody[i].imgUp;
     snakeBody[i + 1].map = snakeTail.mapUp;
     snakeBody[i + 1].img = snakeTail.imgUp;
     snakeBody[i + 1].x = snakeBody[i].x;
-    snakeBody[i + 1].y = snakeBody[i].y + snakeLenght;
+    snakeBody[i + 1].y = snakeBody[i].y + snakeLength;
     snakeBody[i + 1].direction = "UP";
   }
   else if (strcmp(snakeBody[i - 1].direction, "DOWN") == 0) {
     snakeBody[i].x = snakeBody[i - 1].x;
-    snakeBody[i].y = snakeBody[i - 1].y - snakeLenght;
+    snakeBody[i].y = snakeBody[i - 1].y - snakeLength;
     snakeBody[i].direction = "DOWN";
     snakeBody[i].map = snakeBody[i].mapDown;
     snakeBody[i].img = snakeBody[i].imgDown;
     snakeBody[i + 1].map = snakeTail.mapDown;
     snakeBody[i + 1].img = snakeTail.imgDown;
     snakeBody[i + 1].x = snakeBody[i].x;
-    snakeBody[i + 1].y = snakeBody[i].y - snakeLenght;
+    snakeBody[i + 1].y = snakeBody[i].y - snakeLength;
     snakeBody[i + 1].direction = "DOWN";
   }
   else if (strcmp(snakeBody[i - 1].direction, "LEFT") == 0) {
-    snakeBody[i].x = snakeBody[i - 1].x + snakeLenght;
+    snakeBody[i].x = snakeBody[i - 1].x + snakeLength;
     snakeBody[i].y = snakeBody[i - 1].y;
     snakeBody[i].direction = "LEFT";
     snakeBody[i].map = snakeBody[i].mapLeft;
     snakeBody[i].img = snakeBody[i].imgLeft;
     snakeBody[i + 1].map = snakeTail.mapLeft;
     snakeBody[i + 1].img = snakeTail.imgLeft;
-    snakeBody[i + 1].x = snakeBody[i].x + snakeLenght;
+    snakeBody[i + 1].x = snakeBody[i].x + snakeLength;
     snakeBody[i + 1].y = snakeBody[i].y;
     snakeBody[i + 1].direction = "LEFT";
   }
   else if (strcmp(snakeBody[i - 1].direction, "RIGHT") == 0) {
-    snakeBody[i].x = snakeBody[i - 1].x - snakeLenght;
+    snakeBody[i].x = snakeBody[i - 1].x - snakeLength;
     snakeBody[i].y = snakeBody[i - 1].y;
     snakeBody[i].direction = "RIGHT";
     snakeBody[i].map = snakeBody[i].mapRight;
     snakeBody[i].img = snakeBody[i].imgRight;
     snakeBody[i + 1].map = snakeTail.mapRight;
     snakeBody[i + 1].img = snakeTail.imgRight;
-    snakeBody[i + 1].x = snakeBody[i].x - snakeLenght;
+    snakeBody[i + 1].x = snakeBody[i].x - snakeLength;
     snakeBody[i + 1].y = snakeBody[i].y;
     snakeBody[i + 1].direction = "RIGHT";
   }
@@ -124,7 +125,7 @@ void addBodyPart() {
   draw_xpm(snakeBody[i + 1].img, snakeBody[i + 1].map, snakeBody[i + 1].x, snakeBody[i + 1].y);
 }
 
-int colisionWithItSelf() {
+int collisionWithItSelf() {
   for (int i = 1; i <= numOfBodyParts; i++) {
     if ((snakeBody[0].x == snakeBody[i].x) && snakeBody[0].y == snakeBody[i].y) {
       return 1;
@@ -133,7 +134,7 @@ int colisionWithItSelf() {
   return 0;
 }
 
-int colisionWithApple() {
+int collisionWithApple() {
 
   int i = isApple(snakeBody[0].x, snakeBody[0].y);
   if (i != -1) {
@@ -237,13 +238,13 @@ int movement(int16_t speed) {
     snakeBody[0].y -= speed;
   }
   else if (strcmp(snakeBody[0].direction, "DOWN") == 0) {
-    if (snakeBody[0].y + snakeLenght + speed > vmi_p.YResolution - 40) {
+    if (snakeBody[0].y + snakeLength + speed > vmi_p.YResolution - 40) {
       return 1;
     }
     snakeBody[0].y += speed;
   }
   else if (strcmp(snakeBody[0].direction, "RIGHT") == 0) {
-    if (snakeBody[0].x + snakeLenght + speed > vmi_p.XResolution - 40) {
+    if (snakeBody[0].x + snakeLength + speed > vmi_p.XResolution - 40) {
       return 1;
     }
     snakeBody[0].x += speed;
@@ -254,9 +255,9 @@ int movement(int16_t speed) {
     }
     snakeBody[0].x -= speed;
   }
-  if (colisionWithItSelf())
+  if (collisionWithItSelf())
     return 1;
-  if (colisionWithApple())
+  if (collisionWithApple())
     return 1;
 
   drawSnakeBody();
@@ -286,7 +287,6 @@ void periodicApples(){
       Apple brownApple;
       initRandomApple(&brownApple, brown);
       drawApple(brownApple);
-
     brown_time=0;
   }
 }

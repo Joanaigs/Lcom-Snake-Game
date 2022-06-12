@@ -75,7 +75,7 @@ void draw_xpm(xpm_image_t img, uint8_t *map, int x, int y){
 }
 
 
-void draw_xpm_video_mem(xpm_image_t img, uint8_t *map, int x, int y){
+void (draw_xpm_video_mem)(xpm_image_t img, uint8_t *map, int x, int y){
     uint32_t transparentColor = xpm_transparency_color(img.type);
     for(unsigned row = 0; row < img.height && y + row < vmi_p.YResolution; row++){
         for(unsigned col=0; col < img.width && x + col < vmi_p.XResolution; col++){
