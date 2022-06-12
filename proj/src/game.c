@@ -23,6 +23,7 @@ void (init_game)() {
     lives = 5;
     numOfApplesEaten = 0;
     gameTime = 0;
+    numApples=0;
     Apple initialApple;
     initApple(&initialApple, 280, 200, red);
     drawApple(initialApple);

@@ -47,7 +47,6 @@ void init_xpms(){
   eight.map = xpm_load((xpm_map_t) eight_xpm, XPM_8_8_8, &(eight.img));
   nine.map = xpm_load((xpm_map_t) nine_xpm, XPM_8_8_8, &(nine.img));
   zero.map = xpm_load((xpm_map_t) zero_xpm, XPM_8_8_8, &(zero.img));
-  numApples=0;
 }
 
 

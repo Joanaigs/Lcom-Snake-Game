@@ -75,7 +75,8 @@ void placeApple(int x, int y, enum appleType type){
         y_final=v*40+40;
     else
         y_final=v*40;
-
+    if(isApple(x_final, y_final)!=-1 || isSnake(x_final, y_final))
+        return;
     initApple(&apple, x_final, y_final, type);
     drawApple(apple);
 }
