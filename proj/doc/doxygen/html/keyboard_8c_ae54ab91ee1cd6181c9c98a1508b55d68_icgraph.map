@@ -1,0 +1,10 @@
+<map id="keyboard_subscribe" name="keyboard_subscribe">
+<area shape="rect" id="node1" title="Subscribes and enables Keyboard interrupts." alt="" coords="483,56,621,83"/>
+<area shape="rect" id="node2" href="$game_over_8c.html#a5391fff3d74048686f680f1de8b5e64e" title="Loop of the gameOver page that uses mouse, keyboard and timer devices." alt="" coords="317,5,427,32"/>
+<area shape="rect" id="node5" href="$game_8c.html#adfe0b3805fa6842770c273b1f4944cd4" title="Loop of the multiplayer game that uses the mouse, keyboard and timer devices." alt="" coords="313,56,431,83"/>
+<area shape="rect" id="node7" href="$game_8c.html#a4be80fd1408a780acc76065c69d55a76" title="Loop of the singleplayer game that uses the rtc, keyboard and timer devices." alt="" coords="309,107,435,133"/>
+<area shape="rect" id="node3" href="$proj_8c.html#a026d019671eda0cfe729200fc24d23ba" title=" " alt="" coords="172,5,252,32"/>
+<area shape="rect" id="node4" href="$proj_8c.html#a2a16f651eccbd248e1ad3b3b924b143b" title=" " alt="" coords="5,56,115,83"/>
+<area shape="rect" id="node6" href="$proj_8c.html#a970e285d53c51ad8d5ba73a4efaedf0c" title=" " alt="" coords="166,56,258,83"/>
+<area shape="rect" id="node8" href="$proj_8c.html#a095b10852176bed8392f819a203048c8" title=" " alt="" coords="163,107,261,133"/>
+</map>

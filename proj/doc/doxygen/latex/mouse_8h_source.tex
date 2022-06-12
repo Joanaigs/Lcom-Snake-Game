@@ -1,0 +1,30 @@
+\hypertarget{mouse_8h_source}{}\doxysection{mouse.\+h}
+\mbox{\hyperlink{mouse_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef \_\_MOUSE\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define \_\_MOUSE\_H}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <minix/sysutil.h>}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{utils_8h}{utils.h}}"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <stdbool.h>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <stdint.h>}}
+\DoxyCodeLine{7 \textcolor{keywordtype}{int} \mbox{\hyperlink{mouse_8h_a4751a82e37b38d8b51b23b61f79fe08b}{hook\_idR}};}
+\DoxyCodeLine{8 \textcolor{keywordtype}{int} \mbox{\hyperlink{mouse_8h_a406153c85a1428535dede4ff770bf709}{mouse\_number\_bytes}};}
+\DoxyCodeLine{9 uint8\_t \mbox{\hyperlink{mouse_8h_a87a666a564c9f4ee4fbdf231478d44b9}{mouse}}[3];}
+\DoxyCodeLine{10 uint8\_t \mbox{\hyperlink{mouse_8h_abdc0a2b29bce51f638616ee09e560c1e}{statusCode}};}
+\DoxyCodeLine{11 uint8\_t \mbox{\hyperlink{mouse_8h_ada4d51ae7aad934683135ea24676b59c}{scanC}};}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{20 \textcolor{keywordtype}{int} \mbox{\hyperlink{mouse_8h_aa80a655c16632ba32dc98ad3397a9354}{mouse\_subscribe}}(uint8\_t *bit\_no, \textcolor{keywordtype}{int} hook);}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{27 \textcolor{keyword}{struct }packet \mbox{\hyperlink{mouse_8h_ab4300dc55bcf45eb4099537e2562b359}{parse\_packet}}();}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{35 \textcolor{keywordtype}{int} \mbox{\hyperlink{mouse_8h_a73a1f01fbfc49628dbdc042840fc598a}{mouse\_enable\_data\_report}}(\textcolor{keywordtype}{bool} \mbox{\hyperlink{rtc_8c_a0ca0ad72d5c05cf905665b4447ad61cd}{enable}});}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{41 \textcolor{keywordtype}{void} \mbox{\hyperlink{mouse_8h_a834b6d7efe311484d6da234db333cb97}{mouse\_ih}}();}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{48 \textcolor{keywordtype}{int} \mbox{\hyperlink{mouse_8h_abb62339e13d96f9050f69a71428f8eb9}{mouse\_unsubscribe}}();}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{57 \textcolor{keyword}{struct }mouse\_ev \mbox{\hyperlink{mouse_8h_a2b3a17598ae17012bf497e62529f0266}{mouse\_get\_event}}(struct packet *pp) ;}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* \_\_MOUSE\_H */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

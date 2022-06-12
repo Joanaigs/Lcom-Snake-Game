@@ -1,0 +1,464 @@
+\hypertarget{i8042_8h}{}\doxysection{i8042.\+h File Reference}
+\label{i8042_8h}\index{i8042.h@{i8042.h}}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{i8042_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{i8042_8h_a16c5827f043d82f87c726c2d4369c11d}{KBC\+\_\+\+IRQ}}~1
+\begin{DoxyCompactList}\small\item\em KBC IRQ Line. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{i8042_8h_a85964cb90343bb1a029b1d1b4229f910}{MOUSE\+\_\+\+IRQ}}~12
+\begin{DoxyCompactList}\small\item\em Mouse IRQ Line. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{i8042_8h_a62249e384b997229a3e2ae74ade334e2}{DELAY}}~20000
+\begin{DoxyCompactList}\small\item\em Delay. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{i8042_8h_a57043feb2c248394e06fea923bd967bc}{CMD\+\_\+\+KBC}}~0x64
+\begin{DoxyCompactList}\small\item\em Send commands to KBC. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{i8042_8h_a543c7c1e95d4677b1819d793a8a9ceb7}{CMD\+\_\+\+ARG\+\_\+\+KBC}}~0x60
+\begin{DoxyCompactList}\small\item\em Write to KBC Command. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{i8042_8h_a1f7e79cfe81dc06414550fa52418941e}{STATUS\+\_\+\+REG}}~0x64
+\begin{DoxyCompactList}\small\item\em Status Register. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{i8042_8h_acfb42dde389e8ca36ab267002fbf5c6a}{OUT\+\_\+\+BUF}}~0x60
+\begin{DoxyCompactList}\small\item\em Output Buffer. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{i8042_8h_a356ebf158dd5c7f57a9edca8e995316f}{READ\+\_\+\+KBC}}~0x20
+\begin{DoxyCompactList}\small\item\em Read Command Byte. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{i8042_8h_accda38b09f856ff41a392a50fe82b99d}{WRITE\+\_\+\+KBC}}~0x60
+\begin{DoxyCompactList}\small\item\em Write KBC Command. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{i8042_8h_a45967c9e25447ba853cf6fb4ac545fe6}{OBF}}~\mbox{\hyperlink{group__utils_ga3a8ea58898cb58fc96013383d39f482c}{BIT}}(0)
+\begin{DoxyCompactList}\small\item\em Output Buffer Full. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{i8042_8h_a3c48b10907056351582baf9f6478598e}{IBF}}~\mbox{\hyperlink{group__utils_ga3a8ea58898cb58fc96013383d39f482c}{BIT}}(1)
+\begin{DoxyCompactList}\small\item\em Input Buffer Full. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{i8042_8h_a0ceace9b28e295da4bb7f505a029f425}{MOUSE\+\_\+\+AUX}}~\mbox{\hyperlink{group__utils_ga3a8ea58898cb58fc96013383d39f482c}{BIT}}(5)
+\begin{DoxyCompactList}\small\item\em Mouse Bit. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{i8042_8h_a2f3724e6e2a93074714f32c76d13d939}{TOB}}~\mbox{\hyperlink{group__utils_ga3a8ea58898cb58fc96013383d39f482c}{BIT}}(6)
+\begin{DoxyCompactList}\small\item\em Time Out Bit. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{i8042_8h_a3fe0dea7b30a55d84f5763338956eb44}{PARITY\+\_\+\+BIT}}~\mbox{\hyperlink{group__utils_ga3a8ea58898cb58fc96013383d39f482c}{BIT}}(7)
+\begin{DoxyCompactList}\small\item\em Parity bit. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{i8042_8h_a592dfdf397b21913348b4dd6b7759b2d}{ESC\+\_\+\+BREAK\+\_\+\+CODE}}~0x81
+\begin{DoxyCompactList}\small\item\em ESC. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{i8042_8h_a54db80d887c9139084b1a66243fa3f72}{ENTER\+\_\+\+BREAK\+\_\+\+CODE}}~0x1C
+\begin{DoxyCompactList}\small\item\em ENTER. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{i8042_8h_acb777c7c7af1e6859732e4ab59adf681}{W\+\_\+\+MAKE\+\_\+\+CODE}}~0x11
+\begin{DoxyCompactList}\small\item\em W. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{i8042_8h_a23f867dcf757da71f03cbe28e41ed98d}{D\+\_\+\+MAKE\+\_\+\+CODE}}~0x20
+\begin{DoxyCompactList}\small\item\em D. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{i8042_8h_a05c2d71abe8bdd210f3424fd7615a59e}{S\+\_\+\+MAKE\+\_\+\+CODE}}~0x1f
+\begin{DoxyCompactList}\small\item\em S. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{i8042_8h_a33aa421fd3c2491284a71ad577933fd0}{A\+\_\+\+MAKE\+\_\+\+CODE}}~0x1e
+\begin{DoxyCompactList}\small\item\em A. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{i8042_8h_abfc37fa43c153f929cf0c3421979bfc5}{UP\+\_\+\+MAKE\+\_\+\+CODE}}~0x48
+\begin{DoxyCompactList}\small\item\em UP. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{i8042_8h_ae2f76c6c293b32a6f01fe3a3c96e5faa}{RIGHT\+\_\+\+MAKE\+\_\+\+CODE}}~0x4d
+\begin{DoxyCompactList}\small\item\em RIGHT. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{i8042_8h_a88ccb7cfaafc37d4f31f61191018b4ff}{DOWN\+\_\+\+MAKE\+\_\+\+CODE}}~0x50
+\begin{DoxyCompactList}\small\item\em DOWN. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{i8042_8h_a3d77bee1bc8993248d393763e5b18074}{LEFT\+\_\+\+MAKE\+\_\+\+CODE}}~0x4b
+\begin{DoxyCompactList}\small\item\em LEFT. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{i8042_8h_a7f9aacad98586d9a60c8d16b6f5435f4}{TWO\+\_\+\+BYTE}}~0x\+E0
+\begin{DoxyCompactList}\small\item\em First of a two byte scancode. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{i8042_8h_ac6b47609a951e77244ef2be1691c298a}{BREAK\+\_\+\+CODE}}~\mbox{\hyperlink{group__utils_ga3a8ea58898cb58fc96013383d39f482c}{BIT}}(7)
+\begin{DoxyCompactList}\small\item\em Make code or break code. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{i8042_8h_abbc8382ae4ea521f03c119a14478b759}{LEFT\+\_\+\+BUTTON}}~\mbox{\hyperlink{group__utils_ga3a8ea58898cb58fc96013383d39f482c}{BIT}}(0)
+\begin{DoxyCompactList}\small\item\em Left button. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{i8042_8h_aeb17351958162535ab6af2cd6b030955}{RIGHT\+\_\+\+BUTTON}}~\mbox{\hyperlink{group__utils_ga3a8ea58898cb58fc96013383d39f482c}{BIT}}(1)
+\begin{DoxyCompactList}\small\item\em Right button. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{i8042_8h_aea4935ff922fa4fbbc0f03fc250e268b}{MIDDLE\+\_\+\+BUTTON}}~\mbox{\hyperlink{group__utils_ga3a8ea58898cb58fc96013383d39f482c}{BIT}}(2)
+\begin{DoxyCompactList}\small\item\em Middle button. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{i8042_8h_ab3682a7593eea6b3a98269c3105714b1}{MSB\+\_\+\+X\+\_\+\+DELTA}}~\mbox{\hyperlink{group__utils_ga3a8ea58898cb58fc96013383d39f482c}{BIT}}(4)
+\begin{DoxyCompactList}\small\item\em X delta most significant bit ~\newline
+ \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{i8042_8h_a73e7f39e782c9d57707ff7a518d031a6}{MSB\+\_\+\+Y\+\_\+\+DELTA}}~\mbox{\hyperlink{group__utils_ga3a8ea58898cb58fc96013383d39f482c}{BIT}}(5)
+\begin{DoxyCompactList}\small\item\em Y delta most significant bit ~\newline
+ \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{i8042_8h_a82dc3ac9577dabd19733ada75d2822d0}{X\+\_\+\+OVERFLOW}}~\mbox{\hyperlink{group__utils_ga3a8ea58898cb58fc96013383d39f482c}{BIT}}(6)
+\begin{DoxyCompactList}\small\item\em X overflowed. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{i8042_8h_acd54c5569c84fd2d1710cccd190e138a}{Y\+\_\+\+OVERFLOW}}~\mbox{\hyperlink{group__utils_ga3a8ea58898cb58fc96013383d39f482c}{BIT}}(7)
+\begin{DoxyCompactList}\small\item\em Y overflowed. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{i8042_8h_a6f6489887e08bff4887d0bc5dcf214d8}{ACK}}~0x\+FA
+\begin{DoxyCompactList}\small\item\em Operation sucessful. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{i8042_8h_a5ca1baba7129f2acebcc07cbbbde8736}{WRITE\+\_\+\+MOUSE}}~0x\+D4
+\begin{DoxyCompactList}\small\item\em Write to mouse. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{i8042_8h_ad374b510092499b5961d3771abf9c66e}{DISABLE\+\_\+\+DATA\+\_\+\+REPORT}}~0x\+F5
+\begin{DoxyCompactList}\small\item\em Disable date reporting. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{i8042_8h_a1c22608f41bd715500d0333001079a8a}{ENABLE\+\_\+\+DATA\+\_\+\+REPORT}}~0x\+F4
+\begin{DoxyCompactList}\small\item\em enable date reporting \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{i8042_8h_a33aa421fd3c2491284a71ad577933fd0}\label{i8042_8h_a33aa421fd3c2491284a71ad577933fd0}} 
+\index{i8042.h@{i8042.h}!A\_MAKE\_CODE@{A\_MAKE\_CODE}}
+\index{A\_MAKE\_CODE@{A\_MAKE\_CODE}!i8042.h@{i8042.h}}
+\doxysubsubsection{\texorpdfstring{A\_MAKE\_CODE}{A\_MAKE\_CODE}}
+{\footnotesize\ttfamily \#define A\+\_\+\+MAKE\+\_\+\+CODE~0x1e}
+
+
+
+A. 
+
+\mbox{\Hypertarget{i8042_8h_a6f6489887e08bff4887d0bc5dcf214d8}\label{i8042_8h_a6f6489887e08bff4887d0bc5dcf214d8}} 
+\index{i8042.h@{i8042.h}!ACK@{ACK}}
+\index{ACK@{ACK}!i8042.h@{i8042.h}}
+\doxysubsubsection{\texorpdfstring{ACK}{ACK}}
+{\footnotesize\ttfamily \#define ACK~0x\+FA}
+
+
+
+Operation sucessful. 
+
+\mbox{\Hypertarget{i8042_8h_ac6b47609a951e77244ef2be1691c298a}\label{i8042_8h_ac6b47609a951e77244ef2be1691c298a}} 
+\index{i8042.h@{i8042.h}!BREAK\_CODE@{BREAK\_CODE}}
+\index{BREAK\_CODE@{BREAK\_CODE}!i8042.h@{i8042.h}}
+\doxysubsubsection{\texorpdfstring{BREAK\_CODE}{BREAK\_CODE}}
+{\footnotesize\ttfamily \#define BREAK\+\_\+\+CODE~\mbox{\hyperlink{group__utils_ga3a8ea58898cb58fc96013383d39f482c}{BIT}}(7)}
+
+
+
+Make code or break code. 
+
+\mbox{\Hypertarget{i8042_8h_a543c7c1e95d4677b1819d793a8a9ceb7}\label{i8042_8h_a543c7c1e95d4677b1819d793a8a9ceb7}} 
+\index{i8042.h@{i8042.h}!CMD\_ARG\_KBC@{CMD\_ARG\_KBC}}
+\index{CMD\_ARG\_KBC@{CMD\_ARG\_KBC}!i8042.h@{i8042.h}}
+\doxysubsubsection{\texorpdfstring{CMD\_ARG\_KBC}{CMD\_ARG\_KBC}}
+{\footnotesize\ttfamily \#define CMD\+\_\+\+ARG\+\_\+\+KBC~0x60}
+
+
+
+Write to KBC Command. 
+
+\mbox{\Hypertarget{i8042_8h_a57043feb2c248394e06fea923bd967bc}\label{i8042_8h_a57043feb2c248394e06fea923bd967bc}} 
+\index{i8042.h@{i8042.h}!CMD\_KBC@{CMD\_KBC}}
+\index{CMD\_KBC@{CMD\_KBC}!i8042.h@{i8042.h}}
+\doxysubsubsection{\texorpdfstring{CMD\_KBC}{CMD\_KBC}}
+{\footnotesize\ttfamily \#define CMD\+\_\+\+KBC~0x64}
+
+
+
+Send commands to KBC. 
+
+\mbox{\Hypertarget{i8042_8h_a23f867dcf757da71f03cbe28e41ed98d}\label{i8042_8h_a23f867dcf757da71f03cbe28e41ed98d}} 
+\index{i8042.h@{i8042.h}!D\_MAKE\_CODE@{D\_MAKE\_CODE}}
+\index{D\_MAKE\_CODE@{D\_MAKE\_CODE}!i8042.h@{i8042.h}}
+\doxysubsubsection{\texorpdfstring{D\_MAKE\_CODE}{D\_MAKE\_CODE}}
+{\footnotesize\ttfamily \#define D\+\_\+\+MAKE\+\_\+\+CODE~0x20}
+
+
+
+D. 
+
+\mbox{\Hypertarget{i8042_8h_a62249e384b997229a3e2ae74ade334e2}\label{i8042_8h_a62249e384b997229a3e2ae74ade334e2}} 
+\index{i8042.h@{i8042.h}!DELAY@{DELAY}}
+\index{DELAY@{DELAY}!i8042.h@{i8042.h}}
+\doxysubsubsection{\texorpdfstring{DELAY}{DELAY}}
+{\footnotesize\ttfamily \#define DELAY~20000}
+
+
+
+Delay. 
+
+\mbox{\Hypertarget{i8042_8h_ad374b510092499b5961d3771abf9c66e}\label{i8042_8h_ad374b510092499b5961d3771abf9c66e}} 
+\index{i8042.h@{i8042.h}!DISABLE\_DATA\_REPORT@{DISABLE\_DATA\_REPORT}}
+\index{DISABLE\_DATA\_REPORT@{DISABLE\_DATA\_REPORT}!i8042.h@{i8042.h}}
+\doxysubsubsection{\texorpdfstring{DISABLE\_DATA\_REPORT}{DISABLE\_DATA\_REPORT}}
+{\footnotesize\ttfamily \#define DISABLE\+\_\+\+DATA\+\_\+\+REPORT~0x\+F5}
+
+
+
+Disable date reporting. 
+
+\mbox{\Hypertarget{i8042_8h_a88ccb7cfaafc37d4f31f61191018b4ff}\label{i8042_8h_a88ccb7cfaafc37d4f31f61191018b4ff}} 
+\index{i8042.h@{i8042.h}!DOWN\_MAKE\_CODE@{DOWN\_MAKE\_CODE}}
+\index{DOWN\_MAKE\_CODE@{DOWN\_MAKE\_CODE}!i8042.h@{i8042.h}}
+\doxysubsubsection{\texorpdfstring{DOWN\_MAKE\_CODE}{DOWN\_MAKE\_CODE}}
+{\footnotesize\ttfamily \#define DOWN\+\_\+\+MAKE\+\_\+\+CODE~0x50}
+
+
+
+DOWN. 
+
+\mbox{\Hypertarget{i8042_8h_a1c22608f41bd715500d0333001079a8a}\label{i8042_8h_a1c22608f41bd715500d0333001079a8a}} 
+\index{i8042.h@{i8042.h}!ENABLE\_DATA\_REPORT@{ENABLE\_DATA\_REPORT}}
+\index{ENABLE\_DATA\_REPORT@{ENABLE\_DATA\_REPORT}!i8042.h@{i8042.h}}
+\doxysubsubsection{\texorpdfstring{ENABLE\_DATA\_REPORT}{ENABLE\_DATA\_REPORT}}
+{\footnotesize\ttfamily \#define ENABLE\+\_\+\+DATA\+\_\+\+REPORT~0x\+F4}
+
+
+
+enable date reporting 
+
+\mbox{\Hypertarget{i8042_8h_a54db80d887c9139084b1a66243fa3f72}\label{i8042_8h_a54db80d887c9139084b1a66243fa3f72}} 
+\index{i8042.h@{i8042.h}!ENTER\_BREAK\_CODE@{ENTER\_BREAK\_CODE}}
+\index{ENTER\_BREAK\_CODE@{ENTER\_BREAK\_CODE}!i8042.h@{i8042.h}}
+\doxysubsubsection{\texorpdfstring{ENTER\_BREAK\_CODE}{ENTER\_BREAK\_CODE}}
+{\footnotesize\ttfamily \#define ENTER\+\_\+\+BREAK\+\_\+\+CODE~0x1C}
+
+
+
+ENTER. 
+
+\mbox{\Hypertarget{i8042_8h_a592dfdf397b21913348b4dd6b7759b2d}\label{i8042_8h_a592dfdf397b21913348b4dd6b7759b2d}} 
+\index{i8042.h@{i8042.h}!ESC\_BREAK\_CODE@{ESC\_BREAK\_CODE}}
+\index{ESC\_BREAK\_CODE@{ESC\_BREAK\_CODE}!i8042.h@{i8042.h}}
+\doxysubsubsection{\texorpdfstring{ESC\_BREAK\_CODE}{ESC\_BREAK\_CODE}}
+{\footnotesize\ttfamily \#define ESC\+\_\+\+BREAK\+\_\+\+CODE~0x81}
+
+
+
+ESC. 
+
+\mbox{\Hypertarget{i8042_8h_a3c48b10907056351582baf9f6478598e}\label{i8042_8h_a3c48b10907056351582baf9f6478598e}} 
+\index{i8042.h@{i8042.h}!IBF@{IBF}}
+\index{IBF@{IBF}!i8042.h@{i8042.h}}
+\doxysubsubsection{\texorpdfstring{IBF}{IBF}}
+{\footnotesize\ttfamily \#define IBF~\mbox{\hyperlink{group__utils_ga3a8ea58898cb58fc96013383d39f482c}{BIT}}(1)}
+
+
+
+Input Buffer Full. 
+
+\mbox{\Hypertarget{i8042_8h_a16c5827f043d82f87c726c2d4369c11d}\label{i8042_8h_a16c5827f043d82f87c726c2d4369c11d}} 
+\index{i8042.h@{i8042.h}!KBC\_IRQ@{KBC\_IRQ}}
+\index{KBC\_IRQ@{KBC\_IRQ}!i8042.h@{i8042.h}}
+\doxysubsubsection{\texorpdfstring{KBC\_IRQ}{KBC\_IRQ}}
+{\footnotesize\ttfamily \#define KBC\+\_\+\+IRQ~1}
+
+
+
+KBC IRQ Line. 
+
+\mbox{\Hypertarget{i8042_8h_abbc8382ae4ea521f03c119a14478b759}\label{i8042_8h_abbc8382ae4ea521f03c119a14478b759}} 
+\index{i8042.h@{i8042.h}!LEFT\_BUTTON@{LEFT\_BUTTON}}
+\index{LEFT\_BUTTON@{LEFT\_BUTTON}!i8042.h@{i8042.h}}
+\doxysubsubsection{\texorpdfstring{LEFT\_BUTTON}{LEFT\_BUTTON}}
+{\footnotesize\ttfamily \#define LEFT\+\_\+\+BUTTON~\mbox{\hyperlink{group__utils_ga3a8ea58898cb58fc96013383d39f482c}{BIT}}(0)}
+
+
+
+Left button. 
+
+\mbox{\Hypertarget{i8042_8h_a3d77bee1bc8993248d393763e5b18074}\label{i8042_8h_a3d77bee1bc8993248d393763e5b18074}} 
+\index{i8042.h@{i8042.h}!LEFT\_MAKE\_CODE@{LEFT\_MAKE\_CODE}}
+\index{LEFT\_MAKE\_CODE@{LEFT\_MAKE\_CODE}!i8042.h@{i8042.h}}
+\doxysubsubsection{\texorpdfstring{LEFT\_MAKE\_CODE}{LEFT\_MAKE\_CODE}}
+{\footnotesize\ttfamily \#define LEFT\+\_\+\+MAKE\+\_\+\+CODE~0x4b}
+
+
+
+LEFT. 
+
+\mbox{\Hypertarget{i8042_8h_aea4935ff922fa4fbbc0f03fc250e268b}\label{i8042_8h_aea4935ff922fa4fbbc0f03fc250e268b}} 
+\index{i8042.h@{i8042.h}!MIDDLE\_BUTTON@{MIDDLE\_BUTTON}}
+\index{MIDDLE\_BUTTON@{MIDDLE\_BUTTON}!i8042.h@{i8042.h}}
+\doxysubsubsection{\texorpdfstring{MIDDLE\_BUTTON}{MIDDLE\_BUTTON}}
+{\footnotesize\ttfamily \#define MIDDLE\+\_\+\+BUTTON~\mbox{\hyperlink{group__utils_ga3a8ea58898cb58fc96013383d39f482c}{BIT}}(2)}
+
+
+
+Middle button. 
+
+\mbox{\Hypertarget{i8042_8h_a0ceace9b28e295da4bb7f505a029f425}\label{i8042_8h_a0ceace9b28e295da4bb7f505a029f425}} 
+\index{i8042.h@{i8042.h}!MOUSE\_AUX@{MOUSE\_AUX}}
+\index{MOUSE\_AUX@{MOUSE\_AUX}!i8042.h@{i8042.h}}
+\doxysubsubsection{\texorpdfstring{MOUSE\_AUX}{MOUSE\_AUX}}
+{\footnotesize\ttfamily \#define MOUSE\+\_\+\+AUX~\mbox{\hyperlink{group__utils_ga3a8ea58898cb58fc96013383d39f482c}{BIT}}(5)}
+
+
+
+Mouse Bit. 
+
+\mbox{\Hypertarget{i8042_8h_a85964cb90343bb1a029b1d1b4229f910}\label{i8042_8h_a85964cb90343bb1a029b1d1b4229f910}} 
+\index{i8042.h@{i8042.h}!MOUSE\_IRQ@{MOUSE\_IRQ}}
+\index{MOUSE\_IRQ@{MOUSE\_IRQ}!i8042.h@{i8042.h}}
+\doxysubsubsection{\texorpdfstring{MOUSE\_IRQ}{MOUSE\_IRQ}}
+{\footnotesize\ttfamily \#define MOUSE\+\_\+\+IRQ~12}
+
+
+
+Mouse IRQ Line. 
+
+\mbox{\Hypertarget{i8042_8h_ab3682a7593eea6b3a98269c3105714b1}\label{i8042_8h_ab3682a7593eea6b3a98269c3105714b1}} 
+\index{i8042.h@{i8042.h}!MSB\_X\_DELTA@{MSB\_X\_DELTA}}
+\index{MSB\_X\_DELTA@{MSB\_X\_DELTA}!i8042.h@{i8042.h}}
+\doxysubsubsection{\texorpdfstring{MSB\_X\_DELTA}{MSB\_X\_DELTA}}
+{\footnotesize\ttfamily \#define MSB\+\_\+\+X\+\_\+\+DELTA~\mbox{\hyperlink{group__utils_ga3a8ea58898cb58fc96013383d39f482c}{BIT}}(4)}
+
+
+
+X delta most significant bit ~\newline
+ 
+
+\mbox{\Hypertarget{i8042_8h_a73e7f39e782c9d57707ff7a518d031a6}\label{i8042_8h_a73e7f39e782c9d57707ff7a518d031a6}} 
+\index{i8042.h@{i8042.h}!MSB\_Y\_DELTA@{MSB\_Y\_DELTA}}
+\index{MSB\_Y\_DELTA@{MSB\_Y\_DELTA}!i8042.h@{i8042.h}}
+\doxysubsubsection{\texorpdfstring{MSB\_Y\_DELTA}{MSB\_Y\_DELTA}}
+{\footnotesize\ttfamily \#define MSB\+\_\+\+Y\+\_\+\+DELTA~\mbox{\hyperlink{group__utils_ga3a8ea58898cb58fc96013383d39f482c}{BIT}}(5)}
+
+
+
+Y delta most significant bit ~\newline
+ 
+
+\mbox{\Hypertarget{i8042_8h_a45967c9e25447ba853cf6fb4ac545fe6}\label{i8042_8h_a45967c9e25447ba853cf6fb4ac545fe6}} 
+\index{i8042.h@{i8042.h}!OBF@{OBF}}
+\index{OBF@{OBF}!i8042.h@{i8042.h}}
+\doxysubsubsection{\texorpdfstring{OBF}{OBF}}
+{\footnotesize\ttfamily \#define OBF~\mbox{\hyperlink{group__utils_ga3a8ea58898cb58fc96013383d39f482c}{BIT}}(0)}
+
+
+
+Output Buffer Full. 
+
+\mbox{\Hypertarget{i8042_8h_acfb42dde389e8ca36ab267002fbf5c6a}\label{i8042_8h_acfb42dde389e8ca36ab267002fbf5c6a}} 
+\index{i8042.h@{i8042.h}!OUT\_BUF@{OUT\_BUF}}
+\index{OUT\_BUF@{OUT\_BUF}!i8042.h@{i8042.h}}
+\doxysubsubsection{\texorpdfstring{OUT\_BUF}{OUT\_BUF}}
+{\footnotesize\ttfamily \#define OUT\+\_\+\+BUF~0x60}
+
+
+
+Output Buffer. 
+
+\mbox{\Hypertarget{i8042_8h_a3fe0dea7b30a55d84f5763338956eb44}\label{i8042_8h_a3fe0dea7b30a55d84f5763338956eb44}} 
+\index{i8042.h@{i8042.h}!PARITY\_BIT@{PARITY\_BIT}}
+\index{PARITY\_BIT@{PARITY\_BIT}!i8042.h@{i8042.h}}
+\doxysubsubsection{\texorpdfstring{PARITY\_BIT}{PARITY\_BIT}}
+{\footnotesize\ttfamily \#define PARITY\+\_\+\+BIT~\mbox{\hyperlink{group__utils_ga3a8ea58898cb58fc96013383d39f482c}{BIT}}(7)}
+
+
+
+Parity bit. 
+
+\mbox{\Hypertarget{i8042_8h_a356ebf158dd5c7f57a9edca8e995316f}\label{i8042_8h_a356ebf158dd5c7f57a9edca8e995316f}} 
+\index{i8042.h@{i8042.h}!READ\_KBC@{READ\_KBC}}
+\index{READ\_KBC@{READ\_KBC}!i8042.h@{i8042.h}}
+\doxysubsubsection{\texorpdfstring{READ\_KBC}{READ\_KBC}}
+{\footnotesize\ttfamily \#define READ\+\_\+\+KBC~0x20}
+
+
+
+Read Command Byte. 
+
+\mbox{\Hypertarget{i8042_8h_aeb17351958162535ab6af2cd6b030955}\label{i8042_8h_aeb17351958162535ab6af2cd6b030955}} 
+\index{i8042.h@{i8042.h}!RIGHT\_BUTTON@{RIGHT\_BUTTON}}
+\index{RIGHT\_BUTTON@{RIGHT\_BUTTON}!i8042.h@{i8042.h}}
+\doxysubsubsection{\texorpdfstring{RIGHT\_BUTTON}{RIGHT\_BUTTON}}
+{\footnotesize\ttfamily \#define RIGHT\+\_\+\+BUTTON~\mbox{\hyperlink{group__utils_ga3a8ea58898cb58fc96013383d39f482c}{BIT}}(1)}
+
+
+
+Right button. 
+
+\mbox{\Hypertarget{i8042_8h_ae2f76c6c293b32a6f01fe3a3c96e5faa}\label{i8042_8h_ae2f76c6c293b32a6f01fe3a3c96e5faa}} 
+\index{i8042.h@{i8042.h}!RIGHT\_MAKE\_CODE@{RIGHT\_MAKE\_CODE}}
+\index{RIGHT\_MAKE\_CODE@{RIGHT\_MAKE\_CODE}!i8042.h@{i8042.h}}
+\doxysubsubsection{\texorpdfstring{RIGHT\_MAKE\_CODE}{RIGHT\_MAKE\_CODE}}
+{\footnotesize\ttfamily \#define RIGHT\+\_\+\+MAKE\+\_\+\+CODE~0x4d}
+
+
+
+RIGHT. 
+
+\mbox{\Hypertarget{i8042_8h_a05c2d71abe8bdd210f3424fd7615a59e}\label{i8042_8h_a05c2d71abe8bdd210f3424fd7615a59e}} 
+\index{i8042.h@{i8042.h}!S\_MAKE\_CODE@{S\_MAKE\_CODE}}
+\index{S\_MAKE\_CODE@{S\_MAKE\_CODE}!i8042.h@{i8042.h}}
+\doxysubsubsection{\texorpdfstring{S\_MAKE\_CODE}{S\_MAKE\_CODE}}
+{\footnotesize\ttfamily \#define S\+\_\+\+MAKE\+\_\+\+CODE~0x1f}
+
+
+
+S. 
+
+\mbox{\Hypertarget{i8042_8h_a1f7e79cfe81dc06414550fa52418941e}\label{i8042_8h_a1f7e79cfe81dc06414550fa52418941e}} 
+\index{i8042.h@{i8042.h}!STATUS\_REG@{STATUS\_REG}}
+\index{STATUS\_REG@{STATUS\_REG}!i8042.h@{i8042.h}}
+\doxysubsubsection{\texorpdfstring{STATUS\_REG}{STATUS\_REG}}
+{\footnotesize\ttfamily \#define STATUS\+\_\+\+REG~0x64}
+
+
+
+Status Register. 
+
+\mbox{\Hypertarget{i8042_8h_a2f3724e6e2a93074714f32c76d13d939}\label{i8042_8h_a2f3724e6e2a93074714f32c76d13d939}} 
+\index{i8042.h@{i8042.h}!TOB@{TOB}}
+\index{TOB@{TOB}!i8042.h@{i8042.h}}
+\doxysubsubsection{\texorpdfstring{TOB}{TOB}}
+{\footnotesize\ttfamily \#define TOB~\mbox{\hyperlink{group__utils_ga3a8ea58898cb58fc96013383d39f482c}{BIT}}(6)}
+
+
+
+Time Out Bit. 
+
+\mbox{\Hypertarget{i8042_8h_a7f9aacad98586d9a60c8d16b6f5435f4}\label{i8042_8h_a7f9aacad98586d9a60c8d16b6f5435f4}} 
+\index{i8042.h@{i8042.h}!TWO\_BYTE@{TWO\_BYTE}}
+\index{TWO\_BYTE@{TWO\_BYTE}!i8042.h@{i8042.h}}
+\doxysubsubsection{\texorpdfstring{TWO\_BYTE}{TWO\_BYTE}}
+{\footnotesize\ttfamily \#define TWO\+\_\+\+BYTE~0x\+E0}
+
+
+
+First of a two byte scancode. 
+
+\mbox{\Hypertarget{i8042_8h_abfc37fa43c153f929cf0c3421979bfc5}\label{i8042_8h_abfc37fa43c153f929cf0c3421979bfc5}} 
+\index{i8042.h@{i8042.h}!UP\_MAKE\_CODE@{UP\_MAKE\_CODE}}
+\index{UP\_MAKE\_CODE@{UP\_MAKE\_CODE}!i8042.h@{i8042.h}}
+\doxysubsubsection{\texorpdfstring{UP\_MAKE\_CODE}{UP\_MAKE\_CODE}}
+{\footnotesize\ttfamily \#define UP\+\_\+\+MAKE\+\_\+\+CODE~0x48}
+
+
+
+UP. 
+
+\mbox{\Hypertarget{i8042_8h_acb777c7c7af1e6859732e4ab59adf681}\label{i8042_8h_acb777c7c7af1e6859732e4ab59adf681}} 
+\index{i8042.h@{i8042.h}!W\_MAKE\_CODE@{W\_MAKE\_CODE}}
+\index{W\_MAKE\_CODE@{W\_MAKE\_CODE}!i8042.h@{i8042.h}}
+\doxysubsubsection{\texorpdfstring{W\_MAKE\_CODE}{W\_MAKE\_CODE}}
+{\footnotesize\ttfamily \#define W\+\_\+\+MAKE\+\_\+\+CODE~0x11}
+
+
+
+W. 
+
+\mbox{\Hypertarget{i8042_8h_accda38b09f856ff41a392a50fe82b99d}\label{i8042_8h_accda38b09f856ff41a392a50fe82b99d}} 
+\index{i8042.h@{i8042.h}!WRITE\_KBC@{WRITE\_KBC}}
+\index{WRITE\_KBC@{WRITE\_KBC}!i8042.h@{i8042.h}}
+\doxysubsubsection{\texorpdfstring{WRITE\_KBC}{WRITE\_KBC}}
+{\footnotesize\ttfamily \#define WRITE\+\_\+\+KBC~0x60}
+
+
+
+Write KBC Command. 
+
+\mbox{\Hypertarget{i8042_8h_a5ca1baba7129f2acebcc07cbbbde8736}\label{i8042_8h_a5ca1baba7129f2acebcc07cbbbde8736}} 
+\index{i8042.h@{i8042.h}!WRITE\_MOUSE@{WRITE\_MOUSE}}
+\index{WRITE\_MOUSE@{WRITE\_MOUSE}!i8042.h@{i8042.h}}
+\doxysubsubsection{\texorpdfstring{WRITE\_MOUSE}{WRITE\_MOUSE}}
+{\footnotesize\ttfamily \#define WRITE\+\_\+\+MOUSE~0x\+D4}
+
+
+
+Write to mouse. 
+
+\mbox{\Hypertarget{i8042_8h_a82dc3ac9577dabd19733ada75d2822d0}\label{i8042_8h_a82dc3ac9577dabd19733ada75d2822d0}} 
+\index{i8042.h@{i8042.h}!X\_OVERFLOW@{X\_OVERFLOW}}
+\index{X\_OVERFLOW@{X\_OVERFLOW}!i8042.h@{i8042.h}}
+\doxysubsubsection{\texorpdfstring{X\_OVERFLOW}{X\_OVERFLOW}}
+{\footnotesize\ttfamily \#define X\+\_\+\+OVERFLOW~\mbox{\hyperlink{group__utils_ga3a8ea58898cb58fc96013383d39f482c}{BIT}}(6)}
+
+
+
+X overflowed. 
+
+\mbox{\Hypertarget{i8042_8h_acd54c5569c84fd2d1710cccd190e138a}\label{i8042_8h_acd54c5569c84fd2d1710cccd190e138a}} 
+\index{i8042.h@{i8042.h}!Y\_OVERFLOW@{Y\_OVERFLOW}}
+\index{Y\_OVERFLOW@{Y\_OVERFLOW}!i8042.h@{i8042.h}}
+\doxysubsubsection{\texorpdfstring{Y\_OVERFLOW}{Y\_OVERFLOW}}
+{\footnotesize\ttfamily \#define Y\+\_\+\+OVERFLOW~\mbox{\hyperlink{group__utils_ga3a8ea58898cb58fc96013383d39f482c}{BIT}}(7)}
+
+
+
+Y overflowed. 
+

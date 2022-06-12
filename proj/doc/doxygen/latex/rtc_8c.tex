@@ -1,0 +1,259 @@
+\hypertarget{rtc_8c}{}\doxysection{rtc.\+c File Reference}
+\label{rtc_8c}\index{rtc.c@{rtc.c}}
+{\ttfamily \#include \char`\"{}rtc.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}util.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}objects.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}snake.\+h\char`\"{}}\newline
+Include dependency graph for rtc.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{rtc_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{rtc_8c_a5171a9c0f54940fe60f7500896afcc86}{rtc\+\_\+subscribe\+\_\+int}} (uint8\+\_\+t $\ast$bit\+\_\+no)
+\begin{DoxyCompactList}\small\item\em Subscribes and enables rtc interrupts. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{rtc_8c_ab8f17bf5280c908c8b199a90fefcc758}{rtc\+\_\+unsubscribe\+\_\+int}} ()
+\begin{DoxyCompactList}\small\item\em Unsubscribes rtc interrupts. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{rtc_8c_a0ca0ad72d5c05cf905665b4447ad61cd}{enable}} ()
+\item 
+int \mbox{\hyperlink{rtc_8c_ae6c6b7d9bece33104a3589c85c2ed87e}{disable}} ()
+\item 
+int \mbox{\hyperlink{rtc_8c_a763493fa756f9d870276f292dd15bd7f}{wait\+\_\+valid\+\_\+rtc}} ()
+\begin{DoxyCompactList}\small\item\em wait till it recevies a valid rtc \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{rtc_8c_a79cf624f016b9323fd0c46a3cd737395}{set\+\_\+periodic}} ()
+\begin{DoxyCompactList}\small\item\em Set the periodicity of rtc to 0.\+5 ms. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{rtc_8c_aff0c591f72a63a5ed0c76e1607b10fd0}{set\+\_\+update\+\_\+int}} (bool on)
+\begin{DoxyCompactList}\small\item\em Enables/disinables the RTC updates. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{rtc_8c_a75dad42881d64cf07cf1bdc2979a7056}{rtc\+\_\+ih}} ()
+\begin{DoxyCompactList}\small\item\em delas with rtc interrupts \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{rtc_8c_a8b62c2e24155c243cde16722f1bf2b60}{rtc\+\_\+time}} \mbox{[}3\mbox{]}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{rtc_8c_a4bb4370cc4eca832efc371bd33c4c45a}{rtc\+\_\+date}} \mbox{[}3\mbox{]}
+\item 
+int \mbox{\hyperlink{rtc_8c_a9fc22e6d8203dddf397ca66d65055d1d}{hook\+\_\+id\+\_\+rtc}} = 5
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{rtc_8c_ae6c6b7d9bece33104a3589c85c2ed87e}\label{rtc_8c_ae6c6b7d9bece33104a3589c85c2ed87e}} 
+\index{rtc.c@{rtc.c}!disable@{disable}}
+\index{disable@{disable}!rtc.c@{rtc.c}}
+\doxysubsubsection{\texorpdfstring{disable()}{disable()}}
+{\footnotesize\ttfamily int disable (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{rtc_8c_ae6c6b7d9bece33104a3589c85c2ed87e_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{rtc_8c_a0ca0ad72d5c05cf905665b4447ad61cd}\label{rtc_8c_a0ca0ad72d5c05cf905665b4447ad61cd}} 
+\index{rtc.c@{rtc.c}!enable@{enable}}
+\index{enable@{enable}!rtc.c@{rtc.c}}
+\doxysubsubsection{\texorpdfstring{enable()}{enable()}}
+{\footnotesize\ttfamily int enable (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{rtc_8c_a0ca0ad72d5c05cf905665b4447ad61cd_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{rtc_8c_a75dad42881d64cf07cf1bdc2979a7056}\label{rtc_8c_a75dad42881d64cf07cf1bdc2979a7056}} 
+\index{rtc.c@{rtc.c}!rtc\_ih@{rtc\_ih}}
+\index{rtc\_ih@{rtc\_ih}!rtc.c@{rtc.c}}
+\doxysubsubsection{\texorpdfstring{rtc\_ih()}{rtc\_ih()}}
+{\footnotesize\ttfamily void rtc\+\_\+ih (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+delas with rtc interrupts 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=225pt]{rtc_8c_a75dad42881d64cf07cf1bdc2979a7056_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{rtc_8c_a75dad42881d64cf07cf1bdc2979a7056_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{rtc_8c_a5171a9c0f54940fe60f7500896afcc86}\label{rtc_8c_a5171a9c0f54940fe60f7500896afcc86}} 
+\index{rtc.c@{rtc.c}!rtc\_subscribe\_int@{rtc\_subscribe\_int}}
+\index{rtc\_subscribe\_int@{rtc\_subscribe\_int}!rtc.c@{rtc.c}}
+\doxysubsubsection{\texorpdfstring{rtc\_subscribe\_int()}{rtc\_subscribe\_int()}}
+{\footnotesize\ttfamily int rtc\+\_\+subscribe\+\_\+int (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{bit\+\_\+no }\end{DoxyParamCaption})}
+
+
+
+Subscribes and enables rtc interrupts. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bit\+\_\+no} & address of memory to be initialized with the bit number to be set in the mask returned upon an interrupt \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return 0 upon success and non-\/zero otherwise 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{rtc_8c_a5171a9c0f54940fe60f7500896afcc86_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{rtc_8c_ab8f17bf5280c908c8b199a90fefcc758}\label{rtc_8c_ab8f17bf5280c908c8b199a90fefcc758}} 
+\index{rtc.c@{rtc.c}!rtc\_unsubscribe\_int@{rtc\_unsubscribe\_int}}
+\index{rtc\_unsubscribe\_int@{rtc\_unsubscribe\_int}!rtc.c@{rtc.c}}
+\doxysubsubsection{\texorpdfstring{rtc\_unsubscribe\_int()}{rtc\_unsubscribe\_int()}}
+{\footnotesize\ttfamily int rtc\+\_\+unsubscribe\+\_\+int (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Unsubscribes rtc interrupts. 
+
+\begin{DoxyReturn}{Returns}
+Return 0 upon success and non-\/zero otherwise 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{rtc_8c_ab8f17bf5280c908c8b199a90fefcc758_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{rtc_8c_a79cf624f016b9323fd0c46a3cd737395}\label{rtc_8c_a79cf624f016b9323fd0c46a3cd737395}} 
+\index{rtc.c@{rtc.c}!set\_periodic@{set\_periodic}}
+\index{set\_periodic@{set\_periodic}!rtc.c@{rtc.c}}
+\doxysubsubsection{\texorpdfstring{set\_periodic()}{set\_periodic()}}
+{\footnotesize\ttfamily int set\+\_\+periodic (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Set the periodicity of rtc to 0.\+5 ms. 
+
+\begin{DoxyReturn}{Returns}
+int Return 0 upon success and non-\/zero otherwise 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=253pt]{rtc_8c_a79cf624f016b9323fd0c46a3cd737395_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{rtc_8c_a79cf624f016b9323fd0c46a3cd737395_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{rtc_8c_aff0c591f72a63a5ed0c76e1607b10fd0}\label{rtc_8c_aff0c591f72a63a5ed0c76e1607b10fd0}} 
+\index{rtc.c@{rtc.c}!set\_update\_int@{set\_update\_int}}
+\index{set\_update\_int@{set\_update\_int}!rtc.c@{rtc.c}}
+\doxysubsubsection{\texorpdfstring{set\_update\_int()}{set\_update\_int()}}
+{\footnotesize\ttfamily int set\+\_\+update\+\_\+int (\begin{DoxyParamCaption}\item[{bool}]{on }\end{DoxyParamCaption})}
+
+
+
+Enables/disinables the RTC updates. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em on} & true to enable, false to disable \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return 0 upon success and non-\/zero otherwise 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=264pt]{rtc_8c_aff0c591f72a63a5ed0c76e1607b10fd0_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{rtc_8c_aff0c591f72a63a5ed0c76e1607b10fd0_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{rtc_8c_a763493fa756f9d870276f292dd15bd7f}\label{rtc_8c_a763493fa756f9d870276f292dd15bd7f}} 
+\index{rtc.c@{rtc.c}!wait\_valid\_rtc@{wait\_valid\_rtc}}
+\index{wait\_valid\_rtc@{wait\_valid\_rtc}!rtc.c@{rtc.c}}
+\doxysubsubsection{\texorpdfstring{wait\_valid\_rtc()}{wait\_valid\_rtc()}}
+{\footnotesize\ttfamily int wait\+\_\+valid\+\_\+rtc (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+wait till it recevies a valid rtc 
+
+\begin{DoxyReturn}{Returns}
+int Return 0 upon success and non-\/zero otherwise 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=237pt]{rtc_8c_a763493fa756f9d870276f292dd15bd7f_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{rtc_8c_a763493fa756f9d870276f292dd15bd7f_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{rtc_8c_a9fc22e6d8203dddf397ca66d65055d1d}\label{rtc_8c_a9fc22e6d8203dddf397ca66d65055d1d}} 
+\index{rtc.c@{rtc.c}!hook\_id\_rtc@{hook\_id\_rtc}}
+\index{hook\_id\_rtc@{hook\_id\_rtc}!rtc.c@{rtc.c}}
+\doxysubsubsection{\texorpdfstring{hook\_id\_rtc}{hook\_id\_rtc}}
+{\footnotesize\ttfamily int hook\+\_\+id\+\_\+rtc = 5}
+
+\mbox{\Hypertarget{rtc_8c_a4bb4370cc4eca832efc371bd33c4c45a}\label{rtc_8c_a4bb4370cc4eca832efc371bd33c4c45a}} 
+\index{rtc.c@{rtc.c}!rtc\_date@{rtc\_date}}
+\index{rtc\_date@{rtc\_date}!rtc.c@{rtc.c}}
+\doxysubsubsection{\texorpdfstring{rtc\_date}{rtc\_date}}
+{\footnotesize\ttfamily uint8\+\_\+t rtc\+\_\+date\mbox{[}3\mbox{]}}
+
+\mbox{\Hypertarget{rtc_8c_a8b62c2e24155c243cde16722f1bf2b60}\label{rtc_8c_a8b62c2e24155c243cde16722f1bf2b60}} 
+\index{rtc.c@{rtc.c}!rtc\_time@{rtc\_time}}
+\index{rtc\_time@{rtc\_time}!rtc.c@{rtc.c}}
+\doxysubsubsection{\texorpdfstring{rtc\_time}{rtc\_time}}
+{\footnotesize\ttfamily uint8\+\_\+t rtc\+\_\+time\mbox{[}3\mbox{]}}
+

@@ -1,0 +1,58 @@
+\hypertarget{snake_8h_source}{}\doxysection{snake.\+h}
+\mbox{\hyperlink{snake_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#include <stdbool.h>}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include <stdint.h>}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <lcom/lcf.h>}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{graphics_8h}{graphics.h}}"{}}}
+\DoxyCodeLine{9 \textcolor{keyword}{typedef} \textcolor{keyword}{struct}\{}
+\DoxyCodeLine{10     \textcolor{keywordtype}{int} \mbox{\hyperlink{structsnake__part_a6150e0515f7202e2fb518f7206ed97dc}{x}};}
+\DoxyCodeLine{11     \textcolor{keywordtype}{int} \mbox{\hyperlink{structsnake__part_a0a2f84ed7838f07779ae24c5a9086d33}{y}};}
+\DoxyCodeLine{12     \textcolor{keywordtype}{int} \mbox{\hyperlink{structsnake__part_a422bc92f102f94a46f3dd05b018f9bff}{oldx}};}
+\DoxyCodeLine{13     \textcolor{keywordtype}{int} \mbox{\hyperlink{structsnake__part_ae474adb7b3241444a48b7b072bd864a6}{oldy}};}
+\DoxyCodeLine{14     \textcolor{keywordtype}{int} \mbox{\hyperlink{structsnake__part_a6c2b5d62b3007ca572528db9dc6bfe0e}{changex}};}
+\DoxyCodeLine{15     \textcolor{keywordtype}{int} \mbox{\hyperlink{structsnake__part_adf10f270708e35c246b9428547b09cb9}{changey}};}
+\DoxyCodeLine{16     \textcolor{keywordtype}{char} * \mbox{\hyperlink{structsnake__part_ac465fa324943ede8d4817d1d30842c52}{direction}};}
+\DoxyCodeLine{17     \textcolor{keywordtype}{char} * \mbox{\hyperlink{structsnake__part_ae8df23f57a302ee3794abacf6b34cb9d}{prevDirection}};}
+\DoxyCodeLine{18     xpm\_image\_t \mbox{\hyperlink{structsnake__part_ac16ac5b5982366cbba9038d9e97c250d}{img}};}
+\DoxyCodeLine{19     uint8\_t *\mbox{\hyperlink{structsnake__part_a0faca9bc52d4868e8b52e44e97862e9f}{map}};}
+\DoxyCodeLine{20     xpm\_image\_t \mbox{\hyperlink{structsnake__part_aefd38714c11f7c420df14310b4156d2f}{imgUp}};}
+\DoxyCodeLine{21     uint8\_t *\mbox{\hyperlink{structsnake__part_a31f4f524a132ad8fdebfcfbfabc8e305}{mapUp}};}
+\DoxyCodeLine{22     xpm\_image\_t \mbox{\hyperlink{structsnake__part_a038accb720676357827e665493064926}{imgDown}};}
+\DoxyCodeLine{23     uint8\_t *\mbox{\hyperlink{structsnake__part_ad3971319d92c52c7cc2906f9177cc8e5}{mapDown}};}
+\DoxyCodeLine{24     xpm\_image\_t \mbox{\hyperlink{structsnake__part_aad7ab492c1024f226b335b1dc9ddd31b}{imgLeft}};}
+\DoxyCodeLine{25     uint8\_t *\mbox{\hyperlink{structsnake__part_ab0939dbf031bf9bddcca170309074991}{mapLeft}};}
+\DoxyCodeLine{26     xpm\_image\_t \mbox{\hyperlink{structsnake__part_a39c33d61e6700fc9b9b460999ba9f12c}{imgRight}};}
+\DoxyCodeLine{27     uint8\_t *\mbox{\hyperlink{structsnake__part_a9834c71ef2ca6aedf6b2d9dc331b755d}{mapRight}};}
+\DoxyCodeLine{28 \}\mbox{\hyperlink{structsnake__part}{snake\_part}};}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{31 \mbox{\hyperlink{structsnake__part}{snake\_part}} \mbox{\hyperlink{snake_8h_ac005f688527dbde20c6f19d239d2866c}{snakeBody}}[198];}
+\DoxyCodeLine{33 \mbox{\hyperlink{structsnake__part}{snake\_part}} \mbox{\hyperlink{snake_8h_a4eac46f4021d1f1af8e5effdb304357a}{snakeTail}};}
+\DoxyCodeLine{35 \textcolor{keywordtype}{int} \mbox{\hyperlink{snake_8h_aecd77b25a68f52ab37f088bdce3456b3}{numOfBodyParts}};}
+\DoxyCodeLine{37 \textcolor{keywordtype}{bool} \mbox{\hyperlink{snake_8h_ab376b87f96a574a793c03c53e75afec8}{start}};}
+\DoxyCodeLine{39 \textcolor{keywordtype}{double} \mbox{\hyperlink{snake_8h_a2d77d5ca49cc656791dc95eba079b4a9}{lives}};}
+\DoxyCodeLine{41 \textcolor{keywordtype}{int} \mbox{\hyperlink{snake_8h_a381709eac88aa4e14131626221a103bf}{numOfApplesEaten}};}
+\DoxyCodeLine{43 \textcolor{keywordtype}{int} \mbox{\hyperlink{snake_8h_adfddf0fa3d3e57f3a47f1467e9205086}{gainLive}};}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45 }
+\DoxyCodeLine{50 \textcolor{keywordtype}{void} \mbox{\hyperlink{snake_8h_a99b358dc9487b8af33462449dc3a9b22}{init\_snake}}();}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{58 \textcolor{keywordtype}{int} \mbox{\hyperlink{snake_8h_a2172f38282aa9905af15247d4fd8cae8}{movement}}(int16\_t \mbox{\hyperlink{game_8c_a91db7b3c48de4dc536c624804d6df03f}{speed}});}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{64 \textcolor{keywordtype}{void} \mbox{\hyperlink{snake_8h_aabc0baba736c65c55a37ca56a18f6565}{drawSnakeBody}}();}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{70 \textcolor{keywordtype}{void} \mbox{\hyperlink{snake_8h_a94b3abe2573137584a700923d781628e}{addBodyPart}}();}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{76 \textcolor{keywordtype}{void} \mbox{\hyperlink{snake_8h_a91097725fd280aa0db7a01fb1afa42e1}{moveBodyParts}}();}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{84 \textcolor{keywordtype}{int} \mbox{\hyperlink{snake_8h_a798acdef4feb9e76299a23c5b03a509c}{takelive}}(\textcolor{keywordtype}{double} n);}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{93 \textcolor{keywordtype}{int} \mbox{\hyperlink{snake_8h_a0291c5ac4f68d6a70ce405b0cdee425b}{isSnake}}(\textcolor{keywordtype}{int} x, \textcolor{keywordtype}{int} y);}
+\DoxyCodeLine{94 }
+\DoxyCodeLine{100 \textcolor{keywordtype}{int} \mbox{\hyperlink{snake_8h_afc344696bb5c4921f7a88e6d812fbad7}{collisionWithApple}}();}
+\DoxyCodeLine{101 }
+\DoxyCodeLine{107 \textcolor{keywordtype}{int} \mbox{\hyperlink{snake_8h_a83ebc9dc5383898d440562070eb34a97}{collisionWithItSelf}}();}
+\DoxyCodeLine{108 }
+\DoxyCodeLine{113 \textcolor{keywordtype}{void} \mbox{\hyperlink{snake_8h_a688f22b2c39a4d069c685bfbeb6f80d9}{periodicApples}}();}
+
+\end{DoxyCode}

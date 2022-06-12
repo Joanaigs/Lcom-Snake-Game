@@ -1,0 +1,4 @@
+<map id="eraseHearts" name="eraseHearts">
+<area shape="rect" id="node1" title="erases the hearts on the screen" alt="" coords="5,5,97,32"/>
+<area shape="rect" id="node2" href="$graphics_8c.html#ae7ead7bf754ada1665d225c02258fa7c" title="Erase de xpm by replacing it with the background color in that place." alt="" coords="145,5,232,32"/>
+</map>

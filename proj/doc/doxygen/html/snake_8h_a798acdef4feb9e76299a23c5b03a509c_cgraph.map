@@ -1,0 +1,9 @@
+<map id="takelive" name="takelive">
+<area shape="rect" id="node1" title="takes n lives form the snake" alt="" coords="5,107,71,133"/>
+<area shape="rect" id="node2" href="$header_8c.html#acd554cb2efdf9d085573f58441f9431a" title="Draws the header with the hearts, the time and apples information." alt="" coords="119,69,210,96"/>
+<area shape="rect" id="node6" href="$header_8c.html#a3daa937cd627b357e7a6584a4d7b5e31" title="erases the hearts on the screen" alt="" coords="119,132,211,159"/>
+<area shape="rect" id="node3" href="$header_8c.html#a97df0f6e4184d84c9e3871042b94bc3a" title="Draws on the screen the number passed by parameter." alt="" coords="259,5,357,32"/>
+<area shape="rect" id="node4" href="$graphics_8c.html#a2d2905714e5a7ce7dc60775a769419de" title="places de xpm given in the position given on the screen" alt="" coords="405,56,487,83"/>
+<area shape="rect" id="node5" href="$header_8c.html#aac57df6aa34b9a2abe97e9aa732bd3ab" title="draws the lives on the screen" alt="" coords="265,107,351,133"/>
+<area shape="rect" id="node7" href="$graphics_8c.html#ae7ead7bf754ada1665d225c02258fa7c" title="Erase de xpm by replacing it with the background color in that place." alt="" coords="265,157,351,184"/>
+</map>

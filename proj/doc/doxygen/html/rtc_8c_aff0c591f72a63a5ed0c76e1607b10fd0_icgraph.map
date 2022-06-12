@@ -1,0 +1,6 @@
+<map id="set_update_int" name="set_update_int">
+<area shape="rect" id="node1" title="Enables/disinables the RTC updates." alt="" coords="483,5,589,32"/>
+<area shape="rect" id="node2" href="$game_8c.html#a4be80fd1408a780acc76065c69d55a76" title="Loop of the singleplayer game that uses the rtc, keyboard and timer devices." alt="" coords="309,5,435,32"/>
+<area shape="rect" id="node3" href="$proj_8c.html#a095b10852176bed8392f819a203048c8" title=" " alt="" coords="163,5,261,32"/>
+<area shape="rect" id="node4" href="$proj_8c.html#a2a16f651eccbd248e1ad3b3b924b143b" title=" " alt="" coords="5,5,115,32"/>
+</map>

@@ -1,0 +1,48 @@
+<map id="multi_player" name="multi_player">
+<area shape="rect" id="node1" title=" " alt="" coords="5,791,97,817"/>
+<area shape="rect" id="node2" href="$game_8c.html#adfe0b3805fa6842770c273b1f4944cd4" title="Loop of the multiplayer game that uses the mouse, keyboard and timer devices." alt="" coords="145,791,264,817"/>
+<area shape="rect" id="node3" href="$graphics_8c.html#a0779816c5f975853d74fc2863d6d728d" title="copys to video mem the olher buffer" alt="" coords="330,157,473,184"/>
+<area shape="rect" id="node4" href="$graphics_8c.html#a29698b438dad09ec6355f2281322339b" title="places de given in the position given on the screen on the olher buffer" alt="" coords="325,208,478,235"/>
+<area shape="rect" id="node5" href="$header_8c.html#acd554cb2efdf9d085573f58441f9431a" title="Draws the header with the hearts, the time and apples information." alt="" coords="898,461,989,488"/>
+<area shape="rect" id="node9" href="$header_8c.html#a0888fe2d3a06408cb8cb22f1be3980c7" title="erases the time drawn on the screen" alt="" coords="735,715,818,741"/>
+<area shape="rect" id="node12" href="$game_8c.html#aff9ce2c80067181fa64a67450da2c6fa" title="initiates all elements of the game, and draws the initial board" alt="" coords="737,107,816,133"/>
+<area shape="rect" id="node20" href="$game_8c.html#a6e1831f607e9a08edb9fcced02980bdf" title="this function handles the keyboard interruption, when the arrows or the specific characters are press..." alt="" coords="337,715,466,741"/>
+<area shape="rect" id="node23" href="$keyboard_8c.html#ae54ab91ee1cd6181c9c98a1508b55d68" title="Subscribes and enables Keyboard interrupts." alt="" coords="332,867,471,893"/>
+<area shape="rect" id="node24" href="$keyboard_8c.html#aa8dbaf115a31f57b46d05cee57447157" title="Unsubscribes keyboard interrupts." alt="" coords="325,917,477,944"/>
+<area shape="rect" id="node25" href="$mouse_8c.html#a73a1f01fbfc49628dbdc042840fc598a" title="Enables/disables stream mode data reporting, by sending the respective command to the mouse." alt="" coords="312,765,491,792"/>
+<area shape="rect" id="node27" href="$mouse_8c.html#a7da7c1993926826e8767b42a6b3861c3" title="creates a mouse packet" alt="" coords="340,968,463,995"/>
+<area shape="rect" id="node28" href="$mouse_8c.html#a834b6d7efe311484d6da234db333cb97" title="Handles mouse interrutps." alt="" coords="564,867,643,893"/>
+<area shape="rect" id="node29" href="$mouse_8c.html#aa80a655c16632ba32dc98ad3397a9354" title="Subscribes and enables mouse interrupts." alt="" coords="339,1019,463,1045"/>
+<area shape="rect" id="node30" href="$mouse_8c.html#aab5e1dc43daf2cc458f26d87211b994f" title="Unsubscribes keyboard interrupts." alt="" coords="332,1069,471,1096"/>
+<area shape="rect" id="node31" href="$snake_8c.html#a2172f38282aa9905af15247d4fd8cae8" title="deals with the movement and collisions of a snake" alt="" coords="361,537,442,564"/>
+<area shape="rect" id="node43" href="$mouse_8c.html#ab4300dc55bcf45eb4099537e2562b359" title=" " alt="" coords="351,1120,451,1147"/>
+<area shape="rect" id="node44" href="$apple_8c.html#a5d75aa2cbbfc9fec5b063ce4e3bde357" title="places an apple within a square of the background" alt="" coords="733,259,820,285"/>
+<area shape="rect" id="node45" href="$timer_8c.html#a33dcf1c52f1a8732f4a5af9705f5f4ab" title="Subscribes and enables Timer 0 interrupts." alt="" coords="344,1171,459,1197"/>
+<area shape="rect" id="node46" href="$timer_8c.html#afabd21de449be154dd65d5fdb2d8045d" title="Unsubscribes Timer 0 interrupts." alt="" coords="327,1221,476,1248"/>
+<area shape="rect" id="node6" href="$header_8c.html#a97df0f6e4184d84c9e3871042b94bc3a" title="Draws on the screen the number passed by parameter." alt="" coords="1059,411,1158,437"/>
+<area shape="rect" id="node7" href="$graphics_8c.html#a2d2905714e5a7ce7dc60775a769419de" title="places de xpm given in the position given on the screen" alt="" coords="1216,360,1297,387"/>
+<area shape="rect" id="node8" href="$header_8c.html#aac57df6aa34b9a2abe97e9aa732bd3ab" title="draws the lives on the screen" alt="" coords="1065,461,1152,488"/>
+<area shape="rect" id="node10" href="$header_8c.html#a30ed12fa8a520dea8e3a5ce868cb88af" title="erases the number drawn on the screen" alt="" coords="891,664,995,691"/>
+<area shape="rect" id="node11" href="$graphics_8c.html#ae7ead7bf754ada1665d225c02258fa7c" title="Erase de xpm by replacing it with the background color in that place." alt="" coords="1065,639,1152,665"/>
+<area shape="rect" id="node13" href="$apple_8c.html#a2ad497fe7d83e93b263424ce2363f810" title="Draws an apple." alt="" coords="902,208,985,235"/>
+<area shape="rect" id="node14" href="$objects_8c.html#acbd5457c126570af763ea24dc41da830" title="draws the background of the game" alt="" coords="1049,111,1168,137"/>
+<area shape="rect" id="node15" href="$snake_8c.html#aabc0baba736c65c55a37ca56a18f6565" title="draws snake" alt="" coords="885,157,1001,184"/>
+<area shape="rect" id="node16" href="$snake_8c.html#a99b358dc9487b8af33462449dc3a9b22" title="initiates all aspects of the snake" alt="" coords="903,5,984,32"/>
+<area shape="rect" id="node17" href="$objects_8c.html#a788b7844938e4871552611e94596456c" title="initiates the objects" alt="" coords="904,56,983,83"/>
+<area shape="rect" id="node18" href="$apple_8c.html#a60af7be9d867f2506a994386a9d38019" title="Creates an apple and puts it on the array." alt="" coords="907,259,979,285"/>
+<area shape="rect" id="node19" href="$apple_8c.html#a1a10c020acc54d7ec537575f75ecee79" title="Gets the xpm object by the apple type." alt="" coords="1073,284,1145,311"/>
+<area shape="rect" id="node21" href="$keyboard_8c.html#aea970a154161a35f6894898a092ed70a" title="get the scancode of the button pressed" alt="" coords="573,715,633,741"/>
+<area shape="rect" id="node22" href="$group__utils.html#ga79a031a8611f5b2d6afa4158e92b0fb4" title="Invokes sys_inb() system call but reads the value into a uint8_t variable." alt="" coords="731,816,822,843"/>
+<area shape="rect" id="node26" href="$rtc_8c.html#a0ca0ad72d5c05cf905665b4447ad61cd" title=" " alt="" coords="573,816,633,843"/>
+<area shape="rect" id="node32" href="$snake_8c.html#afc344696bb5c4921f7a88e6d812fbad7" title="checks if there has been a collision with the snake and a apple" alt="" coords="539,461,668,488"/>
+<area shape="rect" id="node40" href="$snake_8c.html#a83ebc9dc5383898d440562070eb34a97" title="checks the snake has collided against itselph" alt="" coords="541,563,666,589"/>
+<area shape="rect" id="node41" href="$snake_8c.html#a134765f33f91421b96fccf531c1ac5fe" title=" " alt="" coords="543,613,664,640"/>
+<area shape="rect" id="node42" href="$snake_8c.html#a91097725fd280aa0db7a01fb1afa42e1" title="moves the body of the snake to the next position" alt="" coords="547,512,660,539"/>
+<area shape="rect" id="node33" href="$snake_8c.html#a94b3abe2573137584a700923d781628e" title="adds a body part to the snake" alt="" coords="895,512,992,539"/>
+<area shape="rect" id="node34" href="$header_8c.html#a87c972dabcb8734e1029c063c053ad03" title="erases the number of apples drawn on screen" alt="" coords="716,664,837,691"/>
+<area shape="rect" id="node35" href="$header_8c.html#a3daa937cd627b357e7a6584a4d7b5e31" title="erases the hearts on the screen" alt="" coords="897,613,989,640"/>
+<area shape="rect" id="node36" href="$apple_8c.html#a0fa9fc94dca3712e71c2753abcf7441b" title="places an apple in a random place" alt="" coords="717,309,837,336"/>
+<area shape="rect" id="node37" href="$apple_8c.html#a534ec0f2a834b0d652c41270bbbfc24a" title="Verifies if there is an apple in the position passed by parameter." alt="" coords="911,360,976,387"/>
+<area shape="rect" id="node39" href="$snake_8c.html#a798acdef4feb9e76299a23c5b03a509c" title="takes n lives form the snake" alt="" coords="744,563,809,589"/>
+<area shape="rect" id="node38" href="$snake_8c.html#a0291c5ac4f68d6a70ce405b0cdee425b" title="checks if their is any bodyPart in that position" alt="" coords="909,309,978,336"/>
+</map>

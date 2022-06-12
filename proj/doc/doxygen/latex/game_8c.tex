@@ -1,0 +1,171 @@
+\hypertarget{game_8c}{}\doxysection{game.\+c File Reference}
+\label{game_8c}\index{game.c@{game.c}}
+{\ttfamily \#include \char`\"{}cursor.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}graphics.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}header.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}i8042.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}images/mouse\+\_\+cursor.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}keyboard.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}mouse.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}objects.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}apple.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}rtc.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}snake.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}timer.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$lcom/lcf.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+Include dependency graph for game.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{game_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void() \mbox{\hyperlink{game_8c_aff9ce2c80067181fa64a67450da2c6fa}{init\+\_\+game}} ()
+\begin{DoxyCompactList}\small\item\em initiates all elements of the game, and draws the initial board \end{DoxyCompactList}\item 
+void() \mbox{\hyperlink{game_8c_a6e1831f607e9a08edb9fcced02980bdf}{keyboard\+\_\+interrupt}} ()
+\begin{DoxyCompactList}\small\item\em this function handles the keyboard interruption, when the arrows or the specific characters are pressed \end{DoxyCompactList}\item 
+int() \mbox{\hyperlink{game_8c_a4be80fd1408a780acc76065c69d55a76}{single\+Player\+Mode}} ()
+\begin{DoxyCompactList}\small\item\em Loop of the singleplayer game that uses the rtc, keyboard and timer devices. \end{DoxyCompactList}\item 
+int() \mbox{\hyperlink{game_8c_adfe0b3805fa6842770c273b1f4944cd4}{multi\+Player\+Mode}} ()
+\begin{DoxyCompactList}\small\item\em Loop of the multiplayer game that uses the mouse, keyboard and timer devices. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{game_8c_a640ee58816f7e2420cf6dabcfa53834e}{fr\+\_\+rate}} = 5
+\item 
+int16\+\_\+t \mbox{\hyperlink{game_8c_a91db7b3c48de4dc536c624804d6df03f}{speed}} = 40
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{game_8c_aff9ce2c80067181fa64a67450da2c6fa}\label{game_8c_aff9ce2c80067181fa64a67450da2c6fa}} 
+\index{game.c@{game.c}!init\_game@{init\_game}}
+\index{init\_game@{init\_game}!game.c@{game.c}}
+\doxysubsubsection{\texorpdfstring{init\_game()}{init\_game()}}
+{\footnotesize\ttfamily void() init\+\_\+game (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+initiates all elements of the game, and draws the initial board 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{game_8c_aff9ce2c80067181fa64a67450da2c6fa_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{game_8c_aff9ce2c80067181fa64a67450da2c6fa_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{game_8c_a6e1831f607e9a08edb9fcced02980bdf}\label{game_8c_a6e1831f607e9a08edb9fcced02980bdf}} 
+\index{game.c@{game.c}!keyboard\_interrupt@{keyboard\_interrupt}}
+\index{keyboard\_interrupt@{keyboard\_interrupt}!game.c@{game.c}}
+\doxysubsubsection{\texorpdfstring{keyboard\_interrupt()}{keyboard\_interrupt()}}
+{\footnotesize\ttfamily void() keyboard\+\_\+interrupt (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+this function handles the keyboard interruption, when the arrows or the specific characters are pressed 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{game_8c_a6e1831f607e9a08edb9fcced02980bdf_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{game_8c_a6e1831f607e9a08edb9fcced02980bdf_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{game_8c_adfe0b3805fa6842770c273b1f4944cd4}\label{game_8c_adfe0b3805fa6842770c273b1f4944cd4}} 
+\index{game.c@{game.c}!multiPlayerMode@{multiPlayerMode}}
+\index{multiPlayerMode@{multiPlayerMode}!game.c@{game.c}}
+\doxysubsubsection{\texorpdfstring{multiPlayerMode()}{multiPlayerMode()}}
+{\footnotesize\ttfamily int() multi\+Player\+Mode (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Loop of the multiplayer game that uses the mouse, keyboard and timer devices. 
+
+\begin{DoxyReturn}{Returns}
+int 1 if an error has occured 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{game_8c_adfe0b3805fa6842770c273b1f4944cd4_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{game_8c_adfe0b3805fa6842770c273b1f4944cd4_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{game_8c_a4be80fd1408a780acc76065c69d55a76}\label{game_8c_a4be80fd1408a780acc76065c69d55a76}} 
+\index{game.c@{game.c}!singlePlayerMode@{singlePlayerMode}}
+\index{singlePlayerMode@{singlePlayerMode}!game.c@{game.c}}
+\doxysubsubsection{\texorpdfstring{singlePlayerMode()}{singlePlayerMode()}}
+{\footnotesize\ttfamily int() single\+Player\+Mode (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Loop of the singleplayer game that uses the rtc, keyboard and timer devices. 
+
+\begin{DoxyReturn}{Returns}
+int 1 if an error has occured 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{game_8c_a4be80fd1408a780acc76065c69d55a76_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{game_8c_a4be80fd1408a780acc76065c69d55a76_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{game_8c_a640ee58816f7e2420cf6dabcfa53834e}\label{game_8c_a640ee58816f7e2420cf6dabcfa53834e}} 
+\index{game.c@{game.c}!fr\_rate@{fr\_rate}}
+\index{fr\_rate@{fr\_rate}!game.c@{game.c}}
+\doxysubsubsection{\texorpdfstring{fr\_rate}{fr\_rate}}
+{\footnotesize\ttfamily uint8\+\_\+t fr\+\_\+rate = 5}
+
+\mbox{\Hypertarget{game_8c_a91db7b3c48de4dc536c624804d6df03f}\label{game_8c_a91db7b3c48de4dc536c624804d6df03f}} 
+\index{game.c@{game.c}!speed@{speed}}
+\index{speed@{speed}!game.c@{game.c}}
+\doxysubsubsection{\texorpdfstring{speed}{speed}}
+{\footnotesize\ttfamily int16\+\_\+t speed = 40}
+

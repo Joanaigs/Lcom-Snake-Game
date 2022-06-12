@@ -1,0 +1,88 @@
+\hypertarget{macros_8h}{}\doxysection{macros.\+h File Reference}
+\label{macros_8h}\index{macros.h@{macros.h}}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{macros_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{macros_8h_a0184593f568f529ea37cf4661a7551cc}{R}}(n)~(0x\+FF \& (n $>$$>$ 16))
+\item 
+\#define \mbox{\hyperlink{macros_8h_a3f084cdc8bfba2074d567c18c5988f32}{G}}(n)~(0x\+FF \& (n $>$$>$  8))
+\item 
+\#define \mbox{\hyperlink{macros_8h_a4b40811cbbde1d36b620ec436879108c}{B}}(n)~(0x\+FF \& n)
+\item 
+\#define \mbox{\hyperlink{macros_8h_a5c62bcd4f346f1384f193ea1a87263a7}{SET\+\_\+R}}(n)~((n\&0x\+FF) $<$$<$ 16)
+\item 
+\#define \mbox{\hyperlink{macros_8h_aa10bb759048d558116e91a3bd58a0e34}{SET\+\_\+G}}(n)~((n\&0x\+FF) $<$$<$ 8)
+\item 
+\#define \mbox{\hyperlink{macros_8h_aab8b4370a0eae186da6aa90336a16063}{SET\+\_\+B}}(n)~((n\&0x\+FF))
+\item 
+\#define \mbox{\hyperlink{macros_8h_a67e10ca508bfbe5f2ea25c46dec6a24f}{SET\+\_\+\+COLOR}}(r,  g,  b)~(\mbox{\hyperlink{macros_8h_a5c62bcd4f346f1384f193ea1a87263a7}{SET\+\_\+R}}(r) $\vert$ \mbox{\hyperlink{macros_8h_aa10bb759048d558116e91a3bd58a0e34}{SET\+\_\+G}}(g) $\vert$ \mbox{\hyperlink{macros_8h_aab8b4370a0eae186da6aa90336a16063}{SET\+\_\+B}}(b))
+\item 
+\#define \mbox{\hyperlink{macros_8h_a7b3b25cba33b07c303f3060fe41887f6}{BLACK}}~0x00
+\item 
+\#define \mbox{\hyperlink{macros_8h_aba51915c87d64af47fb1cc59348961c9}{OK}}~0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{macros_8h_a4b40811cbbde1d36b620ec436879108c}\label{macros_8h_a4b40811cbbde1d36b620ec436879108c}} 
+\index{macros.h@{macros.h}!B@{B}}
+\index{B@{B}!macros.h@{macros.h}}
+\doxysubsubsection{\texorpdfstring{B}{B}}
+{\footnotesize\ttfamily \#define B(\begin{DoxyParamCaption}\item[{}]{n }\end{DoxyParamCaption})~(0x\+FF \& n)}
+
+\mbox{\Hypertarget{macros_8h_a7b3b25cba33b07c303f3060fe41887f6}\label{macros_8h_a7b3b25cba33b07c303f3060fe41887f6}} 
+\index{macros.h@{macros.h}!BLACK@{BLACK}}
+\index{BLACK@{BLACK}!macros.h@{macros.h}}
+\doxysubsubsection{\texorpdfstring{BLACK}{BLACK}}
+{\footnotesize\ttfamily \#define BLACK~0x00}
+
+\mbox{\Hypertarget{macros_8h_a3f084cdc8bfba2074d567c18c5988f32}\label{macros_8h_a3f084cdc8bfba2074d567c18c5988f32}} 
+\index{macros.h@{macros.h}!G@{G}}
+\index{G@{G}!macros.h@{macros.h}}
+\doxysubsubsection{\texorpdfstring{G}{G}}
+{\footnotesize\ttfamily \#define G(\begin{DoxyParamCaption}\item[{}]{n }\end{DoxyParamCaption})~(0x\+FF \& (n $>$$>$  8))}
+
+\mbox{\Hypertarget{macros_8h_aba51915c87d64af47fb1cc59348961c9}\label{macros_8h_aba51915c87d64af47fb1cc59348961c9}} 
+\index{macros.h@{macros.h}!OK@{OK}}
+\index{OK@{OK}!macros.h@{macros.h}}
+\doxysubsubsection{\texorpdfstring{OK}{OK}}
+{\footnotesize\ttfamily \#define OK~0}
+
+\mbox{\Hypertarget{macros_8h_a0184593f568f529ea37cf4661a7551cc}\label{macros_8h_a0184593f568f529ea37cf4661a7551cc}} 
+\index{macros.h@{macros.h}!R@{R}}
+\index{R@{R}!macros.h@{macros.h}}
+\doxysubsubsection{\texorpdfstring{R}{R}}
+{\footnotesize\ttfamily \#define R(\begin{DoxyParamCaption}\item[{}]{n }\end{DoxyParamCaption})~(0x\+FF \& (n $>$$>$ 16))}
+
+\mbox{\Hypertarget{macros_8h_aab8b4370a0eae186da6aa90336a16063}\label{macros_8h_aab8b4370a0eae186da6aa90336a16063}} 
+\index{macros.h@{macros.h}!SET\_B@{SET\_B}}
+\index{SET\_B@{SET\_B}!macros.h@{macros.h}}
+\doxysubsubsection{\texorpdfstring{SET\_B}{SET\_B}}
+{\footnotesize\ttfamily \#define SET\+\_\+B(\begin{DoxyParamCaption}\item[{}]{n }\end{DoxyParamCaption})~((n\&0x\+FF))}
+
+\mbox{\Hypertarget{macros_8h_a67e10ca508bfbe5f2ea25c46dec6a24f}\label{macros_8h_a67e10ca508bfbe5f2ea25c46dec6a24f}} 
+\index{macros.h@{macros.h}!SET\_COLOR@{SET\_COLOR}}
+\index{SET\_COLOR@{SET\_COLOR}!macros.h@{macros.h}}
+\doxysubsubsection{\texorpdfstring{SET\_COLOR}{SET\_COLOR}}
+{\footnotesize\ttfamily \#define SET\+\_\+\+COLOR(\begin{DoxyParamCaption}\item[{}]{r,  }\item[{}]{g,  }\item[{}]{b }\end{DoxyParamCaption})~(\mbox{\hyperlink{macros_8h_a5c62bcd4f346f1384f193ea1a87263a7}{SET\+\_\+R}}(r) $\vert$ \mbox{\hyperlink{macros_8h_aa10bb759048d558116e91a3bd58a0e34}{SET\+\_\+G}}(g) $\vert$ \mbox{\hyperlink{macros_8h_aab8b4370a0eae186da6aa90336a16063}{SET\+\_\+B}}(b))}
+
+\mbox{\Hypertarget{macros_8h_aa10bb759048d558116e91a3bd58a0e34}\label{macros_8h_aa10bb759048d558116e91a3bd58a0e34}} 
+\index{macros.h@{macros.h}!SET\_G@{SET\_G}}
+\index{SET\_G@{SET\_G}!macros.h@{macros.h}}
+\doxysubsubsection{\texorpdfstring{SET\_G}{SET\_G}}
+{\footnotesize\ttfamily \#define SET\+\_\+G(\begin{DoxyParamCaption}\item[{}]{n }\end{DoxyParamCaption})~((n\&0x\+FF) $<$$<$ 8)}
+
+\mbox{\Hypertarget{macros_8h_a5c62bcd4f346f1384f193ea1a87263a7}\label{macros_8h_a5c62bcd4f346f1384f193ea1a87263a7}} 
+\index{macros.h@{macros.h}!SET\_R@{SET\_R}}
+\index{SET\_R@{SET\_R}!macros.h@{macros.h}}
+\doxysubsubsection{\texorpdfstring{SET\_R}{SET\_R}}
+{\footnotesize\ttfamily \#define SET\+\_\+R(\begin{DoxyParamCaption}\item[{}]{n }\end{DoxyParamCaption})~((n\&0x\+FF) $<$$<$ 16)}
+

@@ -1,0 +1,5 @@
+<map id="addBodyPart" name="addBodyPart">
+<area shape="rect" id="node1" title="adds a body part to the snake" alt="" coords="5,31,103,57"/>
+<area shape="rect" id="node2" href="$graphics_8c.html#a2d2905714e5a7ce7dc60775a769419de" title="places de xpm given in the position given on the screen" alt="" coords="153,5,235,32"/>
+<area shape="rect" id="node3" href="$graphics_8c.html#ae7ead7bf754ada1665d225c02258fa7c" title="Erase de xpm by replacing it with the background color in that place." alt="" coords="151,56,237,83"/>
+</map>

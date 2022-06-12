@@ -1,0 +1,18 @@
+<map id="copy_buffer_to_mem" name="copy_buffer_to_mem">
+<area shape="rect" id="node1" title="copys to video mem the olher buffer" alt="" coords="864,183,1007,209"/>
+<area shape="rect" id="node2" href="$game_over_8c.html#ab4faa8da878b13a27da607b1d5270fd9" title=" " alt="" coords="651,5,816,32"/>
+<area shape="rect" id="node4" href="$game_over_8c.html#a5391fff3d74048686f680f1de8b5e64e" title="Loop of the gameOver page that uses mouse, keyboard and timer devices." alt="" coords="318,56,429,83"/>
+<area shape="rect" id="node7" href="$menu_8c.html#aa13653318c21b0e6b86838e6091bfc9a" title="draws the menu" alt="" coords="693,107,774,133"/>
+<area shape="rect" id="node8" href="$menu_8c.html#a5e672c60dde9e4f025725d5a603573dc" title="Loop of the main Menu page that uses mouse, and timer devices." alt="" coords="489,157,599,184"/>
+<area shape="rect" id="node10" href="$instructions_8c.html#ad6397ccc99a860b71f1641f16b887b88" title="Loop of the instruction page that uses mouse, and timer devices." alt="" coords="485,220,603,247"/>
+<area shape="rect" id="node12" href="$instructions_8c.html#ab636d4dea7f6cf43ecae70201345c6c8" title="Deals with the result of the movement of the mouse, changing te state of the game if the button back ..." alt="" coords="673,259,794,285"/>
+<area shape="rect" id="node13" href="$game_8c.html#adfe0b3805fa6842770c273b1f4944cd4" title="Loop of the multiplayer game that uses the mouse, keyboard and timer devices." alt="" coords="674,309,793,336"/>
+<area shape="rect" id="node15" href="$game_8c.html#a4be80fd1408a780acc76065c69d55a76" title="Loop of the singleplayer game that uses the rtc, keyboard and timer devices." alt="" coords="671,360,796,387"/>
+<area shape="rect" id="node3" href="$game_over_8c.html#a554548dc02bd821a0b4ccd326e72bfa0" title="Deals with the result of movement of the mouse, changing te state of the game if the button continue ..." alt="" coords="493,5,595,32"/>
+<area shape="rect" id="node5" href="$proj_8c.html#a026d019671eda0cfe729200fc24d23ba" title=" " alt="" coords="172,84,252,111"/>
+<area shape="rect" id="node6" href="$proj_8c.html#a2a16f651eccbd248e1ad3b3b924b143b" title=" " alt="" coords="5,220,115,247"/>
+<area shape="rect" id="node9" href="$proj_8c.html#a79d361075614fba2bec97adff760b577" title=" " alt="" coords="329,157,418,184"/>
+<area shape="rect" id="node11" href="$proj_8c.html#a2a369f4c20794a7c31db7066b50f56d1" title=" " alt="" coords="309,220,437,247"/>
+<area shape="rect" id="node14" href="$proj_8c.html#a970e285d53c51ad8d5ba73a4efaedf0c" title=" " alt="" coords="166,284,258,311"/>
+<area shape="rect" id="node16" href="$proj_8c.html#a095b10852176bed8392f819a203048c8" title=" " alt="" coords="163,341,261,368"/>
+</map>

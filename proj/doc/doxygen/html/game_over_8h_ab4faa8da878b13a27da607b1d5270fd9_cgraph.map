@@ -1,0 +1,9 @@
+<map id="drawGameOverElements" name="drawGameOverElements">
+<area shape="rect" id="node1" title=" " alt="" coords="5,107,171,133"/>
+<area shape="rect" id="node2" href="$graphics_8c.html#a0779816c5f975853d74fc2863d6d728d" title="copys to video mem the olher buffer" alt="" coords="219,5,361,32"/>
+<area shape="rect" id="node3" href="$header_8c.html#a97df0f6e4184d84c9e3871042b94bc3a" title="Draws on the screen the number passed by parameter." alt="" coords="241,56,339,83"/>
+<area shape="rect" id="node4" href="$graphics_8c.html#a2d2905714e5a7ce7dc60775a769419de" title="places de xpm given in the position given on the screen" alt="" coords="409,107,491,133"/>
+<area shape="rect" id="node5" href="$apple_8c.html#a2ad497fe7d83e93b263424ce2363f810" title="Draws an apple." alt="" coords="249,157,331,184"/>
+<area shape="rect" id="node6" href="$apple_8c.html#a60af7be9d867f2506a994386a9d38019" title="Creates an apple and puts it on the array." alt="" coords="254,208,326,235"/>
+<area shape="rect" id="node7" href="$apple_8c.html#a1a10c020acc54d7ec537575f75ecee79" title="Gets the xpm object by the apple type." alt="" coords="414,208,486,235"/>
+</map>

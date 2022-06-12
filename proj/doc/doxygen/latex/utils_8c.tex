@@ -1,0 +1,36 @@
+\hypertarget{utils_8c}{}\doxysection{utils.\+c File Reference}
+\label{utils_8c}\index{utils.c@{utils.c}}
+{\ttfamily \#include $<$lcom/lcf.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}utils.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+Include dependency graph for utils.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=228pt]{utils_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int() \mbox{\hyperlink{group__utils_ga81621440b3d65680979425e39aa8c789}{util\+\_\+get\+\_\+\+LSB}} (uint16\+\_\+t val, uint8\+\_\+t $\ast$lsb)
+\begin{DoxyCompactList}\small\item\em Returns the LSB of a 2 byte integer. \end{DoxyCompactList}\item 
+int() \mbox{\hyperlink{group__utils_ga6a880076cd2ec468834438b6e0c58836}{util\+\_\+get\+\_\+\+MSB}} (uint16\+\_\+t val, uint8\+\_\+t $\ast$msb)
+\begin{DoxyCompactList}\small\item\em Returns the MSB of a 2 byte integer. \end{DoxyCompactList}\item 
+int() \mbox{\hyperlink{group__utils_ga79a031a8611f5b2d6afa4158e92b0fb4}{util\+\_\+sys\+\_\+inb}} (int port, uint8\+\_\+t $\ast$value)
+\begin{DoxyCompactList}\small\item\em Invokes sys\+\_\+inb() system call but reads the value into a uint8\+\_\+t variable. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{utils_8c_a51322ddb267b4729d6b5f2bb05d49fff}{counter}} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{utils_8c_a51322ddb267b4729d6b5f2bb05d49fff}\label{utils_8c_a51322ddb267b4729d6b5f2bb05d49fff}} 
+\index{utils.c@{utils.c}!counter@{counter}}
+\index{counter@{counter}!utils.c@{utils.c}}
+\doxysubsubsection{\texorpdfstring{counter}{counter}}
+{\footnotesize\ttfamily uint32\+\_\+t counter = 0}
+

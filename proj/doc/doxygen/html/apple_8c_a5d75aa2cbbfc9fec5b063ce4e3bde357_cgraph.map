@@ -1,0 +1,9 @@
+<map id="placeApple" name="placeApple">
+<area shape="rect" id="node1" title="places an apple within a square of the background" alt="" coords="5,81,92,108"/>
+<area shape="rect" id="node2" href="$apple_8c.html#a2ad497fe7d83e93b263424ce2363f810" title="Draws an apple." alt="" coords="140,5,223,32"/>
+<area shape="rect" id="node4" href="$apple_8c.html#a60af7be9d867f2506a994386a9d38019" title="Creates an apple and puts it on the array." alt="" coords="145,56,217,83"/>
+<area shape="rect" id="node6" href="$apple_8c.html#a534ec0f2a834b0d652c41270bbbfc24a" title="Verifies if there is an apple in the position passed by parameter." alt="" coords="149,107,214,133"/>
+<area shape="rect" id="node7" href="$snake_8c.html#a0291c5ac4f68d6a70ce405b0cdee425b" title="checks if their is any bodyPart in that position" alt="" coords="147,157,216,184"/>
+<area shape="rect" id="node3" href="$graphics_8c.html#a2d2905714e5a7ce7dc60775a769419de" title="places de xpm given in the position given on the screen" alt="" coords="271,5,352,32"/>
+<area shape="rect" id="node5" href="$apple_8c.html#a1a10c020acc54d7ec537575f75ecee79" title="Gets the xpm object by the apple type." alt="" coords="275,56,347,83"/>
+</map>

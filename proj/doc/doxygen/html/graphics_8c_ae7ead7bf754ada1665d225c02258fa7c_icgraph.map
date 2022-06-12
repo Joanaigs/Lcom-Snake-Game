@@ -1,0 +1,17 @@
+<map id="erase_xpm" name="erase_xpm">
+<area shape="rect" id="node1" title="Erase de xpm by replacing it with the background color in that place." alt="" coords="1112,148,1199,175"/>
+<area shape="rect" id="node2" href="$snake_8c.html#a94b3abe2573137584a700923d781628e" title="adds a body part to the snake" alt="" coords="803,174,900,200"/>
+<area shape="rect" id="node10" href="$header_8c.html#a30ed12fa8a520dea8e3a5ce868cb88af" title="erases the number drawn on the screen" alt="" coords="960,22,1064,48"/>
+<area shape="rect" id="node13" href="$header_8c.html#a3daa937cd627b357e7a6584a4d7b5e31" title="erases the hearts on the screen" alt="" coords="966,123,1058,150"/>
+<area shape="rect" id="node15" href="$snake_8c.html#a134765f33f91421b96fccf531c1ac5fe" title=" " alt="" coords="617,186,739,212"/>
+<area shape="rect" id="node3" href="$snake_8c.html#afc344696bb5c4921f7a88e6d812fbad7" title="checks if there has been a collision with the snake and a apple" alt="" coords="613,98,743,124"/>
+<area shape="rect" id="node4" href="$snake_8c.html#a2172f38282aa9905af15247d4fd8cae8" title="deals with the movement and collisions of a snake" alt="" coords="483,98,565,124"/>
+<area shape="rect" id="node5" href="$game_8c.html#adfe0b3805fa6842770c273b1f4944cd4" title="Loop of the multiplayer game that uses the mouse, keyboard and timer devices." alt="" coords="313,47,431,74"/>
+<area shape="rect" id="node8" href="$game_8c.html#a4be80fd1408a780acc76065c69d55a76" title="Loop of the singleplayer game that uses the rtc, keyboard and timer devices." alt="" coords="309,98,435,124"/>
+<area shape="rect" id="node6" href="$proj_8c.html#a970e285d53c51ad8d5ba73a4efaedf0c" title=" " alt="" coords="166,47,258,74"/>
+<area shape="rect" id="node7" href="$proj_8c.html#a2a16f651eccbd248e1ad3b3b924b143b" title=" " alt="" coords="5,72,115,99"/>
+<area shape="rect" id="node9" href="$proj_8c.html#a095b10852176bed8392f819a203048c8" title=" " alt="" coords="163,98,261,124"/>
+<area shape="rect" id="node11" href="$header_8c.html#a87c972dabcb8734e1029c063c053ad03" title="erases the number of apples drawn on screen" alt="" coords="791,22,912,48"/>
+<area shape="rect" id="node12" href="$header_8c.html#a0888fe2d3a06408cb8cb22f1be3980c7" title="erases the time drawn on the screen" alt="" coords="483,47,565,74"/>
+<area shape="rect" id="node14" href="$snake_8c.html#a798acdef4feb9e76299a23c5b03a509c" title="takes n lives form the snake" alt="" coords="819,123,884,150"/>
+</map>

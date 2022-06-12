@@ -1,0 +1,39 @@
+\hypertarget{apple_8h_source}{}\doxysection{apple.\+h}
+\mbox{\hyperlink{apple_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by Matilde Sequeira on 12/06/2022.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#ifndef SHARED\_APPLE\_H}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#define SHARED\_APPLE\_H}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <stdbool.h>}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <stdint.h>}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <stdlib.h>}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <lcom/lcf.h>}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{16 \textcolor{keyword}{enum} \mbox{\hyperlink{apple_8h_a035c7a1d06992ed6550cff86e6708a20}{appleType}}\{\mbox{\hyperlink{apple_8h_a035c7a1d06992ed6550cff86e6708a20aace9033470c7bfe9523c814271251908}{red}}, \mbox{\hyperlink{apple_8h_a035c7a1d06992ed6550cff86e6708a20a44d47c7cf388651344cebc8a2613becf}{brown}}, \mbox{\hyperlink{apple_8h_a035c7a1d06992ed6550cff86e6708a20a775364fe1f3fffe99686bf6d572a7370}{black}}\};}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{22 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{23     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_apple_af1617c91937fbd9d9d670940427d9b44}{x\_pos}};}
+\DoxyCodeLine{24     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_apple_a375120430014d7e06dcc37d9ca4fcdb8}{y\_pos}};}
+\DoxyCodeLine{25     \textcolor{keywordtype}{object} \mbox{\hyperlink{struct_apple_aff9c0c916c8d4ff47938cbb8cea98c68}{appleXpm}};}
+\DoxyCodeLine{26     \textcolor{keyword}{enum} \mbox{\hyperlink{apple_8h_a035c7a1d06992ed6550cff86e6708a20}{appleType}} \mbox{\hyperlink{struct_apple_a31fed919bce2460366ae2c092ee199de}{type}};}
+\DoxyCodeLine{27 \}\mbox{\hyperlink{struct_apple}{Apple}};}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{30 \mbox{\hyperlink{struct_apple}{Apple}} \mbox{\hyperlink{apple_8h_a62c433a9ed40ebdf3b8e4e56a04d4540}{applesArray}}[195];}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{33 \textcolor{keywordtype}{int} \mbox{\hyperlink{apple_8h_ad696d5ae0f35218946644fdeec943704}{numApples}};}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{43 \textcolor{keywordtype}{void} \mbox{\hyperlink{apple_8h_a60af7be9d867f2506a994386a9d38019}{initApple}}(\mbox{\hyperlink{struct_apple}{Apple}} *apple, \textcolor{keywordtype}{int} x\_pos, \textcolor{keywordtype}{int} y\_pos, \textcolor{keyword}{enum} \mbox{\hyperlink{apple_8h_a035c7a1d06992ed6550cff86e6708a20}{appleType}} type);}
+\DoxyCodeLine{50 \textcolor{keywordtype}{void} \mbox{\hyperlink{apple_8h_a0fa9fc94dca3712e71c2753abcf7441b}{initRandomApple}}(\mbox{\hyperlink{struct_apple}{Apple}} *apple, \textcolor{keyword}{enum} \mbox{\hyperlink{apple_8h_a035c7a1d06992ed6550cff86e6708a20}{appleType}} type);}
+\DoxyCodeLine{57 \textcolor{keywordtype}{object} \mbox{\hyperlink{apple_8h_a1a10c020acc54d7ec537575f75ecee79}{get\_xpm}}(\textcolor{keyword}{enum} \mbox{\hyperlink{apple_8h_a035c7a1d06992ed6550cff86e6708a20}{appleType}} type);}
+\DoxyCodeLine{63 \textcolor{keywordtype}{void} \mbox{\hyperlink{apple_8h_a2ad497fe7d83e93b263424ce2363f810}{drawApple}}(\mbox{\hyperlink{struct_apple}{Apple}} apple);}
+\DoxyCodeLine{71 \textcolor{keywordtype}{int} \mbox{\hyperlink{apple_8h_a534ec0f2a834b0d652c41270bbbfc24a}{isApple}}(\textcolor{keywordtype}{int} x, \textcolor{keywordtype}{int} y);}
+\DoxyCodeLine{79 \textcolor{keywordtype}{void} \mbox{\hyperlink{apple_8h_a5d75aa2cbbfc9fec5b063ce4e3bde357}{placeApple}}(\textcolor{keywordtype}{int} x, \textcolor{keywordtype}{int} y, \textcolor{keyword}{enum} \mbox{\hyperlink{apple_8h_a035c7a1d06992ed6550cff86e6708a20}{appleType}} type);}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{81 }
+\DoxyCodeLine{82 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//SHARED\_APPLE\_H}}
+
+\end{DoxyCode}

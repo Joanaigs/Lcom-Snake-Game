@@ -1,0 +1,5 @@
+<map id="menu" name="menu">
+<area shape="rect" id="node1" title="Deals with the result of movement of the mouse, changing the state of the game if any button is click..." alt="" coords="5,31,60,57"/>
+<area shape="rect" id="node2" href="$menu_8c.html#a9039d2b4301bf9b22531df4ad3dc04cb" title="Checks if the mouse is on top of any button." alt="" coords="108,5,256,32"/>
+<area shape="rect" id="node3" href="$mouse_8c.html#a7da7c1993926826e8767b42a6b3861c3" title="creates a mouse packet" alt="" coords="121,56,243,83"/>
+</map>

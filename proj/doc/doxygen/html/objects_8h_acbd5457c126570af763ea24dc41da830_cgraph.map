@@ -1,0 +1,4 @@
+<map id="drawBackground" name="drawBackground">
+<area shape="rect" id="node1" title="draws the background of the game" alt="" coords="5,5,124,32"/>
+<area shape="rect" id="node2" href="$graphics_8c.html#a2d2905714e5a7ce7dc60775a769419de" title="places de xpm given in the position given on the screen" alt="" coords="172,5,253,32"/>
+</map>

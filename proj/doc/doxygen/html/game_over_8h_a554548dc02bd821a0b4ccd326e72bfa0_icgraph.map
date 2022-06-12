@@ -1,0 +1,6 @@
+<map id="continueMenu" name="continueMenu">
+<area shape="rect" id="node1" title="Deals with the result of movement of the mouse, changing te state of the game if the button continue ..." alt="" coords="449,5,552,32"/>
+<area shape="rect" id="node2" href="$game_over_8c.html#a5391fff3d74048686f680f1de8b5e64e" title="Loop of the gameOver page that uses mouse, keyboard and timer devices." alt="" coords="291,5,401,32"/>
+<area shape="rect" id="node3" href="$proj_8c.html#a026d019671eda0cfe729200fc24d23ba" title=" " alt="" coords="163,5,243,32"/>
+<area shape="rect" id="node4" href="$proj_8c.html#a2a16f651eccbd248e1ad3b3b924b143b" title=" " alt="" coords="5,5,115,32"/>
+</map>

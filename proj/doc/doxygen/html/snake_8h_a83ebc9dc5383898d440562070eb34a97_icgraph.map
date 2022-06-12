@@ -1,0 +1,9 @@
+<map id="collisionWithItSelf" name="collisionWithItSelf">
+<area shape="rect" id="node1" title="checks the snake has collided against itselph" alt="" coords="612,31,737,57"/>
+<area shape="rect" id="node2" href="$snake_8c.html#a2172f38282aa9905af15247d4fd8cae8" title="deals with the movement and collisions of a snake" alt="" coords="483,31,564,57"/>
+<area shape="rect" id="node3" href="$game_8c.html#adfe0b3805fa6842770c273b1f4944cd4" title="Loop of the multiplayer game that uses the mouse, keyboard and timer devices." alt="" coords="313,5,431,32"/>
+<area shape="rect" id="node6" href="$game_8c.html#a4be80fd1408a780acc76065c69d55a76" title="Loop of the singleplayer game that uses the rtc, keyboard and timer devices." alt="" coords="309,56,435,83"/>
+<area shape="rect" id="node4" href="$proj_8c.html#a970e285d53c51ad8d5ba73a4efaedf0c" title=" " alt="" coords="166,5,258,32"/>
+<area shape="rect" id="node5" href="$proj_8c.html#a2a16f651eccbd248e1ad3b3b924b143b" title=" " alt="" coords="5,31,115,57"/>
+<area shape="rect" id="node7" href="$proj_8c.html#a095b10852176bed8392f819a203048c8" title=" " alt="" coords="163,56,261,83"/>
+</map>

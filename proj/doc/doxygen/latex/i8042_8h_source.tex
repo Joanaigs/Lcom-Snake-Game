@@ -1,0 +1,56 @@
+\hypertarget{i8042_8h_source}{}\doxysection{i8042.\+h}
+\mbox{\hyperlink{i8042_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef \_LCOM\_I8042\_H\_}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define \_LCOM\_I8042\_H\_}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#define KBC\_IRQ     1   }}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#define MOUSE\_IRQ   12  }}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#define DELAY           20000 }}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#define CMD\_KBC     0x64 }}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#define CMD\_ARG\_KBC 0x60 }}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#define STATUS\_REG  0x64 }}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#define OUT\_BUF  0x60 }}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#define READ\_KBC    0x20 }}
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#define WRITE\_KBC   0x60 }}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26 }
+\DoxyCodeLine{28 \textcolor{preprocessor}{\#define OBF     BIT(0) }}
+\DoxyCodeLine{30 \textcolor{preprocessor}{\#define IBF     BIT(1)}}
+\DoxyCodeLine{32 \textcolor{preprocessor}{\#define MOUSE\_AUX       BIT(5) }}
+\DoxyCodeLine{34 \textcolor{preprocessor}{\#define TOB    BIT(6) }}
+\DoxyCodeLine{36 \textcolor{preprocessor}{\#define PARITY\_BIT    BIT(7)}}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{39 \textcolor{preprocessor}{\#define ESC\_BREAK\_CODE  0x81  }}
+\DoxyCodeLine{41 \textcolor{preprocessor}{\#define ENTER\_BREAK\_CODE  0x1C }}
+\DoxyCodeLine{43 \textcolor{preprocessor}{\#define W\_MAKE\_CODE 0x11  }}
+\DoxyCodeLine{45 \textcolor{preprocessor}{\#define D\_MAKE\_CODE 0x20  }}
+\DoxyCodeLine{47 \textcolor{preprocessor}{\#define S\_MAKE\_CODE 0x1f}}
+\DoxyCodeLine{49 \textcolor{preprocessor}{\#define A\_MAKE\_CODE 0x1e }}
+\DoxyCodeLine{51 \textcolor{preprocessor}{\#define UP\_MAKE\_CODE 0x48}}
+\DoxyCodeLine{53 \textcolor{preprocessor}{\#define RIGHT\_MAKE\_CODE 0x4d }}
+\DoxyCodeLine{55 \textcolor{preprocessor}{\#define DOWN\_MAKE\_CODE 0x50 }}
+\DoxyCodeLine{57 \textcolor{preprocessor}{\#define LEFT\_MAKE\_CODE 0x4b}}
+\DoxyCodeLine{59 \textcolor{preprocessor}{\#define TWO\_BYTE   0xE0    }}
+\DoxyCodeLine{61 \textcolor{preprocessor}{\#define BREAK\_CODE  BIT(7)}}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{64 \textcolor{preprocessor}{\#define LEFT\_BUTTON     BIT(0) }}
+\DoxyCodeLine{66 \textcolor{preprocessor}{\#define RIGHT\_BUTTON    BIT(1)}}
+\DoxyCodeLine{68 \textcolor{preprocessor}{\#define MIDDLE\_BUTTON   BIT(2)}}
+\DoxyCodeLine{70 \textcolor{preprocessor}{\#define MSB\_X\_DELTA     BIT(4) }}
+\DoxyCodeLine{72 \textcolor{preprocessor}{\#define MSB\_Y\_DELTA     BIT(5) }}
+\DoxyCodeLine{74 \textcolor{preprocessor}{\#define X\_OVERFLOW      BIT(6)}}
+\DoxyCodeLine{76 \textcolor{preprocessor}{\#define Y\_OVERFLOW      BIT(7) }}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{79 \textcolor{preprocessor}{\#define ACK      0xFA }}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{82 \textcolor{preprocessor}{\#define WRITE\_MOUSE 0xD4}}
+\DoxyCodeLine{84 \textcolor{preprocessor}{\#define DISABLE\_DATA\_REPORT 0xF5}}
+\DoxyCodeLine{86 \textcolor{preprocessor}{\#define ENABLE\_DATA\_REPORT 0xF4}}
+\DoxyCodeLine{87 }
+\DoxyCodeLine{88 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/*\_LCOM\_I8042\_H\_ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

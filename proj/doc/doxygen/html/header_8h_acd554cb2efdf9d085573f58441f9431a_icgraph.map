@@ -1,0 +1,12 @@
+<map id="drawHeader" name="drawHeader">
+<area shape="rect" id="node1" title="Draws the header with the hearts, the time and apples information." alt="" coords="903,88,993,115"/>
+<area shape="rect" id="node2" href="$snake_8c.html#afc344696bb5c4921f7a88e6d812fbad7" title="checks if there has been a collision with the snake and a apple" alt="" coords="612,88,741,115"/>
+<area shape="rect" id="node4" href="$game_8c.html#adfe0b3805fa6842770c273b1f4944cd4" title="Loop of the multiplayer game that uses the mouse, keyboard and timer devices." alt="" coords="313,88,431,115"/>
+<area shape="rect" id="node7" href="$game_8c.html#a4be80fd1408a780acc76065c69d55a76" title="Loop of the singleplayer game that uses the rtc, keyboard and timer devices." alt="" coords="309,139,435,166"/>
+<area shape="rect" id="node9" href="$game_8c.html#aff9ce2c80067181fa64a67450da2c6fa" title="initiates all elements of the game, and draws the initial board" alt="" coords="484,139,563,166"/>
+<area shape="rect" id="node10" href="$snake_8c.html#a798acdef4feb9e76299a23c5b03a509c" title="takes n lives form the snake" alt="" coords="789,38,855,64"/>
+<area shape="rect" id="node3" href="$snake_8c.html#a2172f38282aa9905af15247d4fd8cae8" title="deals with the movement and collisions of a snake" alt="" coords="483,88,564,115"/>
+<area shape="rect" id="node5" href="$proj_8c.html#a970e285d53c51ad8d5ba73a4efaedf0c" title=" " alt="" coords="166,88,258,115"/>
+<area shape="rect" id="node6" href="$proj_8c.html#a2a16f651eccbd248e1ad3b3b924b143b" title=" " alt="" coords="5,114,115,140"/>
+<area shape="rect" id="node8" href="$proj_8c.html#a095b10852176bed8392f819a203048c8" title=" " alt="" coords="163,139,261,166"/>
+</map>

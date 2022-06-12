@@ -1,0 +1,224 @@
+\hypertarget{apple_8c}{}\doxysection{apple.\+c File Reference}
+\label{apple_8c}\index{apple.c@{apple.c}}
+{\ttfamily \#include \char`\"{}objects.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}snake.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}graphics.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}macros.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}apple.\+h\char`\"{}}\newline
+Include dependency graph for apple.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{apple_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{apple_8c_a60af7be9d867f2506a994386a9d38019}{init\+Apple}} (\mbox{\hyperlink{struct_apple}{Apple}} $\ast$apple, int x\+\_\+pos, int y\+\_\+pos, enum \mbox{\hyperlink{apple_8h_a035c7a1d06992ed6550cff86e6708a20}{apple\+Type}} type)
+\begin{DoxyCompactList}\small\item\em Creates an apple and puts it on the array. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{apple_8c_a0fa9fc94dca3712e71c2753abcf7441b}{init\+Random\+Apple}} (\mbox{\hyperlink{struct_apple}{Apple}} $\ast$apple, enum \mbox{\hyperlink{apple_8h_a035c7a1d06992ed6550cff86e6708a20}{apple\+Type}} type)
+\begin{DoxyCompactList}\small\item\em places an apple in a random place \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structobject}{object}} \mbox{\hyperlink{apple_8c_a1a10c020acc54d7ec537575f75ecee79}{get\+\_\+xpm}} (enum \mbox{\hyperlink{apple_8h_a035c7a1d06992ed6550cff86e6708a20}{apple\+Type}} type)
+\begin{DoxyCompactList}\small\item\em Gets the xpm object by the apple type. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{apple_8c_a2ad497fe7d83e93b263424ce2363f810}{draw\+Apple}} (\mbox{\hyperlink{struct_apple}{Apple}} apple)
+\begin{DoxyCompactList}\small\item\em Draws an apple. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{apple_8c_a534ec0f2a834b0d652c41270bbbfc24a}{is\+Apple}} (int x, int y)
+\begin{DoxyCompactList}\small\item\em Verifies if there is an apple in the position passed by parameter. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{apple_8c_a5d75aa2cbbfc9fec5b063ce4e3bde357}{place\+Apple}} (int x, int y, enum \mbox{\hyperlink{apple_8h_a035c7a1d06992ed6550cff86e6708a20}{apple\+Type}} type)
+\begin{DoxyCompactList}\small\item\em places an apple within a square of the background \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{apple_8c_a2ad497fe7d83e93b263424ce2363f810}\label{apple_8c_a2ad497fe7d83e93b263424ce2363f810}} 
+\index{apple.c@{apple.c}!drawApple@{drawApple}}
+\index{drawApple@{drawApple}!apple.c@{apple.c}}
+\doxysubsubsection{\texorpdfstring{drawApple()}{drawApple()}}
+{\footnotesize\ttfamily void draw\+Apple (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_apple}{Apple}}}]{apple }\end{DoxyParamCaption})}
+
+
+
+Draws an apple. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em apple} & to be drawn \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=239pt]{apple_8c_a2ad497fe7d83e93b263424ce2363f810_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{apple_8c_a2ad497fe7d83e93b263424ce2363f810_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{apple_8c_a1a10c020acc54d7ec537575f75ecee79}\label{apple_8c_a1a10c020acc54d7ec537575f75ecee79}} 
+\index{apple.c@{apple.c}!get\_xpm@{get\_xpm}}
+\index{get\_xpm@{get\_xpm}!apple.c@{apple.c}}
+\doxysubsubsection{\texorpdfstring{get\_xpm()}{get\_xpm()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structobject}{object}} get\+\_\+xpm (\begin{DoxyParamCaption}\item[{enum \mbox{\hyperlink{apple_8h_a035c7a1d06992ed6550cff86e6708a20}{apple\+Type}}}]{type }\end{DoxyParamCaption})}
+
+
+
+Gets the xpm object by the apple type. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & apple\+Type enum \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+object the apple xpm 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{apple_8c_a1a10c020acc54d7ec537575f75ecee79_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{apple_8c_a60af7be9d867f2506a994386a9d38019}\label{apple_8c_a60af7be9d867f2506a994386a9d38019}} 
+\index{apple.c@{apple.c}!initApple@{initApple}}
+\index{initApple@{initApple}!apple.c@{apple.c}}
+\doxysubsubsection{\texorpdfstring{initApple()}{initApple()}}
+{\footnotesize\ttfamily void init\+Apple (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_apple}{Apple}} $\ast$}]{apple,  }\item[{int}]{x\+\_\+pos,  }\item[{int}]{y\+\_\+pos,  }\item[{enum \mbox{\hyperlink{apple_8h_a035c7a1d06992ed6550cff86e6708a20}{apple\+Type}}}]{type }\end{DoxyParamCaption})}
+
+
+
+Creates an apple and puts it on the array. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em apple} & struck of the object \mbox{\hyperlink{struct_apple}{Apple}} \\
+\hline
+{\em x\+\_\+pos} & column where to place the apple \\
+\hline
+{\em y\+\_\+pos} & line where to place the apple \\
+\hline
+{\em type} & enum apple\+Type of the apple \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=224pt]{apple_8c_a60af7be9d867f2506a994386a9d38019_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{apple_8c_a60af7be9d867f2506a994386a9d38019_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{apple_8c_a0fa9fc94dca3712e71c2753abcf7441b}\label{apple_8c_a0fa9fc94dca3712e71c2753abcf7441b}} 
+\index{apple.c@{apple.c}!initRandomApple@{initRandomApple}}
+\index{initRandomApple@{initRandomApple}!apple.c@{apple.c}}
+\doxysubsubsection{\texorpdfstring{initRandomApple()}{initRandomApple()}}
+{\footnotesize\ttfamily void init\+Random\+Apple (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_apple}{Apple}} $\ast$}]{apple,  }\item[{enum \mbox{\hyperlink{apple_8h_a035c7a1d06992ed6550cff86e6708a20}{apple\+Type}}}]{type }\end{DoxyParamCaption})}
+
+
+
+places an apple in a random place 
+
+
+\begin{DoxyParams}{Parameters}
+{\em apple} & struck of the object \mbox{\hyperlink{struct_apple}{Apple}} \\
+\hline
+{\em type} & enum apple\+Type of the apple \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=260pt]{apple_8c_a0fa9fc94dca3712e71c2753abcf7441b_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{apple_8c_a0fa9fc94dca3712e71c2753abcf7441b_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{apple_8c_a534ec0f2a834b0d652c41270bbbfc24a}\label{apple_8c_a534ec0f2a834b0d652c41270bbbfc24a}} 
+\index{apple.c@{apple.c}!isApple@{isApple}}
+\index{isApple@{isApple}!apple.c@{apple.c}}
+\doxysubsubsection{\texorpdfstring{isApple()}{isApple()}}
+{\footnotesize\ttfamily int is\+Apple (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+
+
+Verifies if there is an apple in the position passed by parameter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & position (column) to be checked \\
+\hline
+{\em y} & position (line) to be checked \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int -\/1 if theres not an apple, or the position in the array 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{apple_8c_a534ec0f2a834b0d652c41270bbbfc24a_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{apple_8c_a5d75aa2cbbfc9fec5b063ce4e3bde357}\label{apple_8c_a5d75aa2cbbfc9fec5b063ce4e3bde357}} 
+\index{apple.c@{apple.c}!placeApple@{placeApple}}
+\index{placeApple@{placeApple}!apple.c@{apple.c}}
+\doxysubsubsection{\texorpdfstring{placeApple()}{placeApple()}}
+{\footnotesize\ttfamily void place\+Apple (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{enum \mbox{\hyperlink{apple_8h_a035c7a1d06992ed6550cff86e6708a20}{apple\+Type}}}]{type }\end{DoxyParamCaption})}
+
+
+
+places an apple within a square of the background 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & column of the position where the apple has to be placed \\
+\hline
+{\em y} & line of the position where to apple has to be placed \\
+\hline
+{\em type} & enum apple\+Type of the apple \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=340pt]{apple_8c_a5d75aa2cbbfc9fec5b063ce4e3bde357_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{apple_8c_a5d75aa2cbbfc9fec5b063ce4e3bde357_icgraph}
+\end{center}
+\end{figure}

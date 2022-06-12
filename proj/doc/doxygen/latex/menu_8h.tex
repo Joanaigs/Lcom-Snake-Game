@@ -1,0 +1,252 @@
+\hypertarget{menu_8h}{}\doxysection{menu.\+h File Reference}
+\label{menu_8h}\index{menu.h@{menu.h}}
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$lcom/lcf.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}cursor.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}objects.\+h\char`\"{}}\newline
+Include dependency graph for menu.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=347pt]{menu_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=281pt]{menu_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{menu_8h_a5cf20cf8f8b8d7c2aeaaea014d157583}{init\+\_\+menu}} ()
+\begin{DoxyCompactList}\small\item\em Initiates all the menu objects by reading their xpm. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{menu_8h_aa13653318c21b0e6b86838e6091bfc9a}{draw\+Menu}} ()
+\begin{DoxyCompactList}\small\item\em draws the menu \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{menu_8h_acb4116ccffc8dd89c204fe91447a8c25}{menu}} (\mbox{\hyperlink{structcursor}{cursor}} $\ast$mouse\+\_\+c, struct packet $\ast$p)
+\begin{DoxyCompactList}\small\item\em Deals with the result of movement of the mouse, changing the state of the game if any button is clicked and changing the color of the button if the mouse is on top of it. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{menu_8h_a9039d2b4301bf9b22531df4ad3dc04cb}{menu\+Option\+Collisions}} (\mbox{\hyperlink{structcursor}{cursor}} $\ast$mouse\+\_\+c)
+\begin{DoxyCompactList}\small\item\em Checks if the mouse is on top of any button. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{menu_8h_a5e672c60dde9e4f025725d5a603573dc}{main\+Menu\+Loop}} ()
+\begin{DoxyCompactList}\small\item\em Loop of the main Menu page that uses mouse, and timer devices. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{menu_8h_ad8b8d6fd194f8df34ab0b647e2a21d69}{set\+\_\+false\+\_\+buttons}} ()
+\begin{DoxyCompactList}\small\item\em sets false every onclick button and choose button \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structobject}{object}} \mbox{\hyperlink{menu_8h_a62bf96d53a0bbbc2636e65d7c3b29978}{main\+\_\+menu}}
+\begin{DoxyCompactList}\small\item\em xpm of the main menu page \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structobject}{object}} \mbox{\hyperlink{menu_8h_acb28e487e0b6f5e0a66d9ec71cd28956}{sp\+\_\+menu}}
+\begin{DoxyCompactList}\small\item\em xpm of the main menu page with the single\+Player colored \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structobject}{object}} \mbox{\hyperlink{menu_8h_a79d1e85f5060564c90f4e81871f283ac}{mp\+\_\+menu}}
+\begin{DoxyCompactList}\small\item\em xpm of the main menu page with the multi\+Player colored \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structobject}{object}} \mbox{\hyperlink{menu_8h_aa1e18b3c2809a7ff0ea9df84f500c87a}{inst\+\_\+menu}}
+\begin{DoxyCompactList}\small\item\em image of the main menu page with the intructions colored \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structobject}{object}} \mbox{\hyperlink{menu_8h_a6fb3dfa176ec0dfe2811fa153a55176c}{exit\+\_\+menu}}
+\begin{DoxyCompactList}\small\item\em image of the main menu page with the exit colored \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{menu_8h_aa13653318c21b0e6b86838e6091bfc9a}\label{menu_8h_aa13653318c21b0e6b86838e6091bfc9a}} 
+\index{menu.h@{menu.h}!drawMenu@{drawMenu}}
+\index{drawMenu@{drawMenu}!menu.h@{menu.h}}
+\doxysubsubsection{\texorpdfstring{drawMenu()}{drawMenu()}}
+{\footnotesize\ttfamily void draw\+Menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+draws the menu 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=284pt]{menu_8h_aa13653318c21b0e6b86838e6091bfc9a_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menu_8h_aa13653318c21b0e6b86838e6091bfc9a_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{menu_8h_a5cf20cf8f8b8d7c2aeaaea014d157583}\label{menu_8h_a5cf20cf8f8b8d7c2aeaaea014d157583}} 
+\index{menu.h@{menu.h}!init\_menu@{init\_menu}}
+\index{init\_menu@{init\_menu}!menu.h@{menu.h}}
+\doxysubsubsection{\texorpdfstring{init\_menu()}{init\_menu()}}
+{\footnotesize\ttfamily void init\+\_\+menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Initiates all the menu objects by reading their xpm. 
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menu_8h_a5cf20cf8f8b8d7c2aeaaea014d157583_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{menu_8h_a5e672c60dde9e4f025725d5a603573dc}\label{menu_8h_a5e672c60dde9e4f025725d5a603573dc}} 
+\index{menu.h@{menu.h}!mainMenuLoop@{mainMenuLoop}}
+\index{mainMenuLoop@{mainMenuLoop}!menu.h@{menu.h}}
+\doxysubsubsection{\texorpdfstring{mainMenuLoop()}{mainMenuLoop()}}
+{\footnotesize\ttfamily int main\+Menu\+Loop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Loop of the main Menu page that uses mouse, and timer devices. 
+
+\begin{DoxyReturn}{Returns}
+int 1 if an error has occurred 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menu_8h_a5e672c60dde9e4f025725d5a603573dc_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menu_8h_a5e672c60dde9e4f025725d5a603573dc_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{menu_8h_acb4116ccffc8dd89c204fe91447a8c25}\label{menu_8h_acb4116ccffc8dd89c204fe91447a8c25}} 
+\index{menu.h@{menu.h}!menu@{menu}}
+\index{menu@{menu}!menu.h@{menu.h}}
+\doxysubsubsection{\texorpdfstring{menu()}{menu()}}
+{\footnotesize\ttfamily int menu (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structcursor}{cursor}} $\ast$}]{mouse\+\_\+c,  }\item[{struct packet $\ast$}]{p }\end{DoxyParamCaption})}
+
+
+
+Deals with the result of movement of the mouse, changing the state of the game if any button is clicked and changing the color of the button if the mouse is on top of it. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mouse\+\_\+c} & mouse object \\
+\hline
+{\em p} & packet with the information of the mouse after movement \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 1 if the state of the program was changed 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=268pt]{menu_8h_acb4116ccffc8dd89c204fe91447a8c25_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menu_8h_acb4116ccffc8dd89c204fe91447a8c25_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{menu_8h_a9039d2b4301bf9b22531df4ad3dc04cb}\label{menu_8h_a9039d2b4301bf9b22531df4ad3dc04cb}} 
+\index{menu.h@{menu.h}!menuOptionCollisions@{menuOptionCollisions}}
+\index{menuOptionCollisions@{menuOptionCollisions}!menu.h@{menu.h}}
+\doxysubsubsection{\texorpdfstring{menuOptionCollisions()}{menuOptionCollisions()}}
+{\footnotesize\ttfamily int menu\+Option\+Collisions (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structcursor}{cursor}} $\ast$}]{mouse\+\_\+c }\end{DoxyParamCaption})}
+
+
+
+Checks if the mouse is on top of any button. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mouse\+\_\+c} & mouse object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 1 if its within the button limits 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menu_8h_a9039d2b4301bf9b22531df4ad3dc04cb_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{menu_8h_ad8b8d6fd194f8df34ab0b647e2a21d69}\label{menu_8h_ad8b8d6fd194f8df34ab0b647e2a21d69}} 
+\index{menu.h@{menu.h}!set\_false\_buttons@{set\_false\_buttons}}
+\index{set\_false\_buttons@{set\_false\_buttons}!menu.h@{menu.h}}
+\doxysubsubsection{\texorpdfstring{set\_false\_buttons()}{set\_false\_buttons()}}
+{\footnotesize\ttfamily void set\+\_\+false\+\_\+buttons (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+sets false every onclick button and choose button 
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{menu_8h_a6fb3dfa176ec0dfe2811fa153a55176c}\label{menu_8h_a6fb3dfa176ec0dfe2811fa153a55176c}} 
+\index{menu.h@{menu.h}!exit\_menu@{exit\_menu}}
+\index{exit\_menu@{exit\_menu}!menu.h@{menu.h}}
+\doxysubsubsection{\texorpdfstring{exit\_menu}{exit\_menu}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structobject}{object}} exit\+\_\+menu}
+
+
+
+image of the main menu page with the exit colored 
+
+\mbox{\Hypertarget{menu_8h_aa1e18b3c2809a7ff0ea9df84f500c87a}\label{menu_8h_aa1e18b3c2809a7ff0ea9df84f500c87a}} 
+\index{menu.h@{menu.h}!inst\_menu@{inst\_menu}}
+\index{inst\_menu@{inst\_menu}!menu.h@{menu.h}}
+\doxysubsubsection{\texorpdfstring{inst\_menu}{inst\_menu}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structobject}{object}} inst\+\_\+menu}
+
+
+
+image of the main menu page with the intructions colored 
+
+\mbox{\Hypertarget{menu_8h_a62bf96d53a0bbbc2636e65d7c3b29978}\label{menu_8h_a62bf96d53a0bbbc2636e65d7c3b29978}} 
+\index{menu.h@{menu.h}!main\_menu@{main\_menu}}
+\index{main\_menu@{main\_menu}!menu.h@{menu.h}}
+\doxysubsubsection{\texorpdfstring{main\_menu}{main\_menu}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structobject}{object}} main\+\_\+menu}
+
+
+
+xpm of the main menu page 
+
+\mbox{\Hypertarget{menu_8h_a79d1e85f5060564c90f4e81871f283ac}\label{menu_8h_a79d1e85f5060564c90f4e81871f283ac}} 
+\index{menu.h@{menu.h}!mp\_menu@{mp\_menu}}
+\index{mp\_menu@{mp\_menu}!menu.h@{menu.h}}
+\doxysubsubsection{\texorpdfstring{mp\_menu}{mp\_menu}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structobject}{object}} mp\+\_\+menu}
+
+
+
+xpm of the main menu page with the multi\+Player colored 
+
+\mbox{\Hypertarget{menu_8h_acb28e487e0b6f5e0a66d9ec71cd28956}\label{menu_8h_acb28e487e0b6f5e0a66d9ec71cd28956}} 
+\index{menu.h@{menu.h}!sp\_menu@{sp\_menu}}
+\index{sp\_menu@{sp\_menu}!menu.h@{menu.h}}
+\doxysubsubsection{\texorpdfstring{sp\_menu}{sp\_menu}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structobject}{object}} sp\+\_\+menu}
+
+
+
+xpm of the main menu page with the single\+Player colored 
+

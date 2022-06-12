@@ -1,0 +1,8 @@
+<map id="disable" name="disable">
+<area shape="rect" id="node1" title=" " alt="" coords="784,5,847,32"/>
+<area shape="rect" id="node2" href="$rtc_8c.html#a763493fa756f9d870276f292dd15bd7f" title="wait till it recevies a valid rtc" alt="" coords="637,5,736,32"/>
+<area shape="rect" id="node3" href="$snake_8c.html#a688f22b2c39a4d069c685bfbeb6f80d9" title="draws an apple at a random position in a periodic time" alt="" coords="483,5,589,32"/>
+<area shape="rect" id="node4" href="$game_8c.html#a4be80fd1408a780acc76065c69d55a76" title="Loop of the singleplayer game that uses the rtc, keyboard and timer devices." alt="" coords="309,5,435,32"/>
+<area shape="rect" id="node5" href="$proj_8c.html#a095b10852176bed8392f819a203048c8" title=" " alt="" coords="163,5,261,32"/>
+<area shape="rect" id="node6" href="$proj_8c.html#a2a16f651eccbd248e1ad3b3b924b143b" title=" " alt="" coords="5,5,115,32"/>
+</map>

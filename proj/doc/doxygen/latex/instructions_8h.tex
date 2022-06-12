@@ -1,0 +1,176 @@
+\hypertarget{instructions_8h}{}\doxysection{instructions.\+h File Reference}
+\label{instructions_8h}\index{instructions.h@{instructions.h}}
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$lcom/lcf.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}cursor.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}objects.\+h\char`\"{}}\newline
+Include dependency graph for instructions.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=347pt]{instructions_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=214pt]{instructions_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{instructions_8h_a4f7e2b00d6430baa7bdb8d2caaa53fee}{init\+\_\+instructions}} ()
+\begin{DoxyCompactList}\small\item\em Initializes instructions xpms. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{instructions_8h_a6914814be249b14469fecb40e97d07ab}{instructions\+Menu}} (\mbox{\hyperlink{structcursor}{cursor}} $\ast$mouse\+\_\+c, struct packet $\ast$p)
+\begin{DoxyCompactList}\small\item\em Deals with the result of the movement of the mouse, changing te state of the game if the button back is clicked and changing the color of that button if the mouse is on top of it. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{instructions_8h_a145ed4c5dc6900306a508df0117fba77}{menu\+Instructions\+Hover}} (\mbox{\hyperlink{structcursor}{cursor}} $\ast$mouse\+\_\+c)
+\begin{DoxyCompactList}\small\item\em Checks if the mouse is on top of the button back. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{instructions_8h_ad6397ccc99a860b71f1641f16b887b88}{instructions\+Loop}} ()
+\begin{DoxyCompactList}\small\item\em Loop of the instruction page that uses mouse, and timer devices. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structobject}{object}} \mbox{\hyperlink{instructions_8h_a50b4b2ff573d81d9879f49723fc45ca4}{instructions\+\_\+menu}}
+\begin{DoxyCompactList}\small\item\em xpm of the instructions page \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structobject}{object}} \mbox{\hyperlink{instructions_8h_aa700d51774c95203b49259111dd748d6}{instructions\+\_\+back}}
+\begin{DoxyCompactList}\small\item\em xpm of the instructions with hover in the back button \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{instructions_8h_a4f7e2b00d6430baa7bdb8d2caaa53fee}\label{instructions_8h_a4f7e2b00d6430baa7bdb8d2caaa53fee}} 
+\index{instructions.h@{instructions.h}!init\_instructions@{init\_instructions}}
+\index{init\_instructions@{init\_instructions}!instructions.h@{instructions.h}}
+\doxysubsubsection{\texorpdfstring{init\_instructions()}{init\_instructions()}}
+{\footnotesize\ttfamily void init\+\_\+instructions (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Initializes instructions xpms. 
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{instructions_8h_a4f7e2b00d6430baa7bdb8d2caaa53fee_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{instructions_8h_ad6397ccc99a860b71f1641f16b887b88}\label{instructions_8h_ad6397ccc99a860b71f1641f16b887b88}} 
+\index{instructions.h@{instructions.h}!instructionsLoop@{instructionsLoop}}
+\index{instructionsLoop@{instructionsLoop}!instructions.h@{instructions.h}}
+\doxysubsubsection{\texorpdfstring{instructionsLoop()}{instructionsLoop()}}
+{\footnotesize\ttfamily int instructions\+Loop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Loop of the instruction page that uses mouse, and timer devices. 
+
+\begin{DoxyReturn}{Returns}
+int 1 if an error has occurred 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{instructions_8h_ad6397ccc99a860b71f1641f16b887b88_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{instructions_8h_ad6397ccc99a860b71f1641f16b887b88_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{instructions_8h_a6914814be249b14469fecb40e97d07ab}\label{instructions_8h_a6914814be249b14469fecb40e97d07ab}} 
+\index{instructions.h@{instructions.h}!instructionsMenu@{instructionsMenu}}
+\index{instructionsMenu@{instructionsMenu}!instructions.h@{instructions.h}}
+\doxysubsubsection{\texorpdfstring{instructionsMenu()}{instructionsMenu()}}
+{\footnotesize\ttfamily int instructions\+Menu (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structcursor}{cursor}} $\ast$}]{mouse\+\_\+c,  }\item[{struct packet $\ast$}]{p }\end{DoxyParamCaption})}
+
+
+
+Deals with the result of the movement of the mouse, changing te state of the game if the button back is clicked and changing the color of that button if the mouse is on top of it. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mouse\+\_\+c} & mouse object \\
+\hline
+{\em p} & packet with the information of the mouse after movement \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 1 if the state of the program was changed 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=322pt]{instructions_8h_a6914814be249b14469fecb40e97d07ab_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{instructions_8h_a6914814be249b14469fecb40e97d07ab_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{instructions_8h_a145ed4c5dc6900306a508df0117fba77}\label{instructions_8h_a145ed4c5dc6900306a508df0117fba77}} 
+\index{instructions.h@{instructions.h}!menuInstructionsHover@{menuInstructionsHover}}
+\index{menuInstructionsHover@{menuInstructionsHover}!instructions.h@{instructions.h}}
+\doxysubsubsection{\texorpdfstring{menuInstructionsHover()}{menuInstructionsHover()}}
+{\footnotesize\ttfamily int menu\+Instructions\+Hover (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structcursor}{cursor}} $\ast$}]{mouse\+\_\+c }\end{DoxyParamCaption})}
+
+
+
+Checks if the mouse is on top of the button back. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mouse\+\_\+c} & mouse cursor object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 1 if its within the button limits 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{instructions_8h_a145ed4c5dc6900306a508df0117fba77_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{instructions_8h_aa700d51774c95203b49259111dd748d6}\label{instructions_8h_aa700d51774c95203b49259111dd748d6}} 
+\index{instructions.h@{instructions.h}!instructions\_back@{instructions\_back}}
+\index{instructions\_back@{instructions\_back}!instructions.h@{instructions.h}}
+\doxysubsubsection{\texorpdfstring{instructions\_back}{instructions\_back}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structobject}{object}} instructions\+\_\+back}
+
+
+
+xpm of the instructions with hover in the back button 
+
+\mbox{\Hypertarget{instructions_8h_a50b4b2ff573d81d9879f49723fc45ca4}\label{instructions_8h_a50b4b2ff573d81d9879f49723fc45ca4}} 
+\index{instructions.h@{instructions.h}!instructions\_menu@{instructions\_menu}}
+\index{instructions\_menu@{instructions\_menu}!instructions.h@{instructions.h}}
+\doxysubsubsection{\texorpdfstring{instructions\_menu}{instructions\_menu}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structobject}{object}} instructions\+\_\+menu}
+
+
+
+xpm of the instructions page 
+

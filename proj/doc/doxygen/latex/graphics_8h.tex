@@ -1,0 +1,280 @@
+\hypertarget{graphics_8h}{}\doxysection{graphics.\+h File Reference}
+\label{graphics_8h}\index{graphics.h@{graphics.h}}
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$lcom/lcf.\+h$>$}\newline
+Include dependency graph for graphics.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=281pt]{graphics_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{graphics_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{graphics_8h_aa1bd4a72d81e52707d81a1cc58ad33f9}{vram\+Map}} ()
+\begin{DoxyCompactList}\small\item\em maps vram \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{graphics_8h_a78f998ca8014d3df807bba281f679122}{set\+Mode}} (uint16\+\_\+t mode)
+\begin{DoxyCompactList}\small\item\em Set the graphics mode to the one desired. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{graphics_8h_a2d2905714e5a7ce7dc60775a769419de}{draw\+\_\+xpm}} (xpm\+\_\+image\+\_\+t \mbox{\hyperlink{game_over_8c_ac16ac5b5982366cbba9038d9e97c250d}{img}}, uint8\+\_\+t $\ast$\mbox{\hyperlink{game_over_8c_a0faca9bc52d4868e8b52e44e97862e9f}{map}}, int x, int y)
+\begin{DoxyCompactList}\small\item\em places de xpm given in the position given on the screen \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{graphics_8h_ae22c90a9c51c92c03ab8f6b5a66aba8d}{draw\+\_\+xpm\+\_\+video\+\_\+mem}} (xpm\+\_\+image\+\_\+t \mbox{\hyperlink{game_over_8c_ac16ac5b5982366cbba9038d9e97c250d}{img}}, uint8\+\_\+t $\ast$\mbox{\hyperlink{game_over_8c_a0faca9bc52d4868e8b52e44e97862e9f}{map}}, int x, int y)
+\begin{DoxyCompactList}\small\item\em places de given in the position given on the screen on the olher buffer \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{graphics_8h_ae7ead7bf754ada1665d225c02258fa7c}{erase\+\_\+xpm}} (xpm\+\_\+image\+\_\+t \mbox{\hyperlink{game_over_8c_ac16ac5b5982366cbba9038d9e97c250d}{img}}, int x, int y, xpm\+\_\+image\+\_\+t \mbox{\hyperlink{objects_8h_a158c8cc12c84f90726a80b0d651e1d05}{background}})
+\begin{DoxyCompactList}\small\item\em Erase de xpm by replacing it with the background color in that place. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{graphics_8h_a0779816c5f975853d74fc2863d6d728d}{copy\+\_\+buffer\+\_\+to\+\_\+mem}} ()
+\begin{DoxyCompactList}\small\item\em copys to video mem the olher buffer \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+vbe\+\_\+mode\+\_\+info\+\_\+t \mbox{\hyperlink{graphics_8h_a26081be7a771e5c611b33f15caaf831e}{vmi\+\_\+p}}
+\item 
+char $\ast$ \mbox{\hyperlink{graphics_8h_a93a24e067b9083bed6fb5c0336fd7a01}{video\+\_\+mem}}
+\begin{DoxyCompactList}\small\item\em Process (virtual) address to which VRAM is mapped. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{graphics_8h_a1093f0f6c5b100c9997df7b3edd5bec9}{video\+\_\+mem\+\_\+buf}}
+\begin{DoxyCompactList}\small\item\em Copy of video\+\_\+mem. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{graphics_8h_a75c6486b12f121be541eb561d99d055a}{h\+\_\+res}}
+\begin{DoxyCompactList}\small\item\em Horizontal resolution in pixels. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{graphics_8h_af46fa099811391ed3b0d7f8f71dd0d1c}{v\+\_\+res}}
+\begin{DoxyCompactList}\small\item\em Vertical resolution in pixels ~\newline
+ \end{DoxyCompactList}\item 
+unsigned \mbox{\hyperlink{graphics_8h_a89fa3fb58e975d148fcb2413e24b78a1}{bits\+\_\+per\+\_\+pixel}}
+\begin{DoxyCompactList}\small\item\em Number of VRAM bits per pixel ~\newline
+ \end{DoxyCompactList}\item 
+unsigned \mbox{\hyperlink{graphics_8h_a144d9a9cabab9de0142a6baee835ca6b}{bytes\+\_\+per\+\_\+pixel}}
+\begin{DoxyCompactList}\small\item\em Number of VRAM bytes per pixel ~\newline
+ \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{graphics_8h_a0779816c5f975853d74fc2863d6d728d}\label{graphics_8h_a0779816c5f975853d74fc2863d6d728d}} 
+\index{graphics.h@{graphics.h}!copy\_buffer\_to\_mem@{copy\_buffer\_to\_mem}}
+\index{copy\_buffer\_to\_mem@{copy\_buffer\_to\_mem}!graphics.h@{graphics.h}}
+\doxysubsubsection{\texorpdfstring{copy\_buffer\_to\_mem()}{copy\_buffer\_to\_mem()}}
+{\footnotesize\ttfamily void copy\+\_\+buffer\+\_\+to\+\_\+mem (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+copys to video mem the olher buffer 
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{graphics_8h_a0779816c5f975853d74fc2863d6d728d_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{graphics_8h_a2d2905714e5a7ce7dc60775a769419de}\label{graphics_8h_a2d2905714e5a7ce7dc60775a769419de}} 
+\index{graphics.h@{graphics.h}!draw\_xpm@{draw\_xpm}}
+\index{draw\_xpm@{draw\_xpm}!graphics.h@{graphics.h}}
+\doxysubsubsection{\texorpdfstring{draw\_xpm()}{draw\_xpm()}}
+{\footnotesize\ttfamily void draw\+\_\+xpm (\begin{DoxyParamCaption}\item[{xpm\+\_\+image\+\_\+t}]{img,  }\item[{uint8\+\_\+t $\ast$}]{map,  }\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+
+
+places de xpm given in the position given on the screen 
+
+
+\begin{DoxyParams}{Parameters}
+{\em img} & \\
+\hline
+{\em map} & \\
+\hline
+{\em x} & \\
+\hline
+{\em y} & \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{graphics_8h_a2d2905714e5a7ce7dc60775a769419de_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{graphics_8h_ae22c90a9c51c92c03ab8f6b5a66aba8d}\label{graphics_8h_ae22c90a9c51c92c03ab8f6b5a66aba8d}} 
+\index{graphics.h@{graphics.h}!draw\_xpm\_video\_mem@{draw\_xpm\_video\_mem}}
+\index{draw\_xpm\_video\_mem@{draw\_xpm\_video\_mem}!graphics.h@{graphics.h}}
+\doxysubsubsection{\texorpdfstring{draw\_xpm\_video\_mem()}{draw\_xpm\_video\_mem()}}
+{\footnotesize\ttfamily void draw\+\_\+xpm\+\_\+video\+\_\+mem (\begin{DoxyParamCaption}\item[{xpm\+\_\+image\+\_\+t}]{img,  }\item[{uint8\+\_\+t $\ast$}]{map,  }\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+
+
+places de given in the position given on the screen on the olher buffer 
+
+
+\begin{DoxyParams}{Parameters}
+{\em img} & \\
+\hline
+{\em map} & \\
+\hline
+{\em x} & \\
+\hline
+{\em y} & \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{graphics_8h_ae22c90a9c51c92c03ab8f6b5a66aba8d_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{graphics_8h_ae7ead7bf754ada1665d225c02258fa7c}\label{graphics_8h_ae7ead7bf754ada1665d225c02258fa7c}} 
+\index{graphics.h@{graphics.h}!erase\_xpm@{erase\_xpm}}
+\index{erase\_xpm@{erase\_xpm}!graphics.h@{graphics.h}}
+\doxysubsubsection{\texorpdfstring{erase\_xpm()}{erase\_xpm()}}
+{\footnotesize\ttfamily void erase\+\_\+xpm (\begin{DoxyParamCaption}\item[{xpm\+\_\+image\+\_\+t}]{img,  }\item[{int}]{x,  }\item[{int}]{y,  }\item[{xpm\+\_\+image\+\_\+t}]{background }\end{DoxyParamCaption})}
+
+
+
+Erase de xpm by replacing it with the background color in that place. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em img} & \\
+\hline
+{\em x} & \\
+\hline
+{\em y} & \\
+\hline
+{\em background} & \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{graphics_8h_ae7ead7bf754ada1665d225c02258fa7c_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{graphics_8h_a78f998ca8014d3df807bba281f679122}\label{graphics_8h_a78f998ca8014d3df807bba281f679122}} 
+\index{graphics.h@{graphics.h}!setMode@{setMode}}
+\index{setMode@{setMode}!graphics.h@{graphics.h}}
+\doxysubsubsection{\texorpdfstring{setMode()}{setMode()}}
+{\footnotesize\ttfamily int set\+Mode (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{mode }\end{DoxyParamCaption})}
+
+
+
+Set the graphics mode to the one desired. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mode} & Mode to be user on graphics card \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 0 if succeded and 1 otherwise 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=252pt]{graphics_8h_a78f998ca8014d3df807bba281f679122_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{graphics_8h_aa1bd4a72d81e52707d81a1cc58ad33f9}\label{graphics_8h_aa1bd4a72d81e52707d81a1cc58ad33f9}} 
+\index{graphics.h@{graphics.h}!vramMap@{vramMap}}
+\index{vramMap@{vramMap}!graphics.h@{graphics.h}}
+\doxysubsubsection{\texorpdfstring{vramMap()}{vramMap()}}
+{\footnotesize\ttfamily void vram\+Map (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+maps vram 
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=254pt]{graphics_8h_aa1bd4a72d81e52707d81a1cc58ad33f9_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{graphics_8h_a89fa3fb58e975d148fcb2413e24b78a1}\label{graphics_8h_a89fa3fb58e975d148fcb2413e24b78a1}} 
+\index{graphics.h@{graphics.h}!bits\_per\_pixel@{bits\_per\_pixel}}
+\index{bits\_per\_pixel@{bits\_per\_pixel}!graphics.h@{graphics.h}}
+\doxysubsubsection{\texorpdfstring{bits\_per\_pixel}{bits\_per\_pixel}}
+{\footnotesize\ttfamily unsigned bits\+\_\+per\+\_\+pixel}
+
+
+
+Number of VRAM bits per pixel ~\newline
+ 
+
+\mbox{\Hypertarget{graphics_8h_a144d9a9cabab9de0142a6baee835ca6b}\label{graphics_8h_a144d9a9cabab9de0142a6baee835ca6b}} 
+\index{graphics.h@{graphics.h}!bytes\_per\_pixel@{bytes\_per\_pixel}}
+\index{bytes\_per\_pixel@{bytes\_per\_pixel}!graphics.h@{graphics.h}}
+\doxysubsubsection{\texorpdfstring{bytes\_per\_pixel}{bytes\_per\_pixel}}
+{\footnotesize\ttfamily unsigned bytes\+\_\+per\+\_\+pixel}
+
+
+
+Number of VRAM bytes per pixel ~\newline
+ 
+
+\mbox{\Hypertarget{graphics_8h_a75c6486b12f121be541eb561d99d055a}\label{graphics_8h_a75c6486b12f121be541eb561d99d055a}} 
+\index{graphics.h@{graphics.h}!h\_res@{h\_res}}
+\index{h\_res@{h\_res}!graphics.h@{graphics.h}}
+\doxysubsubsection{\texorpdfstring{h\_res}{h\_res}}
+{\footnotesize\ttfamily int h\+\_\+res}
+
+
+
+Horizontal resolution in pixels. 
+
+\mbox{\Hypertarget{graphics_8h_af46fa099811391ed3b0d7f8f71dd0d1c}\label{graphics_8h_af46fa099811391ed3b0d7f8f71dd0d1c}} 
+\index{graphics.h@{graphics.h}!v\_res@{v\_res}}
+\index{v\_res@{v\_res}!graphics.h@{graphics.h}}
+\doxysubsubsection{\texorpdfstring{v\_res}{v\_res}}
+{\footnotesize\ttfamily int v\+\_\+res}
+
+
+
+Vertical resolution in pixels ~\newline
+ 
+
+\mbox{\Hypertarget{graphics_8h_a93a24e067b9083bed6fb5c0336fd7a01}\label{graphics_8h_a93a24e067b9083bed6fb5c0336fd7a01}} 
+\index{graphics.h@{graphics.h}!video\_mem@{video\_mem}}
+\index{video\_mem@{video\_mem}!graphics.h@{graphics.h}}
+\doxysubsubsection{\texorpdfstring{video\_mem}{video\_mem}}
+{\footnotesize\ttfamily char$\ast$ video\+\_\+mem}
+
+
+
+Process (virtual) address to which VRAM is mapped. 
+
+\mbox{\Hypertarget{graphics_8h_a1093f0f6c5b100c9997df7b3edd5bec9}\label{graphics_8h_a1093f0f6c5b100c9997df7b3edd5bec9}} 
+\index{graphics.h@{graphics.h}!video\_mem\_buf@{video\_mem\_buf}}
+\index{video\_mem\_buf@{video\_mem\_buf}!graphics.h@{graphics.h}}
+\doxysubsubsection{\texorpdfstring{video\_mem\_buf}{video\_mem\_buf}}
+{\footnotesize\ttfamily char$\ast$ video\+\_\+mem\+\_\+buf}
+
+
+
+Copy of video\+\_\+mem. 
+
+\mbox{\Hypertarget{graphics_8h_a26081be7a771e5c611b33f15caaf831e}\label{graphics_8h_a26081be7a771e5c611b33f15caaf831e}} 
+\index{graphics.h@{graphics.h}!vmi\_p@{vmi\_p}}
+\index{vmi\_p@{vmi\_p}!graphics.h@{graphics.h}}
+\doxysubsubsection{\texorpdfstring{vmi\_p}{vmi\_p}}
+{\footnotesize\ttfamily vbe\+\_\+mode\+\_\+info\+\_\+t vmi\+\_\+p}
+

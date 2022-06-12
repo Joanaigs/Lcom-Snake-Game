@@ -1,0 +1,17 @@
+<map id="drawApple" name="drawApple">
+<area shape="rect" id="node1" title="Draws an apple." alt="" coords="851,132,933,159"/>
+<area shape="rect" id="node2" href="$snake_8c.html#afc344696bb5c4921f7a88e6d812fbad7" title="checks if there has been a collision with the snake and a apple" alt="" coords="655,107,785,133"/>
+<area shape="rect" id="node9" href="$game_over_8c.html#ab4faa8da878b13a27da607b1d5270fd9" title=" " alt="" coords="637,259,803,285"/>
+<area shape="rect" id="node11" href="$game_over_8c.html#a5391fff3d74048686f680f1de8b5e64e" title="Loop of the gameOver page that uses mouse, keyboard and timer devices." alt="" coords="317,208,427,235"/>
+<area shape="rect" id="node13" href="$game_8c.html#aff9ce2c80067181fa64a67450da2c6fa" title="initiates all elements of the game, and draws the initial board" alt="" coords="497,56,575,83"/>
+<area shape="rect" id="node14" href="$snake_8c.html#a688f22b2c39a4d069c685bfbeb6f80d9" title="draws an apple at a random position in a periodic time" alt="" coords="483,5,589,32"/>
+<area shape="rect" id="node15" href="$apple_8c.html#a5d75aa2cbbfc9fec5b063ce4e3bde357" title="places an apple within a square of the background" alt="" coords="677,157,763,184"/>
+<area shape="rect" id="node3" href="$snake_8c.html#a2172f38282aa9905af15247d4fd8cae8" title="deals with the movement and collisions of a snake" alt="" coords="495,107,577,133"/>
+<area shape="rect" id="node4" href="$game_8c.html#adfe0b3805fa6842770c273b1f4944cd4" title="Loop of the multiplayer game that uses the mouse, keyboard and timer devices." alt="" coords="313,107,431,133"/>
+<area shape="rect" id="node7" href="$game_8c.html#a4be80fd1408a780acc76065c69d55a76" title="Loop of the singleplayer game that uses the rtc, keyboard and timer devices." alt="" coords="309,56,435,83"/>
+<area shape="rect" id="node5" href="$proj_8c.html#a970e285d53c51ad8d5ba73a4efaedf0c" title=" " alt="" coords="166,107,258,133"/>
+<area shape="rect" id="node6" href="$proj_8c.html#a2a16f651eccbd248e1ad3b3b924b143b" title=" " alt="" coords="5,107,115,133"/>
+<area shape="rect" id="node8" href="$proj_8c.html#a095b10852176bed8392f819a203048c8" title=" " alt="" coords="163,56,261,83"/>
+<area shape="rect" id="node10" href="$game_over_8c.html#a554548dc02bd821a0b4ccd326e72bfa0" title="Deals with the result of movement of the mouse, changing te state of the game if the button continue ..." alt="" coords="485,259,587,285"/>
+<area shape="rect" id="node12" href="$proj_8c.html#a026d019671eda0cfe729200fc24d23ba" title=" " alt="" coords="172,183,252,209"/>
+</map>

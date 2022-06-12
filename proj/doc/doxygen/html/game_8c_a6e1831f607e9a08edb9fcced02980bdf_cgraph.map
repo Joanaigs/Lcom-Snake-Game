@@ -1,0 +1,5 @@
+<map id="keyboard_interrupt" name="keyboard_interrupt">
+<area shape="rect" id="node1" title="this function handles the keyboard interruption, when the arrows or the specific characters are press..." alt="" coords="5,5,135,32"/>
+<area shape="rect" id="node2" href="$keyboard_8c.html#aea970a154161a35f6894898a092ed70a" title="get the scancode of the button pressed" alt="" coords="183,5,243,32"/>
+<area shape="rect" id="node3" href="$group__utils.html#ga79a031a8611f5b2d6afa4158e92b0fb4" title="Invokes sys_inb() system call but reads the value into a uint8_t variable." alt="" coords="291,5,381,32"/>
+</map>

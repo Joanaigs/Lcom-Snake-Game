@@ -1,0 +1,4 @@
+<map id="drawHearts" name="drawHearts">
+<area shape="rect" id="node1" title="draws the lives on the screen" alt="" coords="5,5,92,32"/>
+<area shape="rect" id="node2" href="$graphics_8c.html#a2d2905714e5a7ce7dc60775a769419de" title="places de xpm given in the position given on the screen" alt="" coords="140,5,221,32"/>
+</map>

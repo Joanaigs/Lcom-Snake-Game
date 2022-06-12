@@ -1,0 +1,149 @@
+\hypertarget{game_over_8h}{}\doxysection{game\+Over.\+h File Reference}
+\label{game_over_8h}\index{gameOver.h@{gameOver.h}}
+{\ttfamily \#include $<$lcom/lcf.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}cursor.\+h\char`\"{}}\newline
+Include dependency graph for game\+Over.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=314pt]{game_over_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=301pt]{game_over_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{game_over_8h_af402e545bc1136c6cf90fddd995ab80e}{menu\+Continue\+Collisions}} (\mbox{\hyperlink{structcursor}{cursor}} $\ast$mouse\+\_\+c)
+\begin{DoxyCompactList}\small\item\em Checks if the mouse is on top of the button continue. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{game_over_8h_a554548dc02bd821a0b4ccd326e72bfa0}{continue\+Menu}} (\mbox{\hyperlink{structcursor}{cursor}} $\ast$mouse\+\_\+c, struct packet $\ast$p)
+\begin{DoxyCompactList}\small\item\em Deals with the result of movement of the mouse, changing te state of the game if the button continue is clicked and changing the color of the button if the mouse is on top of it. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{game_over_8h_a5391fff3d74048686f680f1de8b5e64e}{game\+Over\+Page}} ()
+\begin{DoxyCompactList}\small\item\em Loop of the game\+Over page that uses mouse, keyboard and timer devices. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{game_over_8h_ab4faa8da878b13a27da607b1d5270fd9}{draw\+Game\+Over\+Elements}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{game_over_8h_a554548dc02bd821a0b4ccd326e72bfa0}\label{game_over_8h_a554548dc02bd821a0b4ccd326e72bfa0}} 
+\index{gameOver.h@{gameOver.h}!continueMenu@{continueMenu}}
+\index{continueMenu@{continueMenu}!gameOver.h@{gameOver.h}}
+\doxysubsubsection{\texorpdfstring{continueMenu()}{continueMenu()}}
+{\footnotesize\ttfamily int continue\+Menu (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structcursor}{cursor}} $\ast$}]{mouse\+\_\+c,  }\item[{struct packet $\ast$}]{p }\end{DoxyParamCaption})}
+
+
+
+Deals with the result of movement of the mouse, changing te state of the game if the button continue is clicked and changing the color of the button if the mouse is on top of it. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mouse\+\_\+c} & mouse object \\
+\hline
+{\em p} & packet with the information of the mouse after movement \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 1 if the state of the program was changed 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{game_over_8h_a554548dc02bd821a0b4ccd326e72bfa0_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{game_over_8h_a554548dc02bd821a0b4ccd326e72bfa0_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{game_over_8h_ab4faa8da878b13a27da607b1d5270fd9}\label{game_over_8h_ab4faa8da878b13a27da607b1d5270fd9}} 
+\index{gameOver.h@{gameOver.h}!drawGameOverElements@{drawGameOverElements}}
+\index{drawGameOverElements@{drawGameOverElements}!gameOver.h@{gameOver.h}}
+\doxysubsubsection{\texorpdfstring{drawGameOverElements()}{drawGameOverElements()}}
+{\footnotesize\ttfamily void draw\+Game\+Over\+Elements (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{game_over_8h_ab4faa8da878b13a27da607b1d5270fd9_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{game_over_8h_ab4faa8da878b13a27da607b1d5270fd9_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{game_over_8h_a5391fff3d74048686f680f1de8b5e64e}\label{game_over_8h_a5391fff3d74048686f680f1de8b5e64e}} 
+\index{gameOver.h@{gameOver.h}!gameOverPage@{gameOverPage}}
+\index{gameOverPage@{gameOverPage}!gameOver.h@{gameOver.h}}
+\doxysubsubsection{\texorpdfstring{gameOverPage()}{gameOverPage()}}
+{\footnotesize\ttfamily int game\+Over\+Page (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Loop of the game\+Over page that uses mouse, keyboard and timer devices. 
+
+\begin{DoxyReturn}{Returns}
+int 1 if an error has occurred 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{game_over_8h_a5391fff3d74048686f680f1de8b5e64e_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{game_over_8h_a5391fff3d74048686f680f1de8b5e64e_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{game_over_8h_af402e545bc1136c6cf90fddd995ab80e}\label{game_over_8h_af402e545bc1136c6cf90fddd995ab80e}} 
+\index{gameOver.h@{gameOver.h}!menuContinueCollisions@{menuContinueCollisions}}
+\index{menuContinueCollisions@{menuContinueCollisions}!gameOver.h@{gameOver.h}}
+\doxysubsubsection{\texorpdfstring{menuContinueCollisions()}{menuContinueCollisions()}}
+{\footnotesize\ttfamily int menu\+Continue\+Collisions (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structcursor}{cursor}} $\ast$}]{mouse\+\_\+c }\end{DoxyParamCaption})}
+
+
+
+Checks if the mouse is on top of the button continue. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mouse\+\_\+c} & mouse object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 1 if its within the button limits 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{game_over_8h_af402e545bc1136c6cf90fddd995ab80e_icgraph}
+\end{center}
+\end{figure}

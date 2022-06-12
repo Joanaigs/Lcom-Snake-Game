@@ -1,0 +1,13 @@
+<map id="continueMenu" name="continueMenu">
+<area shape="rect" id="node1" title="Deals with the result of movement of the mouse, changing te state of the game if the button continue ..." alt="" coords="5,71,108,97"/>
+<area shape="rect" id="node2" href="$graphics_8c.html#a2d2905714e5a7ce7dc60775a769419de" title="places de xpm given in the position given on the screen" alt="" coords="560,45,641,72"/>
+<area shape="rect" id="node3" href="$graphics_8c.html#a29698b438dad09ec6355f2281322339b" title="places de given in the position given on the screen on the olher buffer" alt="" coords="162,20,315,47"/>
+<area shape="rect" id="node4" href="$game_over_8c.html#ab4faa8da878b13a27da607b1d5270fd9" title=" " alt="" coords="156,71,321,97"/>
+<area shape="rect" id="node10" href="$game_over_8c.html#af402e545bc1136c6cf90fddd995ab80e" title="Checks if the mouse is on top of the button continue." alt="" coords="158,121,319,148"/>
+<area shape="rect" id="node11" href="$mouse_8c.html#a7da7c1993926826e8767b42a6b3861c3" title="creates a mouse packet" alt="" coords="177,172,300,199"/>
+<area shape="rect" id="node5" href="$graphics_8c.html#a0779816c5f975853d74fc2863d6d728d" title="copys to video mem the olher buffer" alt="" coords="369,45,512,72"/>
+<area shape="rect" id="node6" href="$header_8c.html#a97df0f6e4184d84c9e3871042b94bc3a" title="Draws on the screen the number passed by parameter." alt="" coords="391,96,490,123"/>
+<area shape="rect" id="node7" href="$apple_8c.html#a2ad497fe7d83e93b263424ce2363f810" title="Draws an apple." alt="" coords="399,147,482,173"/>
+<area shape="rect" id="node8" href="$apple_8c.html#a60af7be9d867f2506a994386a9d38019" title="Creates an apple and puts it on the array." alt="" coords="405,197,477,224"/>
+<area shape="rect" id="node9" href="$apple_8c.html#a1a10c020acc54d7ec537575f75ecee79" title="Gets the xpm object by the apple type." alt="" coords="565,197,637,224"/>
+</map>

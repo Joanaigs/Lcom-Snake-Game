@@ -1,0 +1,198 @@
+\hypertarget{game_over_8c}{}\doxysection{game\+Over.\+c File Reference}
+\label{game_over_8c}\index{gameOver.c@{gameOver.c}}
+{\ttfamily \#include \char`\"{}game\+Over.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}cursor.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}graphics.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}header.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}i8042.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}images/continue\+\_\+colored.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}images/game\+Over.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}images/mouse\+\_\+cursor.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}keyboard.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}mouse.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}objects.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}apple.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}proj.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}snake.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}timer.\+h\char`\"{}}\newline
+Include dependency graph for game\+Over.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{game_over_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{game_over_8c_af402e545bc1136c6cf90fddd995ab80e}{menu\+Continue\+Collisions}} (\mbox{\hyperlink{structcursor}{cursor}} $\ast$mouse\+\_\+c)
+\begin{DoxyCompactList}\small\item\em Checks if the mouse is on top of the button continue. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{game_over_8c_a554548dc02bd821a0b4ccd326e72bfa0}{continue\+Menu}} (\mbox{\hyperlink{structcursor}{cursor}} $\ast$mouse\+\_\+c, struct packet $\ast$p)
+\begin{DoxyCompactList}\small\item\em Deals with the result of movement of the mouse, changing te state of the game if the button continue is clicked and changing the color of the button if the mouse is on top of it. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{game_over_8c_a5391fff3d74048686f680f1de8b5e64e}{game\+Over\+Page}} ()
+\begin{DoxyCompactList}\small\item\em Loop of the game\+Over page that uses mouse, keyboard and timer devices. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{game_over_8c_ab4faa8da878b13a27da607b1d5270fd9}{draw\+Game\+Over\+Elements}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+xpm\+\_\+image\+\_\+t \mbox{\hyperlink{game_over_8c_ac16ac5b5982366cbba9038d9e97c250d}{img}}
+\item 
+uint8\+\_\+t $\ast$ \mbox{\hyperlink{game_over_8c_a0faca9bc52d4868e8b52e44e97862e9f}{map}}
+\item 
+xpm\+\_\+image\+\_\+t \mbox{\hyperlink{game_over_8c_a4050fc9a5173dbe7a9bcdd4b375ac938}{img\+Colored}}
+\item 
+uint8\+\_\+t $\ast$ \mbox{\hyperlink{game_over_8c_a7b3efad00cbfd0b3558c61ce254ea43c}{map\+Colored}}
+\item 
+bool \mbox{\hyperlink{game_over_8c_aeef5264ffd80b226eb5a4e47e31bd095}{on\+\_\+continue}} = false
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{game_over_8c_a554548dc02bd821a0b4ccd326e72bfa0}\label{game_over_8c_a554548dc02bd821a0b4ccd326e72bfa0}} 
+\index{gameOver.c@{gameOver.c}!continueMenu@{continueMenu}}
+\index{continueMenu@{continueMenu}!gameOver.c@{gameOver.c}}
+\doxysubsubsection{\texorpdfstring{continueMenu()}{continueMenu()}}
+{\footnotesize\ttfamily int continue\+Menu (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structcursor}{cursor}} $\ast$}]{mouse\+\_\+c,  }\item[{struct packet $\ast$}]{p }\end{DoxyParamCaption})}
+
+
+
+Deals with the result of movement of the mouse, changing te state of the game if the button continue is clicked and changing the color of the button if the mouse is on top of it. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mouse\+\_\+c} & mouse object \\
+\hline
+{\em p} & packet with the information of the mouse after movement \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 1 if the state of the program was changed 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{game_over_8c_a554548dc02bd821a0b4ccd326e72bfa0_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{game_over_8c_a554548dc02bd821a0b4ccd326e72bfa0_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{game_over_8c_ab4faa8da878b13a27da607b1d5270fd9}\label{game_over_8c_ab4faa8da878b13a27da607b1d5270fd9}} 
+\index{gameOver.c@{gameOver.c}!drawGameOverElements@{drawGameOverElements}}
+\index{drawGameOverElements@{drawGameOverElements}!gameOver.c@{gameOver.c}}
+\doxysubsubsection{\texorpdfstring{drawGameOverElements()}{drawGameOverElements()}}
+{\footnotesize\ttfamily void draw\+Game\+Over\+Elements (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{game_over_8c_ab4faa8da878b13a27da607b1d5270fd9_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{game_over_8c_ab4faa8da878b13a27da607b1d5270fd9_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{game_over_8c_a5391fff3d74048686f680f1de8b5e64e}\label{game_over_8c_a5391fff3d74048686f680f1de8b5e64e}} 
+\index{gameOver.c@{gameOver.c}!gameOverPage@{gameOverPage}}
+\index{gameOverPage@{gameOverPage}!gameOver.c@{gameOver.c}}
+\doxysubsubsection{\texorpdfstring{gameOverPage()}{gameOverPage()}}
+{\footnotesize\ttfamily int game\+Over\+Page (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Loop of the game\+Over page that uses mouse, keyboard and timer devices. 
+
+\begin{DoxyReturn}{Returns}
+int 1 if an error has occurred 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{game_over_8c_a5391fff3d74048686f680f1de8b5e64e_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{game_over_8c_a5391fff3d74048686f680f1de8b5e64e_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{game_over_8c_af402e545bc1136c6cf90fddd995ab80e}\label{game_over_8c_af402e545bc1136c6cf90fddd995ab80e}} 
+\index{gameOver.c@{gameOver.c}!menuContinueCollisions@{menuContinueCollisions}}
+\index{menuContinueCollisions@{menuContinueCollisions}!gameOver.c@{gameOver.c}}
+\doxysubsubsection{\texorpdfstring{menuContinueCollisions()}{menuContinueCollisions()}}
+{\footnotesize\ttfamily int menu\+Continue\+Collisions (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structcursor}{cursor}} $\ast$}]{mouse\+\_\+c }\end{DoxyParamCaption})}
+
+
+
+Checks if the mouse is on top of the button continue. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mouse\+\_\+c} & mouse object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 1 if its within the button limits 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{game_over_8c_af402e545bc1136c6cf90fddd995ab80e_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{game_over_8c_ac16ac5b5982366cbba9038d9e97c250d}\label{game_over_8c_ac16ac5b5982366cbba9038d9e97c250d}} 
+\index{gameOver.c@{gameOver.c}!img@{img}}
+\index{img@{img}!gameOver.c@{gameOver.c}}
+\doxysubsubsection{\texorpdfstring{img}{img}}
+{\footnotesize\ttfamily xpm\+\_\+image\+\_\+t img}
+
+\mbox{\Hypertarget{game_over_8c_a4050fc9a5173dbe7a9bcdd4b375ac938}\label{game_over_8c_a4050fc9a5173dbe7a9bcdd4b375ac938}} 
+\index{gameOver.c@{gameOver.c}!imgColored@{imgColored}}
+\index{imgColored@{imgColored}!gameOver.c@{gameOver.c}}
+\doxysubsubsection{\texorpdfstring{imgColored}{imgColored}}
+{\footnotesize\ttfamily xpm\+\_\+image\+\_\+t img\+Colored}
+
+\mbox{\Hypertarget{game_over_8c_a0faca9bc52d4868e8b52e44e97862e9f}\label{game_over_8c_a0faca9bc52d4868e8b52e44e97862e9f}} 
+\index{gameOver.c@{gameOver.c}!map@{map}}
+\index{map@{map}!gameOver.c@{gameOver.c}}
+\doxysubsubsection{\texorpdfstring{map}{map}}
+{\footnotesize\ttfamily uint8\+\_\+t$\ast$ map}
+
+\mbox{\Hypertarget{game_over_8c_a7b3efad00cbfd0b3558c61ce254ea43c}\label{game_over_8c_a7b3efad00cbfd0b3558c61ce254ea43c}} 
+\index{gameOver.c@{gameOver.c}!mapColored@{mapColored}}
+\index{mapColored@{mapColored}!gameOver.c@{gameOver.c}}
+\doxysubsubsection{\texorpdfstring{mapColored}{mapColored}}
+{\footnotesize\ttfamily uint8\+\_\+t$\ast$ map\+Colored}
+
+\mbox{\Hypertarget{game_over_8c_aeef5264ffd80b226eb5a4e47e31bd095}\label{game_over_8c_aeef5264ffd80b226eb5a4e47e31bd095}} 
+\index{gameOver.c@{gameOver.c}!on\_continue@{on\_continue}}
+\index{on\_continue@{on\_continue}!gameOver.c@{gameOver.c}}
+\doxysubsubsection{\texorpdfstring{on\_continue}{on\_continue}}
+{\footnotesize\ttfamily bool on\+\_\+continue = false}
+

@@ -1,0 +1,5 @@
+<map id="mouse_enable_data_report" name="mouse_enable_data_report">
+<area shape="rect" id="node1" title="Enables/disables stream mode data reporting, by sending the respective command to the mouse." alt="" coords="5,31,184,57"/>
+<area shape="rect" id="node2" href="$rtc_8c.html#a0ca0ad72d5c05cf905665b4447ad61cd" title=" " alt="" coords="247,5,307,32"/>
+<area shape="rect" id="node3" href="$group__utils.html#ga79a031a8611f5b2d6afa4158e92b0fb4" title="Invokes sys_inb() system call but reads the value into a uint8_t variable." alt="" coords="232,56,323,83"/>
+</map>

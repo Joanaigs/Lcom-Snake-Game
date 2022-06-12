@@ -1,0 +1,4 @@
+<map id="Apple" name="Apple">
+<area shape="rect" id="node1" title="struct of an apple" alt="" coords="7,95,61,121"/>
+<area shape="rect" id="node2" href="$structobject.html" title="struct that represents an object with their xpm image and position" alt="" coords="5,5,63,32"/>
+</map>

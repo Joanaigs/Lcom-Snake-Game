@@ -1,0 +1,21 @@
+<map id="util_sys_inb" name="util_sys_inb">
+<area shape="rect" id="node1" title="Invokes sys_inb() system call but reads the value into a uint8_t variable." alt="" coords="893,183,984,209"/>
+<area shape="rect" id="node2" href="$keyboard_8c.html#aea970a154161a35f6894898a092ed70a" title="get the scancode of the button pressed" alt="" coords="762,157,822,184"/>
+<area shape="rect" id="node11" href="$mouse_8c.html#a73a1f01fbfc49628dbdc042840fc598a" title="Enables/disables stream mode data reporting, by sending the respective command to the mouse." alt="" coords="512,56,691,83"/>
+<area shape="rect" id="node16" href="$mouse_8c.html#a834b6d7efe311484d6da234db333cb97" title="Handles mouse interrutps." alt="" coords="562,5,641,32"/>
+<area shape="rect" id="node17" href="$rtc_8c.html#a75dad42881d64cf07cf1bdc2979a7056" title="delas with rtc interrupts" alt="" coords="574,208,629,235"/>
+<area shape="rect" id="node18" href="$rtc_8c.html#a79cf624f016b9323fd0c46a3cd737395" title="Set the periodicity of rtc to 0.5 ms." alt="" coords="746,259,838,285"/>
+<area shape="rect" id="node19" href="$rtc_8c.html#aff0c591f72a63a5ed0c76e1607b10fd0" title="Enables/disinables the RTC updates." alt="" coords="739,309,845,336"/>
+<area shape="rect" id="node3" href="$game_over_8c.html#a5391fff3d74048686f680f1de8b5e64e" title="Loop of the gameOver page that uses mouse, keyboard and timer devices." alt="" coords="346,107,457,133"/>
+<area shape="rect" id="node6" href="$game_8c.html#a6e1831f607e9a08edb9fcced02980bdf" title="this function handles the keyboard interruption, when the arrows or the specific characters are press..." alt="" coords="537,157,666,184"/>
+<area shape="rect" id="node4" href="$proj_8c.html#a026d019671eda0cfe729200fc24d23ba" title=" " alt="" coords="187,107,267,133"/>
+<area shape="rect" id="node5" href="$proj_8c.html#a2a16f651eccbd248e1ad3b3b924b143b" title=" " alt="" coords="5,107,115,133"/>
+<area shape="rect" id="node7" href="$game_8c.html#adfe0b3805fa6842770c273b1f4944cd4" title="Loop of the multiplayer game that uses the mouse, keyboard and timer devices." alt="" coords="342,157,461,184"/>
+<area shape="rect" id="node9" href="$game_8c.html#a4be80fd1408a780acc76065c69d55a76" title="Loop of the singleplayer game that uses the rtc, keyboard and timer devices." alt="" coords="339,208,464,235"/>
+<area shape="rect" id="node8" href="$proj_8c.html#a970e285d53c51ad8d5ba73a4efaedf0c" title=" " alt="" coords="181,157,273,184"/>
+<area shape="rect" id="node10" href="$proj_8c.html#a095b10852176bed8392f819a203048c8" title=" " alt="" coords="177,208,276,235"/>
+<area shape="rect" id="node12" href="$instructions_8c.html#ad6397ccc99a860b71f1641f16b887b88" title="Loop of the instruction page that uses mouse, and timer devices." alt="" coords="343,5,460,32"/>
+<area shape="rect" id="node14" href="$menu_8c.html#a5e672c60dde9e4f025725d5a603573dc" title="Loop of the main Menu page that uses mouse, and timer devices." alt="" coords="346,56,457,83"/>
+<area shape="rect" id="node13" href="$proj_8c.html#a2a369f4c20794a7c31db7066b50f56d1" title=" " alt="" coords="163,5,291,32"/>
+<area shape="rect" id="node15" href="$proj_8c.html#a79d361075614fba2bec97adff760b577" title=" " alt="" coords="182,56,271,83"/>
+</map>

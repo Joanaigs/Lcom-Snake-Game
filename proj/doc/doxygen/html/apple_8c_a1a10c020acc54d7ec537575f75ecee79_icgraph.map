@@ -1,0 +1,19 @@
+<map id="get_xpm" name="get_xpm">
+<area shape="rect" id="node1" title="Gets the xpm object by the apple type." alt="" coords="1019,139,1091,166"/>
+<area shape="rect" id="node2" href="$apple_8c.html#a60af7be9d867f2506a994386a9d38019" title="Creates an apple and puts it on the array." alt="" coords="875,89,947,115"/>
+<area shape="rect" id="node14" href="$apple_8c.html#a0fa9fc94dca3712e71c2753abcf7441b" title="places an apple in a random place" alt="" coords="851,190,971,217"/>
+<area shape="rect" id="node3" href="$game_over_8c.html#ab4faa8da878b13a27da607b1d5270fd9" title=" " alt="" coords="637,38,803,65"/>
+<area shape="rect" id="node5" href="$game_over_8c.html#a5391fff3d74048686f680f1de8b5e64e" title="Loop of the gameOver page that uses mouse, keyboard and timer devices." alt="" coords="317,38,427,65"/>
+<area shape="rect" id="node8" href="$game_8c.html#aff9ce2c80067181fa64a67450da2c6fa" title="initiates all elements of the game, and draws the initial board" alt="" coords="497,139,575,166"/>
+<area shape="rect" id="node13" href="$apple_8c.html#a5d75aa2cbbfc9fec5b063ce4e3bde357" title="places an apple within a square of the background" alt="" coords="677,89,763,115"/>
+<area shape="rect" id="node4" href="$game_over_8c.html#a554548dc02bd821a0b4ccd326e72bfa0" title="Deals with the result of movement of the mouse, changing te state of the game if the button continue ..." alt="" coords="485,38,587,65"/>
+<area shape="rect" id="node6" href="$proj_8c.html#a026d019671eda0cfe729200fc24d23ba" title=" " alt="" coords="172,63,252,90"/>
+<area shape="rect" id="node7" href="$proj_8c.html#a2a16f651eccbd248e1ad3b3b924b143b" title=" " alt="" coords="5,139,115,166"/>
+<area shape="rect" id="node9" href="$game_8c.html#adfe0b3805fa6842770c273b1f4944cd4" title="Loop of the multiplayer game that uses the mouse, keyboard and timer devices." alt="" coords="313,139,431,166"/>
+<area shape="rect" id="node11" href="$game_8c.html#a4be80fd1408a780acc76065c69d55a76" title="Loop of the singleplayer game that uses the rtc, keyboard and timer devices." alt="" coords="309,190,435,217"/>
+<area shape="rect" id="node10" href="$proj_8c.html#a970e285d53c51ad8d5ba73a4efaedf0c" title=" " alt="" coords="166,139,258,166"/>
+<area shape="rect" id="node12" href="$proj_8c.html#a095b10852176bed8392f819a203048c8" title=" " alt="" coords="163,190,261,217"/>
+<area shape="rect" id="node15" href="$snake_8c.html#afc344696bb5c4921f7a88e6d812fbad7" title="checks if there has been a collision with the snake and a apple" alt="" coords="655,190,785,217"/>
+<area shape="rect" id="node17" href="$snake_8c.html#a688f22b2c39a4d069c685bfbeb6f80d9" title="draws an apple at a random position in a periodic time" alt="" coords="483,241,589,267"/>
+<area shape="rect" id="node16" href="$snake_8c.html#a2172f38282aa9905af15247d4fd8cae8" title="deals with the movement and collisions of a snake" alt="" coords="495,190,577,217"/>
+</map>

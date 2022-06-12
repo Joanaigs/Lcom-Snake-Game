@@ -1,0 +1,4 @@
+<map id="drawApple" name="drawApple">
+<area shape="rect" id="node1" title="Draws an apple." alt="" coords="5,5,88,32"/>
+<area shape="rect" id="node2" href="$graphics_8c.html#a2d2905714e5a7ce7dc60775a769419de" title="places de xpm given in the position given on the screen" alt="" coords="136,5,217,32"/>
+</map>

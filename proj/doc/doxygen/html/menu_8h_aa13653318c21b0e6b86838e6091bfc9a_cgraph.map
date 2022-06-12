@@ -1,0 +1,5 @@
+<map id="drawMenu" name="drawMenu">
+<area shape="rect" id="node1" title="draws the menu" alt="" coords="5,31,87,57"/>
+<area shape="rect" id="node2" href="$graphics_8c.html#a0779816c5f975853d74fc2863d6d728d" title="copys to video mem the olher buffer" alt="" coords="135,5,277,32"/>
+<area shape="rect" id="node3" href="$graphics_8c.html#a2d2905714e5a7ce7dc60775a769419de" title="places de xpm given in the position given on the screen" alt="" coords="165,56,247,83"/>
+</map>

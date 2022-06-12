@@ -1,0 +1,5 @@
+<map id="wait_valid_rtc" name="wait_valid_rtc">
+<area shape="rect" id="node1" title="wait till it recevies a valid rtc" alt="" coords="5,31,104,57"/>
+<area shape="rect" id="node2" href="$rtc_8c.html#ae6c6b7d9bece33104a3589c85c2ed87e" title=" " alt="" coords="152,5,215,32"/>
+<area shape="rect" id="node3" href="$rtc_8c.html#a0ca0ad72d5c05cf905665b4447ad61cd" title=" " alt="" coords="153,56,213,83"/>
+</map>

@@ -1,0 +1,403 @@
+\hypertarget{snake_8h}{}\doxysection{snake.\+h File Reference}
+\label{snake_8h}\index{snake.h@{snake.h}}
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$lcom/lcf.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}graphics.\+h\char`\"{}}\newline
+Include dependency graph for snake.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=286pt]{snake_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{snake_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structsnake__part}{snake\+\_\+part}}
+\begin{DoxyCompactList}\small\item\em struct of an snake bodypart \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{snake_8h_a99b358dc9487b8af33462449dc3a9b22}{init\+\_\+snake}} ()
+\begin{DoxyCompactList}\small\item\em initiates all aspects of the snake \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{snake_8h_a2172f38282aa9905af15247d4fd8cae8}{movement}} (int16\+\_\+t \mbox{\hyperlink{game_8c_a91db7b3c48de4dc536c624804d6df03f}{speed}})
+\begin{DoxyCompactList}\small\item\em deals with the movement and collisions of a snake \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{snake_8h_aabc0baba736c65c55a37ca56a18f6565}{draw\+Snake\+Body}} ()
+\begin{DoxyCompactList}\small\item\em draws snake \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{snake_8h_a94b3abe2573137584a700923d781628e}{add\+Body\+Part}} ()
+\begin{DoxyCompactList}\small\item\em adds a body part to the snake \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{snake_8h_a91097725fd280aa0db7a01fb1afa42e1}{move\+Body\+Parts}} ()
+\begin{DoxyCompactList}\small\item\em moves the body of the snake to the next position \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{snake_8h_a798acdef4feb9e76299a23c5b03a509c}{takelive}} (double n)
+\begin{DoxyCompactList}\small\item\em takes n lives form the snake \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{snake_8h_a0291c5ac4f68d6a70ce405b0cdee425b}{is\+Snake}} (int x, int y)
+\begin{DoxyCompactList}\small\item\em checks if their is any body\+Part in that position \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{snake_8h_afc344696bb5c4921f7a88e6d812fbad7}{collision\+With\+Apple}} ()
+\begin{DoxyCompactList}\small\item\em checks if there has been a collision with the snake and a apple \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{snake_8h_a83ebc9dc5383898d440562070eb34a97}{collision\+With\+It\+Self}} ()
+\begin{DoxyCompactList}\small\item\em checks the snake has collided against itselph \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{snake_8h_a688f22b2c39a4d069c685bfbeb6f80d9}{periodic\+Apples}} ()
+\begin{DoxyCompactList}\small\item\em draws an apple at a random position in a periodic time \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structsnake__part}{snake\+\_\+part}} \mbox{\hyperlink{snake_8h_ac005f688527dbde20c6f19d239d2866c}{snake\+Body}} \mbox{[}198\mbox{]}
+\begin{DoxyCompactList}\small\item\em array of that represents the snake \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structsnake__part}{snake\+\_\+part}} \mbox{\hyperlink{snake_8h_a4eac46f4021d1f1af8e5effdb304357a}{snake\+Tail}}
+\begin{DoxyCompactList}\small\item\em tail of the snake \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{snake_8h_aecd77b25a68f52ab37f088bdce3456b3}{num\+Of\+Body\+Parts}}
+\begin{DoxyCompactList}\small\item\em number of body parts of the snake \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{snake_8h_ab376b87f96a574a793c03c53e75afec8}{start}}
+\begin{DoxyCompactList}\small\item\em if true, snake starts moving \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{snake_8h_a2d77d5ca49cc656791dc95eba079b4a9}{lives}}
+\begin{DoxyCompactList}\small\item\em lives of the snake \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{snake_8h_a381709eac88aa4e14131626221a103bf}{num\+Of\+Apples\+Eaten}}
+\begin{DoxyCompactList}\small\item\em number of apples eaten \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{snake_8h_adfddf0fa3d3e57f3a47f1467e9205086}{gain\+Live}}
+\begin{DoxyCompactList}\small\item\em number of apples needed to win half live \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{snake_8h_a94b3abe2573137584a700923d781628e}\label{snake_8h_a94b3abe2573137584a700923d781628e}} 
+\index{snake.h@{snake.h}!addBodyPart@{addBodyPart}}
+\index{addBodyPart@{addBodyPart}!snake.h@{snake.h}}
+\doxysubsubsection{\texorpdfstring{addBodyPart()}{addBodyPart()}}
+{\footnotesize\ttfamily void add\+Body\+Part (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+adds a body part to the snake 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=254pt]{snake_8h_a94b3abe2573137584a700923d781628e_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{snake_8h_a94b3abe2573137584a700923d781628e_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{snake_8h_afc344696bb5c4921f7a88e6d812fbad7}\label{snake_8h_afc344696bb5c4921f7a88e6d812fbad7}} 
+\index{snake.h@{snake.h}!collisionWithApple@{collisionWithApple}}
+\index{collisionWithApple@{collisionWithApple}!snake.h@{snake.h}}
+\doxysubsubsection{\texorpdfstring{collisionWithApple()}{collisionWithApple()}}
+{\footnotesize\ttfamily int collision\+With\+Apple (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+checks if there has been a collision with the snake and a apple 
+
+\begin{DoxyReturn}{Returns}
+int 1 if the snake has died 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{snake_8h_afc344696bb5c4921f7a88e6d812fbad7_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{snake_8h_afc344696bb5c4921f7a88e6d812fbad7_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{snake_8h_a83ebc9dc5383898d440562070eb34a97}\label{snake_8h_a83ebc9dc5383898d440562070eb34a97}} 
+\index{snake.h@{snake.h}!collisionWithItSelf@{collisionWithItSelf}}
+\index{collisionWithItSelf@{collisionWithItSelf}!snake.h@{snake.h}}
+\doxysubsubsection{\texorpdfstring{collisionWithItSelf()}{collisionWithItSelf()}}
+{\footnotesize\ttfamily int collision\+With\+It\+Self (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+checks the snake has collided against itselph 
+
+\begin{DoxyReturn}{Returns}
+int 1 if the collision happend 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{snake_8h_a83ebc9dc5383898d440562070eb34a97_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{snake_8h_aabc0baba736c65c55a37ca56a18f6565}\label{snake_8h_aabc0baba736c65c55a37ca56a18f6565}} 
+\index{snake.h@{snake.h}!drawSnakeBody@{drawSnakeBody}}
+\index{drawSnakeBody@{drawSnakeBody}!snake.h@{snake.h}}
+\doxysubsubsection{\texorpdfstring{drawSnakeBody()}{drawSnakeBody()}}
+{\footnotesize\ttfamily void draw\+Snake\+Body (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+draws snake 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=264pt]{snake_8h_aabc0baba736c65c55a37ca56a18f6565_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{snake_8h_aabc0baba736c65c55a37ca56a18f6565_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{snake_8h_a99b358dc9487b8af33462449dc3a9b22}\label{snake_8h_a99b358dc9487b8af33462449dc3a9b22}} 
+\index{snake.h@{snake.h}!init\_snake@{init\_snake}}
+\index{init\_snake@{init\_snake}!snake.h@{snake.h}}
+\doxysubsubsection{\texorpdfstring{init\_snake()}{init\_snake()}}
+{\footnotesize\ttfamily void init\+\_\+snake (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+initiates all aspects of the snake 
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{snake_8h_a99b358dc9487b8af33462449dc3a9b22_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{snake_8h_a0291c5ac4f68d6a70ce405b0cdee425b}\label{snake_8h_a0291c5ac4f68d6a70ce405b0cdee425b}} 
+\index{snake.h@{snake.h}!isSnake@{isSnake}}
+\index{isSnake@{isSnake}!snake.h@{snake.h}}
+\doxysubsubsection{\texorpdfstring{isSnake()}{isSnake()}}
+{\footnotesize\ttfamily int is\+Snake (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+
+
+checks if their is any body\+Part in that position 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & column of the position \\
+\hline
+{\em y} & line of the position \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 1 if the snake is in that position 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{snake_8h_a0291c5ac4f68d6a70ce405b0cdee425b_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{snake_8h_a91097725fd280aa0db7a01fb1afa42e1}\label{snake_8h_a91097725fd280aa0db7a01fb1afa42e1}} 
+\index{snake.h@{snake.h}!moveBodyParts@{moveBodyParts}}
+\index{moveBodyParts@{moveBodyParts}!snake.h@{snake.h}}
+\doxysubsubsection{\texorpdfstring{moveBodyParts()}{moveBodyParts()}}
+{\footnotesize\ttfamily void move\+Body\+Parts (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+moves the body of the snake to the next position 
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{snake_8h_a91097725fd280aa0db7a01fb1afa42e1_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{snake_8h_a2172f38282aa9905af15247d4fd8cae8}\label{snake_8h_a2172f38282aa9905af15247d4fd8cae8}} 
+\index{snake.h@{snake.h}!movement@{movement}}
+\index{movement@{movement}!snake.h@{snake.h}}
+\doxysubsubsection{\texorpdfstring{movement()}{movement()}}
+{\footnotesize\ttfamily int movement (\begin{DoxyParamCaption}\item[{int16\+\_\+t}]{speed }\end{DoxyParamCaption})}
+
+
+
+deals with the movement and collisions of a snake 
+
+
+\begin{DoxyParams}{Parameters}
+{\em speed} & of the movement \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 1 if the snake died 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{snake_8h_a2172f38282aa9905af15247d4fd8cae8_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{snake_8h_a2172f38282aa9905af15247d4fd8cae8_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{snake_8h_a688f22b2c39a4d069c685bfbeb6f80d9}\label{snake_8h_a688f22b2c39a4d069c685bfbeb6f80d9}} 
+\index{snake.h@{snake.h}!periodicApples@{periodicApples}}
+\index{periodicApples@{periodicApples}!snake.h@{snake.h}}
+\doxysubsubsection{\texorpdfstring{periodicApples()}{periodicApples()}}
+{\footnotesize\ttfamily void periodic\+Apples (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+draws an apple at a random position in a periodic time 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{snake_8h_a688f22b2c39a4d069c685bfbeb6f80d9_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{snake_8h_a688f22b2c39a4d069c685bfbeb6f80d9_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{snake_8h_a798acdef4feb9e76299a23c5b03a509c}\label{snake_8h_a798acdef4feb9e76299a23c5b03a509c}} 
+\index{snake.h@{snake.h}!takelive@{takelive}}
+\index{takelive@{takelive}!snake.h@{snake.h}}
+\doxysubsubsection{\texorpdfstring{takelive()}{takelive()}}
+{\footnotesize\ttfamily int takelive (\begin{DoxyParamCaption}\item[{double}]{n }\end{DoxyParamCaption})}
+
+
+
+takes n lives form the snake 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & number of lives to be taken away \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 1 if the snake has no lives left 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{snake_8h_a798acdef4feb9e76299a23c5b03a509c_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{snake_8h_a798acdef4feb9e76299a23c5b03a509c_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{snake_8h_adfddf0fa3d3e57f3a47f1467e9205086}\label{snake_8h_adfddf0fa3d3e57f3a47f1467e9205086}} 
+\index{snake.h@{snake.h}!gainLive@{gainLive}}
+\index{gainLive@{gainLive}!snake.h@{snake.h}}
+\doxysubsubsection{\texorpdfstring{gainLive}{gainLive}}
+{\footnotesize\ttfamily int gain\+Live}
+
+
+
+number of apples needed to win half live 
+
+\mbox{\Hypertarget{snake_8h_a2d77d5ca49cc656791dc95eba079b4a9}\label{snake_8h_a2d77d5ca49cc656791dc95eba079b4a9}} 
+\index{snake.h@{snake.h}!lives@{lives}}
+\index{lives@{lives}!snake.h@{snake.h}}
+\doxysubsubsection{\texorpdfstring{lives}{lives}}
+{\footnotesize\ttfamily double lives}
+
+
+
+lives of the snake 
+
+\mbox{\Hypertarget{snake_8h_a381709eac88aa4e14131626221a103bf}\label{snake_8h_a381709eac88aa4e14131626221a103bf}} 
+\index{snake.h@{snake.h}!numOfApplesEaten@{numOfApplesEaten}}
+\index{numOfApplesEaten@{numOfApplesEaten}!snake.h@{snake.h}}
+\doxysubsubsection{\texorpdfstring{numOfApplesEaten}{numOfApplesEaten}}
+{\footnotesize\ttfamily int num\+Of\+Apples\+Eaten}
+
+
+
+number of apples eaten 
+
+\mbox{\Hypertarget{snake_8h_aecd77b25a68f52ab37f088bdce3456b3}\label{snake_8h_aecd77b25a68f52ab37f088bdce3456b3}} 
+\index{snake.h@{snake.h}!numOfBodyParts@{numOfBodyParts}}
+\index{numOfBodyParts@{numOfBodyParts}!snake.h@{snake.h}}
+\doxysubsubsection{\texorpdfstring{numOfBodyParts}{numOfBodyParts}}
+{\footnotesize\ttfamily int num\+Of\+Body\+Parts}
+
+
+
+number of body parts of the snake 
+
+\mbox{\Hypertarget{snake_8h_ac005f688527dbde20c6f19d239d2866c}\label{snake_8h_ac005f688527dbde20c6f19d239d2866c}} 
+\index{snake.h@{snake.h}!snakeBody@{snakeBody}}
+\index{snakeBody@{snakeBody}!snake.h@{snake.h}}
+\doxysubsubsection{\texorpdfstring{snakeBody}{snakeBody}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsnake__part}{snake\+\_\+part}} snake\+Body\mbox{[}198\mbox{]}}
+
+
+
+array of that represents the snake 
+
+\mbox{\Hypertarget{snake_8h_a4eac46f4021d1f1af8e5effdb304357a}\label{snake_8h_a4eac46f4021d1f1af8e5effdb304357a}} 
+\index{snake.h@{snake.h}!snakeTail@{snakeTail}}
+\index{snakeTail@{snakeTail}!snake.h@{snake.h}}
+\doxysubsubsection{\texorpdfstring{snakeTail}{snakeTail}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsnake__part}{snake\+\_\+part}} snake\+Tail}
+
+
+
+tail of the snake 
+
+\mbox{\Hypertarget{snake_8h_ab376b87f96a574a793c03c53e75afec8}\label{snake_8h_ab376b87f96a574a793c03c53e75afec8}} 
+\index{snake.h@{snake.h}!start@{start}}
+\index{start@{start}!snake.h@{snake.h}}
+\doxysubsubsection{\texorpdfstring{start}{start}}
+{\footnotesize\ttfamily bool start}
+
+
+
+if true, snake starts moving 
+

@@ -1,0 +1,4 @@
+<map id="initApple" name="initApple">
+<area shape="rect" id="node1" title="Creates an apple and puts it on the array." alt="" coords="5,5,77,32"/>
+<area shape="rect" id="node2" href="$apple_8c.html#a1a10c020acc54d7ec537575f75ecee79" title="Gets the xpm object by the apple type." alt="" coords="125,5,197,32"/>
+</map>

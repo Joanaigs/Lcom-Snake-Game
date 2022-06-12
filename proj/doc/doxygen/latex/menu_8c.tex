@@ -1,0 +1,227 @@
+\hypertarget{menu_8c}{}\doxysection{menu.\+c File Reference}
+\label{menu_8c}\index{menu.c@{menu.c}}
+{\ttfamily \#include \char`\"{}menu.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}graphics.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}images/menu\+\_\+background.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}images/menu\+\_\+exit.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}images/menu\+\_\+instructions.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}images/menu\+\_\+multi\+Player.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}images/menu\+\_\+single\+Player.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}images/mouse\+\_\+cursor.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}macros.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}mouse.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}proj.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}objects.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}timer.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$lcom/lcf.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+Include dependency graph for menu.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menu_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{menu_8c_a5cf20cf8f8b8d7c2aeaaea014d157583}{init\+\_\+menu}} ()
+\begin{DoxyCompactList}\small\item\em Initiates all the menu objects by reading their xpm. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{menu_8c_aa13653318c21b0e6b86838e6091bfc9a}{draw\+Menu}} ()
+\begin{DoxyCompactList}\small\item\em draws the menu \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{menu_8c_a9039d2b4301bf9b22531df4ad3dc04cb}{menu\+Option\+Collisions}} (\mbox{\hyperlink{structcursor}{cursor}} $\ast$mouse\+\_\+c)
+\begin{DoxyCompactList}\small\item\em Checks if the mouse is on top of any button. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{menu_8c_a88cb5c220c0da7dda035558927d4ee02}{menu}} (\mbox{\hyperlink{structcursor}{cursor}} $\ast$c, struct packet $\ast$p)
+\begin{DoxyCompactList}\small\item\em Deals with the result of movement of the mouse, changing the state of the game if any button is clicked and changing the color of the button if the mouse is on top of it. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{menu_8c_a5e672c60dde9e4f025725d5a603573dc}{main\+Menu\+Loop}} ()
+\begin{DoxyCompactList}\small\item\em Loop of the main Menu page that uses mouse, and timer devices. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{menu_8c_ad8b8d6fd194f8df34ab0b647e2a21d69}{set\+\_\+false\+\_\+buttons}} ()
+\begin{DoxyCompactList}\small\item\em sets false every onclick button and choose button \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{menu_8c_a76b343ccfa540afc57bd6d4d4726b11a}{on\+\_\+instructions}} = false
+\item 
+bool \mbox{\hyperlink{menu_8c_a4e0c4282756c96c5e20757342daafb35}{on\+\_\+single\+Player}} = false
+\item 
+bool \mbox{\hyperlink{menu_8c_adc1064fa5c0c840117a71766df06fdd1}{on\+\_\+multi\+Player}} = false
+\item 
+bool \mbox{\hyperlink{menu_8c_a6dbd69f4ac2a682b9ce3fecb3849cf6a}{on\+\_\+exit}} = false
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{menu_8c_aa13653318c21b0e6b86838e6091bfc9a}\label{menu_8c_aa13653318c21b0e6b86838e6091bfc9a}} 
+\index{menu.c@{menu.c}!drawMenu@{drawMenu}}
+\index{drawMenu@{drawMenu}!menu.c@{menu.c}}
+\doxysubsubsection{\texorpdfstring{drawMenu()}{drawMenu()}}
+{\footnotesize\ttfamily void draw\+Menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+draws the menu 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=284pt]{menu_8c_aa13653318c21b0e6b86838e6091bfc9a_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menu_8c_aa13653318c21b0e6b86838e6091bfc9a_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{menu_8c_a5cf20cf8f8b8d7c2aeaaea014d157583}\label{menu_8c_a5cf20cf8f8b8d7c2aeaaea014d157583}} 
+\index{menu.c@{menu.c}!init\_menu@{init\_menu}}
+\index{init\_menu@{init\_menu}!menu.c@{menu.c}}
+\doxysubsubsection{\texorpdfstring{init\_menu()}{init\_menu()}}
+{\footnotesize\ttfamily void init\+\_\+menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Initiates all the menu objects by reading their xpm. 
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menu_8c_a5cf20cf8f8b8d7c2aeaaea014d157583_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{menu_8c_a5e672c60dde9e4f025725d5a603573dc}\label{menu_8c_a5e672c60dde9e4f025725d5a603573dc}} 
+\index{menu.c@{menu.c}!mainMenuLoop@{mainMenuLoop}}
+\index{mainMenuLoop@{mainMenuLoop}!menu.c@{menu.c}}
+\doxysubsubsection{\texorpdfstring{mainMenuLoop()}{mainMenuLoop()}}
+{\footnotesize\ttfamily int main\+Menu\+Loop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Loop of the main Menu page that uses mouse, and timer devices. 
+
+\begin{DoxyReturn}{Returns}
+int 1 if an error has occurred 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menu_8c_a5e672c60dde9e4f025725d5a603573dc_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menu_8c_a5e672c60dde9e4f025725d5a603573dc_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{menu_8c_a88cb5c220c0da7dda035558927d4ee02}\label{menu_8c_a88cb5c220c0da7dda035558927d4ee02}} 
+\index{menu.c@{menu.c}!menu@{menu}}
+\index{menu@{menu}!menu.c@{menu.c}}
+\doxysubsubsection{\texorpdfstring{menu()}{menu()}}
+{\footnotesize\ttfamily int menu (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structcursor}{cursor}} $\ast$}]{mouse\+\_\+c,  }\item[{struct packet $\ast$}]{p }\end{DoxyParamCaption})}
+
+
+
+Deals with the result of movement of the mouse, changing the state of the game if any button is clicked and changing the color of the button if the mouse is on top of it. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mouse\+\_\+c} & mouse object \\
+\hline
+{\em p} & packet with the information of the mouse after movement \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 1 if the state of the program was changed 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=268pt]{menu_8c_a88cb5c220c0da7dda035558927d4ee02_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menu_8c_a88cb5c220c0da7dda035558927d4ee02_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{menu_8c_a9039d2b4301bf9b22531df4ad3dc04cb}\label{menu_8c_a9039d2b4301bf9b22531df4ad3dc04cb}} 
+\index{menu.c@{menu.c}!menuOptionCollisions@{menuOptionCollisions}}
+\index{menuOptionCollisions@{menuOptionCollisions}!menu.c@{menu.c}}
+\doxysubsubsection{\texorpdfstring{menuOptionCollisions()}{menuOptionCollisions()}}
+{\footnotesize\ttfamily int menu\+Option\+Collisions (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structcursor}{cursor}} $\ast$}]{mouse\+\_\+c }\end{DoxyParamCaption})}
+
+
+
+Checks if the mouse is on top of any button. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mouse\+\_\+c} & mouse object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 1 if its within the button limits 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menu_8c_a9039d2b4301bf9b22531df4ad3dc04cb_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{menu_8c_ad8b8d6fd194f8df34ab0b647e2a21d69}\label{menu_8c_ad8b8d6fd194f8df34ab0b647e2a21d69}} 
+\index{menu.c@{menu.c}!set\_false\_buttons@{set\_false\_buttons}}
+\index{set\_false\_buttons@{set\_false\_buttons}!menu.c@{menu.c}}
+\doxysubsubsection{\texorpdfstring{set\_false\_buttons()}{set\_false\_buttons()}}
+{\footnotesize\ttfamily void set\+\_\+false\+\_\+buttons (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+sets false every onclick button and choose button 
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{menu_8c_a6dbd69f4ac2a682b9ce3fecb3849cf6a}\label{menu_8c_a6dbd69f4ac2a682b9ce3fecb3849cf6a}} 
+\index{menu.c@{menu.c}!on\_exit@{on\_exit}}
+\index{on\_exit@{on\_exit}!menu.c@{menu.c}}
+\doxysubsubsection{\texorpdfstring{on\_exit}{on\_exit}}
+{\footnotesize\ttfamily bool on\+\_\+exit = false}
+
+\mbox{\Hypertarget{menu_8c_a76b343ccfa540afc57bd6d4d4726b11a}\label{menu_8c_a76b343ccfa540afc57bd6d4d4726b11a}} 
+\index{menu.c@{menu.c}!on\_instructions@{on\_instructions}}
+\index{on\_instructions@{on\_instructions}!menu.c@{menu.c}}
+\doxysubsubsection{\texorpdfstring{on\_instructions}{on\_instructions}}
+{\footnotesize\ttfamily bool on\+\_\+instructions = false}
+
+\mbox{\Hypertarget{menu_8c_adc1064fa5c0c840117a71766df06fdd1}\label{menu_8c_adc1064fa5c0c840117a71766df06fdd1}} 
+\index{menu.c@{menu.c}!on\_multiPlayer@{on\_multiPlayer}}
+\index{on\_multiPlayer@{on\_multiPlayer}!menu.c@{menu.c}}
+\doxysubsubsection{\texorpdfstring{on\_multiPlayer}{on\_multiPlayer}}
+{\footnotesize\ttfamily bool on\+\_\+multi\+Player = false}
+
+\mbox{\Hypertarget{menu_8c_a4e0c4282756c96c5e20757342daafb35}\label{menu_8c_a4e0c4282756c96c5e20757342daafb35}} 
+\index{menu.c@{menu.c}!on\_singlePlayer@{on\_singlePlayer}}
+\index{on\_singlePlayer@{on\_singlePlayer}!menu.c@{menu.c}}
+\doxysubsubsection{\texorpdfstring{on\_singlePlayer}{on\_singlePlayer}}
+{\footnotesize\ttfamily bool on\+\_\+single\+Player = false}
+

@@ -1,0 +1,28 @@
+var searchData=
+[
+  ['d_5fmake_5fcode_0',['D_MAKE_CODE',['../i8042_8h.html#a23f867dcf757da71f03cbe28e41ed98d',1,'i8042.h']]],
+  ['day_1',['DAY',['../rtc__macros_8h.html#a509a01c55cbe47386fe24602b7c7fda1',1,'rtc_macros.h']]],
+  ['day_5fof_5fweek_2',['DAY_OF_WEEK',['../rtc__macros_8h.html#adc9f6e77f710440b588e7cc49d0ddf48',1,'rtc_macros.h']]],
+  ['dealwithinterrupt_3',['dealWithInterrupt',['../rtc_8h.html#a69a841174a80f431b63106ae420b577b',1,'rtc.h']]],
+  ['delay_4',['DELAY',['../i8042_8h.html#a62249e384b997229a3e2ae74ade334e2',1,'i8042.h']]],
+  ['direction_5',['direction',['../structsnake__part.html#ac465fa324943ede8d4817d1d30842c52',1,'snake_part']]],
+  ['disable_6',['disable',['../rtc_8c.html#ae6c6b7d9bece33104a3589c85c2ed87e',1,'rtc.c']]],
+  ['disable_5fdata_5freport_7',['DISABLE_DATA_REPORT',['../i8042_8h.html#ad374b510092499b5961d3771abf9c66e',1,'i8042.h']]],
+  ['dm_8',['DM',['../rtc__macros_8h.html#a9a9aac904e687286501946469e2903d6',1,'rtc_macros.h']]],
+  ['done_9',['done',['../keyboard_8h.html#a5992b274cfdcacdbc1fa8347fd01ebde',1,'keyboard.h']]],
+  ['down_5fmake_5fcode_10',['DOWN_MAKE_CODE',['../i8042_8h.html#a88ccb7cfaafc37d4f31f61191018b4ff',1,'i8042.h']]],
+  ['draw_5fnumber_11',['draw_number',['../header_8c.html#a97df0f6e4184d84c9e3871042b94bc3a',1,'draw_number(int number, int x, int y):&#160;header.c'],['../header_8h.html#a97df0f6e4184d84c9e3871042b94bc3a',1,'draw_number(int number, int x, int y):&#160;header.c']]],
+  ['draw_5fxpm_12',['draw_xpm',['../graphics_8c.html#a2d2905714e5a7ce7dc60775a769419de',1,'draw_xpm(xpm_image_t img, uint8_t *map, int x, int y):&#160;graphics.c'],['../graphics_8h.html#a2d2905714e5a7ce7dc60775a769419de',1,'draw_xpm(xpm_image_t img, uint8_t *map, int x, int y):&#160;graphics.c']]],
+  ['draw_5fxpm_5fvideo_5fmem_13',['draw_xpm_video_mem',['../graphics_8c.html#a29698b438dad09ec6355f2281322339b',1,'draw_xpm_video_mem(xpm_image_t img, uint8_t *map, int x, int y):&#160;graphics.c'],['../graphics_8h.html#ae22c90a9c51c92c03ab8f6b5a66aba8d',1,'draw_xpm_video_mem(xpm_image_t img, uint8_t *map, int x, int y):&#160;graphics.c']]],
+  ['drawapple_14',['drawApple',['../apple_8c.html#a2ad497fe7d83e93b263424ce2363f810',1,'drawApple(Apple apple):&#160;apple.c'],['../apple_8h.html#a2ad497fe7d83e93b263424ce2363f810',1,'drawApple(Apple apple):&#160;apple.c']]],
+  ['drawbackground_15',['drawBackground',['../objects_8c.html#acbd5457c126570af763ea24dc41da830',1,'drawBackground():&#160;objects.c'],['../objects_8h.html#acbd5457c126570af763ea24dc41da830',1,'drawBackground():&#160;objects.c']]],
+  ['drawgameoverelements_16',['drawGameOverElements',['../game_over_8c.html#ab4faa8da878b13a27da607b1d5270fd9',1,'drawGameOverElements():&#160;gameOver.c'],['../game_over_8h.html#ab4faa8da878b13a27da607b1d5270fd9',1,'drawGameOverElements():&#160;gameOver.c']]],
+  ['drawheader_17',['drawHeader',['../header_8c.html#acd554cb2efdf9d085573f58441f9431a',1,'drawHeader():&#160;header.c'],['../header_8h.html#acd554cb2efdf9d085573f58441f9431a',1,'drawHeader():&#160;header.c']]],
+  ['drawhearts_18',['drawHearts',['../header_8c.html#aac57df6aa34b9a2abe97e9aa732bd3ab',1,'drawHearts(double number, int x, int y):&#160;header.c'],['../header_8h.html#aac57df6aa34b9a2abe97e9aa732bd3ab',1,'drawHearts(double number, int x, int y):&#160;header.c']]],
+  ['drawmenu_19',['drawMenu',['../menu_8c.html#aa13653318c21b0e6b86838e6091bfc9a',1,'drawMenu():&#160;menu.c'],['../menu_8h.html#aa13653318c21b0e6b86838e6091bfc9a',1,'drawMenu():&#160;menu.c']]],
+  ['drawsnakebody_20',['drawSnakeBody',['../snake_8c.html#aabc0baba736c65c55a37ca56a18f6565',1,'drawSnakeBody():&#160;snake.c'],['../snake_8h.html#aabc0baba736c65c55a37ca56a18f6565',1,'drawSnakeBody():&#160;snake.c']]],
+  ['dse_21',['DSE',['../rtc__macros_8h.html#a2f2ba7be317f373f9a660f43b49c9d4e',1,'rtc_macros.h']]],
+  ['dv0_22',['DV0',['../rtc__macros_8h.html#a137f2af9dafde3f8b2f796333f3b36f7',1,'rtc_macros.h']]],
+  ['dv1_23',['DV1',['../rtc__macros_8h.html#a1323f3cd409abb7826a25bdf3e6f8a59',1,'rtc_macros.h']]],
+  ['dv2_24',['DV2',['../rtc__macros_8h.html#a58b98fd122efac10bfca72cb8b8e7f40',1,'rtc_macros.h']]]
+];

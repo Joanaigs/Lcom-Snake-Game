@@ -1,0 +1,8 @@
+<map id="instructionsMenu" name="instructionsMenu">
+<area shape="rect" id="node1" title="Deals with the result of the movement of the mouse, changing te state of the game if the button back ..." alt="" coords="5,107,127,133"/>
+<area shape="rect" id="node2" href="$graphics_8c.html#a0779816c5f975853d74fc2863d6d728d" title="copys to video mem the olher buffer" alt="" coords="180,5,323,32"/>
+<area shape="rect" id="node3" href="$graphics_8c.html#a2d2905714e5a7ce7dc60775a769419de" title="places de xpm given in the position given on the screen" alt="" coords="211,56,292,83"/>
+<area shape="rect" id="node4" href="$graphics_8c.html#a29698b438dad09ec6355f2281322339b" title="places de given in the position given on the screen on the olher buffer" alt="" coords="175,107,328,133"/>
+<area shape="rect" id="node5" href="$instructions_8c.html#a145ed4c5dc6900306a508df0117fba77" title="Checks if the mouse is on top of the button back." alt="" coords="175,157,328,184"/>
+<area shape="rect" id="node6" href="$mouse_8c.html#a7da7c1993926826e8767b42a6b3861c3" title="creates a mouse packet" alt="" coords="190,208,313,235"/>
+</map>

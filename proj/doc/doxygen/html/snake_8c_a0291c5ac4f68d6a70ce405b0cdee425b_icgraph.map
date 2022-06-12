@@ -1,0 +1,13 @@
+<map id="isSnake" name="isSnake">
+<area shape="rect" id="node1" title="checks if their is any bodyPart in that position" alt="" coords="963,81,1032,108"/>
+<area shape="rect" id="node2" href="$apple_8c.html#a0fa9fc94dca3712e71c2753abcf7441b" title="places an apple in a random place" alt="" coords="795,56,915,83"/>
+<area shape="rect" id="node11" href="$apple_8c.html#a5d75aa2cbbfc9fec5b063ce4e3bde357" title="places an apple within a square of the background" alt="" coords="483,107,569,133"/>
+<area shape="rect" id="node3" href="$snake_8c.html#afc344696bb5c4921f7a88e6d812fbad7" title="checks if there has been a collision with the snake and a apple" alt="" coords="617,56,747,83"/>
+<area shape="rect" id="node10" href="$snake_8c.html#a688f22b2c39a4d069c685bfbeb6f80d9" title="draws an apple at a random position in a periodic time" alt="" coords="629,5,735,32"/>
+<area shape="rect" id="node4" href="$snake_8c.html#a2172f38282aa9905af15247d4fd8cae8" title="deals with the movement and collisions of a snake" alt="" coords="485,56,567,83"/>
+<area shape="rect" id="node5" href="$game_8c.html#adfe0b3805fa6842770c273b1f4944cd4" title="Loop of the multiplayer game that uses the mouse, keyboard and timer devices." alt="" coords="313,81,431,108"/>
+<area shape="rect" id="node8" href="$game_8c.html#a4be80fd1408a780acc76065c69d55a76" title="Loop of the singleplayer game that uses the rtc, keyboard and timer devices." alt="" coords="309,31,435,57"/>
+<area shape="rect" id="node6" href="$proj_8c.html#a970e285d53c51ad8d5ba73a4efaedf0c" title=" " alt="" coords="166,81,258,108"/>
+<area shape="rect" id="node7" href="$proj_8c.html#a2a16f651eccbd248e1ad3b3b924b143b" title=" " alt="" coords="5,56,115,83"/>
+<area shape="rect" id="node9" href="$proj_8c.html#a095b10852176bed8392f819a203048c8" title=" " alt="" coords="163,31,261,57"/>
+</map>

@@ -1,0 +1,7 @@
+<map id="menuInstructionsHover" name="menuInstructionsHover">
+<area shape="rect" id="node1" title="Checks if the mouse is on top of the button back." alt="" coords="673,5,827,32"/>
+<area shape="rect" id="node2" href="$instructions_8c.html#ab636d4dea7f6cf43ecae70201345c6c8" title="Deals with the result of the movement of the mouse, changing te state of the game if the button back ..." alt="" coords="504,5,625,32"/>
+<area shape="rect" id="node3" href="$instructions_8c.html#ad6397ccc99a860b71f1641f16b887b88" title="Loop of the instruction page that uses mouse, and timer devices." alt="" coords="339,5,456,32"/>
+<area shape="rect" id="node4" href="$proj_8c.html#a2a369f4c20794a7c31db7066b50f56d1" title=" " alt="" coords="163,5,291,32"/>
+<area shape="rect" id="node5" href="$proj_8c.html#a2a16f651eccbd248e1ad3b3b924b143b" title=" " alt="" coords="5,5,115,32"/>
+</map>
