@@ -10,6 +10,7 @@
 #include "macros.h"
 #include "mouse.h"
 #include "proj.h"
+#include "objects.h"
 #include "timer.h"
 #include <lcom/lcf.h>
 #include <stdbool.h>
@@ -18,13 +19,15 @@
 static bool choose_instructions = false, choose_singlePlayer = false, choose_multiPlayer = false, choose_exit = false;
 bool on_instructions = false, on_singlePlayer = false, on_multiPlayer = false, on_exit = false;
 
+
 void init_menu() {
-  main_menu.map = xpm_load((xpm_map_t) menu_xpm, XPM_8_8_8, &(main_menu.img));
-  sp_menu.map = xpm_load((xpm_map_t) menu_singlePlayer_xpm, XPM_8_8_8, &(sp_menu.img));
-  mp_menu.map = xpm_load((xpm_map_t) menu_multiPlayer_xpm, XPM_8_8_8, &(mp_menu.img));
-  inst_menu.map = xpm_load((xpm_map_t) menu_instructions_xpm, XPM_8_8_8, &(inst_menu.img));
-  exit_menu.map = xpm_load((xpm_map_t) menu_exit_xpm, XPM_8_8_8, &(exit_menu.img));
+    main_menu.map = xpm_load((xpm_map_t) menu_xpm, XPM_8_8_8, &(main_menu.img));
+    sp_menu.map = xpm_load((xpm_map_t) menu_singlePlayer_xpm, XPM_8_8_8, &(sp_menu.img));
+    mp_menu.map = xpm_load((xpm_map_t) menu_multiPlayer_xpm, XPM_8_8_8, &(mp_menu.img));
+    inst_menu.map = xpm_load((xpm_map_t) menu_instructions_xpm, XPM_8_8_8, &(inst_menu.img));
+    exit_menu.map = xpm_load((xpm_map_t) menu_exit_xpm, XPM_8_8_8, &(exit_menu.img));
 }
+
 
 void drawMenu() {
   if (on_singlePlayer)

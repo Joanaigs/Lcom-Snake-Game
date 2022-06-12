@@ -56,11 +56,25 @@ void (vramMap)(){
     
 }
 
+
+void (drawPixel)(uint16_t x, uint16_t y,uint32_t color){
+    unsigned int p = (x + y * h_res) * bytes_per_pixel;
+    memcpy(video_mem_buf + p, &color,bytes_per_pixel);
+}
+
+
 int (vg_draw_hline)(uint16_t x, uint16_t y, uint16_t len, uint32_t color){
     for (uint16_t i = 0; i < len; i++){
         if (x+i >= h_res || y >=v_res) return 1;
         drawPixel(x+i, y, color);
     }
+    return 0;
+}
+
+int (vg_draw_rectangle)(uint16_t x, uint16_t y,uint16_t width, uint16_t height, uint32_t color){
+    for (uint16_t i = 0; i < height; i++)
+        if(vg_draw_hline(x, y+i, width, color))
+            return 1;
     return 0;
 }
 
@@ -83,7 +97,7 @@ void (draw_xpm)(xpm_image_t img, uint8_t *map, int x, int y){
 }
 
 
-void draw_xpm_video_mem(xpm_image_t img, uint8_t *map, int x, int y){
+void (draw_xpm_video_mem)(xpm_image_t img, uint8_t *map, int x, int y){
     uint32_t transparentColor = xpm_transparency_color(img.type);
     for(unsigned row = 0; row < img.height && y + row < vmi_p.YResolution; row++){
         for(unsigned col=0; col < img.width && x + col < vmi_p.XResolution; col++){
@@ -110,17 +124,6 @@ void (erase_xpm)(xpm_image_t img, int x, int y, xpm_image_t background){
     }
 }
 
-void (drawPixel)(uint16_t x, uint16_t y,uint32_t color){
-    unsigned int p = (x + y * h_res) * bytes_per_pixel;
-    memcpy(video_mem_buf + p, &color,bytes_per_pixel);
-}
-
-int (vg_draw_rectangle)(uint16_t x, uint16_t y,uint16_t width, uint16_t height, uint32_t color){
-    for (uint16_t i = 0; i < height; i++)
-       if(vg_draw_hline(x, y+i, width, color))
-            return 1;
-    return 0;
-}
 
 void copy_buffer_to_mem(){
     memcpy(video_mem, video_mem_buf, vram_size);

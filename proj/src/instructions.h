@@ -5,36 +5,29 @@
 #include <stdint.h>
 #include <lcom/lcf.h>
 #include "cursor.h"
+#include "objects.h"
+
 
 /**
- * @brief represents a xpm image
- * 
+ * @brief xpm of the instructions page
+ *
  */
-typedef struct{
-    xpm_image_t img;
-    uint8_t *map;
-}instMap;
-
+object instructions_menu;
 /**
- * @brief image of the instruction page
- * 
+ * @brief xpm of the instructions with hover in the back button
+ *
  */
-instMap instructions_menu;
+object instructions_back;
+
 
 /**
- * @brief image of the instruction with different color button black
- * 
- */
-instMap instructions_back;
-
-/**
- * @brief Iniciates all the instructions object by reading their xpm
- * 
+ * @brief Initializes instructions xpms
+ *
  */
 void init_instructions();
 
 /**
- * @brief Deals with the result of movement of the mouse, changing te state of the game if the button back is clicked and changing the color of the button if the mouse is on top of it
+ * @brief Deals with the result of the movement of the mouse, changing te state of the game if the button back is clicked and changing the color of that button if the mouse is on top of it
  * 
  * @param mouse_c mouse object
  * @param p packet with the information of the mouse after movement
@@ -45,15 +38,15 @@ int instructionsMenu(cursor *mouse_c, struct packet *p);
 /**
  * @brief  Checks if the mouse is on top of the button back
  *  
- * @param mouse_c mouse object
+ * @param mouse_c mouse cursor object
  * @return int 1 if its within the button limits
  */
-int menuInstructionsCollisions(cursor *mouse_c);
+int menuInstructionsHover(cursor *mouse_c);
 
 /**
  * @brief Loop of the instruction page that uses mouse, and timer devices
  * 
- * @return int 1 if an error has occured 
+ * @return int 1 if an error has occurred
  */
 int instructionsLoop();
 

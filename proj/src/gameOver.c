@@ -9,6 +9,7 @@
 #include "keyboard.h"
 #include "mouse.h"
 #include "objects.h"
+#include "apple.h"
 #include "proj.h"
 #include "snake.h"
 #include "timer.h"
@@ -19,7 +20,7 @@ xpm_image_t imgColored;
 uint8_t *mapColored;
 bool on_continue = false;
 
-int menuContinueCollisions(cursor *mouse_c) {
+int menuContinueHover(cursor *mouse_c) {
   if (mouse_c->y >= 386 && mouse_c->y <= 432 && mouse_c->x >= 331 && mouse_c->x <= 445)
     return 1;
   return 0;
@@ -28,7 +29,7 @@ int menuContinueCollisions(cursor *mouse_c) {
 int continueMenu(cursor *mouse_c, struct packet *p) {
   struct mouse_ev event = mouse_get_event(p);
 
-  if (menuContinueCollisions(mouse_c)) {
+  if (menuContinueHover(mouse_c)) {
 
     if (event.type == LB_RELEASED) {
       baseState = mainMenu;

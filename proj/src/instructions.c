@@ -1,4 +1,3 @@
-
 #include "instructions.h"
 #include "gameOver.h"
 #include "graphics.h"
@@ -9,6 +8,7 @@
 #include "images/mouse_cursor.xpm"
 #include "keyboard.h"
 #include "objects.h"
+#include "apple.h"
 #include "snake.h"
 #include "timer.h"
 #include "mouse.h"
@@ -17,12 +17,13 @@
 
 bool on_back=false;
 
+
 void init_instructions(){
     instructions_menu.map=xpm_load((xpm_map_t)instructions_xpm, XPM_8_8_8, &(instructions_menu.img));
     instructions_back.map=xpm_load((xpm_map_t)instructions_back_xpm, XPM_8_8_8, &(instructions_back.img));
 }
 
-int menuInstructionsCollisions(cursor *mouse_c){
+int menuInstructionsHover(cursor *mouse_c){
     if(mouse_c->y>=522 && mouse_c->y<=566 && mouse_c->x>=306 && mouse_c->x<=487)
         return 1;
     return 0;
@@ -31,7 +32,7 @@ int menuInstructionsCollisions(cursor *mouse_c){
 int instructionsMenu(cursor *c, struct packet *p){
     struct mouse_ev event = mouse_get_event(p);
 
-    if(menuInstructionsCollisions(c)) {
+    if(menuInstructionsHover(c)) {
 
         if (event.type == LB_RELEASED) {
             baseState = mainMenu;
