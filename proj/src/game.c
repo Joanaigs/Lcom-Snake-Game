@@ -19,9 +19,9 @@ uint8_t fr_rate = 5;
 int16_t speed = 40;
 
 void (init_game)() {
-    object backgroundXPM;
-    backgroundXPM.map = xpm_load((xpm_map_t)game_background_xpm, XPM_8_8_8, &backgroundXPM.img);
-    draw_xpm(backgroundXPM.img, backgroundXPM.map, 0, 0);
+    
+    drawBackground();
+   
     initAppleXPM();
     initHeaderElements();
     lives = 5;

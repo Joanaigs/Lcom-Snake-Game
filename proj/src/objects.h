@@ -18,5 +18,9 @@ typedef struct{
     uint8_t *map;
 }object;
 
+object background;
+
+void drawBackground();
+
 
 #endif /* __OBJECTS_H */
