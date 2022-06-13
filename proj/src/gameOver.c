@@ -147,8 +147,5 @@ void drawGameOverElements(){
     drawApple(apple);
     draw_number(numOfApplesEaten, x + 91 + 20 + 45, y + 140 + 10);
     on_continue = false;
-
     copy_buffer_to_mem();
-
-
 }

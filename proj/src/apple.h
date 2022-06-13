@@ -32,6 +32,28 @@ Apple applesArray[195];
 /** @brief number of apples on game */
 int numApples;
 
+
+/**
+ * @brief red apple object*/
+object redAppleXpm;
+/**
+ * @brief brown apple object*/
+object brownAppleXpm;
+/**
+ * @brief black apple object
+ * */
+object blackAppleXpm;
+/**
+ * @brief background object
+ * */
+object background;
+
+
+/**
+ * @brief initiates the apples xpms
+ */
+void initAppleXPM();
+
 /**
  * @brief Creates an apple and puts it on the array
  *

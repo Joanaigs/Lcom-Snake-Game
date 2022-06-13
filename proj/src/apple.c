@@ -4,6 +4,15 @@
 #include "macros.h"
 #include <time.h>
 #include "apple.h"
+#include "images/maca.xpm"
+#include "images/maca_castanha.xpm"
+#include "images/maca_preta.xpm"
+
+void initAppleXPM(){
+    redAppleXpm.map = xpm_load((xpm_map_t)maca_xpm, XPM_8_8_8, &(redAppleXpm.img));
+    blackAppleXpm.map = xpm_load((xpm_map_t)maca_preta_xpm, XPM_8_8_8, &(blackAppleXpm.img));
+    brownAppleXpm.map = xpm_load((xpm_map_t)maca_castanha_xpm, XPM_8_8_8, &(brownAppleXpm.img));
+}
 
 void initApple(Apple *apple, int x_pos, int y_pos, enum appleType type){
     apple->type = type;
